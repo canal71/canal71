@@ -164,7 +164,21 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800">
+    <div 
+      className="min-h-screen bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 relative"
+      style={{
+        backgroundImage: `url('https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/ck3ei9rs_IMG_0124.png')`,
+        backgroundSize: '400px 400px',
+        backgroundPosition: 'center right',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      {/* Background overlay for better readability */}
+      <div className="absolute inset-0 bg-slate-800/85 backdrop-blur-[1px]"></div>
+      
+      {/* Content wrapper */}
+      <div className="relative z-10">
       {/* Header */}
       <header className="bg-slate-800/80 backdrop-blur-md border-b border-slate-600/50">
         <div className="container mx-auto px-4 py-4">
