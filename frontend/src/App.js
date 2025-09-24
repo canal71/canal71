@@ -154,8 +154,12 @@ function App() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-red-600 rounded-full flex items-center justify-center">
-                <Radio className="w-6 h-6 text-white" />
+              <div className="w-12 h-12 rounded-lg overflow-hidden bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                <img 
+                  src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/ck3ei9rs_IMG_0124.png" 
+                  alt="Radio Haiti Fusion Logo" 
+                  className="w-10 h-10 object-contain"
+                />
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-white">Radio Haiti Fusion</h1>
