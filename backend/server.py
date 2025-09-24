@@ -229,6 +229,74 @@ class VoiceMessageCreate(BaseModel):
     audio_data: str  # Base64 encoded audio
     duration: Optional[float] = None
 
+# Top 10 Charts Models
+class ChartEntry(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    song_title: str
+    artist: str
+    album: Optional[str] = None
+    genre: Optional[str] = None
+    position: int
+    previous_position: Optional[int] = None
+    votes: int = 0
+    request_count: int = 0
+    chart_category: str = "most_requested"  # most_requested, haitian_hits, international, compas, zouk
+    artwork_url: Optional[str] = None
+    spotify_url: Optional[str] = None
+    youtube_url: Optional[str] = None
+    weeks_on_chart: int = 1
+    peak_position: int
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+class ChartEntryCreate(BaseModel):
+    song_title: str
+    artist: str
+    album: Optional[str] = None
+    genre: Optional[str] = None
+    chart_category: str = "most_requested"
+    artwork_url: Optional[str] = None
+    spotify_url: Optional[str] = None
+    youtube_url: Optional[str] = None
+
+class ChartVote(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    chart_entry_id: str
+    listener_name: str
+    chart_category: str
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+# Trivia Game Models
+class TriviaQuestion(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    question: str
+    options: List[str]
+    correct_answer: int  # Index of correct option
+    category: str = "haitian_music"  # haitian_music, haitian_culture, general_music, radio_fusion
+    difficulty: str = "medium"  # easy, medium, hard
+    explanation: Optional[str] = None
+    image_url: Optional[str] = None
+    points: int = 10
+
+class TriviaGame(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    player_name: str
+    questions: List[TriviaQuestion]
+    current_question: int = 0
+    score: int = 0
+    lives: int = 3
+    category: str = "mixed"
+    status: str = "active"  # active, completed, abandoned
+    started_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    completed_at: Optional[datetime] = None
+
+class TriviaAnswer(BaseModel):
+    game_id: str
+    question_id: str
+    selected_answer: int
+    is_correct: bool
+    points_earned: int
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
 class LiveStats(BaseModel):
     current_listeners: int = 1247
     peak_today: int = 1856
