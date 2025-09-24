@@ -482,42 +482,98 @@ function App() {
       
       {/* Content wrapper */}
       <div className="relative z-10">
-      {/* Header */}
-      <header className="bg-slate-800/80 backdrop-blur-md border-b border-slate-600/50">
-        <div className="container mx-auto px-4 py-4">
+      {/* Enhanced Header with Prominent Logo */}
+      <header className="bg-gradient-to-r from-slate-900/95 to-slate-800/95 backdrop-blur-lg border-b-2 border-orange-500/30 shadow-2xl">
+        <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 rounded-lg overflow-hidden bg-black/20 backdrop-blur-sm flex items-center justify-center border border-orange-500/30">
-                <img 
-                  src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/bskjptue_IMG_0178.jpeg" 
-                  alt="Radio Haiti Fusion Logo" 
-                  className="w-10 h-10 object-contain"
-                />
+            {/* Logo Section */}
+            <div className="flex items-center space-x-4">
+              <div className="relative">
+                {/* Main Logo Container */}
+                <div className="w-16 h-16 rounded-xl overflow-hidden bg-gradient-to-br from-orange-500/20 to-red-600/20 backdrop-blur-sm flex items-center justify-center border-2 border-orange-500/50 shadow-lg">
+                  <img 
+                    src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/bskjptue_IMG_0178.jpeg" 
+                    alt="Radio Haiti Fusion Logo" 
+                    className="w-14 h-14 object-contain"
+                  />
+                </div>
+                {/* Live indicator on logo */}
+                <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white animate-pulse"></div>
               </div>
-              <div>
-                <h1 className="text-2xl font-bold text-white">Radio Haiti Fusion</h1>
-                <p className="text-slate-400 text-sm">La radio qui va loin</p>
+              
+              {/* Station Info */}
+              <div className="flex flex-col">
+                <h1 className="text-3xl font-bold bg-gradient-to-r from-white to-orange-200 bg-clip-text text-transparent">
+                  Radio Haiti Fusion
+                </h1>
+                <p className="text-orange-400 text-sm font-medium italic">
+                  🇭🇹 La radio qui va loin
+                </p>
+                <div className="flex items-center space-x-2 mt-1">
+                  <Badge className="bg-red-500/20 text-red-400 border-red-500/50 text-xs animate-pulse">
+                    🔴 EN DIRECT
+                  </Badge>
+                  <Badge variant="outline" className="text-orange-400 border-orange-500/50 text-xs">
+                    FM 104.5
+                  </Badge>
+                </div>
               </div>
             </div>
-            <div className="flex items-center space-x-4">
-              <Badge variant="secondary" className="bg-green-500/20 text-green-400 border-green-500/30">
-                <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
-                LIVE
-              </Badge>
+
+            {/* Stats & Controls */}
+            <div className="flex items-center space-x-6">
+              {/* Live Stats */}
               {liveStats && (
-                <div className="flex items-center space-x-4 text-slate-300 text-sm">
-                  <div className="flex items-center">
-                    <Users className="w-4 h-4 mr-1" />
-                    {liveStats.current_listeners.toLocaleString()} en ligne
+                <div className="hidden md:flex items-center space-x-4 text-slate-300">
+                  <div className="flex items-center bg-slate-800/50 rounded-lg px-3 py-2">
+                    <Users className="w-4 h-4 mr-2 text-green-400" />
+                    <div className="text-center">
+                      <div className="text-lg font-bold text-white">{liveStats.current_listeners.toLocaleString()}</div>
+                      <div className="text-xs text-slate-400">Auditeurs</div>
+                    </div>
                   </div>
-                  <div className="flex items-center">
-                    <svg className="w-4 h-4 mr-1 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="flex items-center bg-slate-800/50 rounded-lg px-3 py-2">
+                    <svg className="w-4 h-4 mr-2 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
-                    {liveStats.total_requests} demandes
+                    <div className="text-center">
+                      <div className="text-lg font-bold text-white">{liveStats.total_requests}</div>
+                      <div className="text-xs text-slate-400">Demandes</div>
+                    </div>
                   </div>
                 </div>
               )}
+
+              {/* Quick Actions */}
+              <div className="flex items-center space-x-2">
+                <Button size="sm" variant="outline" className="border-orange-500 text-orange-400 hover:bg-orange-500/10">
+                  📞 Contact
+                </Button>
+                <Button size="sm" className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700">
+                  💰 Donation
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Sub-header with navigation */}
+        <div className="border-t border-slate-700/50 bg-slate-900/50">
+          <div className="container mx-auto px-4 py-2">
+            <div className="flex items-center justify-between text-sm">
+              <div className="flex items-center space-x-6 text-slate-400">
+                <span className="flex items-center">
+                  🎵 En cours: <span className="text-white ml-1">{nowPlaying?.song || "Compas Direct Live"}</span>
+                </span>
+                <span className="flex items-center">
+                  🎙️ DJ: <span className="text-orange-400 ml-1">DJ Kenley</span>
+                </span>
+              </div>
+              <div className="flex items-center space-x-4 text-xs text-slate-500">
+                <span>🌍 Port-au-Prince, Haïti</span>
+                <span>📡 128kbps HD</span>
+                <span>⏰ {new Date().toLocaleTimeString('fr-FR', {hour: '2-digit', minute:'2-digit'})}</span>
+              </div>
             </div>
           </div>
         </div>
