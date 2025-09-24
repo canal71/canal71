@@ -81,6 +81,8 @@ function App() {
     loadNowPlaying();
     loadWeather();
     loadNews();
+    loadStationInfo();
+    loadDonationInfo();
 
     return () => {
       if (websocket.readyState === WebSocket.OPEN) {
