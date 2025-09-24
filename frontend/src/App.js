@@ -120,6 +120,7 @@ function App() {
     loadSongRequests();
     loadStudioStatus();
     loadVideoStatus();
+    loadPromotionalVideos();
 
     return () => {
       if (websocket.readyState === WebSocket.OPEN) {
