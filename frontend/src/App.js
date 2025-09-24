@@ -733,7 +733,7 @@ function App() {
                     /* Audio Player Mode */
                     <div className="space-y-6">
                       {/* Now Playing Display */}
-                      <div className="text-center bg-gradient-to-br from-slate-700 to-slate-600 rounded-xl p-6 shadow-inner border border-slate-500/50">
+                      <div className="text-center bg-gradient-to-br from-orange-100 via-orange-50 to-red-50 rounded-xl p-6 shadow-inner border border-orange-200">
                         <div className="w-24 h-24 mx-auto mb-4 bg-white rounded-full shadow-lg flex items-center justify-center border-4 border-orange-200">
                           {nowPlaying?.artwork_url ? (
                             <img 
