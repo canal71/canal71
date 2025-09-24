@@ -2503,7 +2503,7 @@ function App() {
                       <span>Q{triviaGame.current_question + 1}/10</span>
                     </div>
                     
-                    {triviaGame.current_question < triviaGame.questions.length ? (
+                    {triviaGame && triviaGame.current_question < triviaGame.questions.length ? (
                       <div className="space-y-2">
                         <p className="text-white text-sm font-medium">
                           {triviaGame.questions[triviaGame.current_question].question}
