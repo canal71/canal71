@@ -1015,6 +1015,102 @@ function App() {
               </CardContent>
             </Card>
 
+            {/* Social Media */}
+            <Card className="bg-gradient-to-r from-pink-600/20 to-purple-600/20 backdrop-blur-sm border-slate-600/50">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                  <svg className="w-5 h-5 mr-2 text-pink-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5zM15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z" />
+                  </svg>
+                  Suivez-nous sur les Réseaux Sociaux
+                </h3>
+                
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {socialMedia.map((platform, index) => (
+                    <div 
+                      key={platform.platform || index} 
+                      className="bg-slate-700/50 rounded-lg p-4 border border-slate-600/30 hover:border-pink-500/50 transition-all duration-200 cursor-pointer group"
+                      onClick={() => platform.url && window.open(platform.url, '_blank')}
+                    >
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center space-x-2">
+                          {/* Platform Icons */}
+                          {platform.platform === 'WhatsApp' && (
+                            <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                              <span className="text-white font-bold text-sm">W</span>
+                            </div>
+                          )}
+                          {platform.platform === 'Facebook' && (
+                            <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                              <span className="text-white font-bold text-sm">f</span>
+                            </div>
+                          )}
+                          {platform.platform === 'Instagram' && (
+                            <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                              <span className="text-white font-bold text-sm">📷</span>
+                            </div>
+                          )}
+                          {platform.platform === 'Twitter' && (
+                            <div className="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center">
+                              <span className="text-white font-bold text-sm">🐦</span>
+                            </div>
+                          )}
+                          {platform.platform === 'YouTube' && (
+                            <div className="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center">
+                              <span className="text-white font-bold text-sm">▶️</span>
+                            </div>
+                          )}
+                          {platform.platform === 'TikTok' && (
+                            <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
+                              <span className="text-white font-bold text-sm">🎵</span>
+                            </div>
+                          )}
+                          <div>
+                            <h4 className="font-semibold text-white text-sm">{platform.platform}</h4>
+                            <p className="text-slate-400 text-xs">{platform.handle}</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="flex justify-between items-center">
+                        <span className="text-slate-500 text-xs">
+                          {platform.follower_count?.toLocaleString()} followers
+                        </span>
+                        <svg className="w-4 h-4 text-slate-400 group-hover:text-pink-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-slate-600/50">
+                  <div className="bg-slate-700/30 rounded-lg p-4">
+                    <h4 className="font-semibold text-white text-sm mb-2 flex items-center">
+                      <svg className="w-4 h-4 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                      </svg>
+                      Contacts Directs
+                    </h4>
+                    <div className="grid md:grid-cols-2 gap-3 text-sm">
+                      <div>
+                        <span className="text-slate-400">WhatsApp:</span>
+                        <span className="text-green-400 ml-2 font-mono">5026017368</span>
+                      </div>
+                      <div>
+                        <span className="text-slate-400">Promo:</span>
+                        <span className="text-pink-400 ml-2">haitifuionpromo@gmail.com</span>
+                      </div>
+                      <div className="md:col-span-2">
+                        <span className="text-slate-400">Site Web:</span>
+                        <span className="text-blue-400 ml-2">www.radiohaitifusion.com</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
             {/* Google AdSense Ad Space */}
             <Card className="bg-gradient-to-r from-orange-600/20 to-orange-500/15 backdrop-blur-sm border-slate-600/50">
               <CardContent className="p-6">
