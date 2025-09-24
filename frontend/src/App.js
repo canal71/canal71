@@ -240,9 +240,9 @@ function App() {
             <Card className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm border-slate-700/50">
               <CardContent className="p-6">
                 <div className="text-center">
-                  <h3 className="text-xl font-bold text-white mb-2">🎵 Advertise With Us!</h3>
+                  <h3 className="text-xl font-bold text-white mb-2">🎵 Publicité avec nous!</h3>
                   <p className="text-slate-300 mb-4">
-                    Reach thousands of music lovers daily. Premium ad spots available now.
+                    Atteignez des milliers d'auditeurs chaque jour. Espaces publicitaires premium disponibles.
                   </p>
                   <Button 
                     className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
