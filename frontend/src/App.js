@@ -294,7 +294,7 @@ function App() {
               <div className="p-4">
                 <form onSubmit={handleCommentSubmit} className="space-y-3">
                   <Input
-                    placeholder="Your name"
+                    placeholder="Votre nom"
                     value={newComment.username}
                     onChange={(e) => setNewComment({...newComment, username: e.target.value})}
                     className="bg-slate-800/50 border-slate-600 text-white placeholder:text-slate-400"
