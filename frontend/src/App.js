@@ -71,6 +71,7 @@ function App() {
     loadRadioStatus();
     loadComments();
     loadRadioDirectory();
+    loadNowPlaying();
 
     return () => {
       if (websocket.readyState === WebSocket.OPEN) {
