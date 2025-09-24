@@ -2529,7 +2529,8 @@ function App() {
                           </div>
                         ) : (
                           <div className="space-y-1">
-                            {triviaGame.questions[triviaGame.current_question].options.map((option, index) => (
+                            {triviaGame && triviaGame.questions && triviaGame.questions[triviaGame.current_question] && 
+                             triviaGame.questions[triviaGame.current_question].options.map((option, index) => (
                               <Button
                                 key={index}
                                 onClick={() => answerTriviaQuestion(index)}
