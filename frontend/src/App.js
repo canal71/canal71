@@ -2198,10 +2198,11 @@ function App() {
                   <div className="space-y-2">
                     <Button 
                       onClick={() => setShowRequestForm(true)}
-                      className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+                      className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 flex items-center justify-center space-x-2"
                       data-testid="request-song-button"
                     >
-                      🎵 Demander une Chanson
+                      <Music className="w-4 h-4" />
+                      <span>Demander une Chanson</span>
                     </Button>
                     <Button 
                       onClick={() => setShowVoiceRecorder(true)}
