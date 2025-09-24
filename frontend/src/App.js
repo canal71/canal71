@@ -186,7 +186,7 @@ function App() {
             <div className="flex items-center space-x-3">
               <div className="w-12 h-12 rounded-lg overflow-hidden bg-black/20 backdrop-blur-sm flex items-center justify-center border border-orange-500/30">
                 <img 
-                  src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/dc83vhra_a12a6cc8-c410-4855-811c-4f5c5fce72c6.jpeg" 
+                  src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/bskjptue_IMG_0178.jpeg" 
                   alt="Radio Haiti Fusion Logo" 
                   className="w-10 h-10 object-contain"
                 />
