@@ -2195,7 +2195,23 @@ function App() {
                   </div>
                 ) : showRequestForm ? (
                 ) : (
-                  <form onSubmit={handleSongRequest} className="space-y-3">
+                  <div className="space-y-2">
+                    <Button 
+                      onClick={() => setShowRequestForm(true)}
+                      className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+                      data-testid="request-song-button"
+                    >
+                      🎵 Demander une Chanson
+                    </Button>
+                    <Button 
+                      onClick={() => setShowVoiceRecorder(true)}
+                      className="w-full bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600"
+                      data-testid="voice-request-button"
+                    >
+                      🎤 Message Vocal
+                    </Button>
+                  </div>
+                )}
                     <Input
                       placeholder="Votre nom"
                       value={newRequest.listener_name}
