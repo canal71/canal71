@@ -100,6 +100,9 @@ function App() {
     loadDJs();
     loadShowSchedule();
     loadSocialMedia();
+    loadLiveStats();
+    loadEmergencyAlerts();
+    loadSongRequests();
 
     return () => {
       if (websocket.readyState === WebSocket.OPEN) {
