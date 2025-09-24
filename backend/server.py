@@ -686,6 +686,79 @@ async def update_studio_status(status_update: LiveStudioUpdate):
     
     return studio_status
 
+# Video Streaming APIs
+@api_router.get("/video/status")
+async def get_video_stream_status():
+    return VideoStreamStatus(
+        is_streaming=True,
+        video_url="https://www.youtube.com/embed/jfKfPfyJRdk",  # Replace with your stream
+        audio_url="http://xtremeradiohosting.com:8076",
+        mode="video",
+        viewers=892,
+        chat_enabled=True,
+        recording=False,
+        cameras=["Studio Principal", "Studio 2", "Extérieur"],
+        current_camera="Studio Principal"
+    )
+
+@api_router.get("/video/streams")
+async def get_video_streams():
+    # Available video stream sources
+    streams = [
+        {
+            "stream_url": "https://www.youtube.com/embed/jfKfPfyJRdk",
+            "stream_type": "youtube",
+            "quality": "1080p",
+            "title": "Studio Principal - HD",
+            "description": "Caméra principale du studio radio"
+        },
+        {
+            "stream_url": "rtmp://live.twitch.tv/live/YOUR_STREAM_KEY",
+            "stream_type": "rtmp", 
+            "quality": "720p",
+            "title": "Twitch Live",
+            "description": "Diffusion simultanée sur Twitch"
+        },
+        {
+            "stream_url": "https://www.facebook.com/plugins/video.php?href=YOUR_FB_VIDEO",
+            "stream_type": "facebook",
+            "quality": "720p", 
+            "title": "Facebook Live",
+            "description": "Diffusion simultanée sur Facebook"
+        }
+    ]
+    return [VideoStream(**stream) for stream in streams]
+
+@api_router.post("/video/switch-camera")
+async def switch_camera(camera_name: str):
+    # Switch between camera feeds
+    camera_urls = {
+        "Studio Principal": "https://www.youtube.com/embed/jfKfPfyJRdk",
+        "Studio 2": "https://www.youtube.com/embed/SECONDARY_STREAM_ID", 
+        "Extérieur": "https://www.youtube.com/embed/OUTDOOR_STREAM_ID"
+    }
+    
+    new_url = camera_urls.get(camera_name, camera_urls["Studio Principal"])
+    
+    # Broadcast camera switch to all viewers
+    await manager.broadcast(json.dumps({
+        "type": "camera_switch",
+        "camera": camera_name,
+        "video_url": new_url
+    }))
+    
+    return {"message": f"Switched to {camera_name}", "video_url": new_url}
+
+@api_router.post("/video/toggle-mode")
+async def toggle_streaming_mode(mode: str):  # video or audio_only
+    # Switch between video and audio-only mode
+    await manager.broadcast(json.dumps({
+        "type": "mode_switch", 
+        "mode": mode
+    }))
+    
+    return {"message": f"Switched to {mode} mode", "mode": mode}
+
 # Donations API
 @api_router.get("/donations/info")
 async def get_donation_info():
