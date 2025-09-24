@@ -198,27 +198,20 @@ function App() {
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   };
 
-  // Google Analytics Integration
+  // Google AdSense Integration
   useEffect(() => {
-    // Add Google Analytics script
-    const script1 = document.createElement('script');
-    script1.async = true;
-    script1.src = 'https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID';
-    document.head.appendChild(script1);
-
-    const script2 = document.createElement('script');
-    script2.innerHTML = `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'GA_TRACKING_ID');
-    `;
-    document.head.appendChild(script2);
+    // Add Google AdSense script
+    const adsenseScript = document.createElement('script');
+    adsenseScript.async = true;
+    adsenseScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5797573653969589';
+    adsenseScript.crossOrigin = 'anonymous';
+    document.head.appendChild(adsenseScript);
 
     return () => {
-      // Cleanup scripts on unmount
-      document.head.removeChild(script1);
-      document.head.removeChild(script2);
+      // Cleanup script on unmount
+      if (document.head.contains(adsenseScript)) {
+        document.head.removeChild(adsenseScript);
+      }
     };
   }, []);
 
