@@ -500,7 +500,7 @@ function App() {
                     <div className="relative">
                       <div className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-2xl shadow-2xl flex items-center justify-center border-4 border-white/30">
                         <img 
-                          src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/2zozn1fx_radiohaitifusion.jpg" 
+                          src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/okvzwb89_rhf45.jpg" 
                           alt="Radio Haiti Fusion Logo" 
                           className="w-16 h-16 md:w-20 md:h-20 object-contain"
                         />
