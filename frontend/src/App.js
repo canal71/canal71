@@ -346,6 +346,88 @@ function App() {
               </CardContent>
             </Card>
 
+            {/* Recently Played */}
+            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                  <svg className="w-5 h-5 mr-2 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm3 2h6v4H7V5zm8 8v2h1v-2h-1zm-2-2H7v4h6v-4zm2 0h1V9h-1v2z" clipRule="evenodd" />
+                  </svg>
+                  Récemment Joué
+                </h3>
+                
+                <div className="space-y-3 max-h-64 overflow-y-auto">
+                  {/* Current Track */}
+                  {nowPlaying && (
+                    <div className="flex items-center space-x-3 bg-orange-500/10 rounded-lg p-3 border border-orange-500/30">
+                      <div className="w-12 h-12 bg-slate-700 rounded-lg flex-shrink-0 overflow-hidden">
+                        {nowPlaying.artwork_url ? (
+                          <img 
+                            src={nowPlaying.artwork_url} 
+                            alt="Album" 
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              e.target.style.display = 'none';
+                            }}
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
+                            <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM15.657 6.343a1 1 0 010 1.414L13.414 10l2.243 2.243a1 1 0 11-1.414 1.414L12 11.414l-2.243 2.243a1 1 0 01-1.414-1.414L10.586 10 8.343 7.757a1 1 0 011.414-1.414L12 8.586l2.243-2.243a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                          </div>
+                        )}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="font-medium text-white text-sm truncate">
+                          {nowPlaying.song}
+                        </p>
+                        <p className="text-slate-400 text-xs truncate">
+                          {nowPlaying.artist}
+                        </p>
+                        {nowPlaying.duration && (
+                          <p className="text-orange-400 text-xs">
+                            {nowPlaying.duration}
+                          </p>
+                        )}
+                      </div>
+                      <div className="flex items-center text-orange-400">
+                        <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse mr-1"></div>
+                        <span className="text-xs">En cours</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Placeholder for previous tracks */}
+                  <div className="flex items-center space-x-3 bg-slate-700/30 rounded-lg p-3">
+                    <div className="w-12 h-12 bg-slate-600 rounded-lg flex-shrink-0 flex items-center justify-center">
+                      <svg className="w-6 h-6 text-slate-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-medium text-slate-300 text-sm">Pa Manyen</p>
+                      <p className="text-slate-500 text-xs">Boukman Eksperyans</p>
+                      <p className="text-slate-500 text-xs">3:45</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center space-x-3 bg-slate-700/30 rounded-lg p-3">
+                    <div className="w-12 h-12 bg-slate-600 rounded-lg flex-shrink-0 flex items-center justify-center">
+                      <svg className="w-6 h-6 text-slate-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-medium text-slate-300 text-sm">Kite Mwen Viv</p>
+                      <p className="text-slate-500 text-xs">Sweet Micky</p>
+                      <p className="text-slate-500 text-xs">4:12</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
             {/* Radio Information */}
             <Card className="bg-black/30 backdrop-blur-sm border-slate-700/50">
               <CardContent className="p-6">
