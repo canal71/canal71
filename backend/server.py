@@ -286,6 +286,62 @@ async def delete_radio_station(station_id: str):
         return {"error": "Station not found"}
     return {"message": "Station deleted successfully"}
 
+# Weather API Endpoint
+@api_router.get("/weather")
+async def get_weather():
+    # In production, this would connect to a weather API like OpenWeatherMap
+    # For now, returning sample data for Port-au-Prince
+    return WeatherData(
+        location="Port-au-Prince, Haiti",
+        temperature=28.5,
+        condition="Ensoleillé",
+        humidity=72,
+        wind_speed=15.2,
+        icon="☀️"
+    )
+
+# World News API Endpoints
+@api_router.get("/news", response_model=List[NewsArticle])
+async def get_world_news():
+    # In production, this would connect to news APIs like NewsAPI, Reuters, etc.
+    # Sample world news data
+    sample_news = [
+        {
+            "title": "Sommet climatique mondial: nouveaux accords sur les énergies renouvelables",
+            "description": "Les dirigeants mondiaux s'accordent sur de nouveaux objectifs ambitieux pour réduire les émissions de carbone d'ici 2030.",
+            "source": "Reuters",
+            "published_at": "2024-09-24T14:30:00Z",
+            "url": "https://example.com/news1",
+            "image_url": "https://via.placeholder.com/300x200?text=Climate+Summit"
+        },
+        {
+            "title": "Avancées technologiques: l'IA révolutionne la médecine",
+            "description": "De nouvelles applications d'intelligence artificielle promettent d'améliorer le diagnostic médical.",
+            "source": "BBC News",
+            "published_at": "2024-09-24T12:15:00Z",
+            "url": "https://example.com/news2",
+            "image_url": "https://via.placeholder.com/300x200?text=AI+Medicine"
+        },
+        {
+            "title": "Économie mondiale: croissance stable malgré les défis",
+            "description": "Le FMI révise ses prévisions économiques avec un optimisme prudent pour 2024.",
+            "source": "Financial Times",
+            "published_at": "2024-09-24T10:45:00Z",
+            "url": "https://example.com/news3",
+            "image_url": "https://via.placeholder.com/300x200?text=World+Economy"
+        },
+        {
+            "title": "Exploration spatiale: nouvelle mission vers Mars",
+            "description": "La NASA annonce une mission ambitieuse pour explorer la surface martienne.",
+            "source": "CNN",
+            "published_at": "2024-09-24T08:20:00Z",
+            "url": "https://example.com/news4",
+            "image_url": "https://via.placeholder.com/300x200?text=Mars+Mission"
+        }
+    ]
+    
+    return [NewsArticle(**article) for article in sample_news]
+
 # Include the router in the main app
 app.include_router(api_router)
 
