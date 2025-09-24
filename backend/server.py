@@ -459,7 +459,7 @@ async def get_world_news():
 @api_router.get("/station/about")
 async def get_station_info():
     return StationInfo(
-        promo_email="haitifuionpromo@gmail.com",
+        promo_email="haitifusionpromo@gmail.com",
         website="www.radiohaitifusion.com",
         whatsapp="5026017368"
     )
