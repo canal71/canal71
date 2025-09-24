@@ -453,6 +453,131 @@ async def get_station_info():
 async def get_donation_info():
     return DonationInfo()
 
+# DJ Management APIs
+@api_router.get("/djs", response_model=List[DJ])
+async def get_djs():
+    djs_data = await db.djs.find().to_list(length=None)
+    if not djs_data:
+        # Return sample DJs if none exist
+        sample_djs = [
+            {
+                "name": "Kenley Pierre",
+                "stage_name": "DJ Kenley",
+                "bio": "Passionné de musique haïtienne depuis plus de 10 ans, DJ Kenley anime l'émission matinale avec énergie et bonne humeur.",
+                "photo_url": "https://via.placeholder.com/150x150?text=DJ+Kenley",
+                "specialty": "Compas & Zouk",
+                "years_experience": 10,
+                "social_media": {"instagram": "@djkenley", "facebook": "DJ Kenley Official"},
+                "schedule": "Lundi - Vendredi 6h-10h",
+                "is_active": True
+            },
+            {
+                "name": "Marie Jeanne",
+                "stage_name": "DJ Marie J",
+                "bio": "Experte en musique internationale et haïtienne, Marie J apporte une touche féminine unique à nos ondes.",
+                "photo_url": "https://via.placeholder.com/150x150?text=DJ+Marie",
+                "specialty": "R&B & Compas",
+                "years_experience": 7,
+                "social_media": {"instagram": "@djmariej", "twitter": "@mariejradio"},
+                "schedule": "Weekend 14h-18h",
+                "is_active": True
+            },
+            {
+                "name": "Jean Claude Michel",
+                "stage_name": "JC Mix",
+                "bio": "Producteur et DJ, JC Mix est reconnu pour ses mixes innovants mélangeant tradition et modernité.",
+                "photo_url": "https://via.placeholder.com/150x150?text=JC+Mix",
+                "specialty": "Hip-Hop & Rap Kreyòl",
+                "years_experience": 12,
+                "social_media": {"youtube": "JC Mix Official", "instagram": "@jcmixofficial"},
+                "schedule": "Lundi, Mercredi, Vendredi 20h-22h",
+                "is_active": True
+            }
+        ]
+        return [DJ(**dj) for dj in sample_djs]
+    
+    return [DJ(**dj_data) for dj_data in djs_data]
+
+@api_router.post("/djs", response_model=DJ)
+async def create_dj(dj_input: DJCreate):
+    dj_dict = dj_input.dict()
+    dj_obj = DJ(**dj_dict)
+    
+    mongo_data = prepare_for_mongo(dj_obj.dict())
+    await db.djs.insert_one(mongo_data)
+    return dj_obj
+
+# Show Schedule APIs
+@api_router.get("/schedule", response_model=List[Show])
+async def get_show_schedule():
+    shows_data = await db.shows.find().to_list(length=None)
+    if not shows_data:
+        # Return sample schedule if none exists
+        sample_shows = [
+            {
+                "name": "Réveil Konpa",
+                "description": "Commencez votre journée avec les meilleurs hits compas et les dernières nouvelles",
+                "host_dj": "DJ Kenley",
+                "day_of_week": "Lundi-Vendredi",
+                "start_time": "06:00",
+                "end_time": "10:00",
+                "genre": "Compas & Actualités",
+                "is_live": True
+            },
+            {
+                "name": "Midi Mizik",
+                "description": "Pause déjeuner avec un mélange de musique haïtienne et internationale",
+                "host_dj": "DJ Marie J",
+                "day_of_week": "Lundi-Vendredi",
+                "start_time": "12:00",
+                "end_time": "14:00",
+                "genre": "Variété",
+                "is_live": False
+            },
+            {
+                "name": "Sware Konpa",
+                "description": "Les soirées compas avec les plus grands classiques et nouveautés",
+                "host_dj": "DJ Kenley",
+                "day_of_week": "Lundi-Vendredi",
+                "start_time": "18:00",
+                "end_time": "20:00",
+                "genre": "Compas",
+                "is_live": False
+            },
+            {
+                "name": "Weekend Vibes",
+                "description": "Détente du weekend avec R&B, zouk et musique internationale",
+                "host_dj": "DJ Marie J",
+                "day_of_week": "Samedi-Dimanche",
+                "start_time": "14:00",
+                "end_time": "18:00",
+                "genre": "R&B & Zouk",
+                "is_live": False
+            },
+            {
+                "name": "Nwit Rap Kreyòl",
+                "description": "Soirée dédiée au rap kreyòl et hip-hop haïtien",
+                "host_dj": "JC Mix",
+                "day_of_week": "Lundi, Mercredi, Vendredi",
+                "start_time": "20:00",
+                "end_time": "22:00",
+                "genre": "Rap Kreyòl",
+                "is_live": False
+            }
+        ]
+        return [Show(**show) for show in sample_shows]
+    
+    return [Show(**show_data) for show_data in shows_data]
+
+@api_router.post("/schedule", response_model=Show)
+async def create_show(show_input: ShowCreate):
+    show_dict = show_input.dict()
+    show_obj = Show(**show_dict)
+    
+    mongo_data = prepare_for_mongo(show_obj.dict())
+    await db.shows.insert_one(mongo_data)
+    return show_obj
+
 # Include the router in the main app
 app.include_router(api_router)
 
