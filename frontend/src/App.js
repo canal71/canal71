@@ -315,7 +315,7 @@ function App() {
             </Card>
 
             {/* Dedicated Advertising Space */}
-            <Card className="bg-gradient-to-r from-red-600/20 to-blue-600/20 backdrop-blur-sm border-slate-700/50">
+            <Card className="bg-gradient-to-r from-red-600/25 to-blue-600/25 backdrop-blur-sm border-slate-600/50">
               <CardContent className="p-6">
                 <div className="text-center mb-4">
                   <h3 className="text-xl font-bold text-white mb-2">📢 Espace Publicitaire</h3>
