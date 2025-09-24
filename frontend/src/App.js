@@ -545,26 +545,36 @@ function App() {
                       </div>
                     </div>
 
-                    {/* Quick Cities Overview */}
+                    {/* Haiti Cities Overview */}
                     <div className="border-t border-slate-600/50 pt-3">
                       <p className="text-slate-400 text-xs mb-2">Autres villes haïtiennes:</p>
                       <div className="grid grid-cols-2 gap-2 text-xs">
-                        <div className="flex justify-between">
-                          <span className="text-slate-300">Cap-Haïtien</span>
-                          <span className="text-white">29°C ☀️</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-slate-300">Jacmel</span>
-                          <span className="text-white">27°C ⛅</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-slate-300">Gonaïves</span>
-                          <span className="text-white">31°C ☀️</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-slate-300">Les Cayes</span>
-                          <span className="text-white">26°C 🌦️</span>
-                        </div>
+                        {haitiCities.slice(0, 4).map((city, index) => (
+                          <div key={index} className="flex justify-between">
+                            <span className="text-slate-300">{city.city}</span>
+                            <span className="text-white">{city.temperature}°C {city.icon}</span>
+                          </div>
+                        ))}
+                        {haitiCities.length === 0 && (
+                          <>
+                            <div className="flex justify-between">
+                              <span className="text-slate-300">Cap-Haïtien</span>
+                              <span className="text-white">29°C ☀️</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-slate-300">Jacmel</span>
+                              <span className="text-white">27°C ⛅</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-slate-300">Gonaïves</span>
+                              <span className="text-white">31°C ☀️</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-slate-300">Les Cayes</span>
+                              <span className="text-white">26°C 🌦️</span>
+                            </div>
+                          </>
+                        )}
                       </div>
                     </div>
                   </div>
