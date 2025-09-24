@@ -60,8 +60,8 @@ class CommentCreate(BaseModel):
 
 class RadioStatus(BaseModel):
     is_live: bool = True
-    current_song: str = "Amazing Radio - Live Stream"
-    current_artist: str = "Your Favorite Radio Station"
+    current_song: str = "Compas Direct - Live Stream"
+    current_artist: str = "Radio Haiti Fusion"
     listeners: int = 1247
 
 # Helper function for MongoDB serialization
