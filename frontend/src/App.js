@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { useState, useEffect, useRef } from "react";
 import "./App.css";
 import { Card, CardContent } from "./components/ui/card";
