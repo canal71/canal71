@@ -1281,6 +1281,258 @@ async def create_show(show_input: ShowCreate):
     await db.shows.insert_one(mongo_data)
     return show_obj
 
+# Top 10 Charts API
+@api_router.get("/charts/{category}", response_model=List[ChartEntry])
+async def get_chart(category: str = "most_requested", limit: int = 10):
+    """Get Top 10 charts by category"""
+    charts_data = await db.charts.find({"chart_category": category}).sort("position", 1).limit(limit).to_list(length=None)
+    
+    if not charts_data:
+        # Return sample chart data
+        sample_charts = []
+        if category == "most_requested":
+            songs = [
+                {"song_title": "Mwen Renmen'w", "artist": "T-Vice", "votes": 245, "request_count": 89, "position": 1},
+                {"song_title": "Pa Manyen", "artist": "Boukman Eksperyans", "votes": 210, "request_count": 76, "position": 2},
+                {"song_title": "Kite Mwen Viv", "artist": "Sweet Micky", "votes": 198, "request_count": 69, "position": 3},
+                {"song_title": "Map Viv Lavi Mwen", "artist": "Tabou Combo", "votes": 187, "request_count": 61, "position": 4},
+                {"song_title": "Ayiti", "artist": "BIC", "votes": 175, "request_count": 58, "position": 5},
+                {"song_title": "Konpa Love", "artist": "Carimi", "votes": 164, "request_count": 52, "position": 6},
+                {"song_title": "Mwen Bezwen'w", "artist": "Krezi Mizik", "votes": 151, "request_count": 47, "position": 7},
+                {"song_title": "Cheri", "artist": "Zin", "votes": 142, "request_count": 44, "position": 8},
+                {"song_title": "Lanmou San Fen", "artist": "Djakout Mizik", "votes": 138, "request_count": 41, "position": 9},
+                {"song_title": "Peze Kafe", "artist": "Boukan Ginen", "votes": 129, "request_count": 38, "position": 10}
+            ]
+        elif category == "haitian_hits":
+            songs = [
+                {"song_title": "Ayiti Cheri", "artist": "Manman Brigit", "votes": 189, "request_count": 0, "position": 1},
+                {"song_title": "Nou La", "artist": "BIC", "votes": 176, "request_count": 0, "position": 2},
+                {"song_title": "Konpa Gonaives", "artist": "Septentrional", "votes": 165, "request_count": 0, "position": 3},
+                {"song_title": "Map Marye", "artist": "Tabou Combo", "votes": 154, "request_count": 0, "position": 4},
+                {"song_title": "Kanga", "artist": "Boukman Eksperyans", "votes": 143, "request_count": 0, "position": 5}
+            ]
+        else:
+            songs = []
+            
+        for song in songs:
+            song.update({
+                "chart_category": category,
+                "genre": "Compas",
+                "weeks_on_chart": 3,
+                "peak_position": song["position"],
+                "previous_position": song["position"] + 1 if song["position"] < 10 else None
+            })
+            sample_charts.append(ChartEntry(**song))
+        return sample_charts
+    
+    return [ChartEntry(**parse_from_mongo(chart)) for chart in charts_data]
+
+@api_router.post("/charts/{category}/vote")
+async def vote_for_song(category: str, song_title: str, artist: str, listener_name: str):
+    """Vote for a song in the charts"""
+    # Check if song exists in charts
+    existing_entry = await db.charts.find_one({"song_title": song_title, "artist": artist, "chart_category": category})
+    
+    if existing_entry:
+        # Increment votes
+        await db.charts.update_one(
+            {"song_title": song_title, "artist": artist, "chart_category": category},
+            {"$inc": {"votes": 1}}
+        )
+    else:
+        # Create new chart entry
+        new_entry = ChartEntry(
+            song_title=song_title,
+            artist=artist,
+            chart_category=category,
+            position=11,  # Start outside top 10
+            votes=1,
+            peak_position=11
+        )
+        await db.charts.insert_one(prepare_for_mongo(new_entry.dict()))
+    
+    # Record the vote
+    vote = ChartVote(
+        chart_entry_id=existing_entry.get("id") if existing_entry else "",
+        listener_name=listener_name,
+        chart_category=category
+    )
+    await db.chart_votes.insert_one(prepare_for_mongo(vote.dict()))
+    
+    return {"message": "Vote recorded successfully"}
+
+@api_router.get("/charts/categories")
+async def get_chart_categories():
+    """Get available chart categories"""
+    return {
+        "categories": [
+            {"id": "most_requested", "name": "Plus Demandées", "description": "Chansons les plus demandées par nos auditeurs"},
+            {"id": "haitian_hits", "name": "Hits Haïtiens", "description": "Les meilleurs tubes haïtiens du moment"},
+            {"id": "compas", "name": "Top Compas", "description": "Meilleurs morceaux compas"},
+            {"id": "zouk", "name": "Top Zouk", "description": "Meilleurs morceaux zouk"},
+            {"id": "international", "name": "International", "description": "Hits internationaux populaires"}
+        ]
+    }
+
+# Trivia Game API
+@api_router.get("/trivia/questions/{category}")
+async def get_trivia_questions(category: str = "mixed", limit: int = 10):
+    """Get trivia questions by category"""
+    if category == "mixed":
+        questions_data = await db.trivia_questions.aggregate([{"$sample": {"size": limit}}]).to_list(length=None)
+    else:
+        questions_data = await db.trivia_questions.find({"category": category}).limit(limit).to_list(length=None)
+    
+    if not questions_data:
+        # Return sample trivia questions
+        sample_questions = [
+            {
+                "question": "Quel est le rythme musical traditionnel le plus populaire d'Haïti?",
+                "options": ["Merengue", "Compas", "Salsa", "Bachata"],
+                "correct_answer": 1,
+                "category": "haitian_music",
+                "explanation": "Le compas (ou konpa) est le rythme musical traditionnel le plus populaire d'Haïti, créé dans les années 1950."
+            },
+            {
+                "question": "Qui est considéré comme le 'Roi du Compas'?",
+                "options": ["Tabou Combo", "Nemours Jean-Baptiste", "Sweet Micky", "T-Vice"],
+                "correct_answer": 1,
+                "category": "haitian_music",
+                "explanation": "Nemours Jean-Baptiste est considéré comme le créateur et le roi du compas direct."
+            },
+            {
+                "question": "Dans quelle ville se trouve Radio Haiti Fusion?",
+                "options": ["Cap-Haïtien", "Port-au-Prince", "Les Gonaïves", "Jacmel"],
+                "correct_answer": 1,
+                "category": "radio_fusion",
+                "explanation": "Radio Haiti Fusion diffuse depuis Port-au-Prince, la capitale d'Haïti."
+            },
+            {
+                "question": "Quel groupe a popularisé la chanson 'Pa Manyen'?",
+                "options": ["RAM", "Boukman Eksperyans", "Tabou Combo", "BIC"],
+                "correct_answer": 1,
+                "category": "haitian_music",
+                "explanation": "Boukman Eksperyans est le groupe qui a rendu célèbre cette chanson emblématique."
+            },
+            {
+                "question": "Quelle est la date de l'indépendance d'Haïti?",
+                "options": ["1er Janvier 1804", "15 Mai 1791", "22 Septembre 1804", "1er Décembre 1803"],
+                "correct_answer": 0,
+                "category": "haitian_culture",
+                "explanation": "Haïti a proclamé son indépendance le 1er janvier 1804, devenant la première république noire libre."
+            }
+        ]
+        return [TriviaQuestion(**q) for q in sample_questions]
+    
+    return [TriviaQuestion(**parse_from_mongo(q)) for q in questions_data]
+
+@api_router.post("/trivia/games", response_model=TriviaGame)
+async def start_trivia_game(player_name: str, category: str = "mixed", difficulty: str = "medium"):
+    """Start a new trivia game"""
+    # Get questions for the game
+    if category == "mixed":
+        questions_data = await db.trivia_questions.aggregate([{"$sample": {"size": 10}}]).to_list(length=None)
+    else:
+        questions_data = await db.trivia_questions.find({"category": category, "difficulty": difficulty}).limit(10).to_list(length=None)
+    
+    if not questions_data:
+        # Use sample questions if none in database
+        questions_data = await get_trivia_questions(category, 10)
+        questions_data = [q.dict() for q in questions_data]
+    
+    questions = [TriviaQuestion(**parse_from_mongo(q)) for q in questions_data]
+    
+    game = TriviaGame(
+        player_name=player_name,
+        questions=questions,
+        category=category
+    )
+    
+    mongo_data = prepare_for_mongo(game.dict())
+    await db.trivia_games.insert_one(mongo_data)
+    
+    return game
+
+@api_router.post("/trivia/games/{game_id}/answer")
+async def answer_trivia_question(game_id: str, selected_answer: int):
+    """Submit answer for current trivia question"""
+    game_data = await db.trivia_games.find_one({"id": game_id})
+    if not game_data:
+        raise HTTPException(status_code=404, detail="Game not found")
+    
+    game = TriviaGame(**parse_from_mongo(game_data))
+    if game.current_question >= len(game.questions):
+        raise HTTPException(status_code=400, detail="Game completed")
+    
+    current_question = game.questions[game.current_question]
+    is_correct = selected_answer == current_question.correct_answer
+    points_earned = current_question.points if is_correct else 0
+    
+    # Record answer
+    answer = TriviaAnswer(
+        game_id=game_id,
+        question_id=current_question.id,
+        selected_answer=selected_answer,
+        is_correct=is_correct,
+        points_earned=points_earned
+    )
+    await db.trivia_answers.insert_one(prepare_for_mongo(answer.dict()))
+    
+    # Update game state
+    game.score += points_earned
+    if not is_correct:
+        game.lives -= 1
+    
+    game.current_question += 1
+    
+    if game.lives <= 0 or game.current_question >= len(game.questions):
+        game.status = "completed"
+        game.completed_at = datetime.now(timezone.utc)
+    
+    # Update game in database
+    await db.trivia_games.update_one(
+        {"id": game_id},
+        {"$set": prepare_for_mongo({
+            "score": game.score,
+            "lives": game.lives,
+            "current_question": game.current_question,
+            "status": game.status,
+            "completed_at": game.completed_at.isoformat() if game.completed_at else None
+        })}
+    )
+    
+    return {
+        "is_correct": is_correct,
+        "points_earned": points_earned,
+        "total_score": game.score,
+        "lives_remaining": game.lives,
+        "correct_answer": current_question.correct_answer,
+        "explanation": current_question.explanation,
+        "game_status": game.status
+    }
+
+@api_router.get("/trivia/leaderboard")
+async def get_trivia_leaderboard(category: str = "all", limit: int = 10):
+    """Get trivia game leaderboard"""
+    match_filter = {"status": "completed"}
+    if category != "all":
+        match_filter["category"] = category
+    
+    leaderboard_data = await db.trivia_games.find(match_filter).sort("score", -1).limit(limit).to_list(length=None)
+    
+    leaderboard = []
+    for i, game_data in enumerate(leaderboard_data):
+        game = parse_from_mongo(game_data)
+        leaderboard.append({
+            "rank": i + 1,
+            "player_name": game["player_name"],
+            "score": game["score"],
+            "category": game["category"],
+            "completed_at": game["completed_at"]
+        })
+    
+    return leaderboard
+
 # Include the router in the main app
 app.include_router(api_router)
 
