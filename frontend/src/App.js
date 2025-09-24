@@ -557,6 +557,106 @@ function App() {
     setShowVoiceRecorder(false);
   };
 
+  // Top 10 Charts Functions
+  const loadChartCategories = async () => {
+    try {
+      const response = await axios.get(`${API}/charts/categories`);
+      setChartCategories(response.data.categories);
+    } catch (error) {
+      console.error('Failed to load chart categories:', error);
+    }
+  };
+
+  const loadCharts = async (category = selectedChartCategory) => {
+    try {
+      const response = await axios.get(`${API}/charts/${category}`);
+      setCharts(response.data);
+    } catch (error) {
+      console.error('Failed to load charts:', error);
+    }
+  };
+
+  const voteForSong = async (songTitle, artist) => {
+    if (!newComment.username.trim()) {
+      alert('Veuillez entrer votre nom dans le chat pour voter!');
+      return;
+    }
+    
+    try {
+      await axios.post(`${API}/charts/${selectedChartCategory}/vote`, null, {
+        params: {
+          song_title: songTitle,
+          artist: artist,
+          listener_name: newComment.username
+        }
+      });
+      
+      // Refresh charts after voting
+      loadCharts();
+      alert('Vote enregistré avec succès!');
+    } catch (error) {
+      console.error('Failed to vote for song:', error);
+      alert('Erreur lors du vote. Veuillez réessayer.');
+    }
+  };
+
+  // Trivia Game Functions
+  const loadTriviaLeaderboard = async () => {
+    try {
+      const response = await axios.get(`${API}/trivia/leaderboard`);
+      setTriviaLeaderboard(response.data);
+    } catch (error) {
+      console.error('Failed to load trivia leaderboard:', error);
+    }
+  };
+
+  const startTriviaGame = async () => {
+    if (!triviaPlayerName.trim()) {
+      alert('Veuillez entrer votre nom!');
+      return;
+    }
+    
+    try {
+      const response = await axios.post(`${API}/trivia/games`, null, {
+        params: {
+          player_name: triviaPlayerName,
+          category: triviaCategory
+        }
+      });
+      setTriviaGame(response.data);
+      setCurrentTriviaAnswer(null);
+    } catch (error) {
+      console.error('Failed to start trivia game:', error);
+      alert('Erreur lors du démarrage du jeu.');
+    }
+  };
+
+  const answerTriviaQuestion = async (selectedAnswer) => {
+    if (!triviaGame) return;
+    
+    try {
+      const response = await axios.post(`${API}/trivia/games/${triviaGame.id}/answer`, null, {
+        params: {
+          selected_answer: selectedAnswer
+        }
+      });
+      setCurrentTriviaAnswer(response.data);
+      
+      // If game completed, refresh leaderboard
+      if (response.data.game_status === 'completed') {
+        loadTriviaLeaderboard();
+      }
+    } catch (error) {
+      console.error('Failed to answer trivia question:', error);
+    }
+  };
+
+  const resetTriviaGame = () => {
+    setTriviaGame(null);
+    setCurrentTriviaAnswer(null);
+    setTriviaPlayerName('');
+  };
+
   // Google AdSense Integration
   useEffect(() => {
     // Add Google AdSense script
