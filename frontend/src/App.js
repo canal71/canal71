@@ -58,6 +58,21 @@ function App() {
   const [recordingTime, setRecordingTime] = useState(0);
   const [showVoiceRecorder, setShowVoiceRecorder] = useState(false);
   
+  // Top 10 Charts state
+  const [charts, setCharts] = useState([]);
+  const [selectedChartCategory, setSelectedChartCategory] = useState('most_requested');
+  const [chartCategories, setChartCategories] = useState([]);
+  const [showChartsModal, setShowChartsModal] = useState(false);
+  
+  // Trivia Game state
+  const [triviaGame, setTriviaGame] = useState(null);
+  const [triviaQuestions, setTriviaQuestions] = useState([]);
+  const [triviaLeaderboard, setTriviaLeaderboard] = useState([]);
+  const [showTriviaModal, setShowTriviaModal] = useState(false);
+  const [triviaPlayerName, setTriviaPlayerName] = useState('');
+  const [currentTriviaAnswer, setCurrentTriviaAnswer] = useState(null);
+  const [triviaCategory, setTriviaCategory] = useState('mixed');
+  
   const audioRef = useRef(null);
   const commentsEndRef = useRef(null);
 
