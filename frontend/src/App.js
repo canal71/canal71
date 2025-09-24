@@ -144,8 +144,8 @@ function App() {
                 <Radio className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-white">Radio Pulse</h1>
-                <p className="text-slate-400 text-sm">Your Music, Your Moment</p>
+                <h1 className="text-2xl font-bold text-white">Radio Haiti Fusion</h1>
+                <p className="text-slate-400 text-sm">La radio qui va loin</p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
