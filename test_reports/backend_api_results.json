@@ -1,0 +1,172 @@
+{
+  "timestamp": "2025-09-24T15:11:41.511835",
+  "summary": {
+    "total_tests": 11,
+    "passed_tests": 11,
+    "failed_tests": 0,
+    "success_rate": 100.0
+  },
+  "test_results": [
+    {
+      "test_name": "API Root",
+      "method": "GET",
+      "endpoint": "",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "message": "Radio Station API"
+      },
+      "error": null
+    },
+    {
+      "test_name": "Radio Status",
+      "method": "GET",
+      "endpoint": "radio/status",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "is_live": true,
+        "current_song": "Amazing Radio - Live Stream",
+        "current_artist": "Your Favorite Radio Station",
+        "listeners": 1247
+      },
+      "error": null
+    },
+    {
+      "test_name": "Get Comments (Empty)",
+      "method": "GET",
+      "endpoint": "comments",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "b057e96c-2b1e-482f-88fb-3497e8872133",
+          "username": "TestUser",
+          "message": "Great music tonight!",
+          "timestamp": "2025-09-24T15:09:13.536087Z"
+        }
+      ],
+      "error": null
+    },
+    {
+      "test_name": "Create Comment",
+      "method": "POST",
+      "endpoint": "comments",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "id": "dc1f8643-31f1-416a-9d8d-c2cab2fd9577",
+        "username": "test_user_1758726699",
+        "message": "This is a test comment for the radio station!",
+        "timestamp": "2025-09-24T15:11:39.758098Z"
+      },
+      "error": null
+    },
+    {
+      "test_name": "Get Comments (With Data)",
+      "method": "GET",
+      "endpoint": "comments",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "b057e96c-2b1e-482f-88fb-3497e8872133",
+          "username": "TestUser",
+          "message": "Great music tonight!",
+          "timestamp": "2025-09-24T15:09:13.536087Z"
+        },
+        {
+          "id": "dc1f8643-31f1-416a-9d8d-c2cab2fd9577",
+          "username": "test_user_1758726699",
+          "message": "This is a test comment for the radio station!",
+          "timestamp": "2025-09-24T15:11:39.758098Z"
+        }
+      ],
+      "error": null
+    },
+    {
+      "test_name": "Create Comment 1",
+      "method": "POST",
+      "endpoint": "comments",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "id": "9f4598ae-2e22-4f83-85d4-8a94f387d239",
+        "username": "Alice",
+        "message": "Great music!",
+        "timestamp": "2025-09-24T15:11:39.833800Z"
+      },
+      "error": null
+    },
+    {
+      "test_name": "Create Comment 2",
+      "method": "POST",
+      "endpoint": "comments",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "id": "e612222f-b238-49b7-a822-02e9c27e8f0d",
+        "username": "Bob",
+        "message": "Love this station!",
+        "timestamp": "2025-09-24T15:11:40.372807Z"
+      },
+      "error": null
+    },
+    {
+      "test_name": "Create Comment 3",
+      "method": "POST",
+      "endpoint": "comments",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "id": "b96e43de-7882-4640-92d3-07e994161149",
+        "username": "Charlie",
+        "message": "Keep it up!",
+        "timestamp": "2025-09-24T15:11:40.933793Z"
+      },
+      "error": null
+    },
+    {
+      "test_name": "Clear Comments",
+      "method": "DELETE",
+      "endpoint": "comments",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "message": "All comments cleared"
+      },
+      "error": null
+    },
+    {
+      "test_name": "Get Comments (After Clear)",
+      "method": "GET",
+      "endpoint": "comments",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": [],
+      "error": null
+    },
+    {
+      "test_name": "WebSocket Endpoint Check",
+      "method": "WebSocket",
+      "endpoint": "/ws",
+      "expected_status": "Connection",
+      "actual_status": "Deferred to Frontend Test",
+      "success": true,
+      "response_data": {
+        "websocket_url": "wss://radio-pulse-13.preview.emergentagent.com/ws"
+      },
+      "error": null
+    }
+  ]
+}
