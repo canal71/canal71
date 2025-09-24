@@ -630,6 +630,42 @@ async def get_popular_songs():
     ]
     return popular_tracks
 
+# Live Studio Status
+@api_router.get("/studio/status")
+async def get_studio_status():
+    return LiveStudioStatus(
+        is_live=True,
+        dj_name="DJ Kenley",
+        show_name="Compas Direct Live",
+        studio_location="Studio Principal",
+        next_break="20:30",
+        live_callers=0
+    )
+
+@api_router.post("/studio/status")
+async def update_studio_status(status_update: LiveStudioUpdate):
+    # Update studio status - for DJ use
+    studio_status = LiveStudioStatus(
+        is_live=status_update.is_live,
+        dj_name=status_update.dj_name or "DJ",
+        show_name=status_update.show_name or "Live Show",
+        studio_location=status_update.studio_location
+    )
+    
+    # Broadcast studio status change to all listeners
+    await manager.broadcast(json.dumps({
+        "type": "studio_status_update",
+        "status": {
+            "is_live": studio_status.is_live,
+            "dj_name": studio_status.dj_name,
+            "show_name": studio_status.show_name,
+            "studio_location": studio_status.studio_location,
+            "started_at": studio_status.started_at.isoformat()
+        }
+    }))
+    
+    return studio_status
+
 # Donations API
 @api_router.get("/donations/info")
 async def get_donation_info():
