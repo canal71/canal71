@@ -147,6 +147,9 @@ function App() {
     loadVideoStatus();
     loadPromotionalVideos();
     loadAdvertisements();
+    loadChartCategories();
+    loadCharts();
+    loadTriviaLeaderboard();
 
     return () => {
       if (websocket.readyState === WebSocket.OPEN) {
