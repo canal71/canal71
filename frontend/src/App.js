@@ -31,6 +31,17 @@ function App() {
   const [djs, setDjs] = useState([]);
   const [showSchedule, setShowSchedule] = useState([]);
   const [socialMedia, setSocialMedia] = useState([]);
+  const [songRequests, setSongRequests] = useState([]);
+  const [liveStats, setLiveStats] = useState(null);
+  const [emergencyAlerts, setEmergencyAlerts] = useState([]);
+  const [showRequestForm, setShowRequestForm] = useState(false);
+  const [newRequest, setNewRequest] = useState({
+    listener_name: '',
+    song_title: '',
+    artist: '',
+    dedication_to: '',
+    dedication_message: ''
+  });
   
   const audioRef = useRef(null);
   const commentsEndRef = useRef(null);
