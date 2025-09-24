@@ -484,100 +484,172 @@ function App() {
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
-            {/* Now Playing */}
+            {/* Live TV/Radio Player */}
             <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
-              <CardContent className="p-8">
-                <div className="text-center mb-8">
-                  {/* Album Artwork or Logo */}
-                  <div className="w-32 h-32 mx-auto mb-6 bg-black/30 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-2xl border border-orange-500/30 overflow-hidden">
-                    {nowPlaying?.artwork_url ? (
-                      <img 
-                        src={nowPlaying.artwork_url} 
-                        alt="Album Artwork" 
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          // Fallback to logo if artwork fails to load
-                          e.target.src = "https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/bskjptue_IMG_0178.jpeg";
-                          e.target.className = "w-24 h-24 object-contain";
-                        }}
-                      />
+              <CardContent className="p-6">
+                {/* Mode Switch */}
+                <div className="flex items-center justify-between mb-6">
+                  <h2 className="text-xl font-bold text-white flex items-center">
+                    {streamingMode === 'video' ? (
+                      <svg className="w-6 h-6 mr-2 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
+                      </svg>
                     ) : (
-                      <img 
-                        src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/bskjptue_IMG_0178.jpeg" 
-                        alt="Radio Haiti Fusion Logo" 
-                        className="w-24 h-24 object-contain"
-                      />
+                      <Radio className="w-6 h-6 mr-2 text-orange-400" />
                     )}
+                    Radio Haiti Fusion {streamingMode === 'video' ? 'TV' : 'Radio'}
+                  </h2>
+                  
+                  <div className="flex space-x-2">
+                    <Button
+                      onClick={() => switchStreamingMode('video')}
+                      size="sm"
+                      variant={streamingMode === 'video' ? 'default' : 'outline'}
+                      className={streamingMode === 'video' ? 'bg-red-600 hover:bg-red-700' : 'border-red-500 text-red-400 hover:bg-red-500/10'}
+                    >
+                      📺 TV
+                    </Button>
+                    <Button
+                      onClick={() => switchStreamingMode('audio_only')}
+                      size="sm"
+                      variant={streamingMode === 'audio_only' ? 'default' : 'outline'}
+                      className={streamingMode === 'audio_only' ? 'bg-orange-600 hover:bg-orange-700' : 'border-orange-500 text-orange-400 hover:bg-orange-500/10'}
+                    >
+                      📻 Radio
+                    </Button>
                   </div>
+                </div>
 
-                  {/* Now Playing Info */}
-                  <div className="mb-4">
-                    <h2 className="text-2xl font-bold text-white mb-2">
-                      {nowPlaying?.song || radioStatus?.current_song || 'Loading...'}
-                    </h2>
-                    <p className="text-slate-400 text-lg mb-1">
-                      {nowPlaying?.artist || radioStatus?.current_artist || 'Radio Station'}
-                    </p>
-                    {nowPlaying?.album && (
-                      <p className="text-slate-500 text-sm">
-                        Album: {nowPlaying.album}
-                      </p>
-                    )}
-                    {nowPlaying?.genre && (
-                      <Badge variant="outline" className="mt-2 text-orange-400 border-orange-400/50">
-                        {nowPlaying.genre}
-                      </Badge>
-                    )}
+                {streamingMode === 'video' && videoStatus ? (
+                  <div className="space-y-4">
+                    {/* Video Player */}
+                    <div className="relative aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
+                      <iframe
+                        src={videoStatus.video_url}
+                        className="w-full h-full"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        title="Radio Haiti Fusion Live TV"
+                      ></iframe>
+                      
+                      {/* Video Overlay */}
+                      <div className="absolute top-4 left-4 flex space-x-2">
+                        <Badge className="bg-red-500 text-white animate-pulse">
+                          🔴 LIVE TV
+                        </Badge>
+                        <Badge variant="outline" className="bg-black/50 text-white">
+                          👁️ {videoStatus.viewers} viewers
+                        </Badge>
+                      </div>
+                      
+                      {/* Camera Switch */}
+                      <div className="absolute top-4 right-4">
+                        <select 
+                          value={videoStatus.current_camera}
+                          onChange={(e) => switchCamera(e.target.value)}
+                          className="bg-black/70 text-white text-sm rounded px-2 py-1 border border-slate-600"
+                        >
+                          {videoStatus.cameras.map((camera) => (
+                            <option key={camera} value={camera}>{camera}</option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* Video Controls */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-3">
+                        <Button size="sm" variant="outline" className="border-red-500 text-red-400">
+                          📹 Enregistrer
+                        </Button>
+                        <Button size="sm" variant="outline" className="border-blue-500 text-blue-400">
+                          📸 Capture
+                        </Button>
+                      </div>
+                      <div className="flex items-center space-x-2 text-sm text-slate-400">
+                        <span>Qualité: 1080p HD</span>
+                        <span>•</span>
+                        <span>Studio: {videoStatus.current_camera}</span>
+                      </div>
+                    </div>
                   </div>
+                ) : (
+                  <div className="space-y-6">
+                    {/* Album Artwork Display */}
+                    <div className="text-center">
+                      <div className="w-32 h-32 mx-auto mb-6 bg-black/30 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-2xl border border-orange-500/30 overflow-hidden">
+                        {nowPlaying?.artwork_url ? (
+                          <img 
+                            src={nowPlaying.artwork_url} 
+                            alt="Album Artwork" 
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              e.target.src = "https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/bskjptue_IMG_0178.jpeg";
+                              e.target.className = "w-24 h-24 object-contain";
+                            }}
+                          />
+                        ) : (
+                          <img 
+                            src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/bskjptue_IMG_0178.jpeg" 
+                            alt="Radio Haiti Fusion Logo" 
+                            className="w-24 h-24 object-contain"
+                          />
+                        )}
+                      </div>
+                    </div>
+                    
+                    {/* Audio Player */}
+                    <audio
+                      ref={audioRef}
+                      src={streamUrl}
+                      onPlay={() => setIsPlaying(true)}
+                      onPause={() => setIsPlaying(false)}
+                      onError={(e) => {
+                        console.error('Stream error:', e);
+                        setIsPlaying(false);
+                        if (currentStreamIndex < streamUrls.length - 1) {
+                          setCurrentStreamIndex(prev => prev + 1);
+                        }
+                      }}
+                    />
+                  </div>
+                )}
 
-                  {/* Stream Status */}
-                  {currentStreamIndex > 0 && (
-                    <p className="text-yellow-400 text-sm mt-1">
-                      Using fallback stream ({currentStreamIndex + 1}/{streamUrls.length})
-                    </p>
+                {/* Now Playing Info */}
+                <div className="text-center mb-4 mt-4">
+                  <h3 className="text-xl font-bold text-white mb-2">
+                    {nowPlaying?.song || radioStatus?.current_song || 'En Direct'}
+                  </h3>
+                  <p className="text-slate-400">
+                    {nowPlaying?.artist || radioStatus?.current_artist || 'Radio Haiti Fusion'}
+                  </p>
+                  {nowPlaying?.genre && (
+                    <Badge variant="outline" className="mt-2 text-orange-400 border-orange-400/50">
+                      {nowPlaying.genre}
+                    </Badge>
                   )}
                 </div>
 
-                {/* Audio Player */}
-                <audio
-                  ref={audioRef}
-                  src={streamUrl}
-                  onPlay={() => setIsPlaying(true)}
-                  onPause={() => setIsPlaying(false)}
-                  onError={(e) => {
-                    console.error('Stream error:', e, 'URL:', streamUrl);
-                    setIsPlaying(false);
-                    // Try next stream URL
-                    if (currentStreamIndex < streamUrls.length - 1) {
-                      setCurrentStreamIndex(prev => prev + 1);
-                      console.log(`Stream failed, trying next: ${streamUrls[currentStreamIndex + 1]}`);
-                    }
-                  }}
-                  onCanPlay={() => console.log('Stream ready:', streamUrl)}
-                  onLoadStart={() => console.log('Loading stream:', streamUrl)}
-                />
-
-                <div className="space-y-6">
-                  {/* Play Controls */}
+                {/* Universal Controls */}
+                <div className="space-y-4">
                   <div className="flex items-center justify-center space-x-6">
                     <Button
                       onClick={togglePlay}
                       size="lg"
-                      className="w-16 h-16 rounded-full bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 transition-all duration-200 shadow-lg border border-orange-400/30"
+                      className="w-16 h-16 rounded-full bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 transition-all duration-200 shadow-lg"
                       data-testid="play-pause-button"
                     >
                       {isPlaying ? <Pause className="w-8 h-8" /> : <Play className="w-8 h-8 ml-1" />}
                     </Button>
                   </div>
 
-                  {/* Volume Control */}
                   <div className="flex items-center justify-center space-x-4">
                     <Button
                       variant="ghost"
                       size="sm"
                       onClick={toggleMute}
                       className="text-slate-400 hover:text-white"
-                      data-testid="mute-button"
                     >
                       {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
                     </Button>
@@ -590,7 +662,6 @@ function App() {
                         value={volume}
                         onChange={handleVolumeChange}
                         className="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer slider haiti-slider"
-                        data-testid="volume-slider"
                       />
                     </div>
                     <span className="text-slate-400 text-sm min-w-[3rem]">
@@ -598,6 +669,13 @@ function App() {
                     </span>
                   </div>
                 </div>
+
+                {/* Stream Status */}
+                {currentStreamIndex > 0 && (
+                  <p className="text-yellow-400 text-sm text-center mt-4">
+                    Backup stream ({currentStreamIndex + 1}/{streamUrls.length})
+                  </p>
+                )}
               </CardContent>
             </Card>
 
