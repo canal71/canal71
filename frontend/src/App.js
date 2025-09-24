@@ -1396,6 +1396,118 @@ function App() {
               </CardContent>
             </Card>
 
+            {/* Promotional Videos */}
+            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-xl font-bold text-white flex items-center">
+                    <svg className="w-5 h-5 mr-2 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
+                    </svg>
+                    Vidéos Promotionnelles
+                  </h3>
+                  
+                  <div className="flex space-x-2">
+                    <select 
+                      value={selectedVideoCategory}
+                      onChange={(e) => setSelectedVideoCategory(e.target.value)}
+                      className="bg-slate-700 text-white text-sm rounded px-3 py-1 border border-slate-600"
+                    >
+                      <option value="all">Toutes</option>
+                      <option value="promotion">Promos</option>
+                      <option value="interview">Interviews</option>
+                      <option value="concert">Concerts</option>
+                      <option value="behind_scenes">Coulisses</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {promotionalVideos
+                    .filter(video => selectedVideoCategory === 'all' || video.category === selectedVideoCategory)
+                    .slice(0, 6)
+                    .map((video, index) => (
+                    <div key={video.id || index} className="bg-slate-700/50 rounded-lg overflow-hidden hover:bg-slate-700/70 transition-all duration-200 cursor-pointer group">
+                      <div className="relative aspect-video bg-black">
+                        {video.thumbnail_url ? (
+                          <img 
+                            src={video.thumbnail_url} 
+                            alt={video.title}
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              e.target.style.display = 'none';
+                              e.target.nextSibling.style.display = 'flex';
+                            }}
+                          />
+                        ) : null}
+                        <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-600 flex items-center justify-center">
+                          <svg className="w-12 h-12 text-white opacity-80" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
+                          </svg>
+                        </div>
+                        
+                        {/* Play Overlay */}
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                          <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center">
+                            <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M8 5v10l8-5-8-5z" />
+                            </svg>
+                          </div>
+                        </div>
+                        
+                        {/* Duration & Category Badge */}
+                        <div className="absolute bottom-2 left-2 flex space-x-2">
+                          {video.duration && (
+                            <span className="bg-black/70 text-white text-xs px-2 py-1 rounded">
+                              {video.duration}
+                            </span>
+                          )}
+                        </div>
+                        
+                        <div className="absolute top-2 right-2">
+                          {video.is_featured && (
+                            <Badge className="bg-red-500 text-white text-xs">
+                              ⭐ FEATURED
+                            </Badge>
+                          )}
+                        </div>
+                      </div>
+                      
+                      <div className="p-4">
+                        <h4 className="font-semibold text-white text-sm mb-2 line-clamp-2">
+                          {video.title}
+                        </h4>
+                        <p className="text-slate-400 text-xs mb-3 line-clamp-2">
+                          {video.description}
+                        </p>
+                        
+                        <div className="flex items-center justify-between text-xs">
+                          <div className="flex items-center space-x-3 text-slate-500">
+                            <span>👀 {video.view_count?.toLocaleString()}</span>
+                            <span>❤️ {video.likes?.toLocaleString()}</span>
+                          </div>
+                          <Badge variant="outline" className="text-xs capitalize">
+                            {video.category}
+                          </Badge>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                
+                {promotionalVideos.length > 6 && (
+                  <div className="mt-6 text-center">
+                    <Button 
+                      variant="outline" 
+                      className="border-red-500 text-red-400 hover:bg-red-500/10"
+                    >
+                      Voir toutes les vidéos ({promotionalVideos.length}) →
+                    </Button>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+
             {/* Google AdSense Ad Space */}
             <Card className="bg-gradient-to-r from-orange-600/20 to-orange-500/15 backdrop-blur-sm border-slate-600/50">
               <CardContent className="p-6">
