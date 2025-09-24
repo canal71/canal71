@@ -375,7 +375,7 @@ function App() {
                 </div>
               </ScrollArea>
 
-              <Separator className="bg-slate-700/50" />
+              <Separator className="bg-slate-600/50" />
 
               {/* Comment Form */}
               <div className="p-4">
