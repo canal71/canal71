@@ -157,6 +157,41 @@ async def clear_comments():
     await manager.broadcast(json.dumps({"type": "comments_cleared"}))
     return {"message": "All comments cleared"}
 
+# Radio Directory Endpoints
+@api_router.get("/radio-directory", response_model=List[RadioStation])
+async def get_radio_directory():
+    stations_data = await db.radio_stations.find().to_list(length=None)
+    if not stations_data:
+        # Return default stations if none exist
+        default_stations = [
+            {"name": "Radio Caraïbes", "frequency": "94.5 FM", "description": "Musique caribéenne & actualités", "genre": "Caribbean", "color": "#10b981"},
+            {"name": "Radio Métropole", "frequency": "100.1 FM", "description": "Talk-show & informations", "genre": "Talk", "color": "#8b5cf6"},
+            {"name": "Radio Kiskeya", "frequency": "88.5 FM", "description": "Nouvelles & culture", "genre": "News", "color": "#f59e0b"},
+            {"name": "Radio Lumière", "frequency": "91.9 FM", "description": "Musique gospel & spirituel", "genre": "Gospel", "color": "#eab308"},
+            {"name": "Magik9", "frequency": "99.9 FM", "description": "Hip-hop & musique urbaine", "genre": "Hip-Hop", "color": "#14b8a6"}
+        ]
+        return [RadioStation(**station) for station in default_stations]
+    
+    return [RadioStation(**station_data) for station_data in stations_data]
+
+@api_router.post("/radio-directory", response_model=RadioStation)
+async def add_radio_station(station_input: RadioStationCreate):
+    station_dict = station_input.dict()
+    station_obj = RadioStation(**station_dict)
+    
+    # Prepare for MongoDB storage
+    mongo_data = prepare_for_mongo(station_obj.dict())
+    await db.radio_stations.insert_one(mongo_data)
+    
+    return station_obj
+
+@api_router.delete("/radio-directory/{station_id}")
+async def delete_radio_station(station_id: str):
+    result = await db.radio_stations.delete_one({"id": station_id})
+    if result.deleted_count == 0:
+        return {"error": "Station not found"}
+    return {"message": "Station deleted successfully"}
+
 # Include the router in the main app
 app.include_router(api_router)
 
