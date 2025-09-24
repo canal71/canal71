@@ -196,6 +196,37 @@ class ShowCreate(BaseModel):
     end_time: str
     genre: str = "Variété"
 
+class SongRequest(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    listener_name: str
+    song_title: str
+    artist: str
+    dedication_to: Optional[str] = None
+    dedication_message: Optional[str] = None
+    status: str = "pending"  # pending, approved, played
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+class SongRequestCreate(BaseModel):
+    listener_name: str
+    song_title: str
+    artist: str
+    dedication_to: Optional[str] = None
+    dedication_message: Optional[str] = None
+
+class LiveStats(BaseModel):
+    current_listeners: int = 1247
+    peak_today: int = 1856
+    total_requests: int = 23
+    countries_listening: List[str] = ["Haiti", "USA", "Canada", "France", "Dominican Republic"]
+
+class EmergencyAlert(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    title: str
+    message: str
+    urgency: str = "medium"  # low, medium, high
+    is_active: bool = True
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
 # Helper function for MongoDB serialization
 def prepare_for_mongo(data):
     if isinstance(data, dict):
