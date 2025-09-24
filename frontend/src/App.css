@@ -22,7 +22,7 @@ body {
 }
 
 .haiti-slider {
-  background: linear-gradient(to right, #dc2626 0%, #2563eb 50%, #dc2626 var(--value, 70%), #64748b var(--value, 70%), #64748b 100%);
+  background: linear-gradient(to right, #ea580c 0%, #f97316 50%, #ea580c var(--value, 70%), #64748b var(--value, 70%), #64748b 100%);
 }
 
 .slider::-webkit-slider-thumb, .haiti-slider::-webkit-slider-thumb {
@@ -32,7 +32,7 @@ body {
   border-radius: 50%;
   background: #ffffff;
   cursor: pointer;
-  border: 2px solid #dc2626;
+  border: 2px solid #ea580c;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
