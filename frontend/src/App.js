@@ -482,111 +482,122 @@ function App() {
       
       {/* Content wrapper */}
       <div className="relative z-10">
-      {/* Full-Width Logo Header Banner */}
-      <header className="relative">
-        {/* Main Banner with Logo */}
-        <div 
-          className="relative h-32 md:h-40 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center overflow-hidden"
-          style={{
-            backgroundImage: `url('https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/bskjptue_IMG_0178.jpeg')`,
-            backgroundSize: 'contain',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        >
-          {/* Banner Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-800/70 to-slate-900/85"></div>
-          
-          {/* Logo and Branding Content */}
-          <div className="relative z-10 text-center px-4">
-            <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
+      {/* Professional Header Card */}
+      <div className="p-4 md:p-6">
+        <Card className="bg-gradient-to-r from-white via-gray-50 to-white shadow-2xl border-0 overflow-hidden">
+          <CardContent className="p-0">
+            {/* Header Banner */}
+            <div className="relative bg-gradient-to-r from-orange-600 via-red-600 to-orange-600 text-white">
+              <div className="absolute inset-0 bg-black/10"></div>
               
-              {/* Large Logo */}
-              <div className="relative">
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden bg-white/10 backdrop-blur-sm flex items-center justify-center border-2 border-orange-500/50 shadow-2xl">
-                  <img 
-                    src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/bskjptue_IMG_0178.jpeg" 
-                    alt="Radio Haiti Fusion Logo" 
-                    className="w-16 h-16 md:w-20 md:h-20 object-contain"
-                  />
-                </div>
-                {/* Live Pulse */}
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full border-3 border-white animate-pulse flex items-center justify-center">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                </div>
-              </div>
+              {/* Main Header Content */}
+              <div className="relative px-6 md:px-8 py-6 md:py-8">
+                <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+                  
+                  {/* Logo & Branding */}
+                  <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
+                    {/* Professional Logo */}
+                    <div className="relative">
+                      <div className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-2xl shadow-2xl flex items-center justify-center border-4 border-white/30">
+                        <img 
+                          src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/bskjptue_IMG_0178.jpeg" 
+                          alt="Radio Haiti Fusion Logo" 
+                          className="w-16 h-16 md:w-20 md:h-20 object-contain"
+                        />
+                      </div>
+                      {/* Live Indicator */}
+                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full border-3 border-white flex items-center justify-center animate-pulse">
+                        <div className="w-2 h-2 bg-white rounded-full"></div>
+                      </div>
+                    </div>
 
-              {/* Station Branding */}
-              <div className="text-center md:text-left">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-orange-200 to-white bg-clip-text text-transparent mb-2">
-                  RADIO HAITI FUSION
-                </h1>
-                <p className="text-xl md:text-2xl text-orange-400 font-medium italic mb-2">
-                  🇭🇹 La radio qui va loin
-                </p>
-                <div className="flex items-center justify-center md:justify-start space-x-3">
-                  <Badge className="bg-red-500 text-white animate-pulse px-3 py-1">
-                    🔴 EN DIRECT
-                  </Badge>
-                  <Badge variant="outline" className="text-orange-400 border-orange-500 px-3 py-1">
-                    FM 104.5 MHz
-                  </Badge>
-                  <Badge variant="outline" className="text-green-400 border-green-500 px-3 py-1">
-                    📡 HD Quality
-                  </Badge>
+                    {/* Station Info */}
+                    <div className="text-center md:text-left">
+                      <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1 tracking-wide">
+                        RADIO HAITI FUSION
+                      </h1>
+                      <p className="text-lg md:text-xl text-orange-100 font-medium italic mb-3">
+                        🇭🇹 La radio qui va loin
+                      </p>
+                      <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                        <Badge className="bg-red-500 text-white font-semibold px-3 py-1 animate-pulse">
+                          🔴 LIVE
+                        </Badge>
+                        <Badge className="bg-white/20 text-white border-white/30 px-3 py-1">
+                          FM 104.5 MHz
+                        </Badge>
+                        <Badge className="bg-green-500/80 text-white px-3 py-1">
+                          HD 128kbps
+                        </Badge>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Stats & Actions */}
+                  <div className="flex flex-col items-center md:items-end space-y-4">
+                    {/* Live Stats */}
+                    {liveStats && (
+                      <div className="flex items-center space-x-4">
+                        <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2 text-center">
+                          <div className="text-2xl font-bold text-white">{liveStats.current_listeners.toLocaleString()}</div>
+                          <div className="text-xs text-orange-100">Auditeurs</div>
+                        </div>
+                        <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2 text-center">
+                          <div className="text-2xl font-bold text-white">{liveStats.total_requests}</div>
+                          <div className="text-xs text-orange-100">Demandes</div>
+                        </div>
+                      </div>
+                    )}
+                    
+                    {/* Action Buttons */}
+                    <div className="flex space-x-2">
+                      <Button 
+                        size="sm" 
+                        className="bg-white text-orange-600 hover:bg-orange-50 font-semibold"
+                        onClick={() => window.open('mailto:haitifusionpromo@gmail.com', '_blank')}
+                      >
+                        📞 Contact
+                      </Button>
+                      <Button 
+                        size="sm" 
+                        className="bg-green-600 hover:bg-green-700 text-white font-semibold"
+                        onClick={() => window.open('https://paypal.me/fusionviberadio', '_blank')}
+                      >
+                        💰 Donation
+                      </Button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Corner Stats */}
-          <div className="absolute top-4 right-4 hidden lg:block">
-            {liveStats && (
-              <div className="bg-black/50 backdrop-blur-sm rounded-lg p-3 text-right border border-orange-500/30">
-                <div className="text-white font-bold text-lg">{liveStats.current_listeners.toLocaleString()}</div>
-                <div className="text-orange-400 text-xs">Auditeurs en ligne</div>
-              </div>
-            )}
-          </div>
-
-          {/* Corner Actions */}
-          <div className="absolute top-4 left-4 hidden lg:flex space-x-2">
-            <Button size="sm" variant="outline" className="border-orange-500 text-orange-400 hover:bg-orange-500/10 backdrop-blur-sm">
-              📞 Contact
-            </Button>
-            <Button size="sm" className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 backdrop-blur-sm">
-              💰 Don
-            </Button>
-          </div>
-        </div>
-        
-        {/* Info Bar */}
-        <div className="bg-gradient-to-r from-slate-900/95 to-slate-800/95 backdrop-blur-sm border-b border-orange-500/20">
-          <div className="container mx-auto px-4 py-3">
-            <div className="flex flex-col md:flex-row items-center justify-between space-y-2 md:space-y-0">
-              <div className="flex items-center space-x-6 text-sm">
-                <span className="flex items-center text-slate-300">
-                  🎵 <span className="text-white ml-1 font-medium">{nowPlaying?.song || "Compas Direct Live"}</span>
-                </span>
-                <span className="flex items-center text-slate-300">
-                  🎙️ <span className="text-orange-400 ml-1 font-medium">DJ Kenley</span>
-                </span>
-                <span className="flex items-center text-slate-300">
-                  ⏰ <span className="text-white ml-1">{new Date().toLocaleTimeString('fr-FR', {hour: '2-digit', minute:'2-digit'})}</span>
-                </span>
-              </div>
-              
-              <div className="flex items-center space-x-4 text-xs text-slate-400">
-                <span>🌍 Port-au-Prince, Haïti</span>
-                <span>📻 www.radiohaitifusion.com</span>
-                {liveStats && (
-                  <span className="md:hidden">👥 {liveStats.current_listeners.toLocaleString()}</span>
-                )}
+            {/* Info Strip */}
+            <div className="bg-slate-100 border-t-2 border-orange-200">
+              <div className="px-6 md:px-8 py-3">
+                <div className="flex flex-col md:flex-row items-center justify-between space-y-2 md:space-y-0 text-sm">
+                  <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-slate-700">
+                    <span className="flex items-center font-medium">
+                      🎵 <span className="text-orange-600 ml-1">{nowPlaying?.song || "Compas Direct Live"}</span>
+                    </span>
+                    <span className="flex items-center">
+                      🎙️ <span className="text-slate-800 ml-1 font-medium">DJ Kenley</span>
+                    </span>
+                    <span className="flex items-center">
+                      ⏰ <span className="text-slate-800 ml-1">{new Date().toLocaleTimeString('fr-FR', {hour: '2-digit', minute:'2-digit'})}</span>
+                    </span>
+                  </div>
+                  
+                  <div className="flex items-center space-x-4 text-xs text-slate-500">
+                    <span className="flex items-center">🌍 Port-au-Prince, Haïti</span>
+                    <span className="flex items-center">📻 www.radiohaitifusion.com</span>
+                    <span className="flex items-center">📧 haitifusionpromo@gmail.com</span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </header>
+          </CardContent>
+        </Card>
+      </div>
 
       {/* Emergency Alerts */}
       {emergencyAlerts.length > 0 && (
