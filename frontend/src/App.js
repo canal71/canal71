@@ -50,6 +50,12 @@ function App() {
   const [currentVideoSlide, setCurrentVideoSlide] = useState(0);
   const [advertisements, setAdvertisements] = useState([]);
   const [currentAdSlide, setCurrentAdSlide] = useState(0);
+  const [voiceMessages, setVoiceMessages] = useState([]);
+  const [isRecording, setIsRecording] = useState(false);
+  const [mediaRecorder, setMediaRecorder] = useState(null);
+  const [recordedAudio, setRecordedAudio] = useState(null);
+  const [recordingTime, setRecordingTime] = useState(0);
+  const [showVoiceRecorder, setShowVoiceRecorder] = useState(false);
   
   const audioRef = useRef(null);
   const commentsEndRef = useRef(null);
