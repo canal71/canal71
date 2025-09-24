@@ -1099,7 +1099,7 @@ function App() {
                       </div>
                       <div>
                         <span className="text-slate-400">Promo:</span>
-                        <span className="text-pink-400 ml-2">haitifuionpromo@gmail.com</span>
+                        <span className="text-pink-400 ml-2">haitifusionpromo@gmail.com</span>
                       </div>
                       <div className="md:col-span-2">
                         <span className="text-slate-400">Site Web:</span>
