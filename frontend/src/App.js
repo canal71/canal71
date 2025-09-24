@@ -69,6 +69,7 @@ function App() {
     // Load initial data
     loadRadioStatus();
     loadComments();
+    loadRadioDirectory();
 
     return () => {
       if (websocket.readyState === WebSocket.OPEN) {
