@@ -327,6 +327,15 @@ function App() {
     }
   };
 
+  const loadPromotionalVideos = async () => {
+    try {
+      const response = await axios.get(`${API}/videos/promotional?limit=12`);
+      setPromotionalVideos(response.data);
+    } catch (error) {
+      console.error('Failed to load promotional videos:', error);
+    }
+  };
+
   const togglePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
