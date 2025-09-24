@@ -282,7 +282,7 @@ function App() {
                     Atteignez des milliers d'auditeurs chaque jour. Espaces publicitaires premium disponibles.
                   </p>
                   <Button 
-                    className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
+                    className="bg-gradient-to-r from-red-500 to-blue-600 hover:from-red-600 hover:to-blue-700"
                     data-testid="advertise-button"
                   >
                     En savoir plus
