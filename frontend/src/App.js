@@ -274,7 +274,7 @@ function App() {
             </Card>
 
             {/* Advertising Banner */}
-            <Card className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm border-slate-700/50">
+            <Card className="bg-gradient-to-r from-red-600/20 to-blue-600/20 backdrop-blur-sm border-slate-700/50">
               <CardContent className="p-6">
                 <div className="text-center">
                   <h3 className="text-xl font-bold text-white mb-2">🎵 Publicité avec nous!</h3>
