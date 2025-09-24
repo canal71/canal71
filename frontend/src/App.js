@@ -288,6 +288,36 @@ function App() {
     }
   };
 
+  const loadVideoStatus = async () => {
+    try {
+      const response = await axios.get(`${API}/video/status`);
+      setVideoStatus(response.data);
+      setStreamingMode(response.data.mode);
+    } catch (error) {
+      console.error('Failed to load video status:', error);
+    }
+  };
+
+  const switchStreamingMode = async (mode) => {
+    try {
+      await axios.post(`${API}/video/toggle-mode?mode=${mode}`);
+      setStreamingMode(mode);
+    } catch (error) {
+      console.error('Failed to switch mode:', error);
+    }
+  };
+
+  const switchCamera = async (cameraName) => {
+    try {
+      const response = await axios.post(`${API}/video/switch-camera?camera_name=${encodeURIComponent(cameraName)}`);
+      if (videoStatus) {
+        setVideoStatus({...videoStatus, current_camera: cameraName, video_url: response.data.video_url});
+      }
+    } catch (error) {
+      console.error('Failed to switch camera:', error);
+    }
+  };
+
   const togglePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
