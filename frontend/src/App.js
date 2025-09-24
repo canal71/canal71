@@ -88,6 +88,12 @@ function App() {
         setSongRequests(prev => [data.request, ...prev.slice(0, 4)]);
       } else if (data.type === 'studio_status_update') {
         setStudioStatus(data.status);
+      } else if (data.type === 'camera_switch') {
+        if (videoStatus) {
+          setVideoStatus({...videoStatus, current_camera: data.camera, video_url: data.video_url});
+        }
+      } else if (data.type === 'mode_switch') {
+        setStreamingMode(data.mode);
       }
     };
     
