@@ -2547,7 +2547,7 @@ function App() {
                       <div className="text-center space-y-2">
                         <Trophy className="w-8 h-8 text-yellow-500 mx-auto" />
                         <p className="text-white font-bold">Jeu Terminé!</p>
-                        <p className="text-slate-300 text-sm">Score Final: {triviaGame.score}</p>
+                        <p className="text-slate-300 text-sm">Score Final: {triviaGame && triviaGame.score}</p>
                         <Button 
                           onClick={resetTriviaGame}
                           className="bg-blue-600 hover:bg-blue-700"
