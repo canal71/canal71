@@ -224,7 +224,7 @@ function App() {
                         step="0.01"
                         value={volume}
                         onChange={handleVolumeChange}
-                        className="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer slider"
+                        className="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer slider haiti-slider"
                         data-testid="volume-slider"
                       />
                     </div>
