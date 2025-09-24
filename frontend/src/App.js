@@ -31,12 +31,12 @@ function App() {
   const streamUrls = [
     "http://xtremeradiohosting.com:8076",
     "http://xtremeradiohosting.com:8076/stream",
+    "http://xtremeradiohosting.com:8288", // Second stream
+    "http://xtremeradiohosting.com:8288/stream", // Second stream with /stream path
     "http://xtremeradiohosting.com:8076/live",
     "http://xtremeradiohosting.com:8076/radio",
     "https://stream.radiojar.com/4wqre23fytzuv", // Fallback demo stream
     // Add more backup streams here as needed
-    // "http://backup1.your-radio.com:8000/stream",
-    // "http://backup2.your-radio.com:8000/stream",
   ];
   
   const [currentStreamIndex, setCurrentStreamIndex] = useState(0);
