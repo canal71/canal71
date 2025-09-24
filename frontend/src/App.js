@@ -503,29 +503,111 @@ function App() {
               </CardContent>
             </Card>
 
-            {/* Dedicated Advertising Space */}
+            {/* Weather Widget */}
+            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                  <svg className="w-5 h-5 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z" clipRule="evenodd" />
+                  </svg>
+                  Météo - Port-au-Prince
+                </h3>
+                
+                {weather ? (
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                      <div className="text-4xl">{weather.icon}</div>
+                      <div>
+                        <p className="text-2xl font-bold text-white">{weather.temperature}°C</p>
+                        <p className="text-slate-400 text-sm">{weather.condition}</p>
+                      </div>
+                    </div>
+                    <div className="text-right text-sm text-slate-400">
+                      <p>Humidité: {weather.humidity}%</p>
+                      <p>Vent: {weather.wind_speed} km/h</p>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="flex items-center space-x-4">
+                    <div className="text-4xl">🌤️</div>
+                    <div>
+                      <p className="text-2xl font-bold text-white">28°C</p>
+                      <p className="text-slate-400 text-sm">Chargement...</p>
+                    </div>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+
+            {/* World News */}
+            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                  <svg className="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clipRule="evenodd" />
+                  </svg>
+                  Actualités Mondiales
+                </h3>
+                
+                <div className="space-y-4 max-h-80 overflow-y-auto">
+                  {news.length > 0 ? news.slice(0, 4).map((article, index) => (
+                    <div key={article.id || index} className="border-l-4 border-green-400 pl-4 py-2">
+                      <h4 className="font-semibold text-white text-sm mb-1 line-clamp-2">
+                        {article.title}
+                      </h4>
+                      <p className="text-slate-400 text-xs mb-2 line-clamp-2">
+                        {article.description}
+                      </p>
+                      <div className="flex justify-between items-center">
+                        <span className="text-green-400 text-xs">{article.source}</span>
+                        <span className="text-slate-500 text-xs">
+                          {new Date(article.published_at).toLocaleDateString('fr-FR')}
+                        </span>
+                      </div>
+                    </div>
+                  )) : (
+                    <p className="text-slate-400 text-sm">Chargement des actualités...</p>
+                  )}
+                </div>
+                
+                <div className="mt-4 pt-4 border-t border-slate-600/50">
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    className="text-green-400 hover:text-green-300 text-xs w-full"
+                  >
+                    Voir toutes les actualités →
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Google AdSense Ad Space */}
             <Card className="bg-gradient-to-r from-orange-600/20 to-orange-500/15 backdrop-blur-sm border-slate-600/50">
               <CardContent className="p-6">
                 <div className="text-center mb-4">
-                  <h3 className="text-xl font-bold text-white mb-2">📢 Espace Publicitaire</h3>
-                  <p className="text-slate-300 mb-4">
-                    Votre publicité ici! Atteignez notre audience de milliers d'auditeurs quotidiens.
-                  </p>
+                  <h3 className="text-xl font-bold text-white mb-2">📢 Publicité</h3>
                 </div>
                 
-                {/* Ad Placeholder - Replace with actual ads */}
+                {/* Google AdSense Ad Unit */}
+                <div className="flex justify-center">
+                  <ins 
+                    className="adsbygoogle"
+                    style={{display: 'block'}}
+                    data-ad-client="ca-pub-5797573653969589"
+                    data-ad-slot="YOUR_AD_SLOT_ID"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"
+                  ></ins>
+                </div>
+                
+                {/* Fallback for when ads are loading */}
                 <div className="bg-slate-800/30 rounded-lg p-8 border-2 border-dashed border-slate-600 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-red-500 to-blue-600 rounded-full flex items-center justify-center">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center">
                     <span className="text-white font-bold text-lg">AD</span>
                   </div>
-                  <p className="text-slate-300 mb-3">Espace réservé pour publicité</p>
-                  <p className="text-slate-400 text-sm mb-4">300x250 px recommandé</p>
-                  <Button 
-                    className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700"
-                    data-testid="advertise-button"
-                  >
-                    Réservez cet espace
-                  </Button>
+                  <p className="text-slate-300 mb-3">Espace publicitaire</p>
+                  <p className="text-slate-400 text-sm">Google AdSense intégré</p>
                 </div>
               </CardContent>
             </Card>
