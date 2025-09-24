@@ -498,7 +498,7 @@ function App() {
                     <Button
                       type="submit"
                       size="sm"
-                      className="bg-gradient-to-r from-red-600 to-blue-600 hover:from-red-700 hover:to-blue-700"
+                      className="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600"
                       data-testid="send-comment-button"
                     >
                       <Send className="w-4 h-4" />
