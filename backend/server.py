@@ -545,6 +545,76 @@ async def get_social_media():
     ]
     return [SocialMedia(**platform) for platform in social_platforms]
 
+# Song Request System
+@api_router.post("/song-requests", response_model=SongRequest)
+async def create_song_request(request_input: SongRequestCreate):
+    request_dict = request_input.dict()
+    request_obj = SongRequest(**request_dict)
+    
+    mongo_data = prepare_for_mongo(request_obj.dict())
+    await db.song_requests.insert_one(mongo_data)
+    
+    # Broadcast new request to WebSocket connections
+    await manager.broadcast(json.dumps({
+        "type": "new_song_request",
+        "request": {
+            "id": request_obj.id,
+            "listener_name": request_obj.listener_name,
+            "song_title": request_obj.song_title,
+            "artist": request_obj.artist,
+            "dedication_to": request_obj.dedication_to,
+            "dedication_message": request_obj.dedication_message
+        }
+    }))
+    
+    return request_obj
+
+@api_router.get("/song-requests", response_model=List[SongRequest])
+async def get_song_requests(status: str = "pending", limit: int = 10):
+    requests_data = await db.song_requests.find({"status": status}).sort("timestamp", 1).limit(limit).to_list(length=None)
+    requests = []
+    for request_data in requests_data:
+        parsed_request = parse_from_mongo(request_data)
+        requests.append(SongRequest(**parsed_request))
+    return requests
+
+# Live Statistics
+@api_router.get("/stats/live")
+async def get_live_stats():
+    import random
+    return LiveStats(
+        current_listeners=random.randint(800, 1500),
+        peak_today=random.randint(1500, 2000),
+        total_requests=random.randint(15, 50),
+        countries_listening=["Haiti", "USA", "Canada", "France", "Dominican Republic", "Brazil"]
+    )
+
+# Emergency Alerts System
+@api_router.get("/alerts/emergency")
+async def get_emergency_alerts():
+    # Sample emergency alert for Haiti
+    sample_alerts = [
+        {
+            "title": "Météo: Alerte Pluie",
+            "message": "Fortes pluies prévues ce soir à Port-au-Prince. Soyez prudents sur les routes.",
+            "urgency": "medium",
+            "is_active": True
+        }
+    ]
+    return [EmergencyAlert(**alert) for alert in sample_alerts]
+
+# Popular Songs Tracking
+@api_router.get("/stats/popular-songs")
+async def get_popular_songs():
+    popular_tracks = [
+        {"title": "Mwen Renmen'w", "artist": "T-Vice", "requests": 15, "plays": 8},
+        {"title": "Pa Manyen", "artist": "Boukman Eksperyans", "requests": 12, "plays": 6},
+        {"title": "Kite Mwen Viv", "artist": "Sweet Micky", "requests": 10, "plays": 5},
+        {"title": "Haiti Cherie", "artist": "Tabou Combo", "requests": 9, "plays": 7},
+        {"title": "Sispann", "artist": "Carimi", "requests": 8, "plays": 4}
+    ]
+    return popular_tracks
+
 # Donations API
 @api_router.get("/donations/info")
 async def get_donation_info():
