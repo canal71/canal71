@@ -451,7 +451,12 @@ async def get_station_info():
 # Donations API
 @api_router.get("/donations/info")
 async def get_donation_info():
-    return DonationInfo()
+    return DonationInfo(
+        paypal_email="fusionviberadio@gmail.com",
+        payment_methods=["PayPal", "Zelle", "Cash App", "MonCash", "Carte de crédit"],
+        zelle_email="fusionviberadio@gmail.com",
+        cashapp_number="5026017368"
+    )
 
 # DJ Management APIs
 @api_router.get("/djs", response_model=List[DJ])
