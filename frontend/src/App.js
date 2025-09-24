@@ -359,7 +359,7 @@ function App() {
               <ScrollArea className="flex-1 p-4" data-testid="comments-area">
                 <div className="space-y-3">
                   {comments.map((comment) => (
-                    <div key={comment.id} className="bg-slate-800/50 rounded-lg p-3">
+                    <div key={comment.id} className="bg-slate-700/60 rounded-lg p-3 border border-slate-600/30">
                       <div className="flex items-center justify-between mb-1">
                         <span className="font-medium text-white text-sm">
                           {comment.username}
