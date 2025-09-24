@@ -25,8 +25,17 @@ function App() {
   const audioRef = useRef(null);
   const commentsEndRef = useRef(null);
 
-  // Radio Haiti Fusion live stream
-  const streamUrl = "https://xtreamradiohosting.com:8076";
+  // Radio Haiti Fusion live streams (try multiple formats)
+  const streamUrls = [
+    "https://xtreamradiohosting.com:8076/stream",
+    "https://xtreamradiohosting.com:8076/",
+    "http://xtreamradiohosting.com:8076/stream",
+    "http://xtreamradiohosting.com:8076/",
+    "https://stream.radiojar.com/4wqre23fytzuv" // Fallback demo stream
+  ];
+  
+  const [currentStreamIndex, setCurrentStreamIndex] = useState(0);
+  const streamUrl = streamUrls[currentStreamIndex];
 
   useEffect(() => {
     // Initialize WebSocket connection
