@@ -2396,6 +2396,182 @@ function App() {
               </CardContent>
             </Card>
 
+            {/* Top 10 Charts Widget */}
+            <Card className="bg-gradient-to-r from-orange-600/20 to-red-600/20 backdrop-blur-sm border-slate-600/50">
+              <CardContent className="p-4">
+                <h3 className="text-lg font-bold text-white mb-3 flex items-center">
+                  <TrendingUp className="w-5 h-5 mr-2 text-orange-400" />
+                  Top 10 Charts
+                </h3>
+                
+                <div className="space-y-2 mb-3">
+                  <select 
+                    value={selectedChartCategory}
+                    onChange={(e) => {
+                      setSelectedChartCategory(e.target.value);
+                      loadCharts(e.target.value);
+                    }}
+                    className="w-full bg-slate-700/60 border-slate-500 text-white rounded px-3 py-2 text-sm"
+                  >
+                    {chartCategories.map(category => (
+                      <option key={category.id} value={category.id}>
+                        {category.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                
+                <div className="space-y-2 mb-4 max-h-40 overflow-y-auto">
+                  {charts.slice(0, 5).map((song, index) => (
+                    <div key={song.id || index} className="bg-slate-700/30 rounded p-2 flex items-center justify-between">
+                      <div className="flex items-center space-x-2 flex-1 min-w-0">
+                        <div className={`w-6 h-6 rounded flex items-center justify-center text-xs font-bold ${
+                          index === 0 ? 'bg-yellow-500 text-black' :
+                          index === 1 ? 'bg-gray-400 text-black' :
+                          index === 2 ? 'bg-amber-600 text-white' :
+                          'bg-slate-600 text-white'
+                        }`}>
+                          {index + 1}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-white text-xs font-medium truncate">"{song.song_title}"</p>
+                          <p className="text-slate-400 text-xs truncate">{song.artist}</p>
+                        </div>
+                      </div>
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        onClick={() => voteForSong(song.song_title, song.artist)}
+                        className="text-orange-400 hover:text-orange-300 p-1 ml-1"
+                        title="Voter pour cette chanson"
+                      >
+                        <Target className="w-3 h-3" />
+                      </Button>
+                    </div>
+                  ))}
+                </div>
+                
+                <Button 
+                  onClick={() => setShowChartsModal(true)}
+                  className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600"
+                >
+                  Voir le Top 10 complet
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Trivia Game Widget */}
+            <Card className="bg-gradient-to-r from-blue-600/20 to-indigo-600/20 backdrop-blur-sm border-slate-600/50">
+              <CardContent className="p-4">
+                <h3 className="text-lg font-bold text-white mb-3 flex items-center">
+                  <Brain className="w-5 h-5 mr-2 text-blue-400" />
+                  Trivia Haïtien
+                </h3>
+                
+                {!triviaGame ? (
+                  <div className="space-y-3">
+                    <Input
+                      placeholder="Votre nom"
+                      value={triviaPlayerName}
+                      onChange={(e) => setTriviaPlayerName(e.target.value)}
+                      className="bg-slate-700/60 border-slate-500 text-white placeholder:text-slate-300"
+                    />
+                    
+                    <select 
+                      value={triviaCategory}
+                      onChange={(e) => setTriviaCategory(e.target.value)}
+                      className="w-full bg-slate-700/60 border-slate-500 text-white rounded px-3 py-2 text-sm"
+                    >
+                      <option value="mixed">Mixte</option>
+                      <option value="haitian_music">Musique Haïtienne</option>
+                      <option value="haitian_culture">Culture Haïtienne</option>
+                      <option value="radio_fusion">Radio Fusion</option>
+                    </select>
+                    
+                    <Button 
+                      onClick={startTriviaGame}
+                      className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600"
+                    >
+                      Commencer le Jeu
+                    </Button>
+                  </div>
+                ) : (
+                  <div className="space-y-3">
+                    <div className="flex justify-between text-xs text-slate-400">
+                      <span>Score: {triviaGame.score}</span>
+                      <span>Vies: {triviaGame.lives}/3</span>
+                      <span>Q{triviaGame.current_question + 1}/10</span>
+                    </div>
+                    
+                    {triviaGame.current_question < triviaGame.questions.length ? (
+                      <div className="space-y-2">
+                        <p className="text-white text-sm font-medium">
+                          {triviaGame.questions[triviaGame.current_question].question}
+                        </p>
+                        
+                        {currentTriviaAnswer ? (
+                          <div className={`p-3 rounded ${currentTriviaAnswer.is_correct ? 'bg-green-500/20' : 'bg-red-500/20'}`}>
+                            <p className={`text-sm font-medium ${currentTriviaAnswer.is_correct ? 'text-green-400' : 'text-red-400'}`}>
+                              {currentTriviaAnswer.is_correct ? '✓ Correct!' : '✗ Incorrect'}
+                            </p>
+                            {currentTriviaAnswer.explanation && (
+                              <p className="text-slate-300 text-xs mt-1">{currentTriviaAnswer.explanation}</p>
+                            )}
+                            <Button 
+                              onClick={() => setCurrentTriviaAnswer(null)}
+                              size="sm"
+                              className="mt-2 bg-blue-600 hover:bg-blue-700"
+                            >
+                              Question Suivante
+                            </Button>
+                          </div>
+                        ) : (
+                          <div className="space-y-1">
+                            {triviaGame.questions[triviaGame.current_question].options.map((option, index) => (
+                              <Button
+                                key={index}
+                                onClick={() => answerTriviaQuestion(index)}
+                                variant="outline"
+                                className="w-full text-left justify-start text-xs p-2 h-auto"
+                              >
+                                {String.fromCharCode(65 + index)}. {option}
+                              </Button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <div className="text-center space-y-2">
+                        <Trophy className="w-8 h-8 text-yellow-500 mx-auto" />
+                        <p className="text-white font-bold">Jeu Terminé!</p>
+                        <p className="text-slate-300 text-sm">Score Final: {triviaGame.score}</p>
+                        <Button 
+                          onClick={resetTriviaGame}
+                          className="bg-blue-600 hover:bg-blue-700"
+                        >
+                          Rejouer
+                        </Button>
+                      </div>
+                    )}
+                  </div>
+                )}
+                
+                {triviaLeaderboard.length > 0 && (
+                  <div className="mt-4 pt-4 border-t border-slate-600/50">
+                    <p className="text-slate-400 text-xs mb-2">Top Joueurs:</p>
+                    <div className="space-y-1">
+                      {triviaLeaderboard.slice(0, 3).map((player, index) => (
+                        <div key={index} className="flex justify-between text-xs">
+                          <span className="text-white">{player.rank}. {player.player_name}</span>
+                          <span className="text-slate-400">{player.score}pts</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+
             <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50 h-[500px] flex flex-col">
               <div className="p-4 border-b border-slate-600/50">
                 <div className="flex items-center space-x-2">
