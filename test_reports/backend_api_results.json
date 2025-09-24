@@ -1,10 +1,10 @@
 {
-  "timestamp": "2025-09-24T23:42:59.200346",
+  "timestamp": "2025-09-24T23:43:42.746790",
   "summary": {
     "total_tests": 36,
-    "passed_tests": 34,
-    "failed_tests": 2,
-    "success_rate": 94.44444444444444
+    "passed_tests": 36,
+    "failed_tests": 0,
+    "success_rate": 100.0
   },
   "test_results": [
     {
@@ -56,10 +56,10 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "3dfd689b-3eac-4e67-b1b5-a71a785a5c95",
-        "username": "test_user_1758757374",
+        "id": "f6e838fa-2f29-47d8-9706-6ee630db1420",
+        "username": "test_user_1758757418",
         "message": "This is a test comment for the radio station!",
-        "timestamp": "2025-09-24T23:42:54.868530Z"
+        "timestamp": "2025-09-24T23:43:38.514441Z"
       },
       "error": null
     },
@@ -72,10 +72,10 @@
       "success": true,
       "response_data": [
         {
-          "id": "3dfd689b-3eac-4e67-b1b5-a71a785a5c95",
-          "username": "test_user_1758757374",
+          "id": "f6e838fa-2f29-47d8-9706-6ee630db1420",
+          "username": "test_user_1758757418",
           "message": "This is a test comment for the radio station!",
-          "timestamp": "2025-09-24T23:42:54.868530Z"
+          "timestamp": "2025-09-24T23:43:38.514441Z"
         }
       ],
       "error": null
@@ -88,10 +88,10 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "f9ef8a5f-1943-4e6a-a451-ae724243f07f",
+        "id": "9ad9f456-d5dd-4cf1-b2c4-8cc8665ca3a2",
         "username": "Alice",
         "message": "Great music!",
-        "timestamp": "2025-09-24T23:42:55.018233Z"
+        "timestamp": "2025-09-24T23:43:38.602132Z"
       },
       "error": null
     },
@@ -103,10 +103,10 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "5a5c5f88-fac2-4c6c-a94f-fc4b2e43d641",
+        "id": "453d5093-9acf-4b21-8e9d-a89f9e72c5f7",
         "username": "Bob",
         "message": "Love this station!",
-        "timestamp": "2025-09-24T23:42:55.554960Z"
+        "timestamp": "2025-09-24T23:43:39.136952Z"
       },
       "error": null
     },
@@ -118,10 +118,10 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "17dbef81-20b4-453c-b95f-393cff2387b7",
+        "id": "0cc0f0ff-b06f-4f5e-ad45-16364676b655",
         "username": "Charlie",
         "message": "Keep it up!",
-        "timestamp": "2025-09-24T23:42:56.097414Z"
+        "timestamp": "2025-09-24T23:43:39.673674Z"
       },
       "error": null
     },
@@ -204,6 +204,56 @@
           "timestamp": "2025-09-24T23:20:07.041606Z",
           "status": "pending",
           "transcription": null
+        },
+        {
+          "id": "dc8f1057-c5fd-47db-84e8-f0b5a23773c4",
+          "listener_name": "Maria Rodriguez",
+          "message_type": "song_request",
+          "audio_data": null,
+          "duration": 5.2,
+          "timestamp": "2025-09-24T23:42:56.745100Z",
+          "status": "pending",
+          "transcription": null
+        },
+        {
+          "id": "38e9c923-224c-492f-90b1-7fcf33d183bf",
+          "listener_name": "Jean Baptiste",
+          "message_type": "song_request",
+          "audio_data": null,
+          "duration": 3.5,
+          "timestamp": "2025-09-24T23:42:56.816241Z",
+          "status": "pending",
+          "transcription": null
+        },
+        {
+          "id": "e4f7bea2-3b16-41b3-b49c-b99f1904a8ac",
+          "listener_name": "Marie Claire",
+          "message_type": "dedication",
+          "audio_data": null,
+          "duration": 7.8,
+          "timestamp": "2025-09-24T23:42:57.353834Z",
+          "status": "pending",
+          "transcription": null
+        },
+        {
+          "id": "76505962-631c-44c8-ab81-8197f1ff7b38",
+          "listener_name": "Pierre Louis",
+          "message_type": "shoutout",
+          "audio_data": null,
+          "duration": 4.2,
+          "timestamp": "2025-09-24T23:42:57.892335Z",
+          "status": "pending",
+          "transcription": null
+        },
+        {
+          "id": "a836d0ce-8627-4788-a563-b32a25d69b97",
+          "listener_name": "Audio Test User",
+          "message_type": "song_request",
+          "audio_data": null,
+          "duration": 2.5,
+          "timestamp": "2025-09-24T23:42:58.501259Z",
+          "status": "pending",
+          "transcription": null
         }
       ],
       "error": null
@@ -216,12 +266,12 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "dc8f1057-c5fd-47db-84e8-f0b5a23773c4",
+        "id": "af112773-838f-424c-b84b-f9152e3db356",
         "listener_name": "Maria Rodriguez",
         "message_type": "song_request",
         "audio_data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
         "duration": 5.2,
-        "timestamp": "2025-09-24T23:42:56.745100Z",
+        "timestamp": "2025-09-24T23:43:40.315903Z",
         "status": "pending",
         "transcription": null
       },
@@ -261,12 +311,12 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "38e9c923-224c-492f-90b1-7fcf33d183bf",
+        "id": "9f44ece3-d45d-4773-b0a9-1323c9180d25",
         "listener_name": "Jean Baptiste",
         "message_type": "song_request",
         "audio_data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
         "duration": 3.5,
-        "timestamp": "2025-09-24T23:42:56.816241Z",
+        "timestamp": "2025-09-24T23:43:40.382707Z",
         "status": "pending",
         "transcription": null
       },
@@ -280,12 +330,12 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "e4f7bea2-3b16-41b3-b49c-b99f1904a8ac",
+        "id": "0c690c85-27cd-42fd-8ba6-67443fe5ef42",
         "listener_name": "Marie Claire",
         "message_type": "dedication",
         "audio_data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
         "duration": 7.8,
-        "timestamp": "2025-09-24T23:42:57.353834Z",
+        "timestamp": "2025-09-24T23:43:40.958324Z",
         "status": "pending",
         "transcription": null
       },
@@ -299,12 +349,12 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "76505962-631c-44c8-ab81-8197f1ff7b38",
+        "id": "c5a06c3b-324e-4bb9-be6d-317a76d24693",
         "listener_name": "Pierre Louis",
         "message_type": "shoutout",
         "audio_data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
         "duration": 4.2,
-        "timestamp": "2025-09-24T23:42:57.892335Z",
+        "timestamp": "2025-09-24T23:43:41.493529Z",
         "status": "pending",
         "transcription": null
       },
@@ -405,6 +455,16 @@
           "audio_data": null,
           "duration": 4.2,
           "timestamp": "2025-09-24T23:42:57.892335Z",
+          "status": "pending",
+          "transcription": null
+        },
+        {
+          "id": "a836d0ce-8627-4788-a563-b32a25d69b97",
+          "listener_name": "Audio Test User",
+          "message_type": "song_request",
+          "audio_data": null,
+          "duration": 2.5,
+          "timestamp": "2025-09-24T23:42:58.501259Z",
           "status": "pending",
           "transcription": null
         }
@@ -508,6 +568,16 @@
           "timestamp": "2025-09-24T23:42:57.892335Z",
           "status": "pending",
           "transcription": null
+        },
+        {
+          "id": "a836d0ce-8627-4788-a563-b32a25d69b97",
+          "listener_name": "Audio Test User",
+          "message_type": "song_request",
+          "audio_data": null,
+          "duration": 2.5,
+          "timestamp": "2025-09-24T23:42:58.501259Z",
+          "status": "pending",
+          "transcription": null
         }
       ],
       "error": null
@@ -520,12 +590,12 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "a836d0ce-8627-4788-a563-b32a25d69b97",
+        "id": "d5644c9d-619e-4f85-a0bf-81a49f18f166",
         "listener_name": "Audio Test User",
         "message_type": "song_request",
         "audio_data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
         "duration": 2.5,
-        "timestamp": "2025-09-24T23:42:58.501259Z",
+        "timestamp": "2025-09-24T23:43:42.098907Z",
         "status": "pending",
         "transcription": null
       },
@@ -534,7 +604,7 @@
     {
       "test_name": "Get Voice Message Audio",
       "method": "GET",
-      "endpoint": "voice-messages/a836d0ce-8627-4788-a563-b32a25d69b97/audio",
+      "endpoint": "voice-messages/d5644c9d-619e-4f85-a0bf-81a49f18f166/audio",
       "expected_status": 200,
       "actual_status": 200,
       "success": true,
@@ -562,184 +632,40 @@
       "success": true,
       "response_data": [
         {
-          "id": "6f1e976f-70c1-44a5-a46f-5354c71168cf",
+          "id": "4fb63d7e-d6a2-442a-b679-0048d754fdf4",
           "song_title": "Mwen Renmen'w",
           "artist": "T-Vice",
           "album": null,
-          "genre": "Compas",
-          "position": 1,
-          "previous_position": 2,
-          "votes": 245,
-          "request_count": 89,
-          "chart_category": "most_requested",
-          "artwork_url": null,
-          "spotify_url": null,
-          "youtube_url": null,
-          "weeks_on_chart": 3,
-          "peak_position": 1,
-          "timestamp": "2025-09-24T23:42:58.645353Z"
-        },
-        {
-          "id": "c047a480-e724-4ccd-b49f-666926335c22",
-          "song_title": "Pa Manyen",
-          "artist": "Boukman Eksperyans",
-          "album": null,
-          "genre": "Compas",
-          "position": 2,
-          "previous_position": 3,
-          "votes": 210,
-          "request_count": 76,
-          "chart_category": "most_requested",
-          "artwork_url": null,
-          "spotify_url": null,
-          "youtube_url": null,
-          "weeks_on_chart": 3,
-          "peak_position": 2,
-          "timestamp": "2025-09-24T23:42:58.645368Z"
-        },
-        {
-          "id": "af5a71ce-5f7d-4d37-b089-ddcb0510d0af",
-          "song_title": "Kite Mwen Viv",
-          "artist": "Sweet Micky",
-          "album": null,
-          "genre": "Compas",
-          "position": 3,
-          "previous_position": 4,
-          "votes": 198,
-          "request_count": 69,
-          "chart_category": "most_requested",
-          "artwork_url": null,
-          "spotify_url": null,
-          "youtube_url": null,
-          "weeks_on_chart": 3,
-          "peak_position": 3,
-          "timestamp": "2025-09-24T23:42:58.645374Z"
-        },
-        {
-          "id": "fe63d47a-4420-4102-874d-216ef727e373",
-          "song_title": "Map Viv Lavi Mwen",
-          "artist": "Tabou Combo",
-          "album": null,
-          "genre": "Compas",
-          "position": 4,
-          "previous_position": 5,
-          "votes": 187,
-          "request_count": 61,
-          "chart_category": "most_requested",
-          "artwork_url": null,
-          "spotify_url": null,
-          "youtube_url": null,
-          "weeks_on_chart": 3,
-          "peak_position": 4,
-          "timestamp": "2025-09-24T23:42:58.645380Z"
-        },
-        {
-          "id": "95acfe3c-3cf7-40cf-925b-ebd5e98cf80e",
-          "song_title": "Ayiti",
-          "artist": "BIC",
-          "album": null,
-          "genre": "Compas",
-          "position": 5,
-          "previous_position": 6,
-          "votes": 175,
-          "request_count": 58,
-          "chart_category": "most_requested",
-          "artwork_url": null,
-          "spotify_url": null,
-          "youtube_url": null,
-          "weeks_on_chart": 3,
-          "peak_position": 5,
-          "timestamp": "2025-09-24T23:42:58.645386Z"
-        },
-        {
-          "id": "e9edaebf-ff12-4102-a79e-29f14aeb540e",
-          "song_title": "Konpa Love",
-          "artist": "Carimi",
-          "album": null,
-          "genre": "Compas",
-          "position": 6,
-          "previous_position": 7,
-          "votes": 164,
-          "request_count": 52,
-          "chart_category": "most_requested",
-          "artwork_url": null,
-          "spotify_url": null,
-          "youtube_url": null,
-          "weeks_on_chart": 3,
-          "peak_position": 6,
-          "timestamp": "2025-09-24T23:42:58.645392Z"
-        },
-        {
-          "id": "265dae27-cfe4-47b0-99a0-c45343c61544",
-          "song_title": "Mwen Bezwen'w",
-          "artist": "Krezi Mizik",
-          "album": null,
-          "genre": "Compas",
-          "position": 7,
-          "previous_position": 8,
-          "votes": 151,
-          "request_count": 47,
-          "chart_category": "most_requested",
-          "artwork_url": null,
-          "spotify_url": null,
-          "youtube_url": null,
-          "weeks_on_chart": 3,
-          "peak_position": 7,
-          "timestamp": "2025-09-24T23:42:58.645397Z"
-        },
-        {
-          "id": "911f1984-b766-4b87-8fc1-17becc79c4e0",
-          "song_title": "Cheri",
-          "artist": "Zin",
-          "album": null,
-          "genre": "Compas",
-          "position": 8,
-          "previous_position": 9,
-          "votes": 142,
-          "request_count": 44,
-          "chart_category": "most_requested",
-          "artwork_url": null,
-          "spotify_url": null,
-          "youtube_url": null,
-          "weeks_on_chart": 3,
-          "peak_position": 8,
-          "timestamp": "2025-09-24T23:42:58.645403Z"
-        },
-        {
-          "id": "9766af79-d6b3-4a9d-9cf3-da64c24cf743",
-          "song_title": "Lanmou San Fen",
-          "artist": "Djakout Mizik",
-          "album": null,
-          "genre": "Compas",
-          "position": 9,
-          "previous_position": 10,
-          "votes": 138,
-          "request_count": 41,
-          "chart_category": "most_requested",
-          "artwork_url": null,
-          "spotify_url": null,
-          "youtube_url": null,
-          "weeks_on_chart": 3,
-          "peak_position": 9,
-          "timestamp": "2025-09-24T23:42:58.645417Z"
-        },
-        {
-          "id": "a3a69dd7-8236-4aa3-96fa-e8017350f6cb",
-          "song_title": "Peze Kafe",
-          "artist": "Boukan Ginen",
-          "album": null,
-          "genre": "Compas",
-          "position": 10,
+          "genre": null,
+          "position": 11,
           "previous_position": null,
-          "votes": 129,
-          "request_count": 38,
+          "votes": 1,
+          "request_count": 0,
           "chart_category": "most_requested",
           "artwork_url": null,
           "spotify_url": null,
           "youtube_url": null,
-          "weeks_on_chart": 3,
-          "peak_position": 10,
-          "timestamp": "2025-09-24T23:42:58.645423Z"
+          "weeks_on_chart": 1,
+          "peak_position": 11,
+          "timestamp": "2025-09-24T23:42:58.748448Z"
+        },
+        {
+          "id": "8f171903-ccd4-489a-b6d6-6c232252ec79",
+          "song_title": "Test Song",
+          "artist": "Test Artist",
+          "album": null,
+          "genre": null,
+          "position": 11,
+          "previous_position": null,
+          "votes": 1,
+          "request_count": 0,
+          "chart_category": "most_requested",
+          "artwork_url": null,
+          "spotify_url": null,
+          "youtube_url": null,
+          "weeks_on_chart": 1,
+          "peak_position": 11,
+          "timestamp": "2025-09-24T23:42:58.803575Z"
         }
       ],
       "error": null
@@ -753,7 +679,7 @@
       "success": true,
       "response_data": [
         {
-          "id": "9e01e241-fdfa-4bca-bf73-ffb9463bae2c",
+          "id": "dfd7e590-8908-4e1d-a3df-4775dc4240a8",
           "song_title": "Ayiti Cheri",
           "artist": "Manman Brigit",
           "album": null,
@@ -768,10 +694,10 @@
           "youtube_url": null,
           "weeks_on_chart": 3,
           "peak_position": 1,
-          "timestamp": "2025-09-24T23:42:58.678588Z"
+          "timestamp": "2025-09-24T23:43:42.272973Z"
         },
         {
-          "id": "153af95b-cad2-45f8-b514-4c90350e13f3",
+          "id": "a997df19-df30-4936-b2ae-bfa757b55d9a",
           "song_title": "Nou La",
           "artist": "BIC",
           "album": null,
@@ -786,10 +712,10 @@
           "youtube_url": null,
           "weeks_on_chart": 3,
           "peak_position": 2,
-          "timestamp": "2025-09-24T23:42:58.678601Z"
+          "timestamp": "2025-09-24T23:43:42.272993Z"
         },
         {
-          "id": "3cc04f3d-6ab8-4b89-847f-f63a901ff236",
+          "id": "fecc7238-d2c6-4965-997e-d182a1cf5efe",
           "song_title": "Konpa Gonaives",
           "artist": "Septentrional",
           "album": null,
@@ -804,10 +730,10 @@
           "youtube_url": null,
           "weeks_on_chart": 3,
           "peak_position": 3,
-          "timestamp": "2025-09-24T23:42:58.678607Z"
+          "timestamp": "2025-09-24T23:43:42.273001Z"
         },
         {
-          "id": "313d7cdc-8b95-4b21-acbd-8446163e722c",
+          "id": "938eae47-eb38-4801-b9b0-1b58471fa09d",
           "song_title": "Map Marye",
           "artist": "Tabou Combo",
           "album": null,
@@ -822,10 +748,10 @@
           "youtube_url": null,
           "weeks_on_chart": 3,
           "peak_position": 4,
-          "timestamp": "2025-09-24T23:42:58.678613Z"
+          "timestamp": "2025-09-24T23:43:42.273007Z"
         },
         {
-          "id": "9c252018-0b2b-4a1d-81ec-3a3ccc2ed397",
+          "id": "86227e50-34b5-4a2e-9e67-4f5d1788030b",
           "song_title": "Kanga",
           "artist": "Boukman Eksperyans",
           "album": null,
@@ -840,7 +766,7 @@
           "youtube_url": null,
           "weeks_on_chart": 3,
           "peak_position": 5,
-          "timestamp": "2025-09-24T23:42:58.678619Z"
+          "timestamp": "2025-09-24T23:43:42.273013Z"
         }
       ],
       "error": null
@@ -888,7 +814,7 @@
       "success": true,
       "response_data": [
         {
-          "id": "74552631-7836-46ca-a558-d2a7294b5b7c",
+          "id": "dc149878-4ac4-4957-b45c-fe7c8dc99410",
           "question": "Quel est le rythme musical traditionnel le plus populaire d'Ha\u00efti?",
           "options": [
             "Merengue",
@@ -904,7 +830,7 @@
           "points": 10
         },
         {
-          "id": "ebaed8f1-8d8a-4ea6-a8ff-285198368444",
+          "id": "5bc39fe5-78dc-4781-82bf-41f36897d456",
           "question": "Qui est consid\u00e9r\u00e9 comme le 'Roi du Compas'?",
           "options": [
             "Tabou Combo",
@@ -920,7 +846,7 @@
           "points": 10
         },
         {
-          "id": "9aaf7178-81ad-40e3-a171-c6af8795b6e7",
+          "id": "f10decdb-437a-47ca-bfa5-fe32df2ee493",
           "question": "Dans quelle ville se trouve Radio Haiti Fusion?",
           "options": [
             "Cap-Ha\u00eftien",
@@ -936,7 +862,7 @@
           "points": 10
         },
         {
-          "id": "d9ea2639-c6b3-4121-b248-26fc68cc1b4d",
+          "id": "b24c0ff0-ff91-4dba-9338-850ec1880a4c",
           "question": "Quel groupe a popularis\u00e9 la chanson 'Pa Manyen'?",
           "options": [
             "RAM",
@@ -952,7 +878,7 @@
           "points": 10
         },
         {
-          "id": "a4885458-0fae-44e9-ae41-edea3d1c9fbc",
+          "id": "ee6c8270-23b2-41c2-9661-995764ab11aa",
           "question": "Quelle est la date de l'ind\u00e9pendance d'Ha\u00efti?",
           "options": [
             "1er Janvier 1804",
@@ -979,7 +905,7 @@
       "success": true,
       "response_data": [
         {
-          "id": "e8c729c1-bab7-4017-a36b-2894b49f51c3",
+          "id": "d5cb7826-9ac7-43f4-a91f-d86666a7d2f1",
           "question": "Quel est le rythme musical traditionnel le plus populaire d'Ha\u00efti?",
           "options": [
             "Merengue",
@@ -995,7 +921,7 @@
           "points": 10
         },
         {
-          "id": "8fbef968-10d5-4d75-ba21-106dc65a549e",
+          "id": "7e53e853-6027-4ef9-b2e8-841e145013b5",
           "question": "Qui est consid\u00e9r\u00e9 comme le 'Roi du Compas'?",
           "options": [
             "Tabou Combo",
@@ -1011,7 +937,7 @@
           "points": 10
         },
         {
-          "id": "558804d8-81de-4e75-b1d2-ab278489627c",
+          "id": "095498bf-6624-4623-97ff-514790034c7c",
           "question": "Dans quelle ville se trouve Radio Haiti Fusion?",
           "options": [
             "Cap-Ha\u00eftien",
@@ -1027,7 +953,7 @@
           "points": 10
         },
         {
-          "id": "92c39e23-ab38-417c-ba01-7268f242f62e",
+          "id": "d02e12bc-7f50-4c04-b54f-697f11369e09",
           "question": "Quel groupe a popularis\u00e9 la chanson 'Pa Manyen'?",
           "options": [
             "RAM",
@@ -1043,7 +969,7 @@
           "points": 10
         },
         {
-          "id": "47c5fccb-e215-4996-b1ac-7f9e0df93a8b",
+          "id": "944d7ada-f573-4309-acd0-d0dbf44effcb",
           "question": "Quelle est la date de l'ind\u00e9pendance d'Ha\u00efti?",
           "options": [
             "1er Janvier 1804",
@@ -1070,7 +996,7 @@
       "success": true,
       "response_data": [
         {
-          "id": "ff54eb02-16b7-4483-82fb-8c4807915c0c",
+          "id": "04faea76-f87d-4e33-beac-a717fc46a9b4",
           "question": "Quel est le rythme musical traditionnel le plus populaire d'Ha\u00efti?",
           "options": [
             "Merengue",
@@ -1086,7 +1012,7 @@
           "points": 10
         },
         {
-          "id": "b2bcc580-db76-42ee-a15f-bf8d2eb5f789",
+          "id": "ece862f9-6ba7-43c9-a620-f54c0f37cfd1",
           "question": "Qui est consid\u00e9r\u00e9 comme le 'Roi du Compas'?",
           "options": [
             "Tabou Combo",
@@ -1102,7 +1028,7 @@
           "points": 10
         },
         {
-          "id": "5af6cb7f-a06f-4d4f-80bf-4accc9820c3f",
+          "id": "0a9b4ed5-a664-47d0-8194-e82d5489a2cc",
           "question": "Dans quelle ville se trouve Radio Haiti Fusion?",
           "options": [
             "Cap-Ha\u00eftien",
@@ -1118,7 +1044,7 @@
           "points": 10
         },
         {
-          "id": "3e81d087-527c-4195-91f0-f3d470b8cf14",
+          "id": "689603d1-d320-4422-b8e8-ad07b59dabdb",
           "question": "Quel groupe a popularis\u00e9 la chanson 'Pa Manyen'?",
           "options": [
             "RAM",
@@ -1134,7 +1060,7 @@
           "points": 10
         },
         {
-          "id": "ce790f75-cf18-48ff-844a-82c78ae8b648",
+          "id": "7d1570d7-3161-4698-b4ea-181a840b5f47",
           "question": "Quelle est la date de l'ind\u00e9pendance d'Ha\u00efti?",
           "options": [
             "1er Janvier 1804",
@@ -1160,11 +1086,11 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "b6ef1d63-8775-422b-9918-a5c4eff9bf12",
+        "id": "a8a06fa6-a3f3-4ce7-bf91-f14ac297c3a9",
         "player_name": "Test Player",
         "questions": [
           {
-            "id": "021adf2c-0a8f-497a-9317-92e1c9bdfc04",
+            "id": "c92dcd96-6ce3-4175-8ebc-1142333e9c74",
             "question": "Quel est le rythme musical traditionnel le plus populaire d'Ha\u00efti?",
             "options": [
               "Merengue",
@@ -1180,7 +1106,7 @@
             "points": 10
           },
           {
-            "id": "6a27455f-280e-4fef-9670-858b2ffed3b4",
+            "id": "78766856-fdea-45ea-a4f2-008a232d77f5",
             "question": "Qui est consid\u00e9r\u00e9 comme le 'Roi du Compas'?",
             "options": [
               "Tabou Combo",
@@ -1196,7 +1122,7 @@
             "points": 10
           },
           {
-            "id": "4ded276c-4312-492e-a05f-d45a40388a62",
+            "id": "430a687c-51f0-4704-a851-f9b9a5a36440",
             "question": "Dans quelle ville se trouve Radio Haiti Fusion?",
             "options": [
               "Cap-Ha\u00eftien",
@@ -1212,7 +1138,7 @@
             "points": 10
           },
           {
-            "id": "77fbfb5c-d1eb-4917-90b0-f8ed189dc137",
+            "id": "e9484037-9e12-4c4a-9407-5bf9c83fa3e7",
             "question": "Quel groupe a popularis\u00e9 la chanson 'Pa Manyen'?",
             "options": [
               "RAM",
@@ -1228,7 +1154,7 @@
             "points": 10
           },
           {
-            "id": "a4d2b506-28a7-46d2-957d-714842e45298",
+            "id": "5906d65d-077a-4215-872a-38f9533f3d80",
             "question": "Quelle est la date de l'ind\u00e9pendance d'Ha\u00efti?",
             "options": [
               "1er Janvier 1804",
@@ -1249,7 +1175,7 @@
         "lives": 3,
         "category": "mixed",
         "status": "active",
-        "started_at": "2025-09-24T23:42:58.967304Z",
+        "started_at": "2025-09-24T23:43:42.522465Z",
         "completed_at": null
       },
       "error": null
@@ -1262,11 +1188,11 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "8c486236-23a2-4a07-a0e6-946c4c11c295",
+        "id": "2bbf2781-ad8a-4bab-a398-15e0c3163ca1",
         "player_name": "Music Lover",
         "questions": [
           {
-            "id": "438cf999-56e2-4d15-aac6-b0853801590c",
+            "id": "31bf83b8-895c-4ae7-ba3e-f31ddbeb8c57",
             "question": "Quel est le rythme musical traditionnel le plus populaire d'Ha\u00efti?",
             "options": [
               "Merengue",
@@ -1282,7 +1208,7 @@
             "points": 10
           },
           {
-            "id": "f26faddb-1344-4942-b833-66ce93027311",
+            "id": "9248a54d-9e5f-4289-bb4d-50f9da3be344",
             "question": "Qui est consid\u00e9r\u00e9 comme le 'Roi du Compas'?",
             "options": [
               "Tabou Combo",
@@ -1298,7 +1224,7 @@
             "points": 10
           },
           {
-            "id": "74998285-ea41-45e0-9541-0e1f6eabf386",
+            "id": "c0905796-3dba-459d-a830-c3da4cdbb9d4",
             "question": "Dans quelle ville se trouve Radio Haiti Fusion?",
             "options": [
               "Cap-Ha\u00eftien",
@@ -1314,7 +1240,7 @@
             "points": 10
           },
           {
-            "id": "19838189-5c9e-4430-80b6-26000a9028c1",
+            "id": "131b1fa0-d1fc-4250-ac68-1d1495527c92",
             "question": "Quel groupe a popularis\u00e9 la chanson 'Pa Manyen'?",
             "options": [
               "RAM",
@@ -1330,7 +1256,7 @@
             "points": 10
           },
           {
-            "id": "fd3894a2-905b-427e-9679-14ee60f0c887",
+            "id": "b288839e-3a21-4acf-a293-487cf62f17bf",
             "question": "Quelle est la date de l'ind\u00e9pendance d'Ha\u00efti?",
             "options": [
               "1er Janvier 1804",
@@ -1351,7 +1277,7 @@
         "lives": 3,
         "category": "haitian_music",
         "status": "active",
-        "started_at": "2025-09-24T23:42:59.013411Z",
+        "started_at": "2025-09-24T23:43:42.558745Z",
         "completed_at": null
       },
       "error": null
@@ -1359,48 +1285,38 @@
     {
       "test_name": "Answer Trivia Question (Correct)",
       "method": "POST",
-      "endpoint": "trivia/games/b6ef1d63-8775-422b-9918-a5c4eff9bf12/answer",
+      "endpoint": "trivia/games/a8a06fa6-a3f3-4ce7-bf91-f14ac297c3a9/answer?selected_answer=1",
       "expected_status": 200,
-      "actual_status": 422,
-      "success": false,
-      "response_data": null,
-      "error": {
-        "detail": [
-          {
-            "type": "missing",
-            "loc": [
-              "query",
-              "selected_answer"
-            ],
-            "msg": "Field required",
-            "input": null,
-            "url": "https://errors.pydantic.dev/2.11/v/missing"
-          }
-        ]
-      }
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "is_correct": true,
+        "points_earned": 10,
+        "total_score": 10,
+        "lives_remaining": 3,
+        "correct_answer": 1,
+        "explanation": "Le compas (ou konpa) est le rythme musical traditionnel le plus populaire d'Ha\u00efti, cr\u00e9\u00e9 dans les ann\u00e9es 1950.",
+        "game_status": "active"
+      },
+      "error": null
     },
     {
       "test_name": "Answer Trivia Question (Incorrect)",
       "method": "POST",
-      "endpoint": "trivia/games/b6ef1d63-8775-422b-9918-a5c4eff9bf12/answer",
+      "endpoint": "trivia/games/a8a06fa6-a3f3-4ce7-bf91-f14ac297c3a9/answer?selected_answer=2",
       "expected_status": 200,
-      "actual_status": 422,
-      "success": false,
-      "response_data": null,
-      "error": {
-        "detail": [
-          {
-            "type": "missing",
-            "loc": [
-              "query",
-              "selected_answer"
-            ],
-            "msg": "Field required",
-            "input": null,
-            "url": "https://errors.pydantic.dev/2.11/v/missing"
-          }
-        ]
-      }
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "is_correct": false,
+        "points_earned": 0,
+        "total_score": 10,
+        "lives_remaining": 2,
+        "correct_answer": 1,
+        "explanation": "Nemours Jean-Baptiste est consid\u00e9r\u00e9 comme le cr\u00e9ateur et le roi du compas direct.",
+        "game_status": "active"
+      },
+      "error": null
     },
     {
       "test_name": "Get Trivia Leaderboard",
