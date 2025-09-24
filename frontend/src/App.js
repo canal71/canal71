@@ -60,6 +60,8 @@ function App() {
         }]);
       } else if (data.type === 'comments_cleared') {
         setComments([]);
+      } else if (data.type === 'now_playing_update') {
+        setNowPlaying(data.track);
       }
     };
     
