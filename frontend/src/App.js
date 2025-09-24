@@ -1375,6 +1375,69 @@ function App() {
 
           {/* Comments Sidebar */}
           <div className="lg:col-span-1 space-y-6">
+            {/* Live Studio Status */}
+            {studioStatus && (
+              <Card className={`backdrop-blur-sm border-slate-600/50 ${studioStatus.is_live ? 'bg-gradient-to-r from-red-600/30 to-red-500/20' : 'bg-slate-800/40'}`}>
+                <CardContent className="p-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-lg font-bold text-white flex items-center">
+                      <svg className="w-5 h-5 mr-2 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clipRule="evenodd" />
+                      </svg>
+                      Studio Status
+                    </h3>
+                    <Badge className={`${studioStatus.is_live ? 'bg-red-500 animate-pulse' : 'bg-gray-500'} text-white text-xs`}>
+                      {studioStatus.is_live ? 'EN DIRECT' : 'HORS ANTENNE'}
+                    </Badge>
+                  </div>
+                  
+                  {studioStatus.is_live ? (
+                    <div className="space-y-3">
+                      <div className="bg-red-500/10 rounded-lg p-3 border border-red-500/30">
+                        <div className="flex items-center space-x-2 mb-2">
+                          <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                          <span className="text-red-400 font-semibold text-sm">LIVE DU STUDIO</span>
+                        </div>
+                        <div className="space-y-1">
+                          <p className="text-white font-medium">{studioStatus.dj_name}</p>
+                          <p className="text-slate-300 text-sm">{studioStatus.show_name}</p>
+                          <p className="text-slate-400 text-xs">{studioStatus.studio_location}</p>
+                        </div>
+                      </div>
+                      
+                      <div className="grid grid-cols-2 gap-3 text-xs">
+                        <div className="bg-slate-700/50 rounded p-2">
+                          <span className="text-slate-400">Début:</span>
+                          <p className="text-white font-mono">
+                            {new Date(studioStatus.started_at).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+                          </p>
+                        </div>
+                        {studioStatus.next_break && (
+                          <div className="bg-slate-700/50 rounded p-2">
+                            <span className="text-slate-400">Pause:</span>
+                            <p className="text-white font-mono">{studioStatus.next_break}</p>
+                          </div>
+                        )}
+                      </div>
+                      
+                      <div className="flex items-center justify-between pt-2 border-t border-slate-600/50">
+                        <span className="text-slate-400 text-xs">Appels en attente:</span>
+                        <span className="text-orange-400 font-semibold">{studioStatus.live_callers}</span>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="text-center py-4">
+                      <svg className="w-12 h-12 text-slate-500 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM12.293 7.293a1 1 0 011.414 0L15 8.586l1.293-1.293a1 1 0 111.414 1.414L16.414 10l1.293 1.293a1 1 0 01-1.414 1.414L15 11.414l-1.293 1.293a1 1 0 01-1.414-1.414L13.586 10l-1.293-1.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                      <p className="text-slate-400 text-sm">Programmation automatique</p>
+                      <p className="text-slate-500 text-xs">Aucun DJ en direct</p>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            )}
+
             {/* Song Request Widget */}
             <Card className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 backdrop-blur-sm border-slate-600/50">
               <CardContent className="p-4">
