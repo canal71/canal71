@@ -116,6 +116,15 @@ function App() {
     }
   };
 
+  const loadNowPlaying = async () => {
+    try {
+      const response = await axios.get(`${API}/now-playing`);
+      setNowPlaying(response.data);
+    } catch (error) {
+      console.error('Failed to load now playing:', error);
+    }
+  };
+
   const togglePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
