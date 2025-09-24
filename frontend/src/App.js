@@ -2104,14 +2104,110 @@ function App() {
                   Demandes de Chansons
                 </h3>
                 
-                {!showRequestForm ? (
-                  <Button 
-                    onClick={() => setShowRequestForm(true)}
-                    className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
-                    data-testid="request-song-button"
-                  >
-                    🎵 Demander une Chanson
-                  </Button>
+                {!showRequestForm && !showVoiceRecorder ? (
+                  <div className="space-y-2">
+                    <Button 
+                      onClick={() => setShowRequestForm(true)}
+                      className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+                      data-testid="request-song-button"
+                    >
+                      🎵 Demander une Chanson
+                    </Button>
+                    <Button 
+                      onClick={() => setShowVoiceRecorder(true)}
+                      className="w-full bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600"
+                      data-testid="voice-request-button"
+                    >
+                      🎤 Message Vocal
+                    </Button>
+                  </div>
+                ) : showVoiceRecorder ? (
+                  <div className="space-y-4">
+                    <div className="bg-slate-700/50 rounded-lg p-4 border border-green-500/30">
+                      <div className="flex items-center justify-center mb-3">
+                        <div className="flex items-center space-x-2">
+                          <div className={`w-3 h-3 rounded-full ${isRecording ? 'bg-red-500 animate-pulse' : 'bg-gray-400'}`}></div>
+                          <span className={`font-medium ${isRecording ? 'text-red-400' : 'text-slate-300'}`}>
+                            {isRecording ? 'Enregistrement...' : 'Prêt à enregistrer'}
+                          </span>
+                        </div>
+                      </div>
+                      
+                      {isRecording && (
+                        <div className="text-center mb-3">
+                          <span className="text-lg font-mono text-white">
+                            {Math.floor(recordingTime / 60)}:{(recordingTime % 60).toString().padStart(2, '0')}
+                          </span>
+                          <p className="text-xs text-slate-400">max 60 secondes</p>
+                        </div>
+                      )}
+                      
+                      <div className="flex justify-center space-x-2 mb-3">
+                        {!isRecording && !recordedAudio ? (
+                          <Button 
+                            onClick={startVoiceRecording}
+                            className="bg-red-500 hover:bg-red-600 text-white"
+                          >
+                            🎤 Commencer
+                          </Button>
+                        ) : isRecording ? (
+                          <Button 
+                            onClick={stopVoiceRecording}
+                            className="bg-gray-600 hover:bg-gray-700 text-white"
+                          >
+                            ⏹️ Arrêter
+                          </Button>
+                        ) : recordedAudio ? (
+                          <div className="flex space-x-2">
+                            <Button 
+                              onClick={() => {
+                                const audio = new Audio(URL.createObjectURL(recordedAudio));
+                                audio.play();
+                              }}
+                              className="bg-blue-500 hover:bg-blue-600 text-white"
+                            >
+                              ▶️ Écouter
+                            </Button>
+                            <Button 
+                              onClick={() => {
+                                setRecordedAudio(null);
+                                setRecordingTime(0);
+                              }}
+                              className="bg-yellow-500 hover:bg-yellow-600 text-white"
+                            >
+                              🔄 Refaire
+                            </Button>
+                          </div>
+                        )}
+                      </div>
+                      
+                      {recordedAudio && (
+                        <div className="space-y-2">
+                          <Input
+                            placeholder="Votre nom"
+                            value={newRequest.listener_name}
+                            onChange={(e) => setNewRequest({...newRequest, listener_name: e.target.value})}
+                            className="bg-slate-700/60 border-slate-500 text-white placeholder:text-slate-300"
+                          />
+                          <div className="flex space-x-2">
+                            <Button 
+                              onClick={() => sendVoiceMessage(newRequest.listener_name)}
+                              className="flex-1 bg-green-600 hover:bg-green-700"
+                              disabled={!newRequest.listener_name.trim()}
+                            >
+                              📤 Envoyer
+                            </Button>
+                            <Button 
+                              onClick={cancelVoiceRecording}
+                              variant="outline"
+                            >
+                              ❌ Annuler
+                            </Button>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 ) : (
                   <form onSubmit={handleSongRequest} className="space-y-3">
                     <Input
