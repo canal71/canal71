@@ -357,6 +357,41 @@ function App() {
     return () => clearInterval(interval);
   }, [promotionalVideos, selectedVideoCategory, currentVideoSlide]);
 
+  const loadAdvertisements = async () => {
+    try {
+      const response = await axios.get(`${API}/ads/banners`);
+      setAdvertisements(response.data);
+    } catch (error) {
+      console.error('Failed to load advertisements:', error);
+    }
+  };
+
+  // Auto-advance ads carousel based on ad duration
+  useEffect(() => {
+    if (advertisements.length === 0) return;
+    
+    const currentAd = advertisements[currentAdSlide];
+    if (!currentAd) return;
+    
+    const interval = setInterval(() => {
+      setCurrentAdSlide(prev => (prev + 1) % advertisements.length);
+    }, (currentAd.duration_seconds || 5) * 1000);
+    
+    return () => clearInterval(interval);
+  }, [advertisements, currentAdSlide]);
+
+  const handleAdClick = async (ad) => {
+    if (ad.link_url) {
+      try {
+        await axios.post(`${API}/ads/${ad.id}/click`);
+        window.open(ad.link_url, '_blank');
+      } catch (error) {
+        console.error('Failed to track ad click:', error);
+        window.open(ad.link_url, '_blank');
+      }
+    }
+  };
+
   const togglePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
