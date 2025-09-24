@@ -458,7 +458,61 @@ async def get_world_news():
 # Station Info API
 @api_router.get("/station/about")
 async def get_station_info():
-    return StationInfo()
+    return StationInfo(
+        promo_email="haitifuionpromo@gmail.com",
+        website="www.radiohaitifusion.com",
+        whatsapp="5026017368"
+    )
+
+# Social Media API
+@api_router.get("/social-media")
+async def get_social_media():
+    # Return social media platforms for Radio Haiti Fusion
+    social_platforms = [
+        {
+            "platform": "WhatsApp",
+            "handle": "5026017368",
+            "url": "https://wa.me/5026017368",
+            "follower_count": 1500,
+            "is_active": True
+        },
+        {
+            "platform": "Facebook",
+            "handle": "@RadioHaitiFusion",
+            "url": "https://facebook.com/RadioHaitiFusion",
+            "follower_count": 8500,
+            "is_active": True
+        },
+        {
+            "platform": "Instagram",
+            "handle": "@radiohaitifusion",
+            "url": "https://instagram.com/radiohaitifusion",
+            "follower_count": 5200,
+            "is_active": True
+        },
+        {
+            "platform": "Twitter",
+            "handle": "@RadioHaitiFusion",
+            "url": "https://twitter.com/RadioHaitiFusion",
+            "follower_count": 3100,
+            "is_active": True
+        },
+        {
+            "platform": "YouTube",
+            "handle": "Radio Haiti Fusion",
+            "url": "https://youtube.com/@RadioHaitiFusion",
+            "follower_count": 2800,
+            "is_active": True
+        },
+        {
+            "platform": "TikTok",
+            "handle": "@radiohaitifusion",
+            "url": "https://tiktok.com/@radiohaitifusion",
+            "follower_count": 4600,
+            "is_active": True
+        }
+    ]
+    return [SocialMedia(**platform) for platform in social_platforms]
 
 # Donations API
 @api_router.get("/donations/info")
