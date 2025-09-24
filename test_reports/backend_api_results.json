@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-09-24T15:11:41.511835",
+  "timestamp": "2025-09-24T23:20:07.081705",
   "summary": {
-    "total_tests": 11,
-    "passed_tests": 11,
+    "total_tests": 21,
+    "passed_tests": 21,
     "failed_tests": 0,
     "success_rate": 100.0
   },
@@ -28,9 +28,13 @@
       "success": true,
       "response_data": {
         "is_live": true,
-        "current_song": "Amazing Radio - Live Stream",
-        "current_artist": "Your Favorite Radio Station",
-        "listeners": 1247
+        "current_song": "Mwen Renmen'w",
+        "current_artist": "T-Vice",
+        "listeners": 1247,
+        "album": "Best of Compas",
+        "artwork_url": "https://i.scdn.co/image/ab67616d0000b273f3b7b9a1b5b2c1e8d4c0b2a1",
+        "duration": "4:32",
+        "genre": "Compas"
       },
       "error": null
     },
@@ -43,10 +47,22 @@
       "success": true,
       "response_data": [
         {
-          "id": "b057e96c-2b1e-482f-88fb-3497e8872133",
-          "username": "TestUser",
-          "message": "Great music tonight!",
-          "timestamp": "2025-09-24T15:09:13.536087Z"
+          "id": "4e19f3a7-18b7-482a-bfc6-aee9ae3ca53f",
+          "username": "Marie",
+          "message": "Mwen renmen mizik sa a! Viv Radio Haiti Fusion! \ud83c\udded\ud83c\uddf9",
+          "timestamp": "2025-09-24T15:14:48.094037Z"
+        },
+        {
+          "id": "d9104723-61d9-435d-96d2-20d24581da35",
+          "username": "Jean",
+          "message": "Excellent kompa! Kontinye ak bon travay la! \ud83c\udfb5",
+          "timestamp": "2025-09-24T15:14:52.885886Z"
+        },
+        {
+          "id": "6409044b-84e5-49df-8b9f-fdba045e9301",
+          "username": "RadioFan",
+          "message": "Radio Haiti Fusion live ak bon mizik! \ud83c\udfb5\ud83c\udded\ud83c\uddf9",
+          "timestamp": "2025-09-24T15:34:19.389918Z"
         }
       ],
       "error": null
@@ -59,10 +75,10 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "dc1f8643-31f1-416a-9d8d-c2cab2fd9577",
-        "username": "test_user_1758726699",
+        "id": "333ea413-7282-4fbd-8883-ee325ab8fec6",
+        "username": "test_user_1758756003",
         "message": "This is a test comment for the radio station!",
-        "timestamp": "2025-09-24T15:11:39.758098Z"
+        "timestamp": "2025-09-24T23:20:03.416876Z"
       },
       "error": null
     },
@@ -75,16 +91,28 @@
       "success": true,
       "response_data": [
         {
-          "id": "b057e96c-2b1e-482f-88fb-3497e8872133",
-          "username": "TestUser",
-          "message": "Great music tonight!",
-          "timestamp": "2025-09-24T15:09:13.536087Z"
+          "id": "4e19f3a7-18b7-482a-bfc6-aee9ae3ca53f",
+          "username": "Marie",
+          "message": "Mwen renmen mizik sa a! Viv Radio Haiti Fusion! \ud83c\udded\ud83c\uddf9",
+          "timestamp": "2025-09-24T15:14:48.094037Z"
         },
         {
-          "id": "dc1f8643-31f1-416a-9d8d-c2cab2fd9577",
-          "username": "test_user_1758726699",
+          "id": "d9104723-61d9-435d-96d2-20d24581da35",
+          "username": "Jean",
+          "message": "Excellent kompa! Kontinye ak bon travay la! \ud83c\udfb5",
+          "timestamp": "2025-09-24T15:14:52.885886Z"
+        },
+        {
+          "id": "6409044b-84e5-49df-8b9f-fdba045e9301",
+          "username": "RadioFan",
+          "message": "Radio Haiti Fusion live ak bon mizik! \ud83c\udfb5\ud83c\udded\ud83c\uddf9",
+          "timestamp": "2025-09-24T15:34:19.389918Z"
+        },
+        {
+          "id": "333ea413-7282-4fbd-8883-ee325ab8fec6",
+          "username": "test_user_1758756003",
           "message": "This is a test comment for the radio station!",
-          "timestamp": "2025-09-24T15:11:39.758098Z"
+          "timestamp": "2025-09-24T23:20:03.416876Z"
         }
       ],
       "error": null
@@ -97,10 +125,10 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "9f4598ae-2e22-4f83-85d4-8a94f387d239",
+        "id": "4e68b25d-1f73-42e5-8d7b-685374bc75aa",
         "username": "Alice",
         "message": "Great music!",
-        "timestamp": "2025-09-24T15:11:39.833800Z"
+        "timestamp": "2025-09-24T23:20:03.502855Z"
       },
       "error": null
     },
@@ -112,10 +140,10 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "e612222f-b238-49b7-a822-02e9c27e8f0d",
+        "id": "3f8b664f-489b-4f32-a199-f2c70b03f71c",
         "username": "Bob",
         "message": "Love this station!",
-        "timestamp": "2025-09-24T15:11:40.372807Z"
+        "timestamp": "2025-09-24T23:20:04.037353Z"
       },
       "error": null
     },
@@ -127,10 +155,10 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "b96e43de-7882-4640-92d3-07e994161149",
+        "id": "d170d4d7-e728-499a-8d33-8fcf7bb5c28e",
         "username": "Charlie",
         "message": "Keep it up!",
-        "timestamp": "2025-09-24T15:11:40.933793Z"
+        "timestamp": "2025-09-24T23:20:04.579007Z"
       },
       "error": null
     },
@@ -157,6 +185,251 @@
       "error": null
     },
     {
+      "test_name": "Get Voice Messages (Empty)",
+      "method": "GET",
+      "endpoint": "voice-messages",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": [],
+      "error": null
+    },
+    {
+      "test_name": "Create Voice Message",
+      "method": "POST",
+      "endpoint": "voice-messages",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "id": "2625d132-ac38-4b5b-9a24-a8d5d9648631",
+        "listener_name": "Maria Rodriguez",
+        "message_type": "song_request",
+        "audio_data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+        "duration": 5.2,
+        "timestamp": "2025-09-24T23:20:05.228468Z",
+        "status": "pending",
+        "transcription": null
+      },
+      "error": null
+    },
+    {
+      "test_name": "Create Voice Message (Invalid - Missing Audio)",
+      "method": "POST",
+      "endpoint": "voice-messages",
+      "expected_status": 422,
+      "actual_status": 422,
+      "success": true,
+      "response_data": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "audio_data"
+            ],
+            "msg": "Field required",
+            "input": {
+              "listener_name": "Test User",
+              "message_type": "vocal_request"
+            },
+            "url": "https://errors.pydantic.dev/2.11/v/missing"
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_name": "Create Voice Message 1 (song_request)",
+      "method": "POST",
+      "endpoint": "voice-messages",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "id": "742d7757-33ff-45ca-bd45-a72361ac2681",
+        "listener_name": "Jean Baptiste",
+        "message_type": "song_request",
+        "audio_data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+        "duration": 3.5,
+        "timestamp": "2025-09-24T23:20:05.327713Z",
+        "status": "pending",
+        "transcription": null
+      },
+      "error": null
+    },
+    {
+      "test_name": "Create Voice Message 2 (dedication)",
+      "method": "POST",
+      "endpoint": "voice-messages",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "id": "1d052417-bbd0-4286-ac90-4fbfd1a40dd5",
+        "listener_name": "Marie Claire",
+        "message_type": "dedication",
+        "audio_data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+        "duration": 7.8,
+        "timestamp": "2025-09-24T23:20:05.891353Z",
+        "status": "pending",
+        "transcription": null
+      },
+      "error": null
+    },
+    {
+      "test_name": "Create Voice Message 3 (shoutout)",
+      "method": "POST",
+      "endpoint": "voice-messages",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "id": "78f7af21-8325-4a02-8400-15da4b6a70d9",
+        "listener_name": "Pierre Louis",
+        "message_type": "shoutout",
+        "audio_data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+        "duration": 4.2,
+        "timestamp": "2025-09-24T23:20:06.430544Z",
+        "status": "pending",
+        "transcription": null
+      },
+      "error": null
+    },
+    {
+      "test_name": "Get Voice Messages (With Data)",
+      "method": "GET",
+      "endpoint": "voice-messages",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "2625d132-ac38-4b5b-9a24-a8d5d9648631",
+          "listener_name": "Maria Rodriguez",
+          "message_type": "song_request",
+          "audio_data": null,
+          "duration": 5.2,
+          "timestamp": "2025-09-24T23:20:05.228468Z",
+          "status": "pending",
+          "transcription": null
+        },
+        {
+          "id": "742d7757-33ff-45ca-bd45-a72361ac2681",
+          "listener_name": "Jean Baptiste",
+          "message_type": "song_request",
+          "audio_data": null,
+          "duration": 3.5,
+          "timestamp": "2025-09-24T23:20:05.327713Z",
+          "status": "pending",
+          "transcription": null
+        },
+        {
+          "id": "1d052417-bbd0-4286-ac90-4fbfd1a40dd5",
+          "listener_name": "Marie Claire",
+          "message_type": "dedication",
+          "audio_data": null,
+          "duration": 7.8,
+          "timestamp": "2025-09-24T23:20:05.891353Z",
+          "status": "pending",
+          "transcription": null
+        },
+        {
+          "id": "78f7af21-8325-4a02-8400-15da4b6a70d9",
+          "listener_name": "Pierre Louis",
+          "message_type": "shoutout",
+          "audio_data": null,
+          "duration": 4.2,
+          "timestamp": "2025-09-24T23:20:06.430544Z",
+          "status": "pending",
+          "transcription": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "test_name": "Get Voice Messages (Pending Status)",
+      "method": "GET",
+      "endpoint": "voice-messages?status=pending",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "2625d132-ac38-4b5b-9a24-a8d5d9648631",
+          "listener_name": "Maria Rodriguez",
+          "message_type": "song_request",
+          "audio_data": null,
+          "duration": 5.2,
+          "timestamp": "2025-09-24T23:20:05.228468Z",
+          "status": "pending",
+          "transcription": null
+        },
+        {
+          "id": "742d7757-33ff-45ca-bd45-a72361ac2681",
+          "listener_name": "Jean Baptiste",
+          "message_type": "song_request",
+          "audio_data": null,
+          "duration": 3.5,
+          "timestamp": "2025-09-24T23:20:05.327713Z",
+          "status": "pending",
+          "transcription": null
+        },
+        {
+          "id": "1d052417-bbd0-4286-ac90-4fbfd1a40dd5",
+          "listener_name": "Marie Claire",
+          "message_type": "dedication",
+          "audio_data": null,
+          "duration": 7.8,
+          "timestamp": "2025-09-24T23:20:05.891353Z",
+          "status": "pending",
+          "transcription": null
+        },
+        {
+          "id": "78f7af21-8325-4a02-8400-15da4b6a70d9",
+          "listener_name": "Pierre Louis",
+          "message_type": "shoutout",
+          "audio_data": null,
+          "duration": 4.2,
+          "timestamp": "2025-09-24T23:20:06.430544Z",
+          "status": "pending",
+          "transcription": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "test_name": "Create Voice Message for Audio Test",
+      "method": "POST",
+      "endpoint": "voice-messages",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "id": "7ca5eda3-7542-4aba-a37b-a964f1631f4d",
+        "listener_name": "Audio Test User",
+        "message_type": "song_request",
+        "audio_data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
+        "duration": 2.5,
+        "timestamp": "2025-09-24T23:20:07.041606Z",
+        "status": "pending",
+        "transcription": null
+      },
+      "error": null
+    },
+    {
+      "test_name": "Get Voice Message Audio",
+      "method": "GET",
+      "endpoint": "voice-messages/7ca5eda3-7542-4aba-a37b-a964f1631f4d/audio",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "audio_data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA="
+      },
+      "error": null
+    },
+    {
       "test_name": "WebSocket Endpoint Check",
       "method": "WebSocket",
       "endpoint": "/ws",
@@ -164,7 +437,7 @@
       "actual_status": "Deferred to Frontend Test",
       "success": true,
       "response_data": {
-        "websocket_url": "wss://radio-pulse-13.preview.emergentagent.com/ws"
+        "websocket_url": "wss://radiofusion.preview.emergentagent.com/ws"
       },
       "error": null
     }
