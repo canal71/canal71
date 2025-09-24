@@ -2104,24 +2104,7 @@ function App() {
                   Demandes de Chansons
                 </h3>
                 
-                {!showRequestForm && !showVoiceRecorder ? (
-                  <div className="space-y-2">
-                    <Button 
-                      onClick={() => setShowRequestForm(true)}
-                      className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
-                      data-testid="request-song-button"
-                    >
-                      🎵 Demander une Chanson
-                    </Button>
-                    <Button 
-                      onClick={() => setShowVoiceRecorder(true)}
-                      className="w-full bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600"
-                      data-testid="voice-request-button"
-                    >
-                      🎤 Message Vocal
-                    </Button>
-                  </div>
-                ) : showVoiceRecorder ? (
+                {showVoiceRecorder ? (
                   <div className="space-y-4">
                     <div className="bg-slate-700/50 rounded-lg p-4 border border-green-500/30">
                       <div className="flex items-center justify-center mb-3">
@@ -2143,21 +2126,23 @@ function App() {
                       )}
                       
                       <div className="flex justify-center space-x-2 mb-3">
-                        {!isRecording && !recordedAudio ? (
+                        {!isRecording && !recordedAudio && (
                           <Button 
                             onClick={startVoiceRecording}
                             className="bg-red-500 hover:bg-red-600 text-white"
                           >
                             🎤 Commencer
                           </Button>
-                        ) : isRecording ? (
+                        )}
+                        {isRecording && (
                           <Button 
                             onClick={stopVoiceRecording}
                             className="bg-gray-600 hover:bg-gray-700 text-white"
                           >
                             ⏹️ Arrêter
                           </Button>
-                        ) : recordedAudio ? (
+                        )}
+                        {recordedAudio && (
                           <div className="flex space-x-2">
                             <Button 
                               onClick={() => {
@@ -2208,6 +2193,7 @@ function App() {
                       )}
                     </div>
                   </div>
+                ) : showRequestForm ? (
                 ) : (
                   <form onSubmit={handleSongRequest} className="space-y-3">
                     <Input
