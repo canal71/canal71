@@ -658,7 +658,7 @@ function App() {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
             {/* Modern Radio/TV Player */}
-            <Card className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 shadow-2xl border border-orange-500/30 overflow-hidden">
+            <Card className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 shadow-2xl border border-orange-500/30 overflow-hidden" style={{boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(249, 115, 22, 0.1), 0 10px 15px -3px rgba(249, 115, 22, 0.2)'}}>
               <CardContent className="p-0">
                 {/* Logo Banner Header */}
                 <div 
