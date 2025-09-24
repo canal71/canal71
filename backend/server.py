@@ -262,6 +262,28 @@ class VideoStreamStatus(BaseModel):
     cameras: List[str] = ["Studio Principal", "Studio 2", "Extérieur"]
     current_camera: str = "Studio Principal"
 
+class PromotionalVideo(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    title: str
+    description: str
+    video_url: str
+    thumbnail_url: Optional[str] = None
+    duration: Optional[str] = None
+    category: str = "promotion"  # promotion, interview, concert, behind_scenes
+    view_count: int = 0
+    likes: int = 0
+    upload_date: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    is_featured: bool = False
+
+class VideoUpload(BaseModel):
+    title: str
+    description: str
+    video_url: str
+    thumbnail_url: Optional[str] = None
+    duration: Optional[str] = None
+    category: str = "promotion"
+    is_featured: bool = False
+
 # Helper function for MongoDB serialization
 def prepare_for_mongo(data):
     if isinstance(data, dict):
