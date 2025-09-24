@@ -785,22 +785,68 @@ function App() {
                       </div>
                     </div>
 
-                    {/* PayPal Info */}
-                    <div className="bg-slate-700/30 rounded-lg p-3 mb-3">
-                      <p className="text-slate-400 text-xs mb-1">PayPal:</p>
-                      <p className="text-green-400 text-sm font-mono">{donationInfo.paypal_email}</p>
+                    {/* Payment Methods Details */}
+                    <div className="space-y-3 mb-4">
+                      <div className="bg-slate-700/30 rounded-lg p-3">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-slate-400 text-xs font-semibold">PayPal:</span>
+                          <Button 
+                            size="sm" 
+                            variant="outline" 
+                            className="h-6 px-2 text-xs border-blue-500 text-blue-400 hover:bg-blue-500/10"
+                            onClick={() => window.open(`https://paypal.me/${donationInfo.paypal_email?.replace('@gmail.com', '')}`, '_blank')}
+                          >
+                            Envoyer
+                          </Button>
+                        </div>
+                        <p className="text-green-400 text-sm font-mono">{donationInfo.paypal_email}</p>
+                      </div>
+                      
+                      <div className="bg-slate-700/30 rounded-lg p-3">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-slate-400 text-xs font-semibold">Zelle:</span>
+                          <span className="text-purple-400 text-xs">Email</span>
+                        </div>
+                        <p className="text-green-400 text-sm font-mono">{donationInfo.zelle_email}</p>
+                      </div>
+
+                      <div className="bg-slate-700/30 rounded-lg p-3">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-slate-400 text-xs font-semibold">Cash App:</span>
+                          <span className="text-green-400 text-xs">$5026017368</span>
+                        </div>
+                        <p className="text-green-400 text-sm font-mono">{donationInfo.cashapp_number}</p>
+                      </div>
                     </div>
 
                     {/* Donation Buttons */}
-                    <div className="flex space-x-2 pt-2">
+                    <div className="grid grid-cols-2 gap-2 pt-2">
                       <Button 
-                        className="flex-1 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
-                        onClick={() => window.open(`https://paypal.me/${donationInfo.paypal_email}`, '_blank')}
+                        className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-xs"
+                        onClick={() => window.open(`https://paypal.me/${donationInfo.paypal_email?.replace('@gmail.com', '')}`, '_blank')}
                       >
-                        Faire un don PayPal
+                        PayPal
                       </Button>
-                      <Button variant="outline" className="border-green-500 text-green-400 hover:bg-green-500/10">
-                        Autres méthodes
+                      <Button 
+                        className="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-xs"
+                        onClick={() => {
+                          navigator.clipboard.writeText(donationInfo.zelle_email);
+                          // You could add a toast notification here
+                        }}
+                      >
+                        Zelle
+                      </Button>
+                      <Button 
+                        className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-xs"
+                        onClick={() => window.open(`https://cash.app/$5026017368`, '_blank')}
+                      >
+                        Cash App
+                      </Button>
+                      <Button 
+                        variant="outline" 
+                        className="border-green-500 text-green-400 hover:bg-green-500/10 text-xs"
+                      >
+                        MonCash
                       </Button>
                     </div>
 
