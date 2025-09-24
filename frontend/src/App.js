@@ -136,6 +136,10 @@ function App() {
     try {
       const response = await axios.get(`${API}/weather`);
       setWeather(response.data);
+      
+      // Also load cities weather
+      const citiesResponse = await axios.get(`${API}/weather/cities`);
+      setHaitiCities(citiesResponse.data);
     } catch (error) {
       console.error('Failed to load weather:', error);
     }
