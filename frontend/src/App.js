@@ -851,17 +851,17 @@ function App() {
             🚨 BREAKING NEWS
           </div>
           <div className="flex-1 overflow-hidden">
-            <div className="animate-scroll whitespace-nowrap text-sm font-medium">
-              🇭🇹 Radio Haiti Fusion maintenant disponible 24h/24 • 
-              📻 Nouvelle programmation avec DJ Kenley dès 6h • 
-              🎵 Concert live T-Vice ce vendredi 20h • 
-              📞 WhatsApp: 5026017368 pour vos demandes • 
-              💰 Soutenez-nous: fusionviberadio@gmail.com • 
-              🌐 Visitez www.radiohaitifusion.com • 
-              🎙️ Interviews exclusives chaque dimanche • 
-              📱 Suivez-nous sur tous les réseaux sociaux •
+            <div className="breaking-news-scroll text-sm font-medium text-white">
+              {breakingNews.join(' • ')} • 
             </div>
           </div>
+          <button 
+            onClick={() => setShowBreakingNews(false)}
+            className="bg-white/20 hover:bg-white/30 text-white px-2 py-1 text-xs rounded-l-md transition-colors"
+            title="Fermer les actualités"
+          >
+            ✕
+          </button>
         </div>
       </div>
 
