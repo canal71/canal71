@@ -124,6 +124,7 @@ function App() {
     loadStudioStatus();
     loadVideoStatus();
     loadPromotionalVideos();
+    loadAdvertisements();
 
     return () => {
       if (websocket.readyState === WebSocket.OPEN) {
