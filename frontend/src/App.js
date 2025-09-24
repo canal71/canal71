@@ -2422,7 +2422,7 @@ function App() {
                 </div>
                 
                 <div className="space-y-2 mb-4 max-h-40 overflow-y-auto">
-                  {charts.slice(0, 5).map((song, index) => (
+                  {charts && charts.slice(0, 5).map((song, index) => (
                     <div key={song.id || index} className="bg-slate-700/30 rounded p-2 flex items-center justify-between">
                       <div className="flex items-center space-x-2 flex-1 min-w-0">
                         <div className={`w-6 h-6 rounded flex items-center justify-center text-xs font-bold ${
