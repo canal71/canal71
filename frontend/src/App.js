@@ -345,7 +345,7 @@ function App() {
           {/* Comments Sidebar */}
           <div className="lg:col-span-1">
             <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50 h-[600px] flex flex-col">
-              <div className="p-4 border-b border-slate-700/50">
+              <div className="p-4 border-b border-slate-600/50">
                 <div className="flex items-center space-x-2">
                   <MessageCircle className="w-5 h-5 text-slate-400" />
                   <h3 className="font-semibold text-white">Chat en direct</h3>
