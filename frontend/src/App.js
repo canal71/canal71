@@ -167,7 +167,7 @@ function App() {
     <div 
       className="min-h-screen bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 relative"
       style={{
-        backgroundImage: `url('https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/ck3ei9rs_IMG_0124.png')`,
+        backgroundImage: `url('https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/dc83vhra_a12a6cc8-c410-4855-811c-4f5c5fce72c6.jpeg')`,
         backgroundSize: '400px 400px',
         backgroundPosition: 'center right',
         backgroundRepeat: 'no-repeat',
