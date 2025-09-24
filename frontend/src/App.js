@@ -2212,6 +2212,67 @@ function App() {
                     </Button>
                   </div>
                 )}
+
+                {/* Recent Requests */}
+                {songRequests.length > 0 && (
+                  <div className="mt-4 pt-4 border-t border-slate-600/50">
+                    <p className="text-slate-400 text-xs mb-2">Demandes récentes:</p>
+                    <div className="space-y-2">
+                      {songRequests.slice(0, 3).map((request, index) => (
+                        <div key={request.id || index} className="bg-slate-700/30 rounded p-2">
+                          <p className="text-white text-xs font-medium">"{request.song_title}" - {request.artist}</p>
+                          <p className="text-slate-400 text-xs">par {request.listener_name}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Song Request Form - Hidden state */}
+                {showRequestForm && (
+                  <div className="mt-4 pt-4 border-t border-slate-600/50">
+                    <form onSubmit={handleSongRequest} className="space-y-3">
+                      <Input
+                        placeholder="Votre nom"
+                        value={newRequest.listener_name}
+                        onChange={(e) => setNewRequest({...newRequest, listener_name: e.target.value})}
+                        className="bg-slate-700/60 border-slate-500 text-white placeholder:text-slate-300"
+                      />
+                      <Input
+                        placeholder="Titre de la chanson"
+                        value={newRequest.song_title}
+                        onChange={(e) => setNewRequest({...newRequest, song_title: e.target.value})}
+                        className="bg-slate-700/60 border-slate-500 text-white placeholder:text-slate-300"
+                      />
+                      <Input
+                        placeholder="Artiste"
+                        value={newRequest.artist}
+                        onChange={(e) => setNewRequest({...newRequest, artist: e.target.value})}
+                        className="bg-slate-700/60 border-slate-500 text-white placeholder:text-slate-300"
+                      />
+                      <Input
+                        placeholder="Dédicace à... (optionnel)"
+                        value={newRequest.dedication_to}
+                        onChange={(e) => setNewRequest({...newRequest, dedication_to: e.target.value})}
+                        className="bg-slate-700/60 border-slate-500 text-white placeholder:text-slate-300"
+                      />
+                      <Input
+                        placeholder="Message de dédicace (optionnel)"
+                        value={newRequest.dedication_message}
+                        onChange={(e) => setNewRequest({...newRequest, dedication_message: e.target.value})}
+                        className="bg-slate-700/60 border-slate-500 text-white placeholder:text-slate-300"
+                      />
+                      <div className="flex space-x-2">
+                        <Button type="submit" className="flex-1 bg-purple-600 hover:bg-purple-700">
+                          Envoyer
+                        </Button>
+                        <Button type="button" variant="outline" onClick={() => setShowRequestForm(false)}>
+                          Annuler
+                        </Button>
+                      </div>
+                    </form>
+                  </div>
+                )}
                     <Input
                       placeholder="Votre nom"
                       value={newRequest.listener_name}
