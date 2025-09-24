@@ -289,16 +289,54 @@ async def delete_radio_station(station_id: str):
 # Weather API Endpoint
 @api_router.get("/weather")
 async def get_weather():
-    # In production, this would connect to a weather API like OpenWeatherMap
-    # For now, returning sample data for Port-au-Prince
+    # Haiti-specific weather data
+    # In production, this would connect to a weather API like OpenWeatherMap for Haiti
+    import random
+    
+    # Sample weather conditions typical for Haiti
+    haiti_conditions = [
+        {"condition": "Ensoleillé", "icon": "☀️", "temp_range": (26, 32)},
+        {"condition": "Partiellement nuageux", "icon": "⛅", "temp_range": (24, 29)},
+        {"condition": "Orageux", "icon": "⛈️", "temp_range": (22, 28)},
+        {"condition": "Pluie légère", "icon": "🌦️", "temp_range": (21, 26)},
+        {"condition": "Nuageux", "icon": "☁️", "temp_range": (23, 28)}
+    ]
+    
+    current_condition = random.choice(haiti_conditions)
+    temp = random.uniform(current_condition["temp_range"][0], current_condition["temp_range"][1])
+    
     return WeatherData(
-        location="Port-au-Prince, Haiti",
-        temperature=28.5,
-        condition="Ensoleillé",
-        humidity=72,
-        wind_speed=15.2,
-        icon="☀️"
+        location="Haïti",
+        temperature=round(temp, 1),
+        condition=current_condition["condition"],
+        humidity=random.randint(65, 85),  # Typical for tropical climate
+        wind_speed=round(random.uniform(10, 25), 1),  # km/h
+        icon=current_condition["icon"]
     )
+
+@api_router.get("/weather/cities")
+async def get_haiti_cities_weather():
+    # Multiple Haitian cities weather
+    cities_weather = []
+    haiti_cities = [
+        "Port-au-Prince", "Cap-Haïtien", "Gonaïves", "Saint-Marc", 
+        "Petit-Goâve", "Jacmel", "Les Cayes", "Fort-de-Paix"
+    ]
+    
+    conditions = ["Ensoleillé", "Partiellement nuageux", "Nuageux", "Orageux"]
+    icons = ["☀️", "⛅", "☁️", "⛈️"]
+    
+    for city in haiti_cities:
+        import random
+        condition_idx = random.randint(0, len(conditions)-1)
+        cities_weather.append({
+            "city": city,
+            "temperature": round(random.uniform(24, 32), 1),
+            "condition": conditions[condition_idx],
+            "icon": icons[condition_idx]
+        })
+    
+    return cities_weather
 
 # World News API Endpoints
 @api_router.get("/news", response_model=List[NewsArticle])
