@@ -920,6 +920,107 @@ async def get_featured_videos():
     
     return [PromotionalVideo(**parse_from_mongo(video)) for video in videos_data]
 
+# Advertisement Carousel API
+@api_router.get("/ads/banners", response_model=List[Advertisement])
+async def get_advertisement_banners():
+    ads_data = await db.advertisements.find({"is_active": True}).to_list(length=None)
+    
+    if not ads_data:
+        # Sample advertisements
+        sample_ads = [
+            {
+                "title": "Publicité avec Radio Haiti Fusion!",
+                "description": "Atteignez des milliers d'auditeurs chaque jour avec nos espaces publicitaires premium.",
+                "image_url": "https://via.placeholder.com/800x300/FF6B35/FFFFFF?text=PUBLICITÉ+AVEC+NOUS",
+                "link_url": "mailto:haitifusionpromo@gmail.com",
+                "advertiser": "Radio Haiti Fusion",
+                "duration_seconds": 6,
+                "ad_type": "banner",
+                "target_audience": "general",
+                "impressions": 12500,
+                "clicks": 234
+            },
+            {
+                "title": "Supportez la Culture Haïtienne",
+                "description": "Vos dons nous aident à promouvoir la musique et la culture haïtiennes dans le monde entier.",
+                "image_url": "https://via.placeholder.com/800x300/1E40AF/FFFFFF?text=SOUTENEZ+NOUS+🇭🇹",
+                "link_url": "https://paypal.me/fusionviberadio",
+                "advertiser": "Radio Haiti Fusion",
+                "duration_seconds": 5,
+                "ad_type": "banner",
+                "target_audience": "diaspora",
+                "impressions": 8900,
+                "clicks": 445
+            },
+            {
+                "title": "Écoutez-nous Partout!",
+                "description": "Radio Haiti Fusion maintenant disponible sur toutes les plateformes. TV, Radio, et plus!",
+                "image_url": "https://via.placeholder.com/800x300/059669/FFFFFF?text=📻+RADIO+📺+TV+📱+MOBILE",
+                "link_url": "https://www.radiohaitifusion.com",
+                "advertiser": "Radio Haiti Fusion",
+                "duration_seconds": 4,
+                "ad_type": "banner", 
+                "target_audience": "general",
+                "impressions": 15670,
+                "clicks": 687
+            },
+            {
+                "title": "Votre Entreprise Ici!",
+                "description": "Réservez votre espace publicitaire et rejoignez nos partenaires de confiance.",
+                "image_url": "https://via.placeholder.com/800x300/7C3AED/FFFFFF?text=VOTRE+PUB+ICI+💼",
+                "link_url": "mailto:haitifusionpromo@gmail.com",
+                "advertiser": "Disponible",
+                "duration_seconds": 5,
+                "ad_type": "banner",
+                "target_audience": "business",
+                "impressions": 7520,
+                "clicks": 189
+            },
+            {
+                "title": "Rejoignez Notre Communauté",
+                "description": "Suivez-nous sur les réseaux sociaux pour ne rien manquer de l'actualité RHF!",
+                "image_url": "https://via.placeholder.com/800x300/DC2626/FFFFFF?text=SUIVEZ+NOUS+📱+RÉSEAUX+SOCIAUX",
+                "link_url": "https://facebook.com/RadioHaitiFusion",
+                "advertiser": "Radio Haiti Fusion",
+                "duration_seconds": 4,
+                "ad_type": "banner",
+                "target_audience": "social",
+                "impressions": 11200,
+                "clicks": 523
+            }
+        ]
+        return [Advertisement(**ad) for ad in sample_ads]
+    
+    return [Advertisement(**parse_from_mongo(ad)) for ad in ads_data]
+
+@api_router.post("/ads/banners", response_model=Advertisement)
+async def create_advertisement(ad_input: AdCreate):
+    ad_dict = ad_input.dict()
+    ad_obj = Advertisement(**ad_dict)
+    
+    mongo_data = prepare_for_mongo(ad_obj.dict())
+    await db.advertisements.insert_one(mongo_data)
+    
+    return ad_obj
+
+@api_router.post("/ads/{ad_id}/click")
+async def track_ad_click(ad_id: str):
+    # Track ad click for analytics
+    await db.advertisements.update_one(
+        {"id": ad_id},
+        {"$inc": {"clicks": 1}}
+    )
+    return {"message": "Click tracked"}
+
+@api_router.post("/ads/{ad_id}/impression")  
+async def track_ad_impression(ad_id: str):
+    # Track ad impression for analytics
+    await db.advertisements.update_one(
+        {"id": ad_id},
+        {"$inc": {"impressions": 1}}
+    )
+    return {"message": "Impression tracked"}
+
 # Donations API
 @api_router.get("/donations/info")
 async def get_donation_info():
