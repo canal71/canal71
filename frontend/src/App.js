@@ -223,6 +223,53 @@ function App() {
     }
   };
 
+  const loadLiveStats = async () => {
+    try {
+      const response = await axios.get(`${API}/stats/live`);
+      setLiveStats(response.data);
+    } catch (error) {
+      console.error('Failed to load live stats:', error);
+    }
+  };
+
+  const loadEmergencyAlerts = async () => {
+    try {
+      const response = await axios.get(`${API}/alerts/emergency`);
+      setEmergencyAlerts(response.data.filter(alert => alert.is_active));
+    } catch (error) {
+      console.error('Failed to load emergency alerts:', error);
+    }
+  };
+
+  const loadSongRequests = async () => {
+    try {
+      const response = await axios.get(`${API}/song-requests?status=pending&limit=5`);
+      setSongRequests(response.data);
+    } catch (error) {
+      console.error('Failed to load song requests:', error);
+    }
+  };
+
+  const handleSongRequest = async (e) => {
+    e.preventDefault();
+    if (!newRequest.listener_name.trim() || !newRequest.song_title.trim() || !newRequest.artist.trim()) return;
+
+    try {
+      await axios.post(`${API}/song-requests`, newRequest);
+      setNewRequest({
+        listener_name: '',
+        song_title: '',
+        artist: '',
+        dedication_to: '',
+        dedication_message: ''
+      });
+      setShowRequestForm(false);
+      loadSongRequests(); // Refresh the list
+    } catch (error) {
+      console.error('Failed to send song request:', error);
+    }
+  };
+
   const togglePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
