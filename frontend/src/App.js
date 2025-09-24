@@ -392,7 +392,7 @@ function App() {
                       placeholder="Tapez votre message..."
                       value={newComment.message}
                       onChange={(e) => setNewComment({...newComment, message: e.target.value})}
-                      className="bg-slate-800/50 border-slate-600 text-white placeholder:text-slate-400 flex-1"
+                      className="bg-slate-700/60 border-slate-500 text-white placeholder:text-slate-300 flex-1"
                       data-testid="message-input"
                     />
                     <Button
