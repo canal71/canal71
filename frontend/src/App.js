@@ -447,6 +447,97 @@ function App() {
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   };
 
+  // Voice Recording Functions
+  const startVoiceRecording = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const recorder = new MediaRecorder(stream);
+      const audioChunks = [];
+
+      recorder.ondataavailable = (event) => {
+        audioChunks.push(event.data);
+      };
+
+      recorder.onstop = () => {
+        const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+        setRecordedAudio(audioBlob);
+        stream.getTracks().forEach(track => track.stop()); // Stop microphone
+      };
+
+      recorder.start();
+      setMediaRecorder(recorder);
+      setIsRecording(true);
+      setRecordingTime(0);
+
+      // Start recording timer
+      const timer = setInterval(() => {
+        setRecordingTime(prev => {
+          if (prev >= 60) { // Max 60 seconds
+            stopVoiceRecording();
+            return prev;
+          }
+          return prev + 1;
+        });
+      }, 1000);
+
+      // Store timer to clear it later
+      recorder.timer = timer;
+    } catch (error) {
+      console.error('Failed to start recording:', error);
+      alert('Impossible d\'accéder au microphone. Veuillez autoriser l\'accès et réessayer.');
+    }
+  };
+
+  const stopVoiceRecording = () => {
+    if (mediaRecorder && mediaRecorder.state === 'recording') {
+      mediaRecorder.stop();
+      clearInterval(mediaRecorder.timer);
+      setIsRecording(false);
+      setMediaRecorder(null);
+    }
+  };
+
+  const sendVoiceMessage = async (listenerName, messageType = 'song_request') => {
+    if (!recordedAudio || !listenerName.trim()) return;
+
+    try {
+      // Convert audio blob to base64
+      const reader = new FileReader();
+      reader.onload = async () => {
+        const base64Audio = reader.result.split(',')[1]; // Remove data:audio/wav;base64, prefix
+        
+        const voiceData = {
+          listener_name: listenerName,
+          message_type: messageType,
+          duration: recordingTime,
+          audio_data: base64Audio
+        };
+
+        await axios.post(`${API}/voice-messages`, voiceData);
+        
+        // Reset recording state
+        setRecordedAudio(null);
+        setRecordingTime(0);
+        setShowVoiceRecorder(false);
+        
+        alert('Message vocal envoyé avec succès!');
+      };
+      reader.readAsDataURL(recordedAudio);
+    } catch (error) {
+      console.error('Failed to send voice message:', error);
+      alert('Erreur lors de l\'envoi du message vocal.');
+    }
+  };
+
+  const cancelVoiceRecording = () => {
+    if (isRecording) {
+      stopVoiceRecording();
+    }
+    setRecordedAudio(null);
+    setRecordingTime(0);
+    setShowVoiceRecorder(false);
+  };
+
   // Google AdSense Integration
   useEffect(() => {
     // Add Google AdSense script
