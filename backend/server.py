@@ -213,6 +213,22 @@ class SongRequestCreate(BaseModel):
     dedication_to: Optional[str] = None
     dedication_message: Optional[str] = None
 
+class VoiceMessage(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    listener_name: str
+    message_type: str = "vocal_request"  # vocal_request, dedication, shoutout
+    audio_data: Optional[str] = None  # Base64 encoded audio
+    duration: Optional[float] = None  # Duration in seconds
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    status: str = "pending"  # pending, approved, played
+    transcription: Optional[str] = None
+
+class VoiceMessageCreate(BaseModel):
+    listener_name: str
+    message_type: str = "vocal_request"
+    audio_data: str  # Base64 encoded audio
+    duration: Optional[float] = None
+
 class LiveStats(BaseModel):
     current_listeners: int = 1247
     peak_today: int = 1856
