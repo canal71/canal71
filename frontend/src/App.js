@@ -364,120 +364,39 @@ function App() {
                 </p>
                 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {/* Radio Station 1 */}
-                  <div className="bg-slate-700/60 rounded-lg p-4 border border-slate-600/30 hover:border-red-500/50 transition-all duration-200 cursor-pointer group">
-                    <div className="flex items-center mb-3">
-                      <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mr-3">
-                        <Radio className="w-5 h-5 text-white" />
+                  {/* Dynamic Radio Stations */}
+                  {radioStations.map((station) => (
+                    <div 
+                      key={station.id} 
+                      className="bg-slate-700/60 rounded-lg p-4 border border-slate-600/30 hover:border-red-500/50 transition-all duration-200 cursor-pointer group"
+                    >
+                      <div className="flex items-center mb-3">
+                        <div 
+                          className="w-10 h-10 rounded-full flex items-center justify-center mr-3"
+                          style={{ background: `linear-gradient(to right, ${station.color}, ${station.color}dd)` }}
+                        >
+                          <Radio className="w-5 h-5 text-white" />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-white text-sm">{station.name}</h4>
+                          <p className="text-slate-400 text-xs">{station.frequency}</p>
+                        </div>
                       </div>
-                      <div>
-                        <h4 className="font-semibold text-white text-sm">Radio Caraïbes</h4>
-                        <p className="text-slate-400 text-xs">94.5 FM</p>
-                      </div>
-                    </div>
-                    <p className="text-slate-300 text-xs mb-2">Musique caribéenne & actualités</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-green-400 text-xs flex items-center">
-                        <div className="w-2 h-2 bg-green-400 rounded-full mr-1 animate-pulse"></div>
-                        En direct
-                      </span>
-                      <button className="text-blue-400 text-xs hover:text-blue-300 transition-colors">
-                        Écouter →
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Radio Station 2 */}
-                  <div className="bg-slate-700/60 rounded-lg p-4 border border-slate-600/30 hover:border-red-500/50 transition-all duration-200 cursor-pointer group">
-                    <div className="flex items-center mb-3">
-                      <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center mr-3">
-                        <Radio className="w-5 h-5 text-white" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-white text-sm">Radio Métropole</h4>
-                        <p className="text-slate-400 text-xs">100.1 FM</p>
+                      <p className="text-slate-300 text-xs mb-2">{station.description}</p>
+                      <div className="flex items-center justify-between">
+                        <span className="text-green-400 text-xs flex items-center">
+                          <div className="w-2 h-2 bg-green-400 rounded-full mr-1 animate-pulse"></div>
+                          {station.is_live ? 'En direct' : 'Hors ligne'}
+                        </span>
+                        <button 
+                          className="text-blue-400 text-xs hover:text-blue-300 transition-colors"
+                          onClick={() => station.stream_url && window.open(station.stream_url, '_blank')}
+                        >
+                          Écouter →
+                        </button>
                       </div>
                     </div>
-                    <p className="text-slate-300 text-xs mb-2">Talk-show & informations</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-green-400 text-xs flex items-center">
-                        <div className="w-2 h-2 bg-green-400 rounded-full mr-1 animate-pulse"></div>
-                        En direct
-                      </span>
-                      <button className="text-blue-400 text-xs hover:text-blue-300 transition-colors">
-                        Écouter →
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Radio Station 3 */}
-                  <div className="bg-slate-700/60 rounded-lg p-4 border border-slate-600/30 hover:border-red-500/50 transition-all duration-200 cursor-pointer group">
-                    <div className="flex items-center mb-3">
-                      <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center mr-3">
-                        <Radio className="w-5 h-5 text-white" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-white text-sm">Radio Kiskeya</h4>
-                        <p className="text-slate-400 text-xs">88.5 FM</p>
-                      </div>
-                    </div>
-                    <p className="text-slate-300 text-xs mb-2">Nouvelles & culture</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-green-400 text-xs flex items-center">
-                        <div className="w-2 h-2 bg-green-400 rounded-full mr-1 animate-pulse"></div>
-                        En direct
-                      </span>
-                      <button className="text-blue-400 text-xs hover:text-blue-300 transition-colors">
-                        Écouter →
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Radio Station 4 */}
-                  <div className="bg-slate-700/60 rounded-lg p-4 border border-slate-600/30 hover:border-red-500/50 transition-all duration-200 cursor-pointer group">
-                    <div className="flex items-center mb-3">
-                      <div className="w-10 h-10 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center mr-3">
-                        <Radio className="w-5 h-5 text-white" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-white text-sm">Radio Lumière</h4>
-                        <p className="text-slate-400 text-xs">91.9 FM</p>
-                      </div>
-                    </div>
-                    <p className="text-slate-300 text-xs mb-2">Musique gospel & spirituel</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-green-400 text-xs flex items-center">
-                        <div className="w-2 h-2 bg-green-400 rounded-full mr-1 animate-pulse"></div>
-                        En direct
-                      </span>
-                      <button className="text-blue-400 text-xs hover:text-blue-300 transition-colors">
-                        Écouter →
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Radio Station 5 */}
-                  <div className="bg-slate-700/60 rounded-lg p-4 border border-slate-600/30 hover:border-red-500/50 transition-all duration-200 cursor-pointer group">
-                    <div className="flex items-center mb-3">
-                      <div className="w-10 h-10 bg-gradient-to-r from-teal-500 to-teal-600 rounded-full flex items-center justify-center mr-3">
-                        <Radio className="w-5 h-5 text-white" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-white text-sm">Magik9</h4>
-                        <p className="text-slate-400 text-xs">99.9 FM</p>
-                      </div>
-                    </div>
-                    <p className="text-slate-300 text-xs mb-2">Hip-hop & musique urbaine</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-green-400 text-xs flex items-center">
-                        <div className="w-2 h-2 bg-green-400 rounded-full mr-1 animate-pulse"></div>
-                        En direct
-                      </span>
-                      <button className="text-blue-400 text-xs hover:text-blue-300 transition-colors">
-                        Écouter →
-                      </button>
-                    </div>
-                  </div>
+                  ))}
 
                   {/* Add More Station Button */}
                   <div className="bg-slate-700/30 rounded-lg p-4 border-2 border-dashed border-slate-600/50 flex items-center justify-center hover:border-blue-500/50 transition-all duration-200 cursor-pointer group">
