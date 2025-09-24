@@ -190,7 +190,7 @@ function App() {
       <div className="container mx-auto px-4 py-8">
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Content */}
-          <div className="lg:col-span-2 space-y-8">
+          <div className="lg:col-span-2 space-y-6">
             {/* Now Playing */}
             <Card className="bg-black/30 backdrop-blur-sm border-slate-700/50">
               <CardContent className="p-8">
