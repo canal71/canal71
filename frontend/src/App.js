@@ -648,12 +648,12 @@ function App() {
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
-            {/* Professional Radio/TV Player */}
-            <Card className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 shadow-2xl border border-slate-700/50 overflow-hidden">
+            {/* Modern Radio/TV Player */}
+            <Card className="bg-gradient-to-br from-slate-100 via-white to-gray-100 shadow-2xl border-0 overflow-hidden">
               <CardContent className="p-0">
                 {/* Logo Banner Header */}
                 <div 
-                  className="relative h-24 md:h-32 bg-gradient-to-r from-slate-900 to-slate-800 overflow-hidden"
+                  className="relative h-20 md:h-24 overflow-hidden"
                   style={{
                     backgroundImage: `url('https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/2zozn1fx_radiohaitifusion.jpg')`,
                     backgroundSize: 'cover',
@@ -661,37 +661,27 @@ function App() {
                     backgroundRepeat: 'no-repeat'
                   }}
                 >
-                  {/* Banner Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
+                  {/* Banner Overlay for better text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/50"></div>
                   
-                  {/* Banner Content */}
+                  {/* Header Content */}
                   <div className="relative z-10 h-full flex items-center justify-between px-6">
-                    {/* Left Side - Live Status */}
                     <div className="flex items-center space-x-3">
-                      <Badge className="bg-red-500 text-white font-semibold px-3 py-1 animate-pulse">
+                      <Badge className="bg-red-500 text-white font-semibold px-3 py-1 animate-pulse shadow-lg">
                         🔴 LIVE
                       </Badge>
-                      <div className="hidden md:block">
-                        <p className="text-white font-semibold">🇭🇹 La radio qui va loin</p>
-                        <p className="text-orange-400 text-sm">FM 104.5 MHz • HD Quality</p>
+                      <div className="text-white font-semibold text-sm md:text-base">
+                        🇭🇹 La radio qui va loin
                       </div>
                     </div>
 
-                    {/* Right Side - Mode Toggle */}
-                    <div className="flex items-center space-x-3">
-                      {liveStats && (
-                        <div className="hidden md:flex items-center space-x-2 bg-black/50 rounded-lg px-3 py-1">
-                          <Users className="w-4 h-4 text-green-400" />
-                          <span className="text-white font-semibold">{liveStats.current_listeners.toLocaleString()}</span>
-                        </div>
-                      )}
-                      
-                      <div className="flex bg-black/50 rounded-lg p-1">
+                    <div className="flex items-center space-x-2">
+                      <div className="flex bg-black/50 backdrop-blur-sm rounded-lg p-1">
                         <Button
                           onClick={() => switchStreamingMode('video')}
                           size="sm"
                           variant="ghost"
-                          className={streamingMode === 'video' ? 'bg-red-600 text-white hover:bg-red-700' : 'text-slate-300 hover:text-white hover:bg-slate-700'}
+                          className={streamingMode === 'video' ? 'bg-red-600 text-white' : 'text-white hover:bg-white/20'}
                         >
                           📺 TV
                         </Button>
@@ -699,7 +689,7 @@ function App() {
                           onClick={() => switchStreamingMode('audio_only')}
                           size="sm"
                           variant="ghost"
-                          className={streamingMode === 'audio_only' ? 'bg-orange-600 text-white hover:bg-orange-700' : 'text-slate-300 hover:text-white hover:bg-slate-700'}
+                          className={streamingMode === 'audio_only' ? 'bg-orange-600 text-white' : 'text-white hover:bg-white/20'}
                         >
                           📻 Radio
                         </Button>
@@ -708,162 +698,143 @@ function App() {
                   </div>
                 </div>
 
-                {streamingMode === 'video' && videoStatus ? (
-                  <div className="space-y-4">
-                    {/* Video Player */}
-                    <div className="relative aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
-                      <iframe
-                        src={videoStatus.video_url}
-                        className="w-full h-full"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        title="Radio Haiti Fusion Live TV"
-                      ></iframe>
-                      
-                      {/* Video Overlay */}
-                      <div className="absolute top-4 left-4 flex space-x-2">
-                        <Badge className="bg-red-500 text-white animate-pulse">
-                          🔴 LIVE TV
-                        </Badge>
-                        <Badge variant="outline" className="bg-black/50 text-white">
-                          👁️ {videoStatus.viewers} viewers
-                        </Badge>
-                      </div>
-                      
-                      {/* Camera Switch */}
-                      <div className="absolute top-4 right-4">
-                        <select 
-                          value={videoStatus.current_camera}
-                          onChange={(e) => switchCamera(e.target.value)}
-                          className="bg-black/70 text-white text-sm rounded px-2 py-1 border border-slate-600"
-                        >
-                          {videoStatus.cameras.map((camera) => (
-                            <option key={camera} value={camera}>{camera}</option>
-                          ))}
-                        </select>
+                {/* Player Content */}
+                <div className="p-6 bg-white">
+                  {streamingMode === 'video' && videoStatus ? (
+                    /* Video Player Mode */
+                    <div className="space-y-4">
+                      <div className="relative aspect-video bg-black rounded-lg overflow-hidden shadow-lg">
+                        <iframe
+                          src={videoStatus.video_url}
+                          className="w-full h-full"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          title="Radio Haiti Fusion Live TV"
+                        ></iframe>
+                        
+                        <div className="absolute top-4 left-4">
+                          <Badge className="bg-red-500 text-white animate-pulse">
+                            🔴 LIVE TV
+                          </Badge>
+                        </div>
                       </div>
                     </div>
-
-                    {/* Video Controls */}
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-3">
-                        <Button size="sm" variant="outline" className="border-red-500 text-red-400">
-                          📹 Enregistrer
-                        </Button>
-                        <Button size="sm" variant="outline" className="border-blue-500 text-blue-400">
-                          📸 Capture
-                        </Button>
-                      </div>
-                      <div className="flex items-center space-x-2 text-sm text-slate-400">
-                        <span>Qualité: 1080p HD</span>
-                        <span>•</span>
-                        <span>Studio: {videoStatus.current_camera}</span>
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="space-y-6">
-                    {/* Album Artwork Display */}
-                    <div className="text-center">
-                      <div className="w-32 h-32 mx-auto mb-6 bg-black/30 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-2xl border border-orange-500/30 overflow-hidden">
-                        {nowPlaying?.artwork_url ? (
-                          <img 
-                            src={nowPlaying.artwork_url} 
-                            alt="Album Artwork" 
-                            className="w-full h-full object-cover"
-                            onError={(e) => {
-                              e.target.src = "https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/bskjptue_IMG_0178.jpeg";
-                              e.target.className = "w-24 h-24 object-contain";
-                            }}
-                          />
-                        ) : (
-                          <img 
-                            src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/bskjptue_IMG_0178.jpeg" 
-                            alt="Radio Haiti Fusion Logo" 
-                            className="w-24 h-24 object-contain"
-                          />
+                  ) : (
+                    /* Audio Player Mode */
+                    <div className="space-y-6">
+                      {/* Now Playing Display */}
+                      <div className="text-center bg-gradient-to-br from-slate-50 to-gray-100 rounded-xl p-6 shadow-inner">
+                        <div className="w-24 h-24 mx-auto mb-4 bg-white rounded-full shadow-lg flex items-center justify-center border-4 border-orange-200">
+                          {nowPlaying?.artwork_url ? (
+                            <img 
+                              src={nowPlaying.artwork_url} 
+                              alt="Album Artwork" 
+                              className="w-20 h-20 rounded-full object-cover"
+                              onError={(e) => {
+                                e.target.src = "https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/2zozn1fx_radiohaitifusion.jpg";
+                              }}
+                            />
+                          ) : (
+                            <img 
+                              src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/2zozn1fx_radiohaitifusion.jpg" 
+                              alt="Radio Haiti Fusion Logo" 
+                              className="w-20 h-20 rounded-full object-cover"
+                            />
+                          )}
+                        </div>
+                        
+                        <h3 className="text-xl font-bold text-slate-800 mb-1">
+                          {nowPlaying?.song || "Compas Direct Live"}
+                        </h3>
+                        <p className="text-slate-600 mb-2">
+                          {nowPlaying?.artist || "Radio Haiti Fusion"}
+                        </p>
+                        {nowPlaying?.genre && (
+                          <Badge className="bg-orange-500 text-white">
+                            {nowPlaying.genre}
+                          </Badge>
                         )}
                       </div>
-                    </div>
-                    
-                    {/* Audio Player */}
-                    <audio
-                      ref={audioRef}
-                      src={streamUrl}
-                      onPlay={() => setIsPlaying(true)}
-                      onPause={() => setIsPlaying(false)}
-                      onError={(e) => {
-                        console.error('Stream error:', e);
-                        setIsPlaying(false);
-                        if (currentStreamIndex < streamUrls.length - 1) {
-                          setCurrentStreamIndex(prev => prev + 1);
-                        }
-                      }}
-                    />
-                  </div>
-                )}
 
-                {/* Now Playing Info */}
-                <div className="text-center mb-4 mt-4">
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    {nowPlaying?.song || radioStatus?.current_song || 'En Direct'}
-                  </h3>
-                  <p className="text-slate-400">
-                    {nowPlaying?.artist || radioStatus?.current_artist || 'Radio Haiti Fusion'}
-                  </p>
-                  {nowPlaying?.genre && (
-                    <Badge variant="outline" className="mt-2 text-orange-400 border-orange-400/50">
-                      {nowPlaying.genre}
-                    </Badge>
+                      {/* Audio Element */}
+                      <audio
+                        ref={audioRef}
+                        src={streamUrl}
+                        onPlay={() => setIsPlaying(true)}
+                        onPause={() => setIsPlaying(false)}
+                        onError={(e) => {
+                          console.error('Stream error:', e);
+                          setIsPlaying(false);
+                          if (currentStreamIndex < streamUrls.length - 1) {
+                            setCurrentStreamIndex(prev => prev + 1);
+                          }
+                        }}
+                      />
+
+                      {/* Modern Player Controls */}
+                      <div className="bg-gradient-to-r from-slate-800 to-slate-900 rounded-xl p-6 text-white shadow-xl">
+                        {/* Main Play Button */}
+                        <div className="flex items-center justify-center mb-6">
+                          <Button
+                            onClick={togglePlay}
+                            className="w-20 h-20 rounded-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 transition-all duration-300 shadow-2xl transform hover:scale-105"
+                            data-testid="play-pause-button"
+                          >
+                            {isPlaying ? (
+                              <Pause className="w-10 h-10" />
+                            ) : (
+                              <Play className="w-10 h-10 ml-1" />
+                            )}
+                          </Button>
+                        </div>
+
+                        {/* Volume & Controls Bar */}
+                        <div className="flex items-center space-x-4">
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={toggleMute}
+                            className="text-slate-300 hover:text-white"
+                          >
+                            {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+                          </Button>
+                          
+                          <div className="flex-1">
+                            <input
+                              type="range"
+                              min="0"
+                              max="1"
+                              step="0.01"
+                              value={volume}
+                              onChange={handleVolumeChange}
+                              className="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer slider haiti-slider"
+                            />
+                          </div>
+                          
+                          <span className="text-slate-300 text-sm min-w-[3rem] font-mono">
+                            {Math.round(volume * 100)}%
+                          </span>
+                        </div>
+
+                        {/* Stream Info */}
+                        <div className="flex items-center justify-between mt-4 pt-4 border-t border-slate-700">
+                          <div className="flex items-center space-x-2">
+                            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                            <span className="text-green-400 text-sm font-medium">Stream actif</span>
+                          </div>
+                          <div className="text-slate-400 text-sm">
+                            {currentStreamIndex > 0 ? (
+                              `Backup ${currentStreamIndex + 1}/${streamUrls.length}`
+                            ) : (
+                              'Qualité: 128kbps'
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   )}
                 </div>
-
-                {/* Universal Controls */}
-                <div className="space-y-4">
-                  <div className="flex items-center justify-center space-x-6">
-                    <Button
-                      onClick={togglePlay}
-                      size="lg"
-                      className="w-16 h-16 rounded-full bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 transition-all duration-200 shadow-lg"
-                      data-testid="play-pause-button"
-                    >
-                      {isPlaying ? <Pause className="w-8 h-8" /> : <Play className="w-8 h-8 ml-1" />}
-                    </Button>
-                  </div>
-
-                  <div className="flex items-center justify-center space-x-4">
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={toggleMute}
-                      className="text-slate-400 hover:text-white"
-                    >
-                      {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
-                    </Button>
-                    <div className="flex-1 max-w-32">
-                      <input
-                        type="range"
-                        min="0"
-                        max="1"
-                        step="0.01"
-                        value={volume}
-                        onChange={handleVolumeChange}
-                        className="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer slider haiti-slider"
-                      />
-                    </div>
-                    <span className="text-slate-400 text-sm min-w-[3rem]">
-                      {Math.round(volume * 100)}%
-                    </span>
-                  </div>
-                </div>
-
-                {/* Stream Status */}
-                {currentStreamIndex > 0 && (
-                  <p className="text-yellow-400 text-sm text-center mt-4">
-                    Backup stream ({currentStreamIndex + 1}/{streamUrls.length})
-                  </p>
-                )}
               </CardContent>
             </Card>
 
