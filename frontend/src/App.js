@@ -176,6 +176,30 @@ function App() {
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   };
 
+  // Google Analytics Integration
+  useEffect(() => {
+    // Add Google Analytics script
+    const script1 = document.createElement('script');
+    script1.async = true;
+    script1.src = 'https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID';
+    document.head.appendChild(script1);
+
+    const script2 = document.createElement('script');
+    script2.innerHTML = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_TRACKING_ID');
+    `;
+    document.head.appendChild(script2);
+
+    return () => {
+      // Cleanup scripts on unmount
+      document.head.removeChild(script1);
+      document.head.removeChild(script2);
+    };
+  }, []);
+
   return (
     <div 
       className="min-h-screen bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 relative"
