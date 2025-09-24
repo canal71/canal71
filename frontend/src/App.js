@@ -30,6 +30,7 @@ function App() {
   const [donationInfo, setDonationInfo] = useState(null);
   const [djs, setDjs] = useState([]);
   const [showSchedule, setShowSchedule] = useState([]);
+  const [socialMedia, setSocialMedia] = useState([]);
   
   const audioRef = useRef(null);
   const commentsEndRef = useRef(null);
