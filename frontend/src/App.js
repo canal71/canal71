@@ -111,6 +111,7 @@ function App() {
     loadEmergencyAlerts();
     loadSongRequests();
     loadStudioStatus();
+    loadVideoStatus();
 
     return () => {
       if (websocket.readyState === WebSocket.OPEN) {
