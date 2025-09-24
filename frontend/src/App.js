@@ -48,6 +48,8 @@ function App() {
   const [promotionalVideos, setPromotionalVideos] = useState([]);
   const [selectedVideoCategory, setSelectedVideoCategory] = useState('all');
   const [currentVideoSlide, setCurrentVideoSlide] = useState(0);
+  const [advertisements, setAdvertisements] = useState([]);
+  const [currentAdSlide, setCurrentAdSlide] = useState(0);
   
   const audioRef = useRef(null);
   const commentsEndRef = useRef(null);
