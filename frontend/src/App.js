@@ -630,36 +630,42 @@ function App() {
             {/* Professional Radio/TV Player */}
             <Card className="bg-gradient-to-br from-white via-gray-50 to-white shadow-2xl border-0 overflow-hidden">
               <CardContent className="p-0">
-                {/* Mode Switch */}
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-xl font-bold text-white flex items-center">
-                    {streamingMode === 'video' ? (
-                      <svg className="w-6 h-6 mr-2 text-red-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
-                      </svg>
-                    ) : (
-                      <Radio className="w-6 h-6 mr-2 text-orange-400" />
-                    )}
-                    Radio Haiti Fusion {streamingMode === 'video' ? 'TV' : 'Radio'}
-                  </h2>
-                  
-                  <div className="flex space-x-2">
-                    <Button
-                      onClick={() => switchStreamingMode('video')}
-                      size="sm"
-                      variant={streamingMode === 'video' ? 'default' : 'outline'}
-                      className={streamingMode === 'video' ? 'bg-red-600 hover:bg-red-700' : 'border-red-500 text-red-400 hover:bg-red-500/10'}
-                    >
-                      📺 TV
-                    </Button>
-                    <Button
-                      onClick={() => switchStreamingMode('audio_only')}
-                      size="sm"
-                      variant={streamingMode === 'audio_only' ? 'default' : 'outline'}
-                      className={streamingMode === 'audio_only' ? 'bg-orange-600 hover:bg-orange-700' : 'border-orange-500 text-orange-400 hover:bg-orange-500/10'}
-                    >
-                      📻 Radio
-                    </Button>
+                {/* Player Header */}
+                <div className="bg-gradient-to-r from-slate-800 to-slate-900 p-6 text-white">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-white rounded-xl shadow-lg flex items-center justify-center">
+                        <img 
+                          src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/2zozn1fx_radiohaitifusion.jpg" 
+                          alt="Radio Haiti Fusion Logo" 
+                          className="w-10 h-10 object-contain"
+                        />
+                      </div>
+                      <div>
+                        <h2 className="text-xl font-bold">Radio Haiti Fusion</h2>
+                        <p className="text-orange-400 text-sm">🇭🇹 La radio qui va loin</p>
+                      </div>
+                    </div>
+                    
+                    {/* Mode Toggle */}
+                    <div className="flex bg-slate-700/50 rounded-lg p-1">
+                      <Button
+                        onClick={() => switchStreamingMode('video')}
+                        size="sm"
+                        variant="ghost"
+                        className={streamingMode === 'video' ? 'bg-red-600 text-white hover:bg-red-700' : 'text-slate-300 hover:text-white hover:bg-slate-600'}
+                      >
+                        📺 TV
+                      </Button>
+                      <Button
+                        onClick={() => switchStreamingMode('audio_only')}
+                        size="sm"
+                        variant="ghost"
+                        className={streamingMode === 'audio_only' ? 'bg-orange-600 text-white hover:bg-orange-700' : 'text-slate-300 hover:text-white hover:bg-slate-600'}
+                      >
+                        📻 Radio
+                      </Button>
+                    </div>
                   </div>
                 </div>
 
