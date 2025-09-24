@@ -64,6 +64,24 @@ class RadioStatus(BaseModel):
     current_artist: str = "Radio Haiti Fusion"
     listeners: int = 1247
 
+class RadioStation(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name: str
+    frequency: str
+    description: str
+    stream_url: Optional[str] = None
+    is_live: bool = True
+    genre: str = "General"
+    color: str = "#3b82f6"  # Default blue color
+    
+class RadioStationCreate(BaseModel):
+    name: str
+    frequency: str
+    description: str
+    stream_url: Optional[str] = None
+    genre: str = "General"
+    color: str = "#3b82f6"
+
 # Helper function for MongoDB serialization
 def prepare_for_mongo(data):
     if isinstance(data, dict):
