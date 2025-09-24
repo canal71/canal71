@@ -302,7 +302,7 @@ function App() {
                   />
                   <div className="flex space-x-2">
                     <Input
-                      placeholder="Type your message..."
+                      placeholder="Tapez votre message..."
                       value={newComment.message}
                       onChange={(e) => setNewComment({...newComment, message: e.target.value})}
                       className="bg-slate-800/50 border-slate-600 text-white placeholder:text-slate-400 flex-1"
