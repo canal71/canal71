@@ -192,7 +192,7 @@ function App() {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
             {/* Now Playing */}
-            <Card className="bg-black/30 backdrop-blur-sm border-slate-700/50">
+            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
               <CardContent className="p-8">
                 <div className="text-center mb-8">
                   <div className="w-32 h-32 mx-auto mb-6 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-2xl border border-white/20">
