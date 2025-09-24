@@ -413,8 +413,7 @@ function App() {
                 <div className="mt-4 pt-4 border-t border-slate-600/50">
                   <div className="flex items-center justify-between">
                     <p className="text-slate-400 text-xs">
-                      {/* Radio count */}
-                      5 stations disponibles dans l'annuaire
+                      {radioStations.length} stations disponibles dans l'annuaire
                     </p>
                     <Button 
                       variant="ghost" 
