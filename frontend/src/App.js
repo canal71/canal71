@@ -265,7 +265,7 @@ function App() {
                     <Button
                       onClick={togglePlay}
                       size="lg"
-                      className="w-16 h-16 rounded-full bg-gradient-to-r from-red-600 to-blue-600 hover:from-red-700 hover:to-blue-700 transition-all duration-200 shadow-lg border border-white/20"
+                      className="w-16 h-16 rounded-full bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-700 hover:to-orange-600 transition-all duration-200 shadow-lg border border-orange-400/30"
                       data-testid="play-pause-button"
                     >
                       {isPlaying ? <Pause className="w-8 h-8" /> : <Play className="w-8 h-8 ml-1" />}
