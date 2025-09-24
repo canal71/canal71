@@ -18,27 +18,31 @@ body {
 
 /* Custom volume slider styles */
 .slider {
-  background: linear-gradient(to right, #ef4444 0%, #ef4444 var(--value, 70%), #64748b var(--value, 70%), #64748b 100%);
+  background: linear-gradient(to right, #2563eb 0%, #2563eb var(--value, 70%), #64748b var(--value, 70%), #64748b 100%);
 }
 
-.slider::-webkit-slider-thumb {
+.haiti-slider {
+  background: linear-gradient(to right, #2563eb 0%, #dc2626 50%, #dc2626 var(--value, 70%), #64748b var(--value, 70%), #64748b 100%);
+}
+
+.slider::-webkit-slider-thumb, .haiti-slider::-webkit-slider-thumb {
   appearance: none;
   height: 18px;
   width: 18px;
   border-radius: 50%;
   background: #ffffff;
   cursor: pointer;
-  border: 2px solid #ef4444;
+  border: 2px solid #2563eb;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-.slider::-moz-range-thumb {
+.slider::-moz-range-thumb, .haiti-slider::-moz-range-thumb {
   height: 18px;
   width: 18px;
   border-radius: 50%;
   background: #ffffff;
   cursor: pointer;
-  border: 2px solid #ef4444;
+  border: 2px solid #2563eb;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
