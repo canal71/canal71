@@ -139,7 +139,7 @@ class DonationInfo(BaseModel):
     current_amount: Optional[float] = 1250.0
     currency: str = "USD"
     payment_methods: List[str] = ["PayPal", "Zelle", "MonCash", "Carte de crédit"]
-    paypal_email: Optional[str] = "donations@radiohaitifusion.com"
+    paypal_email: Optional[str] = "fusionviberadio@gmail.com"
     moncash_number: Optional[str] = "+509 xxxx-xxxx"
 
 class DJ(BaseModel):
