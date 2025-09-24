@@ -1397,7 +1397,7 @@ function App() {
               </CardContent>
             </Card>
 
-            {/* Promotional Videos */}
+            {/* Promotional Videos Carousel */}
             <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between mb-6">
@@ -1408,10 +1408,13 @@ function App() {
                     Vidéos Promotionnelles
                   </h3>
                   
-                  <div className="flex space-x-2">
+                  <div className="flex items-center space-x-3">
                     <select 
                       value={selectedVideoCategory}
-                      onChange={(e) => setSelectedVideoCategory(e.target.value)}
+                      onChange={(e) => {
+                        setSelectedVideoCategory(e.target.value);
+                        setCurrentVideoSlide(0);
+                      }}
                       className="bg-slate-700 text-white text-sm rounded px-3 py-1 border border-slate-600"
                     >
                       <option value="all">Toutes</option>
@@ -1420,90 +1423,150 @@ function App() {
                       <option value="concert">Concerts</option>
                       <option value="behind_scenes">Coulisses</option>
                     </select>
+                    
+                    {/* Navigation Arrows */}
+                    <div className="flex space-x-1">
+                      <Button 
+                        size="sm" 
+                        variant="ghost"
+                        onClick={() => setCurrentVideoSlide(Math.max(0, currentVideoSlide - 1))}
+                        disabled={currentVideoSlide === 0}
+                        className="text-slate-400 hover:text-white p-2"
+                      >
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      </Button>
+                      <Button 
+                        size="sm" 
+                        variant="ghost"
+                        onClick={() => {
+                          const filteredVideos = promotionalVideos.filter(video => 
+                            selectedVideoCategory === 'all' || video.category === selectedVideoCategory
+                          );
+                          setCurrentVideoSlide(Math.min(filteredVideos.length - 1, currentVideoSlide + 1));
+                        }}
+                        disabled={currentVideoSlide >= (promotionalVideos.filter(video => 
+                          selectedVideoCategory === 'all' || video.category === selectedVideoCategory
+                        ).length - 1)}
+                        className="text-slate-400 hover:text-white p-2"
+                      >
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                        </svg>
+                      </Button>
+                    </div>
                   </div>
                 </div>
                 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {promotionalVideos
-                    .filter(video => selectedVideoCategory === 'all' || video.category === selectedVideoCategory)
-                    .slice(0, 6)
-                    .map((video, index) => (
-                    <div key={video.id || index} className="bg-slate-700/50 rounded-lg overflow-hidden hover:bg-slate-700/70 transition-all duration-200 cursor-pointer group">
-                      <div className="relative aspect-video bg-black">
-                        {video.thumbnail_url ? (
-                          <img 
-                            src={video.thumbnail_url} 
-                            alt={video.title}
-                            className="w-full h-full object-cover"
-                            onError={(e) => {
-                              e.target.style.display = 'none';
-                              e.target.nextSibling.style.display = 'flex';
-                            }}
-                          />
-                        ) : null}
-                        <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-600 flex items-center justify-center">
-                          <svg className="w-12 h-12 text-white opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
-                          </svg>
-                        </div>
-                        
-                        {/* Play Overlay */}
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                          <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center">
-                            <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
-                              <path d="M8 5v10l8-5-8-5z" />
-                            </svg>
+                {/* Video Carousel */}
+                <div className="relative overflow-hidden rounded-lg">
+                  <div 
+                    className="flex transition-transform duration-500 ease-in-out"
+                    style={{ 
+                      transform: `translateX(-${currentVideoSlide * 100}%)` 
+                    }}
+                  >
+                    {promotionalVideos
+                      .filter(video => selectedVideoCategory === 'all' || video.category === selectedVideoCategory)
+                      .map((video, index) => (
+                      <div key={video.id || index} className="w-full flex-shrink-0">
+                        <div className="bg-slate-700/50 rounded-lg overflow-hidden">
+                          {/* Main Video Display */}
+                          <div className="relative aspect-video bg-black group cursor-pointer">
+                            {video.video_url ? (
+                              <iframe
+                                src={video.video_url}
+                                className="w-full h-full"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                title={video.title}
+                              ></iframe>
+                            ) : video.thumbnail_url ? (
+                              <img 
+                                src={video.thumbnail_url} 
+                                alt={video.title}
+                                className="w-full h-full object-cover"
+                              />
+                            ) : (
+                              <div className="w-full h-full bg-gradient-to-r from-red-600 to-orange-600 flex items-center justify-center">
+                                <svg className="w-20 h-20 text-white opacity-80" fill="currentColor" viewBox="0 0 20 20">
+                                  <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
+                                </svg>
+                              </div>
+                            )}
+                            
+                            {/* Video Info Overlay */}
+                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                              <div className="flex items-center justify-between">
+                                <div className="flex items-center space-x-3">
+                                  {video.duration && (
+                                    <Badge className="bg-red-500 text-white text-xs">
+                                      {video.duration}
+                                    </Badge>
+                                  )}
+                                  {video.is_featured && (
+                                    <Badge className="bg-yellow-500 text-black text-xs">
+                                      ⭐ FEATURED
+                                    </Badge>
+                                  )}
+                                  <Badge variant="outline" className="text-white border-white/30 text-xs capitalize">
+                                    {video.category}
+                                  </Badge>
+                                </div>
+                                
+                                <div className="flex items-center space-x-4 text-white text-xs">
+                                  <span className="flex items-center">
+                                    <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                      <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                                      <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
+                                    </svg>
+                                    {video.view_count?.toLocaleString()}
+                                  </span>
+                                  <span className="flex items-center">
+                                    <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                      <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+                                    </svg>
+                                    {video.likes?.toLocaleString()}
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          {/* Video Details */}
+                          <div className="p-4">
+                            <h4 className="text-xl font-bold text-white mb-2">
+                              {video.title}
+                            </h4>
+                            <p className="text-slate-300 text-sm leading-relaxed">
+                              {video.description}
+                            </p>
+                            <p className="text-slate-500 text-xs mt-2">
+                              Publié le {new Date(video.upload_date).toLocaleDateString('fr-FR')}
+                            </p>
                           </div>
                         </div>
-                        
-                        {/* Duration & Category Badge */}
-                        <div className="absolute bottom-2 left-2 flex space-x-2">
-                          {video.duration && (
-                            <span className="bg-black/70 text-white text-xs px-2 py-1 rounded">
-                              {video.duration}
-                            </span>
-                          )}
-                        </div>
-                        
-                        <div className="absolute top-2 right-2">
-                          {video.is_featured && (
-                            <Badge className="bg-red-500 text-white text-xs">
-                              ⭐ FEATURED
-                            </Badge>
-                          )}
-                        </div>
                       </div>
-                      
-                      <div className="p-4">
-                        <h4 className="font-semibold text-white text-sm mb-2 line-clamp-2">
-                          {video.title}
-                        </h4>
-                        <p className="text-slate-400 text-xs mb-3 line-clamp-2">
-                          {video.description}
-                        </p>
-                        
-                        <div className="flex items-center justify-between text-xs">
-                          <div className="flex items-center space-x-3 text-slate-500">
-                            <span>👀 {video.view_count?.toLocaleString()}</span>
-                            <span>❤️ {video.likes?.toLocaleString()}</span>
-                          </div>
-                          <Badge variant="outline" className="text-xs capitalize">
-                            {video.category}
-                          </Badge>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
                 
-                {promotionalVideos.length > 6 && (
-                  <div className="mt-6 text-center">
-                    <Button 
-                      variant="outline" 
-                      className="border-red-500 text-red-400 hover:bg-red-500/10"
-                    >
-                      Voir toutes les vidéos ({promotionalVideos.length}) →
-                    </Button>
+                {/* Slide Indicators */}
+                {promotionalVideos.filter(video => selectedVideoCategory === 'all' || video.category === selectedVideoCategory).length > 1 && (
+                  <div className="flex justify-center space-x-2 mt-4">
+                    {promotionalVideos
+                      .filter(video => selectedVideoCategory === 'all' || video.category === selectedVideoCategory)
+                      .map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentVideoSlide(index)}
+                        className={`w-2 h-2 rounded-full transition-all ${
+                          currentVideoSlide === index ? 'bg-red-500' : 'bg-slate-600'
+                        }`}
+                      />
+                    ))}
                   </div>
                 )}
               </CardContent>
