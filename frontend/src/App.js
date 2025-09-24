@@ -25,6 +25,7 @@ function App() {
   const [nowPlaying, setNowPlaying] = useState(null);
   const [weather, setWeather] = useState(null);
   const [news, setNews] = useState([]);
+  const [haitiCities, setHaitiCities] = useState([]);
   
   const audioRef = useRef(null);
   const commentsEndRef = useRef(null);
