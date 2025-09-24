@@ -278,19 +278,64 @@ function App() {
               </CardContent>
             </Card>
 
-            {/* Advertising Banner */}
+            {/* Radio Information */}
+            <Card className="bg-black/30 backdrop-blur-sm border-slate-700/50">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                  <Radio className="w-5 h-5 mr-2 text-red-500" />
+                  Informations de la Radio
+                </h3>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="space-y-3">
+                    <div className="bg-slate-800/50 rounded-lg p-3">
+                      <h4 className="font-semibold text-white text-sm mb-1">Émission Actuelle</h4>
+                      <p className="text-slate-300 text-sm">Compas Direct Live</p>
+                      <p className="text-slate-400 text-xs">Avec DJ Kenley</p>
+                    </div>
+                    <div className="bg-slate-800/50 rounded-lg p-3">
+                      <h4 className="font-semibold text-white text-sm mb-1">Prochaine Émission</h4>
+                      <p className="text-slate-300 text-sm">Nouvèl ak Mizik</p>
+                      <p className="text-slate-400 text-xs">18:00 - 20:00</p>
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="bg-slate-800/50 rounded-lg p-3">
+                      <h4 className="font-semibold text-white text-sm mb-1">Fréquence</h4>
+                      <p className="text-slate-300 text-sm">FM 104.5 MHz</p>
+                      <p className="text-slate-400 text-xs">Port-au-Prince & environs</p>
+                    </div>
+                    <div className="bg-slate-800/50 rounded-lg p-3">
+                      <h4 className="font-semibold text-white text-sm mb-1">Qualité Stream</h4>
+                      <p className="text-slate-300 text-sm">128 kbps MP3</p>
+                      <p className="text-slate-400 text-xs">Haute qualité stéréo</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Dedicated Advertising Space */}
             <Card className="bg-gradient-to-r from-red-600/20 to-blue-600/20 backdrop-blur-sm border-slate-700/50">
               <CardContent className="p-6">
-                <div className="text-center">
-                  <h3 className="text-xl font-bold text-white mb-2">🎵 Publicité avec nous!</h3>
+                <div className="text-center mb-4">
+                  <h3 className="text-xl font-bold text-white mb-2">📢 Espace Publicitaire</h3>
                   <p className="text-slate-300 mb-4">
-                    Atteignez des milliers d'auditeurs chaque jour. Espaces publicitaires premium disponibles.
+                    Votre publicité ici! Atteignez notre audience de milliers d'auditeurs quotidiens.
                   </p>
+                </div>
+                
+                {/* Ad Placeholder - Replace with actual ads */}
+                <div className="bg-slate-800/30 rounded-lg p-8 border-2 border-dashed border-slate-600 text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-red-500 to-blue-600 rounded-full flex items-center justify-center">
+                    <span className="text-white font-bold text-lg">AD</span>
+                  </div>
+                  <p className="text-slate-300 mb-3">Espace réservé pour publicité</p>
+                  <p className="text-slate-400 text-sm mb-4">300x250 px recommandé</p>
                   <Button 
                     className="bg-gradient-to-r from-red-500 to-blue-600 hover:from-red-600 hover:to-blue-700"
                     data-testid="advertise-button"
                   >
-                    En savoir plus
+                    Réservez cet espace
                   </Button>
                 </div>
               </CardContent>
