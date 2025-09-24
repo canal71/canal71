@@ -197,6 +197,11 @@ function App() {
                   <p className="text-slate-400 text-lg">
                     {radioStatus?.current_artist || 'Radio Station'}
                   </p>
+                  {currentStreamIndex > 0 && (
+                    <p className="text-yellow-400 text-sm mt-1">
+                      Using fallback stream ({currentStreamIndex + 1}/{streamUrls.length})
+                    </p>
+                  )}
                 </div>
 
                 {/* Audio Player */}
