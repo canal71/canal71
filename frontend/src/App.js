@@ -662,6 +662,21 @@ function App() {
     setTriviaPlayerName('');
   };
 
+  // Breaking News Functions
+  const loadBreakingNews = () => {
+    // Sample breaking news - in production this would come from an API
+    const sampleBreakingNews = [
+      "🔴 EN DIRECT: Radio Haiti Fusion maintenant disponible sur toutes les plateformes - Écoutez-nous partout!",
+      "🎵 NOUVEAU: Top 10 Charts mis à jour toutes les heures - Votez pour vos chansons préférées!",
+      "🎤 INNOVATION: Nouveau système de messages vocaux - Envoyez vos demandes par voix!",
+      "📱 SUIVEZ-NOUS: @haitifusiondon sur Instagram, @fusion_haiti sur Twitter/X, @radiohaitifusion sur TikTok",
+      "🏆 TRIVIA: Testez vos connaissances sur la musique et culture haïtiennes - Jeu disponible maintenant!",
+      "📧 CONTACT: haitifusionpromo@gmail.com pour collaborations et événements spéciaux"
+    ];
+    
+    setBreakingNews(sampleBreakingNews);
+  };
+
   // Google AdSense Integration
   useEffect(() => {
     // Add Google AdSense script
