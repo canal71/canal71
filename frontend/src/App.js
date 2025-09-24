@@ -627,9 +627,9 @@ function App() {
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
-            {/* Live TV/Radio Player */}
-            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
-              <CardContent className="p-6">
+            {/* Professional Radio/TV Player */}
+            <Card className="bg-gradient-to-br from-white via-gray-50 to-white shadow-2xl border-0 overflow-hidden">
+              <CardContent className="p-0">
                 {/* Mode Switch */}
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-xl font-bold text-white flex items-center">
