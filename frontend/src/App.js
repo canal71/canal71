@@ -599,6 +599,27 @@ function App() {
         </Card>
       </div>
 
+      {/* News Scroller */}
+      <div className="bg-red-600 text-white py-2 overflow-hidden relative border-b border-red-500">
+        <div className="flex items-center">
+          <div className="bg-white text-red-600 px-4 py-1 font-bold text-sm flex-shrink-0">
+            🚨 BREAKING NEWS
+          </div>
+          <div className="flex-1 overflow-hidden">
+            <div className="animate-scroll whitespace-nowrap text-sm font-medium">
+              🇭🇹 Radio Haiti Fusion maintenant disponible 24h/24 • 
+              📻 Nouvelle programmation avec DJ Kenley dès 6h • 
+              🎵 Concert live T-Vice ce vendredi 20h • 
+              📞 WhatsApp: 5026017368 pour vos demandes • 
+              💰 Soutenez-nous: fusionviberadio@gmail.com • 
+              🌐 Visitez www.radiohaitifusion.com • 
+              🎙️ Interviews exclusives chaque dimanche • 
+              📱 Suivez-nous sur tous les réseaux sociaux •
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Emergency Alerts */}
       {emergencyAlerts.length > 0 && (
         <div className="bg-gradient-to-r from-red-600/90 to-orange-600/90 backdrop-blur-sm border-b border-red-500/50">
