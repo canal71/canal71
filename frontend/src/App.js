@@ -25,8 +25,8 @@ function App() {
   const audioRef = useRef(null);
   const commentsEndRef = useRef(null);
 
-  // Demo radio stream URL - replace with your actual stream
-  const streamUrl = "https://stream.radiojar.com/4wqre23fytzuv"; // Example stream
+  // Radio Haiti Fusion live stream
+  const streamUrl = "https://xtreamradiohosting.com:8076";
 
   useEffect(() => {
     // Initialize WebSocket connection
