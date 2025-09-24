@@ -158,6 +158,24 @@ function App() {
     }
   };
 
+  const loadStationInfo = async () => {
+    try {
+      const response = await axios.get(`${API}/station/about`);
+      setStationInfo(response.data);
+    } catch (error) {
+      console.error('Failed to load station info:', error);
+    }
+  };
+
+  const loadDonationInfo = async () => {
+    try {
+      const response = await axios.get(`${API}/donations/info`);
+      setDonationInfo(response.data);
+    } catch (error) {
+      console.error('Failed to load donation info:', error);
+    }
+  };
+
   const togglePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
