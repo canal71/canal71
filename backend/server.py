@@ -138,8 +138,10 @@ class DonationInfo(BaseModel):
     goal_amount: Optional[float] = 5000.0
     current_amount: Optional[float] = 1250.0
     currency: str = "USD"
-    payment_methods: List[str] = ["PayPal", "Zelle", "MonCash", "Carte de crédit"]
+    payment_methods: List[str] = ["PayPal", "Zelle", "Cash App", "MonCash", "Carte de crédit"]
     paypal_email: Optional[str] = "fusionviberadio@gmail.com"
+    zelle_email: Optional[str] = "fusionviberadio@gmail.com"
+    cashapp_number: Optional[str] = "5026017368"
     moncash_number: Optional[str] = "+509 xxxx-xxxx"
 
 class DJ(BaseModel):
