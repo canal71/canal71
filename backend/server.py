@@ -63,6 +63,28 @@ class RadioStatus(BaseModel):
     current_song: str = "Compas Direct - Live Stream"
     current_artist: str = "Radio Haiti Fusion"
     listeners: int = 1247
+    album: Optional[str] = "Live Session"
+    artwork_url: Optional[str] = None
+    duration: Optional[str] = None
+    genre: Optional[str] = "Compas"
+
+class NowPlaying(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    song: str
+    artist: str
+    album: Optional[str] = None
+    artwork_url: Optional[str] = None
+    duration: Optional[str] = None
+    genre: Optional[str] = "General"
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+class NowPlayingUpdate(BaseModel):
+    song: str
+    artist: str
+    album: Optional[str] = None
+    artwork_url: Optional[str] = None
+    duration: Optional[str] = None
+    genre: Optional[str] = "General"
 
 class RadioStation(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
