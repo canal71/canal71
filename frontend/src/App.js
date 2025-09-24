@@ -759,10 +759,10 @@ function App() {
                           )}
                         </div>
                         
-                        <h3 className="text-xl font-bold text-slate-800 mb-1">
+                        <h3 className="text-xl font-bold text-white mb-1">
                           {nowPlaying?.song || "Compas Direct Live"}
                         </h3>
-                        <p className="text-slate-600 mb-2">
+                        <p className="text-slate-300 mb-2">
                           {nowPlaying?.artist || "Radio Haiti Fusion"}
                         </p>
                         {nowPlaying?.genre && (
