@@ -803,30 +803,28 @@ function App() {
                   )}
 
                   {/* Placeholder for previous tracks */}
-                  <div className="flex items-center space-x-3 bg-slate-700/30 rounded-lg p-3">
-                    <div className="w-12 h-12 bg-slate-600 rounded-lg flex-shrink-0 flex items-center justify-center">
-                      <svg className="w-6 h-6 text-slate-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <div className="flex-1">
-                      <p className="font-medium text-slate-300 text-sm">Pa Manyen</p>
-                      <p className="text-slate-500 text-xs">Boukman Eksperyans</p>
-                      <p className="text-slate-500 text-xs">3:45</p>
-                    </div>
+                  <div className="bg-slate-700/30 rounded-lg p-3">
+                    <p className="font-medium text-slate-300 text-sm">Pa Manyen</p>
+                    <p className="text-slate-500 text-xs">Boukman Eksperyans</p>
+                    <p className="text-slate-500 text-xs">3:45</p>
                   </div>
 
-                  <div className="flex items-center space-x-3 bg-slate-700/30 rounded-lg p-3">
-                    <div className="w-12 h-12 bg-slate-600 rounded-lg flex-shrink-0 flex items-center justify-center">
-                      <svg className="w-6 h-6 text-slate-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <div className="flex-1">
-                      <p className="font-medium text-slate-300 text-sm">Kite Mwen Viv</p>
-                      <p className="text-slate-500 text-xs">Sweet Micky</p>
-                      <p className="text-slate-500 text-xs">4:12</p>
-                    </div>
+                  <div className="bg-slate-700/30 rounded-lg p-3">
+                    <p className="font-medium text-slate-300 text-sm">Kite Mwen Viv</p>
+                    <p className="text-slate-500 text-xs">Sweet Micky</p>
+                    <p className="text-slate-500 text-xs">4:12</p>
+                  </div>
+
+                  <div className="bg-slate-700/30 rounded-lg p-3">
+                    <p className="font-medium text-slate-300 text-sm">Sispann</p>
+                    <p className="text-slate-500 text-xs">Carimi</p>
+                    <p className="text-slate-500 text-xs">3:28</p>
+                  </div>
+
+                  <div className="bg-slate-700/30 rounded-lg p-3">
+                    <p className="font-medium text-slate-300 text-sm">Haiti Cherie</p>
+                    <p className="text-slate-500 text-xs">Tabou Combo</p>
+                    <p className="text-slate-500 text-xs">4:56</p>
                   </div>
                 </div>
               </CardContent>
