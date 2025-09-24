@@ -781,6 +781,121 @@ async def toggle_streaming_mode(mode: str):  # video or audio_only
     
     return {"message": f"Switched to {mode} mode", "mode": mode}
 
+# Promotional Videos API
+@api_router.get("/videos/promotional", response_model=List[PromotionalVideo])
+async def get_promotional_videos(category: Optional[str] = None, limit: int = 12):
+    videos_data = await db.promotional_videos.find().sort("upload_date", -1).limit(limit).to_list(length=None)
+    
+    if not videos_data:
+        # Sample promotional videos
+        sample_videos = [
+            {
+                "title": "Radio Haiti Fusion - Promo Officiel 2024",
+                "description": "Découvrez la nouvelle saison de Radio Haiti Fusion avec une programmation exceptionnelle!",
+                "video_url": "https://www.youtube.com/embed/jfKfPfyJRdk",
+                "thumbnail_url": "https://i.ytimg.com/vi/jfKfPfyJRdk/maxresdefault.jpg",
+                "duration": "2:45",
+                "category": "promotion",
+                "view_count": 15420,
+                "likes": 892,
+                "is_featured": True
+            },
+            {
+                "title": "Interview Exclusive - T-Vice sur Radio Haiti Fusion",
+                "description": "Rencontre avec le groupe T-Vice dans nos studios pour parler de leur nouvel album.",
+                "video_url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                "thumbnail_url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+                "duration": "15:30",
+                "category": "interview", 
+                "view_count": 8750,
+                "likes": 567,
+                "is_featured": False
+            },
+            {
+                "title": "Concert Live - Boukman Eksperyans",
+                "description": "Performance live exceptionnelle de Boukman Eksperyans en direct de nos studios.",
+                "video_url": "https://www.youtube.com/embed/9bZkp7q19f0",
+                "thumbnail_url": "https://i.ytimg.com/vi/9bZkp7q19f0/maxresdefault.jpg",
+                "duration": "45:20",
+                "category": "concert",
+                "view_count": 12340,
+                "likes": 743,
+                "is_featured": True
+            },
+            {
+                "title": "Dans les Coulisses - Studio Radio Haiti Fusion",
+                "description": "Découvrez l'envers du décor et l'équipe qui fait vibrer Radio Haiti Fusion chaque jour.",
+                "video_url": "https://www.youtube.com/embed/ScMzIvxBSi4",
+                "thumbnail_url": "https://i.ytimg.com/vi/ScMzIvxBSi4/maxresdefault.jpg",
+                "duration": "8:15",
+                "category": "behind_scenes",
+                "view_count": 5680,
+                "likes": 234,
+                "is_featured": False
+            },
+            {
+                "title": "DJ Kenley - Mix Compas 2024",
+                "description": "Le meilleur du compas mixé par DJ Kenley, notre animateur vedette du matin.",
+                "video_url": "https://www.youtube.com/embed/kJQP7kiw5Fk",
+                "thumbnail_url": "https://i.ytimg.com/vi/kJQP7kiw5Fk/maxresdefault.jpg",
+                "duration": "25:00",
+                "category": "promotion",
+                "view_count": 9870,
+                "likes": 456,
+                "is_featured": False
+            },
+            {
+                "title": "Festival Compas - Highlights 2024",
+                "description": "Les meilleurs moments du Festival Compas 2024 avec la couverture exclusive de RHF.",
+                "video_url": "https://www.youtube.com/embed/L_jWHffIx5E",
+                "thumbnail_url": "https://i.ytimg.com/vi/L_jWHffIx5E/maxresdefault.jpg", 
+                "duration": "12:45",
+                "category": "concert",
+                "view_count": 18950,
+                "likes": 1120,
+                "is_featured": True
+            }
+        ]
+        return [PromotionalVideo(**video) for video in sample_videos]
+    
+    videos = []
+    for video_data in videos_data:
+        parsed_video = parse_from_mongo(video_data)
+        videos.append(PromotionalVideo(**parsed_video))
+    
+    if category:
+        videos = [v for v in videos if v.category == category]
+    
+    return videos
+
+@api_router.post("/videos/promotional", response_model=PromotionalVideo)
+async def upload_promotional_video(video_input: VideoUpload):
+    video_dict = video_input.dict()
+    video_obj = PromotionalVideo(**video_dict)
+    
+    mongo_data = prepare_for_mongo(video_obj.dict())
+    await db.promotional_videos.insert_one(mongo_data)
+    
+    return video_obj
+
+@api_router.get("/videos/featured")
+async def get_featured_videos():
+    videos_data = await db.promotional_videos.find({"is_featured": True}).sort("upload_date", -1).limit(3).to_list(length=None)
+    
+    if not videos_data:
+        # Return sample featured videos
+        featured = [
+            {
+                "title": "Radio Haiti Fusion - Promo Officiel 2024",
+                "video_url": "https://www.youtube.com/embed/jfKfPfyJRdk",
+                "view_count": 15420,
+                "category": "promotion"
+            }
+        ]
+        return [PromotionalVideo(**video) for video in featured]
+    
+    return [PromotionalVideo(**parse_from_mongo(video)) for video in videos_data]
+
 # Donations API
 @api_router.get("/donations/info")
 async def get_donation_info():
