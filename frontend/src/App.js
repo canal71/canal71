@@ -628,7 +628,7 @@ function App() {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
             {/* Professional Radio/TV Player */}
-            <Card className="bg-gradient-to-br from-white via-gray-50 to-white shadow-2xl border-0 overflow-hidden">
+            <Card className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 shadow-2xl border border-slate-700/50 overflow-hidden">
               <CardContent className="p-0">
                 {/* Logo Banner Header */}
                 <div 
