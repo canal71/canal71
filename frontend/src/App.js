@@ -172,7 +172,7 @@ function App() {
             <Card className="bg-black/30 backdrop-blur-sm border-slate-700/50">
               <CardContent className="p-8">
                 <div className="text-center mb-8">
-                  <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-2xl">
+                  <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-blue-600 to-red-600 rounded-2xl flex items-center justify-center shadow-2xl">
                     <Radio className="w-16 h-16 text-white" />
                   </div>
                   <h2 className="text-2xl font-bold text-white mb-2">
