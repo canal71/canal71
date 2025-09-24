@@ -2505,9 +2505,11 @@ function App() {
                     
                     {triviaGame && triviaGame.current_question < triviaGame.questions.length ? (
                       <div className="space-y-2">
-                        <p className="text-white text-sm font-medium">
-                          {triviaGame.questions[triviaGame.current_question].question}
-                        </p>
+                        {triviaGame && triviaGame.questions && triviaGame.questions[triviaGame.current_question] && (
+                          <p className="text-white text-sm font-medium">
+                            {triviaGame.questions[triviaGame.current_question].question}
+                          </p>
+                        )}
                         
                         {currentTriviaAnswer ? (
                           <div className={`p-3 rounded ${currentTriviaAnswer.is_correct ? 'bg-green-500/20' : 'bg-red-500/20'}`}>
