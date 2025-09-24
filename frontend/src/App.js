@@ -233,19 +233,49 @@ function App() {
             <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
               <CardContent className="p-8">
                 <div className="text-center mb-8">
-                  <div className="w-32 h-32 mx-auto mb-6 bg-black/30 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-2xl border border-orange-500/30">
-                    <img 
-                      src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/bskjptue_IMG_0178.jpeg" 
-                      alt="Radio Haiti Fusion Logo" 
-                      className="w-24 h-24 object-contain"
-                    />
+                  {/* Album Artwork or Logo */}
+                  <div className="w-32 h-32 mx-auto mb-6 bg-black/30 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-2xl border border-orange-500/30 overflow-hidden">
+                    {nowPlaying?.artwork_url ? (
+                      <img 
+                        src={nowPlaying.artwork_url} 
+                        alt="Album Artwork" 
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          // Fallback to logo if artwork fails to load
+                          e.target.src = "https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/bskjptue_IMG_0178.jpeg";
+                          e.target.className = "w-24 h-24 object-contain";
+                        }}
+                      />
+                    ) : (
+                      <img 
+                        src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/bskjptue_IMG_0178.jpeg" 
+                        alt="Radio Haiti Fusion Logo" 
+                        className="w-24 h-24 object-contain"
+                      />
+                    )}
                   </div>
-                  <h2 className="text-2xl font-bold text-white mb-2">
-                    {radioStatus?.current_song || 'Loading...'}
-                  </h2>
-                  <p className="text-slate-400 text-lg">
-                    {radioStatus?.current_artist || 'Radio Station'}
-                  </p>
+
+                  {/* Now Playing Info */}
+                  <div className="mb-4">
+                    <h2 className="text-2xl font-bold text-white mb-2">
+                      {nowPlaying?.song || radioStatus?.current_song || 'Loading...'}
+                    </h2>
+                    <p className="text-slate-400 text-lg mb-1">
+                      {nowPlaying?.artist || radioStatus?.current_artist || 'Radio Station'}
+                    </p>
+                    {nowPlaying?.album && (
+                      <p className="text-slate-500 text-sm">
+                        Album: {nowPlaying.album}
+                      </p>
+                    )}
+                    {nowPlaying?.genre && (
+                      <Badge variant="outline" className="mt-2 text-orange-400 border-orange-400/50">
+                        {nowPlaying.genre}
+                      </Badge>
+                    )}
+                  </div>
+
+                  {/* Stream Status */}
                   {currentStreamIndex > 0 && (
                     <p className="text-yellow-400 text-sm mt-1">
                       Using fallback stream ({currentStreamIndex + 1}/{streamUrls.length})
