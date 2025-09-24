@@ -732,6 +732,25 @@ def main():
     tester.test_get_voice_messages_by_status()
     tester.test_get_voice_message_audio()
     
+    print("\n📊 Testing Top 10 Charts System...")
+    tester.test_get_chart_categories()
+    tester.test_get_chart_most_requested()
+    tester.test_get_chart_haitian_hits()
+    tester.test_get_chart_compas()
+    tester.test_vote_for_song()
+    tester.test_vote_for_new_song()
+    
+    print("\n🧠 Testing Trivia Game System...")
+    tester.test_get_trivia_questions_mixed()
+    tester.test_get_trivia_questions_haitian_music()
+    tester.test_get_trivia_questions_haitian_culture()
+    tester.test_start_trivia_game_mixed()
+    tester.test_start_trivia_game_haitian_music()
+    tester.test_answer_trivia_question_correct()
+    tester.test_answer_trivia_question_incorrect()
+    tester.test_get_trivia_leaderboard()
+    tester.test_get_trivia_leaderboard_by_category()
+    
     print("\n🔌 Testing WebSocket Configuration...")
     tester.test_websocket_endpoint()
 
