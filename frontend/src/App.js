@@ -708,7 +708,7 @@ function App() {
                 </div>
 
                 {/* Player Content */}
-                <div className="p-6 bg-white">
+                <div className="p-6 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800">
                   {streamingMode === 'video' && videoStatus ? (
                     /* Video Player Mode */
                     <div className="space-y-4">
