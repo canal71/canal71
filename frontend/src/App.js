@@ -729,8 +729,16 @@ function App() {
                           <span className="text-orange-400 text-sm">{stationInfo.contact_email}</span>
                         </div>
                         <div className="flex items-center">
-                          <span className="text-slate-400 text-xs w-16">Tel:</span>
-                          <span className="text-white text-sm">{stationInfo.contact_phone}</span>
+                          <span className="text-slate-400 text-xs w-16">Promo:</span>
+                          <span className="text-orange-400 text-sm">{stationInfo.promo_email}</span>
+                        </div>
+                        <div className="flex items-center">
+                          <span className="text-slate-400 text-xs w-16">Site:</span>
+                          <span className="text-blue-400 text-sm">{stationInfo.website}</span>
+                        </div>
+                        <div className="flex items-center">
+                          <span className="text-slate-400 text-xs w-16">WhatsApp:</span>
+                          <span className="text-green-400 text-sm">{stationInfo.whatsapp}</span>
                         </div>
                       </div>
                     </div>
