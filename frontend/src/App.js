@@ -47,6 +47,7 @@ function App() {
   const [streamingMode, setStreamingMode] = useState('video'); // video or audio_only
   const [promotionalVideos, setPromotionalVideos] = useState([]);
   const [selectedVideoCategory, setSelectedVideoCategory] = useState('all');
+  const [currentVideoSlide, setCurrentVideoSlide] = useState(0);
   
   const audioRef = useRef(null);
   const commentsEndRef = useRef(null);
