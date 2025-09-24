@@ -785,13 +785,22 @@ function App() {
                       </div>
                     </div>
 
+                    {/* PayPal Info */}
+                    <div className="bg-slate-700/30 rounded-lg p-3 mb-3">
+                      <p className="text-slate-400 text-xs mb-1">PayPal:</p>
+                      <p className="text-green-400 text-sm font-mono">{donationInfo.paypal_email}</p>
+                    </div>
+
                     {/* Donation Buttons */}
                     <div className="flex space-x-2 pt-2">
-                      <Button className="flex-1 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700">
-                        Faire un don
+                      <Button 
+                        className="flex-1 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
+                        onClick={() => window.open(`https://paypal.me/${donationInfo.paypal_email}`, '_blank')}
+                      >
+                        Faire un don PayPal
                       </Button>
                       <Button variant="outline" className="border-green-500 text-green-400 hover:bg-green-500/10">
-                        En savoir plus
+                        Autres méthodes
                       </Button>
                     </div>
 
