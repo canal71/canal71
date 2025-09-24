@@ -142,6 +142,48 @@ class DonationInfo(BaseModel):
     paypal_email: Optional[str] = "donations@radiohaitifusion.com"
     moncash_number: Optional[str] = "+509 xxxx-xxxx"
 
+class DJ(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name: str
+    stage_name: str
+    bio: str
+    photo_url: Optional[str] = None
+    specialty: str = "Compas & Hip-Hop"
+    years_experience: int = 3
+    social_media: Optional[dict] = {}
+    schedule: Optional[str] = "Lundi - Vendredi"
+    is_active: bool = True
+
+class Show(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name: str
+    description: str
+    host_dj: str
+    day_of_week: str  # "Lundi", "Mardi", etc.
+    start_time: str   # "08:00"
+    end_time: str     # "10:00"
+    genre: str = "Variété"
+    is_live: bool = False
+
+class DJCreate(BaseModel):
+    name: str
+    stage_name: str
+    bio: str
+    photo_url: Optional[str] = None
+    specialty: str = "Compas & Hip-Hop"
+    years_experience: int = 3
+    social_media: Optional[dict] = {}
+    schedule: Optional[str] = "Lundi - Vendredi"
+
+class ShowCreate(BaseModel):
+    name: str
+    description: str
+    host_dj: str
+    day_of_week: str
+    start_time: str
+    end_time: str
+    genre: str = "Variété"
+
 # Helper function for MongoDB serialization
 def prepare_for_mongo(data):
     if isinstance(data, dict):
