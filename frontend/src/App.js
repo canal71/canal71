@@ -154,6 +154,7 @@ function App() {
     loadChartCategories();
     loadCharts();
     loadTriviaLeaderboard();
+    loadBreakingNews();
 
     return () => {
       if (websocket.readyState === WebSocket.OPEN) {
