@@ -384,7 +384,7 @@ function App() {
                     placeholder="Votre nom"
                     value={newComment.username}
                     onChange={(e) => setNewComment({...newComment, username: e.target.value})}
-                    className="bg-slate-800/50 border-slate-600 text-white placeholder:text-slate-400"
+                    className="bg-slate-700/60 border-slate-500 text-white placeholder:text-slate-300"
                     data-testid="username-input"
                   />
                   <div className="flex space-x-2">
