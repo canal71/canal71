@@ -1063,6 +1063,127 @@ function App() {
               </CardContent>
             </Card>
 
+            {/* External Player Links */}
+            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                  <Radio className="w-5 h-5 mr-2 text-orange-500" />
+                  Écouter avec vos Applications Préférées
+                </h3>
+                
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-6">
+                  <a 
+                    href="https://xtremeradiohosting.com/cp/links.php?p=8076&m=pls" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center p-3 bg-slate-700/50 rounded-lg hover:bg-slate-700/80 transition-all duration-300 group"
+                    title="Écouter avec Winamp"
+                  >
+                    <img 
+                      src="https://xtremeradiohosting.com/cp/inc/images/players/winamp2.png" 
+                      alt="Winamp"
+                      className="w-12 h-12 mb-2 group-hover:scale-110 transition-transform"
+                    />
+                    <span className="text-xs text-slate-300 text-center">Winamp</span>
+                  </a>
+
+                  <a 
+                    href="https://xtremeradiohosting.com/cp/links.php?p=8076&m=asx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center p-3 bg-slate-700/50 rounded-lg hover:bg-slate-700/80 transition-all duration-300 group"
+                    title="Écouter avec Windows Media Player"
+                  >
+                    <img 
+                      src="https://xtremeradiohosting.com/cp/inc/images/players/mediaplayer.png" 
+                      alt="Media Player"
+                      className="w-12 h-12 mb-2 group-hover:scale-110 transition-transform"
+                    />
+                    <span className="text-xs text-slate-300 text-center">Media Player</span>
+                  </a>
+
+                  <a 
+                    href="https://xtremeradiohosting.com/cp/links.php?p=8076&m=pls"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center p-3 bg-slate-700/50 rounded-lg hover:bg-slate-700/80 transition-all duration-300 group"
+                    title="Écouter avec VLC"
+                  >
+                    <img 
+                      src="https://xtremeradiohosting.com/cp/inc/images/players/vlc.png" 
+                      alt="VLC"
+                      className="w-12 h-12 mb-2 group-hover:scale-110 transition-transform"
+                    />
+                    <span className="text-xs text-slate-300 text-center">VLC</span>
+                  </a>
+
+                  <a 
+                    href="https://xtremeradiohosting.com/cp/links.php?p=8288&m=pls"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center p-3 bg-slate-700/50 rounded-lg hover:bg-slate-700/80 transition-all duration-300 group"
+                    title="Écouter avec iTunes"
+                  >
+                    <img 
+                      src="https://xtremeradiohosting.com/cp/inc/images/players/itunes.png" 
+                      alt="iTunes"
+                      className="w-12 h-12 mb-2 group-hover:scale-110 transition-transform"
+                    />
+                    <span className="text-xs text-slate-300 text-center">iTunes</span>
+                  </a>
+
+                  <a 
+                    href="https://xtremeradiohosting.com/cp/links.php?p=8288&m=ram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center p-3 bg-slate-700/50 rounded-lg hover:bg-slate-700/80 transition-all duration-300 group"
+                    title="Écouter avec RealPlayer"
+                  >
+                    <img 
+                      src="https://xtremeradiohosting.com/cp/inc/images/players/real.png" 
+                      alt="RealPlayer"
+                      className="w-12 h-12 mb-2 group-hover:scale-110 transition-transform"
+                    />
+                    <span className="text-xs text-slate-300 text-center">RealPlayer</span>
+                  </a>
+
+                  <a 
+                    href="https://xtremeradiohosting.com/8288/stream"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center p-3 bg-slate-700/50 rounded-lg hover:bg-slate-700/80 transition-all duration-300 group"
+                    title="Écouter dans le navigateur"
+                  >
+                    <img 
+                      src="https://xtremeradiohosting.com/cp/inc/images/players/sslplay.png" 
+                      alt="SSL Play"
+                      className="w-12 h-12 mb-2 group-hover:scale-110 transition-transform"
+                    />
+                    <span className="text-xs text-slate-300 text-center">Navigateur</span>
+                  </a>
+                </div>
+
+                {/* Alternative Audio Player */}
+                <div className="bg-slate-700/30 rounded-lg p-4 border border-slate-600/50">
+                  <h4 className="text-sm font-semibold text-white mb-3 flex items-center">
+                    <Play className="w-4 h-4 mr-2 text-orange-400" />
+                    Lecteur Audio Alternatif
+                  </h4>
+                  <audio 
+                    controls 
+                    className="w-full h-10 bg-slate-800 rounded"
+                    style={{ filter: 'invert(1) hue-rotate(180deg)' }}
+                  >
+                    <source src="https://xtremeradiohosting.com/8288/stream" type="audio/mpeg" />
+                    Votre navigateur ne supporte pas l'élément audio.
+                  </audio>
+                  <p className="text-xs text-slate-400 mt-2">
+                    Stream direct haute qualité - Compatible avec tous les navigateurs modernes
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
             {/* Recently Played */}
             <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
               <CardContent className="p-6">
