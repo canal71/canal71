@@ -1037,6 +1037,47 @@ async def track_ad_impression(ad_id: str):
     )
     return {"message": "Impression tracked"}
 
+# Voice Messages API
+@api_router.post("/voice-messages", response_model=VoiceMessage)
+async def create_voice_message(voice_input: VoiceMessageCreate):
+    voice_dict = voice_input.dict()
+    voice_obj = VoiceMessage(**voice_dict)
+    
+    mongo_data = prepare_for_mongo(voice_obj.dict())
+    await db.voice_messages.insert_one(mongo_data)
+    
+    # Broadcast new voice message to WebSocket connections
+    await manager.broadcast(json.dumps({
+        "type": "new_voice_message",
+        "message": {
+            "id": voice_obj.id,
+            "listener_name": voice_obj.listener_name,
+            "message_type": voice_obj.message_type,
+            "duration": voice_obj.duration,
+            "timestamp": voice_obj.timestamp.isoformat()
+        }
+    }))
+    
+    return voice_obj
+
+@api_router.get("/voice-messages", response_model=List[VoiceMessage])
+async def get_voice_messages(status: str = "pending", limit: int = 10):
+    messages_data = await db.voice_messages.find({"status": status}).sort("timestamp", 1).limit(limit).to_list(length=None)
+    messages = []
+    for message_data in messages_data:
+        parsed_message = parse_from_mongo(message_data)
+        # Don't return audio_data in list view for performance
+        parsed_message["audio_data"] = None
+        messages.append(VoiceMessage(**parsed_message))
+    return messages
+
+@api_router.get("/voice-messages/{message_id}/audio")
+async def get_voice_message_audio(message_id: str):
+    message_data = await db.voice_messages.find_one({"id": message_id})
+    if not message_data or not message_data.get("audio_data"):
+        return {"error": "Audio not found"}
+    return {"audio_data": message_data["audio_data"]}
+
 # Donations API
 @api_router.get("/donations/info")
 async def get_donation_info():
