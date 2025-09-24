@@ -23,6 +23,8 @@ function App() {
   const [ws, setWs] = useState(null);
   const [radioStations, setRadioStations] = useState([]);
   const [nowPlaying, setNowPlaying] = useState(null);
+  const [weather, setWeather] = useState(null);
+  const [news, setNews] = useState([]);
   
   const audioRef = useRef(null);
   const commentsEndRef = useRef(null);
