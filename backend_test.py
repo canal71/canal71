@@ -400,6 +400,307 @@ class RadioStationAPITester:
         print("✅ WebSocket URL configured correctly")
         return True, {"websocket_url": ws_url}
 
+    # Top 10 Charts API Tests
+    def test_get_chart_categories(self):
+        """Test getting available chart categories"""
+        return self.run_test(
+            "Get Chart Categories",
+            "GET",
+            "charts/categories",
+            200,
+            description="Get available chart categories"
+        )
+
+    def test_get_chart_most_requested(self):
+        """Test getting most requested chart"""
+        success, response = self.run_test(
+            "Get Most Requested Chart",
+            "GET",
+            "charts/most_requested",
+            200,
+            description="Get most requested songs chart"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} chart entries")
+            for i, entry in enumerate(response[:3]):  # Show first 3 entries
+                print(f"   {i+1}. {entry.get('song_title')} by {entry.get('artist')} - {entry.get('votes')} votes")
+        
+        return success, response
+
+    def test_get_chart_haitian_hits(self):
+        """Test getting Haitian hits chart"""
+        success, response = self.run_test(
+            "Get Haitian Hits Chart",
+            "GET",
+            "charts/haitian_hits",
+            200,
+            description="Get Haitian hits chart"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} Haitian hits")
+            for i, entry in enumerate(response[:3]):  # Show first 3 entries
+                print(f"   {i+1}. {entry.get('song_title')} by {entry.get('artist')} - Position {entry.get('position')}")
+        
+        return success, response
+
+    def test_get_chart_compas(self):
+        """Test getting Compas chart"""
+        return self.run_test(
+            "Get Compas Chart",
+            "GET",
+            "charts/compas",
+            200,
+            description="Get Compas music chart"
+        )
+
+    def test_vote_for_song(self):
+        """Test voting for a song in the charts"""
+        vote_data = {
+            "song_title": "Mwen Renmen'w",
+            "artist": "T-Vice",
+            "listener_name": "Test Voter",
+            "category": "most_requested"
+        }
+        
+        # Note: The API expects query parameters, so we'll construct the URL manually
+        endpoint = f"charts/most_requested/vote?song_title={vote_data['song_title']}&artist={vote_data['artist']}&listener_name={vote_data['listener_name']}"
+        
+        return self.run_test(
+            "Vote for Song",
+            "POST",
+            endpoint,
+            200,
+            description=f"Vote for '{vote_data['song_title']}' by {vote_data['artist']}"
+        )
+
+    def test_vote_for_new_song(self):
+        """Test voting for a song not yet in charts"""
+        vote_data = {
+            "song_title": "Test Song",
+            "artist": "Test Artist",
+            "listener_name": "Test Voter 2",
+            "category": "most_requested"
+        }
+        
+        endpoint = f"charts/most_requested/vote?song_title={vote_data['song_title']}&artist={vote_data['artist']}&listener_name={vote_data['listener_name']}"
+        
+        return self.run_test(
+            "Vote for New Song",
+            "POST",
+            endpoint,
+            200,
+            description=f"Vote for new song '{vote_data['song_title']}' by {vote_data['artist']}"
+        )
+
+    # Trivia Game API Tests
+    def test_get_trivia_questions_mixed(self):
+        """Test getting mixed trivia questions"""
+        success, response = self.run_test(
+            "Get Mixed Trivia Questions",
+            "GET",
+            "trivia/questions/mixed",
+            200,
+            description="Get mixed category trivia questions"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} trivia questions")
+            for i, question in enumerate(response[:2]):  # Show first 2 questions
+                print(f"   Q{i+1}: {question.get('question')}")
+                print(f"        Category: {question.get('category')}")
+                print(f"        Options: {len(question.get('options', []))} choices")
+        
+        return success, response
+
+    def test_get_trivia_questions_haitian_music(self):
+        """Test getting Haitian music trivia questions"""
+        success, response = self.run_test(
+            "Get Haitian Music Trivia Questions",
+            "GET",
+            "trivia/questions/haitian_music",
+            200,
+            description="Get Haitian music trivia questions"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} Haitian music questions")
+            if response:
+                first_q = response[0]
+                print(f"   Sample: {first_q.get('question')}")
+                print(f"   Options: {first_q.get('options')}")
+        
+        return success, response
+
+    def test_get_trivia_questions_haitian_culture(self):
+        """Test getting Haitian culture trivia questions"""
+        return self.run_test(
+            "Get Haitian Culture Trivia Questions",
+            "GET",
+            "trivia/questions/haitian_culture",
+            200,
+            description="Get Haitian culture trivia questions"
+        )
+
+    def test_start_trivia_game_mixed(self):
+        """Test starting a mixed trivia game"""
+        game_data = {
+            "player_name": "Test Player",
+            "category": "mixed",
+            "difficulty": "medium"
+        }
+        
+        endpoint = f"trivia/games?player_name={game_data['player_name']}&category={game_data['category']}&difficulty={game_data['difficulty']}"
+        
+        success, response = self.run_test(
+            "Start Mixed Trivia Game",
+            "POST",
+            endpoint,
+            200,
+            description=f"Start trivia game for player '{game_data['player_name']}'"
+        )
+        
+        if success and response:
+            print(f"   Game ID: {response.get('id')}")
+            print(f"   Player: {response.get('player_name')}")
+            print(f"   Category: {response.get('category')}")
+            print(f"   Questions: {len(response.get('questions', []))}")
+            print(f"   Lives: {response.get('lives')}")
+            print(f"   Score: {response.get('score')}")
+            
+            # Store game ID for answer testing
+            self.current_game_id = response.get('id')
+            self.current_game_questions = response.get('questions', [])
+        
+        return success, response
+
+    def test_start_trivia_game_haitian_music(self):
+        """Test starting a Haitian music trivia game"""
+        game_data = {
+            "player_name": "Music Lover",
+            "category": "haitian_music",
+            "difficulty": "medium"
+        }
+        
+        endpoint = f"trivia/games?player_name={game_data['player_name']}&category={game_data['category']}&difficulty={game_data['difficulty']}"
+        
+        return self.run_test(
+            "Start Haitian Music Trivia Game",
+            "POST",
+            endpoint,
+            200,
+            description=f"Start Haitian music trivia game for '{game_data['player_name']}'"
+        )
+
+    def test_answer_trivia_question_correct(self):
+        """Test answering a trivia question correctly"""
+        if not hasattr(self, 'current_game_id') or not self.current_game_id:
+            print("⚠️  Skipping: No active game ID from previous test")
+            return False, {}
+        
+        if not hasattr(self, 'current_game_questions') or not self.current_game_questions:
+            print("⚠️  Skipping: No questions available from previous test")
+            return False, {}
+        
+        # Get the first question and its correct answer
+        first_question = self.current_game_questions[0]
+        correct_answer = first_question.get('correct_answer', 0)
+        
+        answer_data = {
+            "selected_answer": correct_answer
+        }
+        
+        success, response = self.run_test(
+            "Answer Trivia Question (Correct)",
+            "POST",
+            f"trivia/games/{self.current_game_id}/answer",
+            200,
+            data=answer_data,
+            description=f"Submit correct answer ({correct_answer}) for trivia question"
+        )
+        
+        if success and response:
+            print(f"   Correct: {response.get('is_correct')}")
+            print(f"   Points Earned: {response.get('points_earned')}")
+            print(f"   Total Score: {response.get('total_score')}")
+            print(f"   Lives Remaining: {response.get('lives_remaining')}")
+            print(f"   Game Status: {response.get('game_status')}")
+            if response.get('explanation'):
+                print(f"   Explanation: {response.get('explanation')}")
+        
+        return success, response
+
+    def test_answer_trivia_question_incorrect(self):
+        """Test answering a trivia question incorrectly"""
+        if not hasattr(self, 'current_game_id') or not self.current_game_id:
+            print("⚠️  Skipping: No active game ID from previous test")
+            return False, {}
+        
+        if not hasattr(self, 'current_game_questions') or not self.current_game_questions:
+            print("⚠️  Skipping: No questions available from previous test")
+            return False, {}
+        
+        # Get the second question and choose a wrong answer
+        if len(self.current_game_questions) > 1:
+            second_question = self.current_game_questions[1]
+            correct_answer = second_question.get('correct_answer', 0)
+            # Choose a different answer (wrong one)
+            wrong_answer = (correct_answer + 1) % len(second_question.get('options', [0, 1]))
+            
+            answer_data = {
+                "selected_answer": wrong_answer
+            }
+            
+            success, response = self.run_test(
+                "Answer Trivia Question (Incorrect)",
+                "POST",
+                f"trivia/games/{self.current_game_id}/answer",
+                200,
+                data=answer_data,
+                description=f"Submit incorrect answer ({wrong_answer}) for trivia question"
+            )
+            
+            if success and response:
+                print(f"   Correct: {response.get('is_correct')}")
+                print(f"   Points Earned: {response.get('points_earned')}")
+                print(f"   Total Score: {response.get('total_score')}")
+                print(f"   Lives Remaining: {response.get('lives_remaining')}")
+                print(f"   Game Status: {response.get('game_status')}")
+                print(f"   Correct Answer Was: {response.get('correct_answer')}")
+            
+            return success, response
+        else:
+            print("⚠️  Skipping: Not enough questions for incorrect answer test")
+            return False, {}
+
+    def test_get_trivia_leaderboard(self):
+        """Test getting trivia leaderboard"""
+        success, response = self.run_test(
+            "Get Trivia Leaderboard",
+            "GET",
+            "trivia/leaderboard",
+            200,
+            description="Get trivia game leaderboard"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} leaderboard entries")
+            for i, entry in enumerate(response[:5]):  # Show top 5
+                print(f"   {entry.get('rank')}. {entry.get('player_name')} - {entry.get('score')} points ({entry.get('category')})")
+        
+        return success, response
+
+    def test_get_trivia_leaderboard_by_category(self):
+        """Test getting trivia leaderboard filtered by category"""
+        return self.run_test(
+            "Get Trivia Leaderboard (Haitian Music)",
+            "GET",
+            "trivia/leaderboard?category=haitian_music",
+            200,
+            description="Get trivia leaderboard filtered by Haitian music category"
+        )
+
 def main():
     print("🎵 Radio Station API Testing Suite")
     print("=" * 50)
