@@ -222,7 +222,7 @@ function App() {
                 <div className="text-center mb-8">
                   <div className="w-32 h-32 mx-auto mb-6 bg-black/30 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-2xl border border-orange-500/30">
                     <img 
-                      src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/dc83vhra_a12a6cc8-c410-4855-811c-4f5c5fce72c6.jpeg" 
+                      src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/bskjptue_IMG_0178.jpeg" 
                       alt="Radio Haiti Fusion Logo" 
                       className="w-24 h-24 object-contain"
                     />
