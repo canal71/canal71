@@ -22,6 +22,7 @@ function App() {
   const [newComment, setNewComment] = useState({ username: '', message: '' });
   const [ws, setWs] = useState(null);
   const [radioStations, setRadioStations] = useState([]);
+  const [nowPlaying, setNowPlaying] = useState(null);
   
   const audioRef = useRef(null);
   const commentsEndRef = useRef(null);
