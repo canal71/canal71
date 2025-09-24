@@ -242,6 +242,26 @@ class LiveStudioUpdate(BaseModel):
     show_name: Optional[str] = None
     studio_location: str = "Studio Principal"
 
+class VideoStream(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    stream_url: str
+    stream_type: str = "hls"  # hls, rtmp, youtube, facebook
+    quality: str = "720p"
+    is_active: bool = True
+    title: str = "Radio Haiti Fusion Live TV"
+    description: str = "Diffusion en direct depuis nos studios"
+
+class VideoStreamStatus(BaseModel):
+    is_streaming: bool = True
+    video_url: Optional[str] = "https://www.youtube.com/embed/jfKfPfyJRdk"  # Sample live stream
+    audio_url: str = "http://xtremeradiohosting.com:8076"
+    mode: str = "video"  # video, audio_only
+    viewers: int = 892
+    chat_enabled: bool = True
+    recording: bool = False
+    cameras: List[str] = ["Studio Principal", "Studio 2", "Extérieur"]
+    current_camera: str = "Studio Principal"
+
 # Helper function for MongoDB serialization
 def prepare_for_mongo(data):
     if isinstance(data, dict):
