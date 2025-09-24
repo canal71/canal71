@@ -76,6 +76,8 @@ function App() {
     loadComments();
     loadRadioDirectory();
     loadNowPlaying();
+    loadWeather();
+    loadNews();
 
     return () => {
       if (websocket.readyState === WebSocket.OPEN) {
