@@ -28,6 +28,8 @@ function App() {
   const [haitiCities, setHaitiCities] = useState([]);
   const [stationInfo, setStationInfo] = useState(null);
   const [donationInfo, setDonationInfo] = useState(null);
+  const [djs, setDjs] = useState([]);
+  const [showSchedule, setShowSchedule] = useState([]);
   
   const audioRef = useRef(null);
   const commentsEndRef = useRef(null);
