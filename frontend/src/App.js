@@ -487,8 +487,16 @@ function App() {
         <Card className="bg-gradient-to-r from-white via-gray-50 to-white shadow-2xl border-0 overflow-hidden">
           <CardContent className="p-0">
             {/* Header Banner */}
-            <div className="relative bg-gradient-to-r from-orange-600 via-red-600 to-orange-600 text-white">
-              <div className="absolute inset-0 bg-black/10"></div>
+            <div 
+              className="relative text-white overflow-hidden"
+              style={{
+                backgroundImage: `url('https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/d6zbosac_logorhf.png')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
               <div className="absolute inset-0 bg-black/10"></div>
               
               {/* Main Header Content */}
