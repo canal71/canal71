@@ -2273,16 +2273,6 @@ function App() {
                     </form>
                   </div>
                 )}
-                    <div className="space-y-2">
-                      {songRequests.slice(0, 3).map((request, index) => (
-                        <div key={request.id || index} className="bg-slate-700/30 rounded p-2">
-                          <p className="text-white text-xs font-medium">"{request.song_title}" - {request.artist}</p>
-                          <p className="text-slate-400 text-xs">par {request.listener_name}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
               </CardContent>
             </Card>
 
