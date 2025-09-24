@@ -422,6 +422,15 @@ def main():
     tester.test_clear_comments()
     tester.test_comments_after_clear()
     
+    print("\n🎤 Testing Voice Messages System...")
+    tester.test_get_voice_messages_empty()
+    tester.test_create_voice_message()
+    tester.test_create_voice_message_validation()
+    tester.test_create_multiple_voice_messages()
+    tester.test_get_voice_messages_with_data()
+    tester.test_get_voice_messages_by_status()
+    tester.test_get_voice_message_audio()
+    
     print("\n🔌 Testing WebSocket Configuration...")
     tester.test_websocket_endpoint()
 
