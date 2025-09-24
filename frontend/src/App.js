@@ -468,18 +468,21 @@ function App() {
   }, []);
 
   return (
-    <div 
-      className="min-h-screen bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 relative"
-      style={{
-        backgroundImage: `url('https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/dc83vhra_a12a6cc8-c410-4855-811c-4f5c5fce72c6.jpeg')`,
-        backgroundSize: '400px 400px',
-        backgroundPosition: 'center right',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed'
-      }}
-    >
-      {/* Background overlay for better readability */}
-      <div className="absolute inset-0 bg-slate-800/85 backdrop-blur-[1px]"></div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 relative">
+      {/* Responsive Background Logo */}
+      <div 
+        className="absolute inset-0 opacity-10"
+        style={{
+          backgroundImage: `url('https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/dc83vhra_a12a6cc8-c410-4855-811c-4f5c5fce72c6.jpeg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed'
+        }}
+      ></div>
+      
+      {/* Content overlay for better readability */}
+      <div className="absolute inset-0 bg-slate-800/70 backdrop-blur-[0.5px]"></div>
       
       {/* Content wrapper */}
       <div className="relative z-10">
