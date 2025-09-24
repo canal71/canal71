@@ -1627,153 +1627,132 @@ function App() {
               </CardContent>
             </Card>
 
-            {/* Dynamic Advertising Carousel */}
-            <Card className="bg-gradient-to-r from-orange-600/20 to-orange-500/15 backdrop-blur-sm border-slate-600/50">
-              <CardContent className="p-6">
+            {/* Dynamic Advertising Banners */}
+            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
+              <CardContent className="p-4">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-lg font-bold text-white flex items-center">
                     📢 Publicités
-                  </h3>
-                  <div className="flex items-center space-x-2">
-                    {advertisements.length > 1 && (
-                      <>
-                        <Button 
-                          size="sm" 
-                          variant="ghost"
-                          onClick={() => setCurrentAdSlide(Math.max(0, currentAdSlide - 1))}
-                          className="text-orange-400 hover:text-white p-1"
-                        >
-                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
-                          </svg>
-                        </Button>
-                        <span className="text-slate-400 text-xs">
-                          {currentAdSlide + 1}/{advertisements.length}
-                        </span>
-                        <Button 
-                          size="sm" 
-                          variant="ghost"
-                          onClick={() => setCurrentAdSlide((currentAdSlide + 1) % advertisements.length)}
-                          className="text-orange-400 hover:text-white p-1"
-                        >
-                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                          </svg>
-                        </Button>
-                      </>
+                    {advertisements.length > 0 && (
+                      <Badge className="ml-2 bg-orange-500 text-white text-xs">
+                        {currentAdSlide + 1}/{advertisements.length}
+                      </Badge>
                     )}
-                  </div>
-                </div>
-                
-                {/* Advertisement Carousel */}
-                <div className="relative overflow-hidden rounded-lg min-h-[200px]">
-                  {advertisements.length > 0 ? (
-                    <div 
-                      className="flex transition-transform duration-1000 ease-in-out"
-                      style={{ 
-                        transform: `translateX(-${currentAdSlide * 100}%)` 
-                      }}
-                    >
-                      {advertisements.map((ad, index) => (
-                        <div key={ad.id || index} className="w-full flex-shrink-0">
-                          <div 
-                            className="bg-slate-800/40 rounded-lg overflow-hidden cursor-pointer hover:bg-slate-800/60 transition-all duration-200 group"
-                            onClick={() => handleAdClick(ad)}
-                          >
-                            {/* Ad Image/Banner */}
-                            <div className="relative aspect-[8/3] bg-gradient-to-r from-orange-500 to-orange-600">
-                              {ad.image_url ? (
-                                <img 
-                                  src={ad.image_url} 
-                                  alt={ad.title}
-                                  className="w-full h-full object-cover"
-                                  onError={(e) => {
-                                    e.target.style.display = 'none';
-                                    e.target.nextSibling.style.display = 'flex';
-                                  }}
-                                />
-                              ) : null}
-                              <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center">
-                                <div className="text-center text-white">
-                                  <h4 className="text-2xl font-bold mb-2">{ad.title}</h4>
-                                  <p className="text-lg opacity-90">{ad.description}</p>
-                                </div>
-                              </div>
-                              
-                              {/* Click Indicator */}
-                              <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <div className="bg-black/70 text-white text-xs px-2 py-1 rounded flex items-center">
-                                  <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-                                    <path d="M5 5a2 2 0 00-2 2v6a2 2 0 002 2h6a2 2 0 002-2v-2a1 1 0 10-2 0v2H5V7h2a1 1 0 000-2H5z" />
-                                  </svg>
-                                  Cliquer
-                                </div>
-                              </div>
-                            </div>
-                            
-                            {/* Ad Footer */}
-                            <div className="p-4">
-                              <div className="flex items-center justify-between">
-                                <div>
-                                  <p className="text-slate-400 text-xs">Annonceur:</p>
-                                  <p className="text-white font-medium text-sm">{ad.advertiser}</p>
-                                </div>
-                                <div className="text-right text-xs text-slate-500">
-                                  <div className="flex items-center space-x-3">
-                                    <span>👀 {ad.impressions?.toLocaleString()}</span>
-                                    <span>👆 {ad.clicks?.toLocaleString()}</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="bg-slate-800/30 rounded-lg p-8 border-2 border-dashed border-slate-600 text-center">
-                      <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center">
-                        <span className="text-white font-bold text-lg">AD</span>
-                      </div>
-                      <p className="text-slate-300 mb-3">Espace publicitaire disponible</p>
-                      <p className="text-slate-400 text-sm">Contactez-nous: haitifusionpromo@gmail.com</p>
+                  </h3>
+                  
+                  {advertisements.length > 1 && (
+                    <div className="flex space-x-1">
+                      <Button 
+                        size="sm" 
+                        variant="outline"
+                        onClick={() => setCurrentAdSlide(currentAdSlide === 0 ? advertisements.length - 1 : currentAdSlide - 1)}
+                        className="w-8 h-8 p-0 border-orange-500 text-orange-400 hover:bg-orange-500/10"
+                      >
+                        ←
+                      </Button>
+                      <Button 
+                        size="sm" 
+                        variant="outline"
+                        onClick={() => setCurrentAdSlide((currentAdSlide + 1) % advertisements.length)}
+                        className="w-8 h-8 p-0 border-orange-500 text-orange-400 hover:bg-orange-500/10"
+                      >
+                        →
+                      </Button>
                     </div>
                   )}
                 </div>
                 
-                {/* Progress Indicator */}
-                {advertisements.length > 0 && (
-                  <div className="mt-4">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-slate-400 text-xs">Prochaine pub dans:</span>
-                      <span className="text-orange-400 text-xs">
-                        {advertisements[currentAdSlide]?.duration_seconds || 5}s
-                      </span>
+                {advertisements.length > 0 ? (
+                  <div>
+                    {/* Current Ad Display */}
+                    <div 
+                      className="bg-gradient-to-r from-orange-600 to-red-600 rounded-lg overflow-hidden cursor-pointer hover:from-orange-700 hover:to-red-700 transition-all duration-300 group shadow-lg"
+                      onClick={() => handleAdClick(advertisements[currentAdSlide])}
+                    >
+                      <div className="relative h-32 flex items-center justify-center p-6">
+                        <div className="text-center text-white z-10">
+                          <h4 className="text-xl font-bold mb-2">
+                            {advertisements[currentAdSlide]?.title}
+                          </h4>
+                          <p className="text-sm opacity-90 mb-3">
+                            {advertisements[currentAdSlide]?.description}
+                          </p>
+                          <div className="flex items-center justify-center space-x-4 text-xs">
+                            <span className="bg-white/20 px-2 py-1 rounded">
+                              Par: {advertisements[currentAdSlide]?.advertiser}
+                            </span>
+                            <span className="bg-white/20 px-2 py-1 rounded">
+                              👀 {advertisements[currentAdSlide]?.impressions?.toLocaleString()}
+                            </span>
+                          </div>
+                        </div>
+                        
+                        {/* Hover Effect */}
+                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                          <div className="bg-white/90 text-orange-600 px-4 py-2 rounded-lg font-semibold text-sm flex items-center">
+                            <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                            </svg>
+                            Cliquer pour plus d'infos
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div className="w-full bg-slate-700 rounded-full h-1">
-                      <div 
-                        className="bg-gradient-to-r from-orange-500 to-orange-600 h-1 rounded-full transition-all duration-100"
-                        style={{ 
-                          animation: `progress ${(advertisements[currentAdSlide]?.duration_seconds || 5)}s linear infinite` 
-                        }}
-                      ></div>
+                    
+                    {/* Auto-advance Progress Bar */}
+                    <div className="mt-3">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-slate-400 text-xs">
+                          Prochaine pub dans {advertisements[currentAdSlide]?.duration_seconds || 5}s
+                        </span>
+                        <span className="text-slate-500 text-xs">
+                          Auto-avance activé
+                        </span>
+                      </div>
+                      <div className="w-full bg-slate-700 rounded-full h-1 overflow-hidden">
+                        <div 
+                          className="bg-gradient-to-r from-orange-400 to-red-500 h-full rounded-full"
+                          style={{ 
+                            animation: `progress ${(advertisements[currentAdSlide]?.duration_seconds || 5)}s linear infinite` 
+                          }}
+                        />
+                      </div>
                     </div>
+                    
+                    {/* Navigation Dots */}
+                    {advertisements.length > 1 && (
+                      <div className="flex justify-center space-x-2 mt-3">
+                        {advertisements.map((_, index) => (
+                          <button
+                            key={index}
+                            onClick={() => setCurrentAdSlide(index)}
+                            className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                              currentAdSlide === index 
+                                ? 'bg-orange-500 w-6' 
+                                : 'bg-slate-600 hover:bg-slate-500'
+                            }`}
+                            title={`Pub ${index + 1}: ${advertisements[index]?.title}`}
+                          />
+                        ))}
+                      </div>
+                    )}
                   </div>
-                )}
-                
-                {/* Slide Dots */}
-                {advertisements.length > 1 && (
-                  <div className="flex justify-center space-x-2 mt-4">
-                    {advertisements.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentAdSlide(index)}
-                        className={`w-2 h-2 rounded-full transition-all ${
-                          currentAdSlide === index ? 'bg-orange-500' : 'bg-slate-600'
-                        }`}
-                      />
-                    ))}
+                ) : (
+                  /* Fallback Ad Space */
+                  <div className="bg-slate-700/30 rounded-lg p-6 border-2 border-dashed border-orange-500/50 text-center">
+                    <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center">
+                      <span className="text-white font-bold">📢</span>
+                    </div>
+                    <h4 className="text-white font-semibold mb-2">Espace Publicitaire Disponible</h4>
+                    <p className="text-slate-300 text-sm mb-3">
+                      Votre publicité peut être ici! Atteignez des milliers d'auditeurs.
+                    </p>
+                    <Button 
+                      className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white"
+                      onClick={() => window.open('mailto:haitifusionpromo@gmail.com', '_blank')}
+                    >
+                      Réserver cet espace
+                    </Button>
                   </div>
                 )}
               </CardContent>
