@@ -73,6 +73,10 @@ function App() {
   const [currentTriviaAnswer, setCurrentTriviaAnswer] = useState(null);
   const [triviaCategory, setTriviaCategory] = useState('mixed');
   
+  // Breaking News state
+  const [breakingNews, setBreakingNews] = useState([]);
+  const [showBreakingNews, setShowBreakingNews] = useState(true);
+  
   const audioRef = useRef(null);
   const commentsEndRef = useRef(null);
 
