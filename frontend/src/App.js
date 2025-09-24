@@ -357,7 +357,7 @@ function App() {
                   <p className="text-slate-300 mb-3">Espace réservé pour publicité</p>
                   <p className="text-slate-400 text-sm mb-4">300x250 px recommandé</p>
                   <Button 
-                    className="bg-gradient-to-r from-red-500 to-blue-600 hover:from-red-600 hover:to-blue-700"
+                    className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700"
                     data-testid="advertise-button"
                   >
                     Réservez cet espace
