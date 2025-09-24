@@ -1311,8 +1311,86 @@ function App() {
           </div>
 
           {/* Comments Sidebar */}
-          <div className="lg:col-span-1">
-            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50 h-[600px] flex flex-col">
+          <div className="lg:col-span-1 space-y-6">
+            {/* Song Request Widget */}
+            <Card className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 backdrop-blur-sm border-slate-600/50">
+              <CardContent className="p-4">
+                <h3 className="text-lg font-bold text-white mb-3 flex items-center">
+                  <svg className="w-5 h-5 mr-2 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Demandes de Chansons
+                </h3>
+                
+                {!showRequestForm ? (
+                  <Button 
+                    onClick={() => setShowRequestForm(true)}
+                    className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
+                    data-testid="request-song-button"
+                  >
+                    🎵 Demander une Chanson
+                  </Button>
+                ) : (
+                  <form onSubmit={handleSongRequest} className="space-y-3">
+                    <Input
+                      placeholder="Votre nom"
+                      value={newRequest.listener_name}
+                      onChange={(e) => setNewRequest({...newRequest, listener_name: e.target.value})}
+                      className="bg-slate-700/60 border-slate-500 text-white placeholder:text-slate-300"
+                    />
+                    <Input
+                      placeholder="Titre de la chanson"
+                      value={newRequest.song_title}
+                      onChange={(e) => setNewRequest({...newRequest, song_title: e.target.value})}
+                      className="bg-slate-700/60 border-slate-500 text-white placeholder:text-slate-300"
+                    />
+                    <Input
+                      placeholder="Artiste"
+                      value={newRequest.artist}
+                      onChange={(e) => setNewRequest({...newRequest, artist: e.target.value})}
+                      className="bg-slate-700/60 border-slate-500 text-white placeholder:text-slate-300"
+                    />
+                    <Input
+                      placeholder="Dédicace à... (optionnel)"
+                      value={newRequest.dedication_to}
+                      onChange={(e) => setNewRequest({...newRequest, dedication_to: e.target.value})}
+                      className="bg-slate-700/60 border-slate-500 text-white placeholder:text-slate-300"
+                    />
+                    <Input
+                      placeholder="Message de dédicace (optionnel)"
+                      value={newRequest.dedication_message}
+                      onChange={(e) => setNewRequest({...newRequest, dedication_message: e.target.value})}
+                      className="bg-slate-700/60 border-slate-500 text-white placeholder:text-slate-300"
+                    />
+                    <div className="flex space-x-2">
+                      <Button type="submit" className="flex-1 bg-purple-600 hover:bg-purple-700">
+                        Envoyer
+                      </Button>
+                      <Button type="button" variant="outline" onClick={() => setShowRequestForm(false)}>
+                        Annuler
+                      </Button>
+                    </div>
+                  </form>
+                )}
+                
+                {/* Recent Requests */}
+                {songRequests.length > 0 && (
+                  <div className="mt-4 pt-4 border-t border-slate-600/50">
+                    <p className="text-slate-400 text-xs mb-2">Demandes récentes:</p>
+                    <div className="space-y-2">
+                      {songRequests.slice(0, 3).map((request, index) => (
+                        <div key={request.id || index} className="bg-slate-700/30 rounded p-2">
+                          <p className="text-white text-xs font-medium">"{request.song_title}" - {request.artist}</p>
+                          <p className="text-slate-400 text-xs">par {request.listener_name}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+
+            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50 h-[500px] flex flex-col">
               <div className="p-4 border-b border-slate-600/50">
                 <div className="flex items-center space-x-2">
                   <MessageCircle className="w-5 h-5 text-slate-400" />
