@@ -155,7 +155,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800">
       {/* Header */}
-      <header className="bg-black/50 backdrop-blur-md border-b border-slate-700/50">
+      <header className="bg-slate-800/80 backdrop-blur-md border-b border-slate-600/50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
