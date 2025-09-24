@@ -655,6 +655,134 @@ function App() {
               </CardContent>
             </Card>
 
+            {/* About Radio Haiti Fusion */}
+            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                  <svg className="w-5 h-5 mr-2 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                  </svg>
+                  À Propos de la Station
+                </h3>
+                
+                {stationInfo ? (
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-bold text-white text-lg mb-2">{stationInfo.station_name}</h4>
+                      <p className="text-orange-400 text-sm mb-3 italic">"{stationInfo.tagline}"</p>
+                      <p className="text-slate-300 text-sm leading-relaxed">
+                        {stationInfo.description}
+                      </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-4 pt-4 border-t border-slate-600/50">
+                      <div className="space-y-2">
+                        <div className="flex items-center">
+                          <span className="text-slate-400 text-xs w-20">Fondée:</span>
+                          <span className="text-white text-sm">{stationInfo.founded_year}</span>
+                        </div>
+                        <div className="flex items-center">
+                          <span className="text-slate-400 text-xs w-20">Fréquence:</span>
+                          <span className="text-white text-sm">{stationInfo.frequency}</span>
+                        </div>
+                        <div className="flex items-center">
+                          <span className="text-slate-400 text-xs w-20">Lieu:</span>
+                          <span className="text-white text-sm">{stationInfo.location}</span>
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <div className="flex items-center">
+                          <span className="text-slate-400 text-xs w-16">Email:</span>
+                          <span className="text-orange-400 text-sm">{stationInfo.contact_email}</span>
+                        </div>
+                        <div className="flex items-center">
+                          <span className="text-slate-400 text-xs w-16">Tel:</span>
+                          <span className="text-white text-sm">{stationInfo.contact_phone}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="pt-3 border-t border-slate-600/50">
+                      <p className="text-slate-300 text-sm italic">
+                        <strong className="text-orange-400">Mission:</strong> {stationInfo.mission}
+                      </p>
+                    </div>
+                  </div>
+                ) : (
+                  <p className="text-slate-400 text-sm">Chargement des informations...</p>
+                )}
+              </CardContent>
+            </Card>
+
+            {/* Donations Support */}
+            <Card className="bg-gradient-to-r from-green-600/20 to-blue-600/20 backdrop-blur-sm border-slate-600/50">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                  <svg className="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4zM18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" />
+                  </svg>
+                  Soutenez Radio Haiti Fusion 🇭🇹
+                </h3>
+                
+                {donationInfo ? (
+                  <div className="space-y-4">
+                    <p className="text-slate-300 text-sm leading-relaxed">
+                      {donationInfo.description}
+                    </p>
+
+                    {/* Progress Bar */}
+                    <div className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-slate-400 text-sm">Objectif de collecte</span>
+                        <span className="text-white font-semibold">
+                          ${donationInfo.current_amount?.toLocaleString()} / ${donationInfo.goal_amount?.toLocaleString()} {donationInfo.currency}
+                        </span>
+                      </div>
+                      <div className="w-full bg-slate-700 rounded-full h-3">
+                        <div 
+                          className="bg-gradient-to-r from-green-400 to-blue-500 h-3 rounded-full transition-all duration-300"
+                          style={{ 
+                            width: `${Math.min((donationInfo.current_amount / donationInfo.goal_amount) * 100, 100)}%` 
+                          }}
+                        ></div>
+                      </div>
+                      <p className="text-green-400 text-xs">
+                        {Math.round((donationInfo.current_amount / donationInfo.goal_amount) * 100)}% de l'objectif atteint
+                      </p>
+                    </div>
+
+                    {/* Payment Methods */}
+                    <div className="space-y-3">
+                      <p className="text-slate-400 text-sm font-medium">Méthodes de don acceptées:</p>
+                      <div className="grid grid-cols-2 gap-3">
+                        {donationInfo.payment_methods?.map((method, index) => (
+                          <div key={index} className="bg-slate-700/50 rounded-lg p-3 text-center">
+                            <span className="text-white text-sm font-medium">{method}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Donation Buttons */}
+                    <div className="flex space-x-2 pt-2">
+                      <Button className="flex-1 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700">
+                        Faire un don
+                      </Button>
+                      <Button variant="outline" className="border-green-500 text-green-400 hover:bg-green-500/10">
+                        En savoir plus
+                      </Button>
+                    </div>
+
+                    <p className="text-slate-500 text-xs text-center">
+                      Merci pour votre soutien à la culture haïtienne! 🙏
+                    </p>
+                  </div>
+                ) : (
+                  <p className="text-slate-400 text-sm">Chargement des informations de donation...</p>
+                )}
+              </CardContent>
+            </Card>
+
             {/* Google AdSense Ad Space */}
             <Card className="bg-gradient-to-r from-orange-600/20 to-orange-500/15 backdrop-blur-sm border-slate-600/50">
               <CardContent className="p-6">
