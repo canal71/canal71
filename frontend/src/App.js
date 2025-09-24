@@ -274,6 +274,15 @@ function App() {
     }
   };
 
+  const loadStudioStatus = async () => {
+    try {
+      const response = await axios.get(`${API}/studio/status`);
+      setStudioStatus(response.data);
+    } catch (error) {
+      console.error('Failed to load studio status:', error);
+    }
+  };
+
   const togglePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
