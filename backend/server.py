@@ -130,7 +130,7 @@ class StationInfo(BaseModel):
     location: str = "Port-au-Prince, Haïti"
     mission: str = "Divertir, informer et rassembler la communauté haïtienne à travers une programmation de qualité."
     contact_email: str = "info@radiohaitifusion.com"
-    promo_email: str = "haitifuionpromo@gmail.com"
+    promo_email: str = "haitifusionpromo@gmail.com"
     website: str = "www.radiohaitifusion.com"
     whatsapp: str = "5026017368"
     contact_phone: str = "+509 xxxx-xxxx"
