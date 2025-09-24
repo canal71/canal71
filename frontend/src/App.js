@@ -105,6 +105,15 @@ function App() {
     }
   };
 
+  const loadRadioDirectory = async () => {
+    try {
+      const response = await axios.get(`${API}/radio-directory`);
+      setRadioStations(response.data);
+    } catch (error) {
+      console.error('Failed to load radio directory:', error);
+    }
+  };
+
   const togglePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
