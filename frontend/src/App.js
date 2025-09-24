@@ -25,12 +25,10 @@ function App() {
   const audioRef = useRef(null);
   const commentsEndRef = useRef(null);
 
-  // Radio Haiti Fusion live streams (try multiple formats)
+  // Radio Haiti Fusion live streams 
   const streamUrls = [
-    "https://xtreamradiohosting.com:8076/stream",
-    "https://xtreamradiohosting.com:8076/",
-    "http://xtreamradiohosting.com:8076/stream",
-    "http://xtreamradiohosting.com:8076/",
+    "http://xtremeradiohosting.com:8076",
+    "http://xtremeradiohosting.com:8076/stream",
     "https://stream.radiojar.com/4wqre23fytzuv" // Fallback demo stream
   ];
   
