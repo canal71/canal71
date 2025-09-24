@@ -1206,6 +1206,54 @@ function App() {
               </CardContent>
             </Card>
 
+            {/* Live Statistics */}
+            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                  <svg className="w-5 h-5 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
+                  </svg>
+                  Statistiques en Direct
+                </h3>
+                
+                {liveStats ? (
+                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div className="bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-lg p-4 text-center">
+                      <div className="text-2xl font-bold text-green-400">{liveStats.current_listeners.toLocaleString()}</div>
+                      <div className="text-slate-400 text-sm">En ligne maintenant</div>
+                    </div>
+                    <div className="bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-lg p-4 text-center">
+                      <div className="text-2xl font-bold text-blue-400">{liveStats.peak_today.toLocaleString()}</div>
+                      <div className="text-slate-400 text-sm">Record du jour</div>
+                    </div>
+                    <div className="bg-gradient-to-r from-purple-500/20 to-purple-600/20 rounded-lg p-4 text-center">
+                      <div className="text-2xl font-bold text-purple-400">{liveStats.total_requests}</div>
+                      <div className="text-slate-400 text-sm">Demandes reçues</div>
+                    </div>
+                    <div className="bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-lg p-4 text-center">
+                      <div className="text-2xl font-bold text-orange-400">{liveStats.countries_listening.length}</div>
+                      <div className="text-slate-400 text-sm">Pays à l'écoute</div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="text-slate-400 text-sm">Chargement des statistiques...</div>
+                )}
+                
+                {liveStats && (
+                  <div className="mt-4 pt-4 border-t border-slate-600/50">
+                    <p className="text-slate-400 text-sm mb-2">Pays à l'écoute:</p>
+                    <div className="flex flex-wrap gap-2">
+                      {liveStats.countries_listening.map((country, index) => (
+                        <Badge key={index} variant="outline" className="text-xs">
+                          {country === 'Haiti' ? '🇭🇹' : country === 'USA' ? '🇺🇸' : country === 'Canada' ? '🇨🇦' : country === 'France' ? '🇫🇷' : '🌍'} {country}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+
             {/* Google AdSense Ad Space */}
             <Card className="bg-gradient-to-r from-orange-600/20 to-orange-500/15 backdrop-blur-sm border-slate-600/50">
               <CardContent className="p-6">
