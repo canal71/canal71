@@ -337,6 +337,23 @@ function App() {
     }
   };
 
+  // Auto-advance carousel every 10 seconds
+  useEffect(() => {
+    if (promotionalVideos.length === 0) return;
+    
+    const filteredVideos = promotionalVideos.filter(video => 
+      selectedVideoCategory === 'all' || video.category === selectedVideoCategory
+    );
+    
+    if (filteredVideos.length <= 1) return;
+    
+    const interval = setInterval(() => {
+      setCurrentVideoSlide(prev => (prev + 1) % filteredVideos.length);
+    }, 10000); // 10 seconds
+    
+    return () => clearInterval(interval);
+  }, [promotionalVideos, selectedVideoCategory, currentVideoSlide]);
+
   const togglePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
