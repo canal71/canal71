@@ -192,12 +192,196 @@ class RadioStationAPITester:
             description="Verify comments are cleared"
         )
 
+    def test_get_voice_messages_empty(self):
+        """Test getting voice messages when none exist"""
+        return self.run_test(
+            "Get Voice Messages (Empty)",
+            "GET",
+            "voice-messages",
+            200,
+            description="Get voice messages list (should be empty initially)"
+        )
+
+    def test_create_voice_message(self):
+        """Test creating a new voice message with base64 audio data"""
+        # Sample base64 encoded audio data (minimal WAV file header)
+        sample_audio_base64 = "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA="
+        
+        test_voice_message = {
+            "listener_name": "Maria Rodriguez",
+            "message_type": "song_request",
+            "audio_data": sample_audio_base64,
+            "duration": 5.2
+        }
+        
+        success, response = self.run_test(
+            "Create Voice Message",
+            "POST",
+            "voice-messages",
+            200,
+            data=test_voice_message,
+            description="Create a new voice message with audio data"
+        )
+        
+        if success and response:
+            # Validate response structure
+            required_fields = ['id', 'listener_name', 'message_type', 'duration', 'timestamp', 'status']
+            missing_fields = [field for field in required_fields if field not in response]
+            if missing_fields:
+                print(f"⚠️  Warning: Missing fields in response: {missing_fields}")
+            else:
+                print(f"✅ Voice message created with ID: {response.get('id')}")
+                print(f"   Listener: {response.get('listener_name')}")
+                print(f"   Type: {response.get('message_type')}")
+                print(f"   Duration: {response.get('duration')}s")
+                print(f"   Status: {response.get('status')}")
+                
+        return success, response
+
+    def test_create_voice_message_validation(self):
+        """Test voice message creation with missing required fields"""
+        invalid_voice_message = {
+            "listener_name": "Test User",
+            # Missing audio_data (required field)
+            "message_type": "vocal_request"
+        }
+        
+        success, response = self.run_test(
+            "Create Voice Message (Invalid - Missing Audio)",
+            "POST",
+            "voice-messages",
+            422,  # Expecting validation error
+            data=invalid_voice_message,
+            description="Test validation with missing required audio_data field"
+        )
+        
+        return success, response
+
+    def test_create_multiple_voice_messages(self):
+        """Test creating multiple voice messages with different types"""
+        sample_audio = "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA="
+        
+        voice_messages_data = [
+            {
+                "listener_name": "Jean Baptiste",
+                "message_type": "song_request",
+                "audio_data": sample_audio,
+                "duration": 3.5
+            },
+            {
+                "listener_name": "Marie Claire",
+                "message_type": "dedication",
+                "audio_data": sample_audio,
+                "duration": 7.8
+            },
+            {
+                "listener_name": "Pierre Louis",
+                "message_type": "shoutout",
+                "audio_data": sample_audio,
+                "duration": 4.2
+            }
+        ]
+        
+        created_messages = []
+        for i, message_data in enumerate(voice_messages_data):
+            success, response = self.run_test(
+                f"Create Voice Message {i+1} ({message_data['message_type']})",
+                "POST",
+                "voice-messages",
+                200,
+                data=message_data,
+                description=f"Create {message_data['message_type']} by {message_data['listener_name']}"
+            )
+            if success:
+                created_messages.append(response)
+            time.sleep(0.5)  # Small delay between requests
+            
+        return len(created_messages) == len(voice_messages_data), created_messages
+
+    def test_get_voice_messages_with_data(self):
+        """Test getting voice messages after creating some"""
+        success, response = self.run_test(
+            "Get Voice Messages (With Data)",
+            "GET",
+            "voice-messages",
+            200,
+            description="Get voice messages list after creating messages"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} voice messages")
+            for msg in response:
+                print(f"   • {msg.get('listener_name')} - {msg.get('message_type')} ({msg.get('duration')}s)")
+                # Verify audio_data is not included in list view (for performance)
+                if msg.get('audio_data') is not None:
+                    print(f"   ⚠️  Warning: audio_data should be None in list view for performance")
+        
+        return success, response
+
+    def test_get_voice_messages_by_status(self):
+        """Test filtering voice messages by status"""
+        return self.run_test(
+            "Get Voice Messages (Pending Status)",
+            "GET",
+            "voice-messages?status=pending",
+            200,
+            description="Get voice messages filtered by pending status"
+        )
+
+    def test_get_voice_message_audio(self):
+        """Test retrieving audio data for a specific voice message"""
+        # First, create a voice message to get its ID
+        sample_audio = "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA="
+        test_message = {
+            "listener_name": "Audio Test User",
+            "message_type": "song_request",
+            "audio_data": sample_audio,
+            "duration": 2.5
+        }
+        
+        create_success, create_response = self.run_test(
+            "Create Voice Message for Audio Test",
+            "POST",
+            "voice-messages",
+            200,
+            data=test_message,
+            description="Create voice message to test audio retrieval"
+        )
+        
+        if create_success and create_response:
+            message_id = create_response.get('id')
+            if message_id:
+                # Now test retrieving the audio
+                success, response = self.run_test(
+                    "Get Voice Message Audio",
+                    "GET",
+                    f"voice-messages/{message_id}/audio",
+                    200,
+                    description=f"Retrieve audio data for message ID: {message_id}"
+                )
+                
+                if success and response:
+                    if 'audio_data' in response:
+                        print(f"✅ Audio data retrieved successfully")
+                        print(f"   Audio data length: {len(response['audio_data'])} characters")
+                    else:
+                        print(f"⚠️  Warning: No audio_data in response")
+                
+                return success, response
+            else:
+                print(f"❌ Failed to get message ID from created voice message")
+                return False, {}
+        else:
+            print(f"❌ Failed to create voice message for audio test")
+            return False, {}
+
     def test_websocket_endpoint(self):
         """Test WebSocket endpoint accessibility (basic check)"""
         ws_url = self.base_url.replace('https://', 'wss://').replace('http://', 'ws://') + '/ws'
         print(f"\n🔍 Testing WebSocket Endpoint...")
         print(f"   WebSocket URL: {ws_url}")
         print(f"   Note: WebSocket functionality will be tested in frontend integration tests")
+        print(f"   Voice messages should broadcast 'new_voice_message' events via WebSocket")
         
         # We can't easily test WebSocket in this simple script, but we note the URL
         result = {
