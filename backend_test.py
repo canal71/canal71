@@ -607,16 +607,14 @@ class RadioStationAPITester:
         first_question = self.current_game_questions[0]
         correct_answer = first_question.get('correct_answer', 0)
         
-        answer_data = {
-            "selected_answer": correct_answer
-        }
+        # Use query parameter format
+        endpoint = f"trivia/games/{self.current_game_id}/answer?selected_answer={correct_answer}"
         
         success, response = self.run_test(
             "Answer Trivia Question (Correct)",
             "POST",
-            f"trivia/games/{self.current_game_id}/answer",
+            endpoint,
             200,
-            data=answer_data,
             description=f"Submit correct answer ({correct_answer}) for trivia question"
         )
         
@@ -648,16 +646,14 @@ class RadioStationAPITester:
             # Choose a different answer (wrong one)
             wrong_answer = (correct_answer + 1) % len(second_question.get('options', [0, 1]))
             
-            answer_data = {
-                "selected_answer": wrong_answer
-            }
+            # Use query parameter format
+            endpoint = f"trivia/games/{self.current_game_id}/answer?selected_answer={wrong_answer}"
             
             success, response = self.run_test(
                 "Answer Trivia Question (Incorrect)",
                 "POST",
-                f"trivia/games/{self.current_game_id}/answer",
+                endpoint,
                 200,
-                data=answer_data,
                 description=f"Submit incorrect answer ({wrong_answer}) for trivia question"
             )
             
