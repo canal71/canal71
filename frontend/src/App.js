@@ -2205,10 +2205,11 @@ function App() {
                     </Button>
                     <Button 
                       onClick={() => setShowVoiceRecorder(true)}
-                      className="w-full bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600"
+                      className="w-full bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 flex items-center justify-center space-x-2"
                       data-testid="voice-request-button"
                     >
-                      🎤 Message Vocal
+                      <Mic className="w-4 h-4" />
+                      <span>Message Vocal</span>
                     </Button>
                   </div>
                 )}
