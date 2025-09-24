@@ -2783,7 +2783,6 @@ function App() {
             </Card>
           </div>
         </div>
-      )}
       </div> {/* End content wrapper */}
     </div>
   );
