@@ -81,6 +81,8 @@ function App() {
         setComments([]);
       } else if (data.type === 'now_playing_update') {
         setNowPlaying(data.track);
+      } else if (data.type === 'new_song_request') {
+        setSongRequests(prev => [data.request, ...prev.slice(0, 4)]);
       }
     };
     
