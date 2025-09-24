@@ -401,6 +401,16 @@ async def get_world_news():
     
     return [NewsArticle(**article) for article in sample_news]
 
+# Station Info API
+@api_router.get("/station/about")
+async def get_station_info():
+    return StationInfo()
+
+# Donations API
+@api_router.get("/donations/info")
+async def get_donation_info():
+    return DonationInfo()
+
 # Include the router in the main app
 app.include_router(api_router)
 
