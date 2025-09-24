@@ -261,7 +261,7 @@ function App() {
               <div className="p-4 border-b border-slate-700/50">
                 <div className="flex items-center space-x-2">
                   <MessageCircle className="w-5 h-5 text-slate-400" />
-                  <h3 className="font-semibold text-white">Live Chat</h3>
+                  <h3 className="font-semibold text-white">Chat en direct</h3>
                   <Badge variant="outline" className="text-xs">
                     {comments.length}
                   </Badge>
