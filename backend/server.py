@@ -140,7 +140,62 @@ async def root():
 @api_router.get("/radio/status")
 async def get_radio_status():
     # In a real app, this would connect to your streaming server
-    return RadioStatus()
+    return RadioStatus(
+        current_song="Mwen Renmen'w",
+        current_artist="T-Vice",
+        album="Best of Compas",
+        artwork_url="https://i.scdn.co/image/ab67616d0000b273f3b7b9a1b5b2c1e8d4c0b2a1",
+        duration="4:32",
+        genre="Compas"
+    )
+
+@api_router.get("/now-playing", response_model=NowPlaying)
+async def get_now_playing():
+    # Get the current song info - in production, this would come from your streaming server
+    current_playing = NowPlaying(
+        song="Mwen Renmen'w",
+        artist="T-Vice",
+        album="Best of Compas",
+        artwork_url="https://i.scdn.co/image/ab67616d0000b273f3b7b9a1b5b2c1e8d4c0b2a1",
+        duration="4:32",
+        genre="Compas"
+    )
+    return current_playing
+
+@api_router.post("/now-playing", response_model=NowPlaying)
+async def update_now_playing(track_info: NowPlayingUpdate):
+    # Update current playing track - useful for DJ management
+    track_dict = track_info.dict()
+    now_playing_obj = NowPlaying(**track_dict)
+    
+    # Store in database for history
+    mongo_data = prepare_for_mongo(now_playing_obj.dict())
+    await db.now_playing.insert_one(mongo_data)
+    
+    # Broadcast to WebSocket connections
+    await manager.broadcast(json.dumps({
+        "type": "now_playing_update",
+        "track": {
+            "song": now_playing_obj.song,
+            "artist": now_playing_obj.artist,
+            "album": now_playing_obj.album,
+            "artwork_url": now_playing_obj.artwork_url,
+            "duration": now_playing_obj.duration,
+            "genre": now_playing_obj.genre
+        }
+    }))
+    
+    return now_playing_obj
+
+@api_router.get("/now-playing/history", response_model=List[NowPlaying])
+async def get_playing_history(limit: int = 10):
+    # Get recently played tracks
+    tracks_data = await db.now_playing.find().sort("timestamp", -1).limit(limit).to_list(length=None)
+    tracks = []
+    for track_data in tracks_data:
+        parsed_track = parse_from_mongo(track_data)
+        tracks.append(NowPlaying(**parsed_track))
+    return tracks
 
 @api_router.post("/comments", response_model=Comment)
 async def create_comment(comment_input: CommentCreate):
