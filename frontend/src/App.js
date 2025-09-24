@@ -845,25 +845,27 @@ function App() {
       </div>
 
       {/* News Scroller */}
-      <div className="bg-red-600 text-white py-2 overflow-hidden relative border-b border-red-500">
-        <div className="flex items-center">
-          <div className="bg-white text-red-600 px-4 py-1 font-bold text-sm flex-shrink-0">
-            🚨 BREAKING NEWS
-          </div>
-          <div className="flex-1 overflow-hidden">
-            <div className="breaking-news-scroll text-sm font-medium text-white">
-              {breakingNews.join(' • ')} • 
+      {showBreakingNews && (
+        <div className="bg-red-600 text-white py-2 overflow-hidden relative border-b border-red-500">
+          <div className="flex items-center">
+            <div className="bg-white text-red-600 px-4 py-1 font-bold text-sm flex-shrink-0">
+              🚨 BREAKING NEWS
             </div>
+            <div className="flex-1 overflow-hidden">
+              <div className="breaking-news-scroll text-sm font-medium text-white">
+                {breakingNews.join(' • ')} • 
+              </div>
+            </div>
+            <button 
+              onClick={() => setShowBreakingNews(false)}
+              className="bg-white/20 hover:bg-white/30 text-white px-2 py-1 text-xs rounded-l-md transition-colors"
+              title="Fermer les actualités"
+            >
+              ✕
+            </button>
           </div>
-          <button 
-            onClick={() => setShowBreakingNews(false)}
-            className="bg-white/20 hover:bg-white/30 text-white px-2 py-1 text-xs rounded-l-md transition-colors"
-            title="Fermer les actualités"
-          >
-            ✕
-          </button>
         </div>
-      </div>
+      )}
 
       {/* Emergency Alerts */}
       {emergencyAlerts.length > 0 && (
