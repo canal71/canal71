@@ -121,6 +121,27 @@ class NewsArticle(BaseModel):
     url: Optional[str] = None
     image_url: Optional[str] = None
 
+class StationInfo(BaseModel):
+    station_name: str = "Radio Haiti Fusion"
+    tagline: str = "La radio qui va loin"
+    description: str = "Radio Haiti Fusion est votre station de radio préférée, diffusant le meilleur de la musique haïtienne et internationale 24h/24. Depuis notre création, nous nous engageons à promouvoir la culture haïtienne tout en restant connectés au monde."
+    founded_year: int = 2020
+    frequency: str = "FM 104.5 MHz"
+    location: str = "Port-au-Prince, Haïti"
+    mission: str = "Divertir, informer et rassembler la communauté haïtienne à travers une programmation de qualité."
+    contact_email: str = "info@radiohaitifusion.com"
+    contact_phone: str = "+509 xxxx-xxxx"
+
+class DonationInfo(BaseModel):
+    title: str = "Soutenez Radio Haiti Fusion"
+    description: str = "Votre soutien nous aide à continuer notre mission de diffusion d'une programmation de qualité pour la communauté haïtienne."
+    goal_amount: Optional[float] = 5000.0
+    current_amount: Optional[float] = 1250.0
+    currency: str = "USD"
+    payment_methods: List[str] = ["PayPal", "Zelle", "MonCash", "Carte de crédit"]
+    paypal_email: Optional[str] = "donations@radiohaitifusion.com"
+    moncash_number: Optional[str] = "+509 xxxx-xxxx"
+
 # Helper function for MongoDB serialization
 def prepare_for_mongo(data):
     if isinstance(data, dict):
