@@ -131,6 +131,24 @@ function App() {
     }
   };
 
+  const loadWeather = async () => {
+    try {
+      const response = await axios.get(`${API}/weather`);
+      setWeather(response.data);
+    } catch (error) {
+      console.error('Failed to load weather:', error);
+    }
+  };
+
+  const loadNews = async () => {
+    try {
+      const response = await axios.get(`${API}/news`);
+      setNews(response.data);
+    } catch (error) {
+      console.error('Failed to load news:', error);
+    }
+  };
+
   const togglePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
