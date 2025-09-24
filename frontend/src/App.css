@@ -113,6 +113,25 @@ body {
   }
 }
 
+/* Breaking News Scroll Animation */
+@keyframes scroll-news {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.breaking-news-scroll {
+  animation: scroll-news 60s linear infinite;
+  white-space: nowrap;
+}
+
+.breaking-news-scroll:hover {
+  animation-play-state: paused;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .container {
