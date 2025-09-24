@@ -180,6 +180,24 @@ function App() {
     }
   };
 
+  const loadDJs = async () => {
+    try {
+      const response = await axios.get(`${API}/djs`);
+      setDjs(response.data);
+    } catch (error) {
+      console.error('Failed to load DJs:', error);
+    }
+  };
+
+  const loadShowSchedule = async () => {
+    try {
+      const response = await axios.get(`${API}/schedule`);
+      setShowSchedule(response.data);
+    } catch (error) {
+      console.error('Failed to load show schedule:', error);
+    }
+  };
+
   const togglePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
