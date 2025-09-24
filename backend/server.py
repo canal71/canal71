@@ -227,6 +227,21 @@ class EmergencyAlert(BaseModel):
     is_active: bool = True
     timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
+class LiveStudioStatus(BaseModel):
+    is_live: bool = True
+    dj_name: str = "DJ Kenley"
+    show_name: str = "Compas Direct Live"
+    started_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    studio_location: str = "Studio Principal"
+    next_break: Optional[str] = "20:30"
+    live_callers: int = 0
+    
+class LiveStudioUpdate(BaseModel):
+    is_live: bool
+    dj_name: Optional[str] = None
+    show_name: Optional[str] = None
+    studio_location: str = "Studio Principal"
+
 # Helper function for MongoDB serialization
 def prepare_for_mongo(data):
     if isinstance(data, dict):
