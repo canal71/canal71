@@ -673,38 +673,45 @@ async def get_social_media():
             "is_active": True
         },
         {
-            "platform": "Facebook",
-            "handle": "@RadioHaitiFusion",
-            "url": "https://facebook.com/RadioHaitiFusion",
-            "follower_count": 8500,
-            "is_active": True
-        },
-        {
             "platform": "Instagram",
-            "handle": "@radiohaitifusion",
-            "url": "https://instagram.com/radiohaitifusion",
-            "follower_count": 5200,
-            "is_active": True
-        },
-        {
-            "platform": "Twitter",
-            "handle": "@RadioHaitiFusion",
-            "url": "https://twitter.com/RadioHaitiFusion",
-            "follower_count": 3100,
-            "is_active": True
-        },
-        {
-            "platform": "YouTube",
-            "handle": "Radio Haiti Fusion",
-            "url": "https://youtube.com/@RadioHaitiFusion",
+            "handle": "@haitifusiondon",
+            "url": "https://www.instagram.com/haitifusiondon/",
             "follower_count": 2800,
+            "is_active": True
+        },
+        {
+            "platform": "Twitter/X",
+            "handle": "@fusion_haiti",
+            "url": "https://x.com/fusion_haiti",
+            "follower_count": 1200,
             "is_active": True
         },
         {
             "platform": "TikTok",
             "handle": "@radiohaitifusion",
-            "url": "https://tiktok.com/@radiohaitifusion",
+            "url": "https://www.tiktok.com/@radiohaitifusion",
             "follower_count": 4600,
+            "is_active": True
+        },
+        {
+            "platform": "Facebook",
+            "handle": "Radio Haiti Fusion",
+            "url": "https://facebook.com/radiohaitifusion",
+            "follower_count": 3200,
+            "is_active": True
+        },
+        {
+            "platform": "Email",
+            "handle": "haitifusionpromo@gmail.com",
+            "url": "mailto:haitifusionpromo@gmail.com",
+            "follower_count": 0,
+            "is_active": True
+        },
+        {
+            "platform": "Website",
+            "handle": "www.radiohaitifusion.com",
+            "url": "https://www.radiohaitifusion.com",
+            "follower_count": 0,
             "is_active": True
         }
     ]
