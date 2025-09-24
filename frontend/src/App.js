@@ -2498,9 +2498,9 @@ function App() {
                 ) : (
                   <div className="space-y-3">
                     <div className="flex justify-between text-xs text-slate-400">
-                      <span>Score: {triviaGame.score}</span>
-                      <span>Vies: {triviaGame.lives}/3</span>
-                      <span>Q{triviaGame.current_question + 1}/10</span>
+                      <span>Score: {triviaGame && triviaGame.score}</span>
+                      <span>Vies: {triviaGame && triviaGame.lives}/3</span>
+                      <span>Q{triviaGame && triviaGame.current_question + 1}/10</span>
                     </div>
                     
                     {triviaGame && triviaGame.current_question < triviaGame.questions.length ? (
