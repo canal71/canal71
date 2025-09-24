@@ -248,7 +248,7 @@ function App() {
                     className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
                     data-testid="advertise-button"
                   >
-                    Learn More
+                    En savoir plus
                   </Button>
                 </div>
               </CardContent>
