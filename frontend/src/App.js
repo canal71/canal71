@@ -43,6 +43,8 @@ function App() {
     dedication_message: ''
   });
   const [studioStatus, setStudioStatus] = useState(null);
+  const [videoStatus, setVideoStatus] = useState(null);
+  const [streamingMode, setStreamingMode] = useState('video'); // video or audio_only
   
   const audioRef = useRef(null);
   const commentsEndRef = useRef(null);
