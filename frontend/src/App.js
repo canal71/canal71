@@ -630,41 +630,59 @@ function App() {
             {/* Professional Radio/TV Player */}
             <Card className="bg-gradient-to-br from-white via-gray-50 to-white shadow-2xl border-0 overflow-hidden">
               <CardContent className="p-0">
-                {/* Player Header */}
-                <div className="bg-gradient-to-r from-slate-800 to-slate-900 p-6 text-white">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-white rounded-xl shadow-lg flex items-center justify-center">
-                        <img 
-                          src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/2zozn1fx_radiohaitifusion.jpg" 
-                          alt="Radio Haiti Fusion Logo" 
-                          className="w-10 h-10 object-contain"
-                        />
-                      </div>
-                      <div>
-                        <h2 className="text-xl font-bold">Radio Haiti Fusion</h2>
-                        <p className="text-orange-400 text-sm">🇭🇹 La radio qui va loin</p>
+                {/* Logo Banner Header */}
+                <div 
+                  className="relative h-24 md:h-32 bg-gradient-to-r from-slate-900 to-slate-800 overflow-hidden"
+                  style={{
+                    backgroundImage: `url('https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/2zozn1fx_radiohaitifusion.jpg')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat'
+                  }}
+                >
+                  {/* Banner Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
+                  
+                  {/* Banner Content */}
+                  <div className="relative z-10 h-full flex items-center justify-between px-6">
+                    {/* Left Side - Live Status */}
+                    <div className="flex items-center space-x-3">
+                      <Badge className="bg-red-500 text-white font-semibold px-3 py-1 animate-pulse">
+                        🔴 LIVE
+                      </Badge>
+                      <div className="hidden md:block">
+                        <p className="text-white font-semibold">🇭🇹 La radio qui va loin</p>
+                        <p className="text-orange-400 text-sm">FM 104.5 MHz • HD Quality</p>
                       </div>
                     </div>
-                    
-                    {/* Mode Toggle */}
-                    <div className="flex bg-slate-700/50 rounded-lg p-1">
-                      <Button
-                        onClick={() => switchStreamingMode('video')}
-                        size="sm"
-                        variant="ghost"
-                        className={streamingMode === 'video' ? 'bg-red-600 text-white hover:bg-red-700' : 'text-slate-300 hover:text-white hover:bg-slate-600'}
-                      >
-                        📺 TV
-                      </Button>
-                      <Button
-                        onClick={() => switchStreamingMode('audio_only')}
-                        size="sm"
-                        variant="ghost"
-                        className={streamingMode === 'audio_only' ? 'bg-orange-600 text-white hover:bg-orange-700' : 'text-slate-300 hover:text-white hover:bg-slate-600'}
-                      >
-                        📻 Radio
-                      </Button>
+
+                    {/* Right Side - Mode Toggle */}
+                    <div className="flex items-center space-x-3">
+                      {liveStats && (
+                        <div className="hidden md:flex items-center space-x-2 bg-black/50 rounded-lg px-3 py-1">
+                          <Users className="w-4 h-4 text-green-400" />
+                          <span className="text-white font-semibold">{liveStats.current_listeners.toLocaleString()}</span>
+                        </div>
+                      )}
+                      
+                      <div className="flex bg-black/50 rounded-lg p-1">
+                        <Button
+                          onClick={() => switchStreamingMode('video')}
+                          size="sm"
+                          variant="ghost"
+                          className={streamingMode === 'video' ? 'bg-red-600 text-white hover:bg-red-700' : 'text-slate-300 hover:text-white hover:bg-slate-700'}
+                        >
+                          📺 TV
+                        </Button>
+                        <Button
+                          onClick={() => switchStreamingMode('audio_only')}
+                          size="sm"
+                          variant="ghost"
+                          className={streamingMode === 'audio_only' ? 'bg-orange-600 text-white hover:bg-orange-700' : 'text-slate-300 hover:text-white hover:bg-slate-700'}
+                        >
+                          📻 Radio
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 </div>
