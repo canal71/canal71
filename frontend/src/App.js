@@ -105,7 +105,14 @@ function App() {
       if (isPlaying) {
         audioRef.current.pause();
       } else {
-        audioRef.current.play();
+        audioRef.current.play().catch((error) => {
+          console.error('Playback failed:', error);
+          // Try next stream URL if current one fails
+          if (currentStreamIndex < streamUrls.length - 1) {
+            setCurrentStreamIndex(prev => prev + 1);
+            console.log(`Trying stream ${currentStreamIndex + 1}: ${streamUrls[currentStreamIndex + 1]}`);
+          }
+        });
       }
       setIsPlaying(!isPlaying);
     }
