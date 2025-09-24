@@ -814,6 +814,142 @@ function App() {
               </CardContent>
             </Card>
 
+            {/* Show Schedule */}
+            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                  <svg className="w-5 h-5 mr-2 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+                  </svg>
+                  Programme des Émissions
+                </h3>
+                
+                <div className="space-y-3 max-h-80 overflow-y-auto">
+                  {showSchedule.map((show, index) => (
+                    <div key={show.id || index} className="bg-slate-700/50 rounded-lg p-4 border-l-4 border-purple-400">
+                      <div className="flex justify-between items-start mb-2">
+                        <h4 className="font-semibold text-white text-sm">{show.name}</h4>
+                        {show.is_live && (
+                          <Badge className="bg-red-500 text-white text-xs animate-pulse">
+                            EN DIRECT
+                          </Badge>
+                        )}
+                      </div>
+                      <p className="text-slate-300 text-xs mb-2 line-clamp-2">
+                        {show.description}
+                      </p>
+                      <div className="flex justify-between items-center text-xs">
+                        <div>
+                          <span className="text-purple-400 font-medium">{show.host_dj}</span>
+                          <span className="text-slate-500 ml-2">• {show.genre}</span>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-slate-400">{show.day_of_week}</p>
+                          <p className="text-white font-mono">{show.start_time} - {show.end_time}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="mt-4 pt-4 border-t border-slate-600/50">
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    className="text-purple-400 hover:text-purple-300 text-xs w-full"
+                  >
+                    Voir le programme complet →
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* DJ Space */}
+            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                  <svg className="w-5 h-5 mr-2 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                  </svg>
+                  Nos DJs
+                </h3>
+                
+                <div className="grid md:grid-cols-2 gap-4">
+                  {djs.slice(0, 4).map((dj, index) => (
+                    <div key={dj.id || index} className="bg-slate-700/50 rounded-lg p-4 border border-slate-600/30">
+                      <div className="flex items-center space-x-3 mb-3">
+                        <div className="w-12 h-12 rounded-full overflow-hidden bg-gradient-to-r from-yellow-400 to-orange-500 flex items-center justify-center">
+                          {dj.photo_url ? (
+                            <img 
+                              src={dj.photo_url} 
+                              alt={dj.stage_name}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                e.target.style.display = 'none';
+                                e.target.nextSibling.style.display = 'flex';
+                              }}
+                            />
+                          ) : null}
+                          <span className="text-white font-bold text-sm">
+                            {dj.stage_name.split(' ').map(n => n[0]).join('').substring(0, 2)}
+                          </span>
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-white text-sm">{dj.stage_name}</h4>
+                          <p className="text-slate-400 text-xs">{dj.name}</p>
+                        </div>
+                      </div>
+                      
+                      <p className="text-slate-300 text-xs mb-2 line-clamp-2">
+                        {dj.bio}
+                      </p>
+                      
+                      <div className="space-y-1 text-xs">
+                        <div className="flex justify-between">
+                          <span className="text-slate-400">Spécialité:</span>
+                          <span className="text-yellow-400">{dj.specialty}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-slate-400">Expérience:</span>
+                          <span className="text-white">{dj.years_experience} ans</span>
+                        </div>
+                        {dj.schedule && (
+                          <div className="flex justify-between">
+                            <span className="text-slate-400">Horaires:</span>
+                            <span className="text-white">{dj.schedule}</span>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Social Media Links */}
+                      {dj.social_media && Object.keys(dj.social_media).length > 0 && (
+                        <div className="flex space-x-2 mt-3 pt-2 border-t border-slate-600/50">
+                          {Object.entries(dj.social_media).map(([platform, handle]) => (
+                            <div key={platform} className="text-xs">
+                              <span className="text-slate-500 capitalize">{platform}:</span>
+                              <span className="text-yellow-400 ml-1">{handle}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                {djs.length > 4 && (
+                  <div className="mt-4 pt-4 border-t border-slate-600/50">
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="text-yellow-400 hover:text-yellow-300 text-xs w-full"
+                    >
+                      Voir tous les DJs ({djs.length}) →
+                    </Button>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+
             {/* Google AdSense Ad Space */}
             <Card className="bg-gradient-to-r from-orange-600/20 to-orange-500/15 backdrop-blur-sm border-slate-600/50">
               <CardContent className="p-6">
