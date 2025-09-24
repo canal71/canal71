@@ -512,28 +512,55 @@ function App() {
               </CardContent>
             </Card>
 
-            {/* Weather Widget */}
+            {/* Haiti Weather Widget */}
             <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-white mb-4 flex items-center">
                   <svg className="w-5 h-5 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z" clipRule="evenodd" />
                   </svg>
-                  Météo - Port-au-Prince
+                  Météo Haïti 🇭🇹
                 </h3>
                 
                 {weather ? (
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-4">
-                      <div className="text-4xl">{weather.icon}</div>
-                      <div>
-                        <p className="text-2xl font-bold text-white">{weather.temperature}°C</p>
-                        <p className="text-slate-400 text-sm">{weather.condition}</p>
+                  <div>
+                    {/* Main Weather Display */}
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center space-x-4">
+                        <div className="text-4xl">{weather.icon}</div>
+                        <div>
+                          <p className="text-2xl font-bold text-white">{weather.temperature}°C</p>
+                          <p className="text-slate-400 text-sm">{weather.condition}</p>
+                          <p className="text-slate-500 text-xs">{weather.location}</p>
+                        </div>
+                      </div>
+                      <div className="text-right text-sm text-slate-400">
+                        <p>Humidité: {weather.humidity}%</p>
+                        <p>Vent: {weather.wind_speed} km/h</p>
                       </div>
                     </div>
-                    <div className="text-right text-sm text-slate-400">
-                      <p>Humidité: {weather.humidity}%</p>
-                      <p>Vent: {weather.wind_speed} km/h</p>
+
+                    {/* Quick Cities Overview */}
+                    <div className="border-t border-slate-600/50 pt-3">
+                      <p className="text-slate-400 text-xs mb-2">Autres villes haïtiennes:</p>
+                      <div className="grid grid-cols-2 gap-2 text-xs">
+                        <div className="flex justify-between">
+                          <span className="text-slate-300">Cap-Haïtien</span>
+                          <span className="text-white">29°C ☀️</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-slate-300">Jacmel</span>
+                          <span className="text-white">27°C ⛅</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-slate-300">Gonaïves</span>
+                          <span className="text-white">31°C ☀️</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-slate-300">Les Cayes</span>
+                          <span className="text-white">26°C 🌦️</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ) : (
@@ -541,7 +568,7 @@ function App() {
                     <div className="text-4xl">🌤️</div>
                     <div>
                       <p className="text-2xl font-bold text-white">28°C</p>
-                      <p className="text-slate-400 text-sm">Chargement...</p>
+                      <p className="text-slate-400 text-sm">Chargement météo Haïti...</p>
                     </div>
                   </div>
                 )}
