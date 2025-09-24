@@ -205,7 +205,17 @@ function App() {
                   src={streamUrl}
                   onPlay={() => setIsPlaying(true)}
                   onPause={() => setIsPlaying(false)}
-                  onError={() => setIsPlaying(false)}
+                  onError={(e) => {
+                    console.error('Stream error:', e, 'URL:', streamUrl);
+                    setIsPlaying(false);
+                    // Try next stream URL
+                    if (currentStreamIndex < streamUrls.length - 1) {
+                      setCurrentStreamIndex(prev => prev + 1);
+                      console.log(`Stream failed, trying next: ${streamUrls[currentStreamIndex + 1]}`);
+                    }
+                  }}
+                  onCanPlay={() => console.log('Stream ready:', streamUrl)}
+                  onLoadStart={() => console.log('Loading stream:', streamUrl)}
                 />
 
                 <div className="space-y-6">
