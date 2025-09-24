@@ -2563,7 +2563,7 @@ function App() {
                   <div className="mt-4 pt-4 border-t border-slate-600/50">
                     <p className="text-slate-400 text-xs mb-2">Top Joueurs:</p>
                     <div className="space-y-1">
-                      {triviaLeaderboard.slice(0, 3).map((player, index) => (
+                      {triviaLeaderboard && triviaLeaderboard.slice(0, 3).map((player, index) => (
                         <div key={index} className="flex justify-between text-xs">
                           <span className="text-white">{player.rank}. {player.player_name}</span>
                           <span className="text-slate-400">{player.score}pts</span>
