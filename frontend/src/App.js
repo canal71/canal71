@@ -655,14 +655,14 @@ function App() {
                 <div 
                   className="relative h-20 md:h-24 overflow-hidden"
                   style={{
-                    backgroundImage: `url('https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/2zozn1fx_radiohaitifusion.jpg')`,
+                    backgroundImage: `url('https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/okvzwb89_rhf45.jpg')`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat'
                   }}
                 >
                   {/* Banner Overlay for better text readability */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/50"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600/80 via-red-600/60 to-orange-600/80"></div>
                   
                   {/* Header Content */}
                   <div className="relative z-10 h-full flex items-center justify-between px-6">
