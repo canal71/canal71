@@ -207,6 +207,15 @@ function App() {
     adsenseScript.crossOrigin = 'anonymous';
     document.head.appendChild(adsenseScript);
 
+    // Initialize ads after script loads
+    adsenseScript.onload = () => {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (error) {
+        console.error('AdSense error:', error);
+      }
+    };
+
     return () => {
       // Cleanup script on unmount
       if (document.head.contains(adsenseScript)) {
