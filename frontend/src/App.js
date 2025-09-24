@@ -7,7 +7,7 @@ import { Input } from "./components/ui/input";
 import { Badge } from "./components/ui/badge";
 import { Separator } from "./components/ui/separator";
 import { ScrollArea } from "./components/ui/scroll-area";
-import { Play, Pause, Volume2, VolumeX, Radio, Users, MessageCircle, Send, Mic, Music } from "lucide-react";
+import { Play, Pause, Volume2, VolumeX, Radio, Users, MessageCircle, Send, Mic, Music, TrendingUp, Brain, Trophy, Target } from "lucide-react";
 import axios from "axios";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
