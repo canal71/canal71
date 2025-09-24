@@ -200,6 +200,15 @@ function App() {
     }
   };
 
+  const loadSocialMedia = async () => {
+    try {
+      const response = await axios.get(`${API}/social-media`);
+      setSocialMedia(response.data);
+    } catch (error) {
+      console.error('Failed to load social media:', error);
+    }
+  };
+
   const togglePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
