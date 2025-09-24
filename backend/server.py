@@ -104,6 +104,23 @@ class RadioStationCreate(BaseModel):
     genre: str = "General"
     color: str = "#3b82f6"
 
+class WeatherData(BaseModel):
+    location: str = "Port-au-Prince, Haiti"
+    temperature: float = 28.5
+    condition: str = "Ensoleillé"
+    humidity: int = 72
+    wind_speed: float = 15.2
+    icon: str = "☀️"
+
+class NewsArticle(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    title: str
+    description: str
+    source: str
+    published_at: str
+    url: Optional[str] = None
+    image_url: Optional[str] = None
+
 # Helper function for MongoDB serialization
 def prepare_for_mongo(data):
     if isinstance(data, dict):
