@@ -84,6 +84,8 @@ function App() {
         setNowPlaying(data.track);
       } else if (data.type === 'new_song_request') {
         setSongRequests(prev => [data.request, ...prev.slice(0, 4)]);
+      } else if (data.type === 'studio_status_update') {
+        setStudioStatus(data.status);
       }
     };
     
