@@ -42,6 +42,7 @@ function App() {
     dedication_to: '',
     dedication_message: ''
   });
+  const [studioStatus, setStudioStatus] = useState(null);
   
   const audioRef = useRef(null);
   const commentsEndRef = useRef(null);
