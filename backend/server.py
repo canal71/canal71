@@ -284,6 +284,30 @@ class VideoUpload(BaseModel):
     category: str = "promotion"
     is_featured: bool = False
 
+class Advertisement(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    title: str
+    description: str
+    image_url: Optional[str] = None
+    link_url: Optional[str] = None
+    advertiser: str
+    duration_seconds: int = 5  # How long to show this ad
+    is_active: bool = True
+    ad_type: str = "banner"  # banner, video, text
+    target_audience: str = "general"
+    impressions: int = 0
+    clicks: int = 0
+
+class AdCreate(BaseModel):
+    title: str
+    description: str
+    image_url: Optional[str] = None
+    link_url: Optional[str] = None
+    advertiser: str
+    duration_seconds: int = 5
+    ad_type: str = "banner"
+    target_audience: str = "general"
+
 # Helper function for MongoDB serialization
 def prepare_for_mongo(data):
     if isinstance(data, dict):
