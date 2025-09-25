@@ -1063,6 +1063,23 @@ def main():
     tester.test_get_trivia_leaderboard()
     tester.test_get_trivia_leaderboard_by_category()
     
+    print("\n🎙️ Testing Podcast API System...")
+    tester.test_get_podcast_categories()
+    tester.test_get_podcast_episodes_all()
+    tester.test_get_podcast_episodes_by_category_music_show()
+    tester.test_get_podcast_episodes_by_category_interview()
+    tester.test_get_podcast_episodes_by_category_talk_show()
+    tester.test_get_podcast_episodes_by_category_news()
+    tester.test_get_podcast_episodes_by_category_comedy()
+    tester.test_get_featured_episodes()
+    tester.test_get_podcast_episodes_featured_filter()
+    tester.test_get_specific_episode()
+    tester.test_get_nonexistent_episode()
+    tester.test_track_episode_play()
+    tester.test_track_episode_download()
+    tester.test_track_play_nonexistent_episode()
+    tester.test_track_download_nonexistent_episode()
+    
     print("\n🔌 Testing WebSocket Configuration...")
     tester.test_websocket_endpoint()
 
