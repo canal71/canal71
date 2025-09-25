@@ -297,6 +297,55 @@ class TriviaAnswer(BaseModel):
     points_earned: int
     timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
+# Podcast Models
+class PodcastEpisode(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    title: str
+    description: str
+    category: str = "music_show"  # music_show, talk_show, news, interview, comedy
+    host: str = "DJ Kenley"
+    duration: str = "45:30"  # MM:SS format
+    audio_url: str
+    cover_art: Optional[str] = None
+    published_date: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    episode_number: Optional[int] = None
+    season: Optional[int] = 1
+    download_count: int = 0
+    play_count: int = 0
+    tags: List[str] = []
+    is_featured: bool = False
+    transcript: Optional[str] = None
+    file_size: Optional[str] = "25.4 MB"
+
+class PodcastEpisodeCreate(BaseModel):
+    title: str
+    description: str
+    category: str = "music_show"
+    host: str = "DJ Kenley"
+    duration: str
+    audio_url: str
+    cover_art: Optional[str] = None
+    episode_number: Optional[int] = None
+    season: Optional[int] = 1
+    tags: List[str] = []
+    is_featured: bool = False
+
+class PodcastCategory(BaseModel):
+    id: str
+    name: str
+    description: str
+    episode_count: int = 0
+    cover_image: Optional[str] = None
+
+class PodcastPlaylist(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name: str
+    description: str
+    episodes: List[str] = []  # Episode IDs
+    created_by: str = "Radio Haiti Fusion"
+    is_public: bool = True
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
 class LiveStats(BaseModel):
     current_listeners: int = 1247
     peak_today: int = 1856
