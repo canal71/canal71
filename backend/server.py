@@ -2141,8 +2141,8 @@ async def get_tv_shows(category: str = "all", limit: int = 20, featured: bool = 
                 "view_count": 15200,
                 "rating": 4.8,
                 "tags": ["matinale", "actualités", "divertissement"],
-                "is_live": true,
-                "is_featured": true,
+                "is_live": True,
+                "is_featured": True,
                 "language": "français"
             },
             {
