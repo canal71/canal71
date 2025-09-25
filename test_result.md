@@ -156,6 +156,18 @@ backend:
         -agent: "testing"
         -comment: "COMPREHENSIVE TESTING COMPLETED: Podcast API endpoints are working with some minor issues. ✅ GET /api/podcasts/categories - Returns 5 podcast categories (music_show, interview, talk_show, news, comedy) with episode counts and descriptions. ✅ GET /api/podcasts/episodes - Returns sample podcast episodes with proper structure including titles like 'Matinée Compas avec DJ Kenley', hosts, durations, play/download counts. ✅ GET /api/podcasts/featured - Returns featured episodes correctly. ✅ POST /api/podcasts/episodes/{id}/play - Successfully tracks play counts. ✅ POST /api/podcasts/episodes/{id}/download - Successfully tracks download counts. ✅ GET /api/podcasts/episodes/{id} - Returns 404 for non-existent episodes as expected. Minor: Category filtering returns all episodes instead of filtering by category (sample data limitation). Minor: Individual episode retrieval by ID returns 404 (sample data not persisted in database). Core podcast functionality is working correctly with proper sample data structure."
 
+  - task: "TV API endpoints"
+    implemented: true
+    working: true
+    file: "server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        -working: true
+        -agent: "testing"
+        -comment: "COMPREHENSIVE TESTING COMPLETED: All TV API endpoints are working perfectly. Fixed critical Python syntax error (true/false -> True/False) that was causing 500 errors. Key findings: ✅ GET /api/tv/channel - Returns Radio Haiti Fusion TV channel info with live status (1250 viewers), stream URLs, current/next show information ✅ GET /api/tv/shows - Returns 6 sample TV shows with proper filtering by category (variety, news, music, talk, documentary, comedy) and featured status ✅ GET /api/tv/categories - Returns 6 TV categories with show counts and descriptions ✅ GET /api/tv/schedule - Returns 5 scheduled shows including 'Matin Haiti Fusion TV', 'Culture Kreyòl', 'Compas Live Sessions' with hosts, times, and days ✅ POST /api/tv/shows/{show_id}/view - Successfully tracks TV show view counts ✅ GET /api/tv/featured - Returns featured TV shows correctly. All expected sample shows are present with proper metadata (titles, hosts, durations, ratings, view counts). TV API is production-ready with comprehensive functionality for channel management, show categorization, scheduling, and view tracking."
+
 frontend:
   - task: "White background issue fix"
     implemented: true
