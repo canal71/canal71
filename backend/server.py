@@ -2193,7 +2193,7 @@ async def get_tv_shows(category: str = "all", limit: int = 20, featured: bool = 
                 "rating": 4.6,
                 "tags": ["actualités", "haiti", "diaspora"],
                 "is_live": False,
-                "is_featured": false,
+                "is_featured": False,
                 "language": "français"
             },
             {
@@ -2210,7 +2210,7 @@ async def get_tv_shows(category: str = "all", limit: int = 20, featured: bool = 
                 "rating": 4.5,
                 "tags": ["débat", "société", "personnalités"],
                 "is_live": False,
-                "is_featured": false,
+                "is_featured": False,
                 "language": "français"
             },
             {
@@ -2227,7 +2227,7 @@ async def get_tv_shows(category: str = "all", limit: int = 20, featured: bool = 
                 "rating": 4.8,
                 "tags": ["humour", "comédie", "spectacle"],
                 "is_live": False,
-                "is_featured": false,
+                "is_featured": False,
                 "language": "français"
             }
         ]
