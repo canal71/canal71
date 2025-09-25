@@ -2096,6 +2096,235 @@ async def get_featured_episodes(limit: int = 5):
     """Get featured podcast episodes"""
     return await get_podcast_episodes(featured=True, limit=limit)
 
+# TV API Endpoints
+@api_router.get("/tv/channel")
+async def get_tv_channel():
+    """Get TV channel information"""
+    return TVChannel(
+        name="Radio Haiti Fusion TV",
+        description="Chaîne TV officielle de Radio Haiti Fusion - Programmes, émissions et divertissement haïtien 24h/24",
+        logo_url="https://via.placeholder.com/200x100?text=RHF+TV",
+        stream_url="https://xtremeradiohosting.com/8288/stream",  # Using the same stream for now
+        backup_stream_urls=[
+            "https://xtremeradiohosting.com/8076/stream"
+        ],
+        current_show="Programme en Direct",
+        next_show="Émission du Soir",
+        is_live=True,
+        viewer_count=1250
+    )
+
+@api_router.get("/tv/shows", response_model=List[TVShow])
+async def get_tv_shows(category: str = "all", limit: int = 20, featured: bool = None):
+    """Get TV shows with optional filtering"""
+    match_filter = {}
+    if category != "all":
+        match_filter["category"] = category
+    if featured is not None:
+        match_filter["is_featured"] = featured
+    
+    shows_data = await db.tv_shows.find(match_filter).sort("air_date", -1).limit(limit).to_list(length=None)
+    
+    if not shows_data:
+        # Return sample TV shows
+        sample_shows = [
+            {
+                "title": "Matin Haiti Fusion TV",
+                "description": "Émission matinale avec actualités, interviews et divertissement pour bien commencer la journée.",
+                "category": "variety",
+                "host": "DJ Niko & Kaelle",
+                "duration": "120:00",
+                "video_url": "https://xtremeradiohosting.com/8288/stream",
+                "thumbnail_url": "https://via.placeholder.com/400x225?text=Matin+TV",
+                "season": 1,
+                "episode_number": 45,
+                "view_count": 15200,
+                "rating": 4.8,
+                "tags": ["matinale", "actualités", "divertissement"],
+                "is_live": true,
+                "is_featured": true,
+                "language": "français"
+            },
+            {
+                "title": "Culture Kreyòl",
+                "description": "Émission culturelle explorant les richesses de la culture haïtienne avec des invités exceptionnels.",
+                "category": "documentary",
+                "host": "Brigitte",
+                "duration": "45:00",
+                "video_url": "https://example.com/culture-kreyol-ep12.mp4",
+                "thumbnail_url": "https://via.placeholder.com/400x225?text=Culture+Kreyol",
+                "season": 2,
+                "episode_number": 12,
+                "view_count": 8900,
+                "rating": 4.9,
+                "tags": ["culture", "tradition", "histoire"],
+                "is_live": false,
+                "is_featured": true,
+                "language": "français"
+            },
+            {
+                "title": "Compas Live Sessions",
+                "description": "Sessions live avec les meilleurs artistes compas, performances exclusives et interviews.",
+                "category": "music",
+                "host": "Hugo",
+                "duration": "90:00",
+                "video_url": "https://example.com/compas-live-tvice.mp4",
+                "thumbnail_url": "https://via.placeholder.com/400x225?text=Compas+Live",
+                "season": 1,
+                "episode_number": 8,
+                "view_count": 22300,
+                "rating": 4.7,
+                "tags": ["compas", "live", "musique", "artistes"],
+                "is_live": false,
+                "is_featured": true,
+                "language": "français"
+            },
+            {
+                "title": "Journal TV Haiti Fusion",
+                "description": "Informations complètes sur Haiti et la diaspora, analyses et reportages exclusifs.",
+                "category": "news",
+                "host": "Équipe Journalisme",
+                "duration": "30:00",
+                "video_url": "https://example.com/journal-tv-today.mp4",
+                "thumbnail_url": "https://via.placeholder.com/400x225?text=Journal+TV",
+                "season": 1,
+                "episode_number": 234,
+                "view_count": 12800,
+                "rating": 4.6,
+                "tags": ["actualités", "haiti", "diaspora"],
+                "is_live": false,
+                "is_featured": false,
+                "language": "français"
+            },
+            {
+                "title": "Talk Show Dimanche",
+                "description": "Discussions ouvertes sur des sujets d'actualité avec des personnalités influentes.",
+                "category": "talk",
+                "host": "Don Camilo",
+                "duration": "75:00",
+                "video_url": "https://example.com/talk-show-sunday.mp4",
+                "thumbnail_url": "https://via.placeholder.com/400x225?text=Talk+Show",
+                "season": 3,
+                "episode_number": 18,
+                "view_count": 9500,
+                "rating": 4.5,
+                "tags": ["débat", "société", "personnalités"],
+                "is_live": false,
+                "is_featured": false,
+                "language": "français"
+            },
+            {
+                "title": "Comedy Haiti",
+                "description": "Spectacle d'humour haïtien avec les meilleurs comédiens du pays.",
+                "category": "comedy",
+                "host": "Équipe Comedy",
+                "duration": "60:00",
+                "video_url": "https://example.com/comedy-haiti-ep5.mp4",
+                "thumbnail_url": "https://via.placeholder.com/400x225?text=Comedy+Haiti",
+                "season": 2,
+                "episode_number": 5,
+                "view_count": 18600,
+                "rating": 4.8,
+                "tags": ["humour", "comédie", "spectacle"],
+                "is_live": false,
+                "is_featured": false,
+                "language": "français"
+            }
+        ]
+        return [TVShow(**show) for show in sample_shows]
+    
+    return [TVShow(**parse_from_mongo(show)) for show in shows_data]
+
+@api_router.get("/tv/categories")
+async def get_tv_categories():
+    """Get TV show categories"""
+    return {
+        "categories": [
+            {"id": "variety", "name": "Variétés", "description": "Émissions de divertissement et spectacles", "show_count": 15},
+            {"id": "news", "name": "Actualités", "description": "Journaux télévisés et reportages", "show_count": 8},
+            {"id": "music", "name": "Musique", "description": "Concerts, clips et émissions musicales", "show_count": 12},
+            {"id": "talk", "name": "Talk Shows", "description": "Débats et discussions avec invités", "show_count": 6},
+            {"id": "documentary", "name": "Documentaires", "description": "Programmes culturels et éducatifs", "show_count": 9},
+            {"id": "comedy", "name": "Comédie", "description": "Spectacles d'humour et divertissement", "show_count": 4}
+        ]
+    }
+
+@api_router.get("/tv/schedule", response_model=List[TVSchedule])
+async def get_tv_schedule():
+    """Get TV programming schedule"""
+    schedule_data = await db.tv_schedule.find().to_list(length=None)
+    if not schedule_data:
+        # Sample TV schedule
+        sample_schedule = [
+            {
+                "show_title": "Matin Haiti Fusion TV",
+                "description": "Émission matinale avec actualités et divertissement",
+                "host": "DJ Niko & Kaelle",
+                "day_of_week": "Lundi-Vendredi",
+                "start_time": "07:00",
+                "end_time": "09:00",
+                "category": "variety",
+                "is_live": True
+            },
+            {
+                "show_title": "Journal TV Midi",
+                "description": "Actualités de la mi-journée",
+                "host": "Équipe Journalisme",
+                "day_of_week": "Lundi-Vendredi",
+                "start_time": "12:00",
+                "end_time": "12:30",
+                "category": "news",
+                "is_live": True
+            },
+            {
+                "show_title": "Culture Kreyòl",
+                "description": "Émission culturelle haïtienne",
+                "host": "Brigitte",
+                "day_of_week": "Mercredi",
+                "start_time": "19:00",
+                "end_time": "20:00",
+                "category": "documentary",
+                "is_live": True
+            },
+            {
+                "show_title": "Compas Live Sessions",
+                "description": "Sessions musicales live",
+                "host": "Hugo",
+                "day_of_week": "Vendredi",
+                "start_time": "20:00",
+                "end_time": "21:30",
+                "category": "music",
+                "is_live": True
+            },
+            {
+                "show_title": "Talk Show Dimanche",
+                "description": "Discussions et débats du dimanche",
+                "host": "Don Camilo",
+                "day_of_week": "Dimanche",
+                "start_time": "15:00",
+                "end_time": "16:30",
+                "category": "talk",
+                "is_live": True
+            }
+        ]
+        return [TVSchedule(**show) for show in sample_schedule]
+    
+    return [TVSchedule(**parse_from_mongo(show)) for show in schedule_data]
+
+@api_router.post("/tv/shows/{show_id}/view")
+async def track_tv_view(show_id: str):
+    """Track TV show view count"""
+    await db.tv_shows.update_one(
+        {"id": show_id},
+        {"$inc": {"view_count": 1}}
+    )
+    return {"message": "View count updated"}
+
+@api_router.get("/tv/featured", response_model=List[TVShow])
+async def get_featured_tv_shows(limit: int = 5):
+    """Get featured TV shows"""
+    return await get_tv_shows(featured=True, limit=limit)
+
 # Include the router in the main app
 app.include_router(api_router)
 
