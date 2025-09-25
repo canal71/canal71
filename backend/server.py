@@ -141,7 +141,7 @@ class StationInfo(BaseModel):
     description: str = "Radio Haïti Fusion est une station dynamique qui fusionne culture, musique et information pour inspirer et divertir."
     founded_year: int = 2020
     frequency: str = "FM 104.5 MHz"
-    location: str = "Port-au-Prince, Haïti"
+    location: str = "Cap-Haïtien, Haïti"
     contact_email: str = "info@radiohaitifusion.com"
     promo_email: str = "haitifusionpromo@gmail.com"
     website: str = "www.radiohaitifusion.com"
