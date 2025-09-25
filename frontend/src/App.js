@@ -891,7 +891,7 @@ function App() {
                           🔴 LIVE
                         </Badge>
                         <Badge className="bg-white/20 text-white border-white/30 px-3 py-1">
-                          FM 104.5 MHz
+                          105.3 FM
                         </Badge>
                         <Badge className="bg-green-500/80 text-white px-3 py-1">
                           HD 128kbps
