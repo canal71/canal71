@@ -164,6 +164,8 @@ function App() {
     loadCharts();
     loadTriviaLeaderboard();
     loadBreakingNews();
+    loadPodcastCategories();
+    loadPodcastEpisodes();
 
     return () => {
       if (websocket.readyState === WebSocket.OPEN) {
