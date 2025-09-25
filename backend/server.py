@@ -124,11 +124,24 @@ class NewsArticle(BaseModel):
 class StationInfo(BaseModel):
     station_name: str = "Radio Haiti Fusion"
     tagline: str = "La radio qui va loin"
-    description: str = "Radio Haiti Fusion est votre station de radio préférée, diffusant le meilleur de la musique haïtienne et internationale 24h/24. Depuis notre création, nous nous engageons à promouvoir la culture haïtienne tout en restant connectés au monde."
+    
+    # Biography - English & French
+    bio_en: str = "Radio Haïti Fusion is a dynamic radio station that blends culture, music, and information to inspire and entertain. Rooted in Haitian traditions while embracing global influences, we are a cultural bridge connecting Haitians at home and abroad with the world."
+    bio_fr: str = "Radio Haïti Fusion est une station dynamique qui fusionne culture, musique et information pour inspirer et divertir. Ancrée dans les traditions haïtiennes tout en s'ouvrant aux influences mondiales, elle est un pont culturel reliant les Haïtiens d'ici et d'ailleurs au reste du monde."
+    
+    # Mission - English & French  
+    mission_en: str = "Our mission is to inform, inspire, and entertain with diverse programs that reflect Haitian identity while embracing international perspectives. We are committed to unity, positivity, and creativity through every broadcast."
+    mission_fr: str = "Notre mission est d'informer, d'inspirer et de divertir avec une programmation variée qui reflète l'identité haïtienne tout en s'ouvrant aux perspectives internationales. Nous nous engageons à promouvoir l'unité, la positivité et la créativité à travers chacune de nos émissions."
+    
+    # Vision - English & French
+    vision_en: str = "Our vision is to become the leading Haitian-Caribbean radio station with global influence, recognized for cultural pride, innovation, and community impact — a station without borders where every listener feels connected and inspired."
+    vision_fr: str = "Notre vision est de devenir la principale station haïtiano-caribéenne à rayonnement mondial, reconnue pour sa fierté culturelle, son innovation et son impact communautaire — une radio sans frontières où chaque auditeur se sent connecté et inspiré."
+    
+    # Station Details
+    description: str = "Radio Haïti Fusion est une station dynamique qui fusionne culture, musique et information pour inspirer et divertir."
     founded_year: int = 2020
     frequency: str = "FM 104.5 MHz"
     location: str = "Port-au-Prince, Haïti"
-    mission: str = "Divertir, informer et rassembler la communauté haïtienne à travers une programmation de qualité."
     contact_email: str = "info@radiohaitifusion.com"
     promo_email: str = "haitifusionpromo@gmail.com"
     website: str = "www.radiohaitifusion.com"
