@@ -1039,9 +1039,9 @@ function App() {
                       <Badge className="bg-red-500 text-white font-semibold px-3 py-1 animate-pulse shadow-lg">
                         🔴 LIVE
                       </Badge>
-                      <div className="text-white font-semibold text-sm md:text-base">
+                      {/* <div className="text-white font-semibold text-sm md:text-base">
                         🇭🇹 La radio qui va loin
-                      </div>
+                      </div> */}
                     </div>
 
                     <div className="flex items-center space-x-2">
