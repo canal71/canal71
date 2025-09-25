@@ -1589,6 +1589,151 @@ async def get_trivia_leaderboard(category: str = "all", limit: int = 10):
     
     return leaderboard
 
+# Podcast API
+@api_router.get("/podcasts/episodes", response_model=List[PodcastEpisode])
+async def get_podcast_episodes(category: str = "all", limit: int = 20, featured: bool = None):
+    """Get podcast episodes with optional filtering"""
+    match_filter = {}
+    if category != "all":
+        match_filter["category"] = category
+    if featured is not None:
+        match_filter["is_featured"] = featured
+    
+    episodes_data = await db.podcast_episodes.find(match_filter).sort("published_date", -1).limit(limit).to_list(length=None)
+    
+    if not episodes_data:
+        # Return sample episodes
+        sample_episodes = [
+            {
+                "title": "Matinée Compas avec DJ Kenley",
+                "description": "Réveillez-vous avec les meilleurs hits compas! DJ Kenley vous présente une sélection exclusive des tubes qui font danser Haïti.",
+                "category": "music_show",
+                "host": "DJ Kenley",
+                "duration": "1:45:30",
+                "audio_url": "https://example.com/episodes/morning-compas-01.mp3",
+                "cover_art": "https://via.placeholder.com/300x300?text=Morning+Compas",
+                "episode_number": 15,
+                "season": 1,
+                "download_count": 2840,
+                "play_count": 8920,
+                "tags": ["compas", "morning", "music", "dance"],
+                "is_featured": True,
+                "file_size": "95.2 MB"
+            },
+            {
+                "title": "Interview Exclusive avec T-Vice",
+                "description": "Découvrez l'histoire fascinante du groupe T-Vice, leurs inspirations et leurs projets futurs dans cette interview exclusive.",
+                "category": "interview",
+                "host": "Marie Jeanne",
+                "duration": "42:15",
+                "audio_url": "https://example.com/episodes/t-vice-interview.mp3",
+                "cover_art": "https://via.placeholder.com/300x300?text=T-Vice+Interview",
+                "episode_number": 8,
+                "season": 2,
+                "download_count": 4200,
+                "play_count": 12500,
+                "tags": ["interview", "t-vice", "music", "artists"],
+                "is_featured": true,
+                "file_size": "38.4 MB"
+            },
+            {
+                "title": "Actualités Haïtiennes de la Semaine",
+                "description": "Résumé des événements marquants de la semaine en Haïti et dans la diaspora haïtienne.",
+                "category": "news",
+                "host": "Jean Claude Michel",
+                "duration": "28:45",
+                "audio_url": "https://example.com/episodes/news-weekly-03.mp3",
+                "cover_art": "https://via.placeholder.com/300x300?text=Actualités",
+                "episode_number": 12,
+                "season": 1,
+                "download_count": 1850,
+                "play_count": 5200,
+                "tags": ["news", "haiti", "diaspora", "weekly"],
+                "is_featured": false,
+                "file_size": "26.1 MB"
+            },
+            {
+                "title": "Histoire du Compas Direct",
+                "description": "Plongez dans l'histoire riche du compas direct, de Nemours Jean-Baptiste aux artistes contemporains.",
+                "category": "talk_show",
+                "host": "Dr. Marie Carmel",
+                "duration": "52:20",
+                "audio_url": "https://example.com/episodes/compas-history.mp3",
+                "cover_art": "https://via.placeholder.com/300x300?text=Histoire+Compas",
+                "episode_number": 5,
+                "season": 1,
+                "download_count": 3100,
+                "play_count": 7800,
+                "tags": ["history", "compas", "culture", "music"],
+                "is_featured": false,
+                "file_size": "47.6 MB"
+            },
+            {
+                "title": "Mix Zouk & Compas Weekend",
+                "description": "Le mix parfait pour vos weekends! Une fusion entre zouk et compas pour faire danser toute la famille.",
+                "category": "music_show",
+                "host": "DJ Mix Master",
+                "duration": "1:20:15",
+                "audio_url": "https://example.com/episodes/weekend-mix-02.mp3",
+                "cover_art": "https://via.placeholder.com/300x300?text=Weekend+Mix",
+                "episode_number": 22,
+                "season": 1,
+                "download_count": 3800,
+                "play_count": 9500,
+                "tags": ["zouk", "compas", "mix", "weekend", "dance"],
+                "is_featured": false,
+                "file_size": "72.8 MB"
+            }
+        ]
+        return [PodcastEpisode(**episode) for episode in sample_episodes]
+    
+    return [PodcastEpisode(**parse_from_mongo(episode)) for episode in episodes_data]
+
+@api_router.get("/podcasts/categories")
+async def get_podcast_categories():
+    """Get available podcast categories"""
+    return {
+        "categories": [
+            {"id": "music_show", "name": "Émissions Musicales", "description": "Mixes, découvertes musicales et hits du moment", "episode_count": 45},
+            {"id": "interview", "name": "Interviews", "description": "Rencontres exclusives avec des artistes et personnalités", "episode_count": 23},
+            {"id": "talk_show", "name": "Talk Shows", "description": "Discussions sur la culture, l'histoire et la société haïtienne", "episode_count": 18},
+            {"id": "news", "name": "Actualités", "description": "Informations et analyses sur Haïti et la diaspora", "episode_count": 32},
+            {"id": "comedy", "name": "Comédie", "description": "Humour haïtien et sketchs divertissants", "episode_count": 12}
+        ]
+    }
+
+@api_router.get("/podcasts/episodes/{episode_id}", response_model=PodcastEpisode)
+async def get_podcast_episode(episode_id: str):
+    """Get specific podcast episode"""
+    episode_data = await db.podcast_episodes.find_one({"id": episode_id})
+    if not episode_data:
+        raise HTTPException(status_code=404, detail="Episode not found")
+    
+    return PodcastEpisode(**parse_from_mongo(episode_data))
+
+@api_router.post("/podcasts/episodes/{episode_id}/play")
+async def track_episode_play(episode_id: str):
+    """Track episode play count"""
+    await db.podcast_episodes.update_one(
+        {"id": episode_id},
+        {"$inc": {"play_count": 1}}
+    )
+    return {"message": "Play count updated"}
+
+@api_router.post("/podcasts/episodes/{episode_id}/download")
+async def track_episode_download(episode_id: str):
+    """Track episode download count"""
+    await db.podcast_episodes.update_one(
+        {"id": episode_id},
+        {"$inc": {"download_count": 1}}
+    )
+    return {"message": "Download count updated"}
+
+@api_router.get("/podcasts/featured", response_model=List[PodcastEpisode])
+async def get_featured_episodes(limit: int = 5):
+    """Get featured podcast episodes"""
+    return await get_podcast_episodes(featured=True, limit=limit)
+
 # Include the router in the main app
 app.include_router(api_router)
 
