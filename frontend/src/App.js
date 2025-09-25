@@ -175,6 +175,10 @@ function App() {
     loadBreakingNews();
     loadPodcastCategories();
     loadPodcastEpisodes();
+    loadTvChannel();
+    loadTvCategories();
+    loadTvShows();
+    loadTvSchedule();
 
     return () => {
       if (websocket.readyState === WebSocket.OPEN) {
