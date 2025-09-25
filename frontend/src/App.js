@@ -1265,6 +1265,158 @@ function App() {
               </CardContent>
             </Card>
 
+            {/* Podcast Episodes Section */}
+            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                  <Headphones className="w-5 h-5 mr-2 text-purple-500" />
+                  Podcasts & Émissions
+                </h3>
+                
+                <div className="space-y-4 mb-4">
+                  <select 
+                    value={selectedPodcastCategory}
+                    onChange={(e) => {
+                      setSelectedPodcastCategory(e.target.value);
+                      loadPodcastEpisodes(e.target.value);
+                    }}
+                    className="w-full bg-slate-700/60 border-slate-500 text-white rounded px-3 py-2 text-sm"
+                  >
+                    <option value="all">Toutes les catégories</option>
+                    {podcastCategories && podcastCategories.map(category => (
+                      <option key={category.id} value={category.id}>
+                        {category.name} ({category.episode_count})
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                
+                <div className="space-y-4 max-h-96 overflow-y-auto">
+                  {podcastEpisodes && podcastEpisodes.map((episode, index) => (
+                    <div key={episode.id || index} className="bg-slate-700/50 rounded-lg p-4 border border-slate-600/30 hover:border-purple-500/50 transition-all duration-200">
+                      <div className="flex items-start space-x-4">
+                        <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-purple-800 rounded-lg flex-shrink-0 overflow-hidden">
+                          {episode.cover_art ? (
+                            <img 
+                              src={episode.cover_art} 
+                              alt={episode.title}
+                              className="w-full h-full object-cover"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center">
+                              <Headphones className="w-8 h-8 text-white" />
+                            </div>
+                          )}
+                        </div>
+                        
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-start justify-between mb-2">
+                            <div className="flex-1 min-w-0">
+                              <h4 className="text-white font-medium text-sm truncate">{episode.title}</h4>
+                              <p className="text-slate-400 text-xs">{episode.host}</p>
+                              {episode.is_featured && (
+                                <Badge className="bg-yellow-500 text-black text-xs mt-1">
+                                  ⭐ FEATURED
+                                </Badge>
+                              )}
+                            </div>
+                          </div>
+                          
+                          <p className="text-slate-300 text-xs mb-3 line-clamp-2">
+                            {episode.description}
+                          </p>
+                          
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-4 text-xs text-slate-400">
+                              <span className="flex items-center">
+                                <Clock className="w-3 h-3 mr-1" />
+                                {episode.duration}
+                              </span>
+                              <span className="flex items-center">
+                                <Play className="w-3 h-3 mr-1" />
+                                {episode.play_count.toLocaleString()}
+                              </span>
+                              <span className="flex items-center">
+                                <Download className="w-3 h-3 mr-1" />
+                                {episode.download_count.toLocaleString()}
+                              </span>
+                              {episode.file_size && (
+                                <span>{episode.file_size}</span>
+                              )}
+                            </div>
+                            
+                            <div className="flex items-center space-x-2">
+                              <Button
+                                size="sm"
+                                onClick={() => playPodcast(episode)}
+                                className={`bg-purple-600 hover:bg-purple-700 text-white p-2 ${
+                                  currentPodcast?.id === episode.id && isPodcastPlaying ? 'bg-purple-700' : ''
+                                }`}
+                                title="Écouter"
+                              >
+                                {currentPodcast?.id === episode.id && isPodcastPlaying ? (
+                                  <Pause className="w-3 h-3" />
+                                ) : (
+                                  <Play className="w-3 h-3" />
+                                )}
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                onClick={() => downloadPodcast(episode)}
+                                className="text-slate-300 hover:text-white p-2"
+                                title="Télécharger"
+                              >
+                                <Download className="w-3 h-3" />
+                              </Button>
+                            </div>
+                          </div>
+                          
+                          {episode.tags && episode.tags.length > 0 && (
+                            <div className="flex flex-wrap gap-1 mt-2">
+                              {episode.tags.slice(0, 3).map((tag, tagIndex) => (
+                                <span key={tagIndex} className="bg-slate-600/50 text-slate-300 text-xs px-2 py-1 rounded">
+                                  #{tag}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                
+                {currentPodcast && (
+                  <div className="mt-4 pt-4 border-t border-slate-600/50">
+                    <div className="bg-slate-700/50 rounded-lg p-3">
+                      <div className="flex items-center justify-between mb-2">
+                        <p className="text-white text-sm font-medium truncate">
+                          En cours: {currentPodcast.title}
+                        </p>
+                        <Button
+                          size="sm"
+                          onClick={() => setIsPodcastPlaying(!isPodcastPlaying)}
+                          className="bg-purple-600 hover:bg-purple-700"
+                        >
+                          {isPodcastPlaying ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
+                        </Button>
+                      </div>
+                      
+                      <audio
+                        src={currentPodcast.audio_url}
+                        controls
+                        className="w-full h-8 bg-slate-600 rounded"
+                        style={{ filter: 'invert(1) hue-rotate(180deg)' }}
+                        onPlay={() => setIsPodcastPlaying(true)}
+                        onPause={() => setIsPodcastPlaying(false)}
+                      />
+                    </div>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+
             {/* Recently Played */}
             <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
               <CardContent className="p-6">
