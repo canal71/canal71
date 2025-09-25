@@ -1762,8 +1762,8 @@ function App() {
                   <div className="space-y-3">
                     <div className="bg-slate-800/50 rounded-lg p-3">
                       <h4 className="font-semibold text-white text-sm mb-1">Fréquence</h4>
-                      <p className="text-slate-300 text-sm">FM 104.5 MHz</p>
-                      <p className="text-slate-400 text-xs">Port-au-Prince & environs</p>
+                      <p className="text-slate-300 text-sm">105.3 FM</p>
+                      <p className="text-slate-400 text-xs">Cap-Haïtien & environs</p>
                     </div>
                     <div className="bg-slate-800/50 rounded-lg p-3">
                       <h4 className="font-semibold text-white text-sm mb-1">Qualité Stream</h4>
