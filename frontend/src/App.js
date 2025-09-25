@@ -1664,9 +1664,63 @@ function App() {
                     <div>
                       <h4 className="font-bold text-white text-lg mb-2">{stationInfo.station_name}</h4>
                       <p className="text-orange-400 text-sm mb-3 italic">"{stationInfo.tagline}"</p>
-                      <p className="text-slate-300 text-sm leading-relaxed">
-                        {stationInfo.description}
-                      </p>
+                      
+                      {/* Biography Section */}
+                      <div className="mb-4">
+                        <h5 className="text-orange-400 font-semibold text-sm mb-2 flex items-center">
+                          🎯 Biographie | Biography
+                        </h5>
+                        <div className="space-y-3">
+                          <div>
+                            <p className="text-slate-300 text-sm leading-relaxed">
+                              <strong className="text-orange-300">Français:</strong> {stationInfo.bio_fr}
+                            </p>
+                          </div>
+                          <div>
+                            <p className="text-slate-300 text-sm leading-relaxed">
+                              <strong className="text-orange-300">English:</strong> {stationInfo.bio_en}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Mission Section */}
+                      <div className="mb-4">
+                        <h5 className="text-orange-400 font-semibold text-sm mb-2 flex items-center">
+                          🎯 Mission
+                        </h5>
+                        <div className="space-y-3">
+                          <div>
+                            <p className="text-slate-300 text-sm leading-relaxed">
+                              <strong className="text-orange-300">Français:</strong> {stationInfo.mission_fr}
+                            </p>
+                          </div>
+                          <div>
+                            <p className="text-slate-300 text-sm leading-relaxed">
+                              <strong className="text-orange-300">English:</strong> {stationInfo.mission_en}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Vision Section */}
+                      <div className="mb-4">
+                        <h5 className="text-orange-400 font-semibold text-sm mb-2 flex items-center">
+                          🌍 Vision
+                        </h5>
+                        <div className="space-y-3">
+                          <div>
+                            <p className="text-slate-300 text-sm leading-relaxed">
+                              <strong className="text-orange-300">Français:</strong> {stationInfo.vision_fr}
+                            </p>
+                          </div>
+                          <div>
+                            <p className="text-slate-300 text-sm leading-relaxed">
+                              <strong className="text-orange-300">English:</strong> {stationInfo.vision_en}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-4 pt-4 border-t border-slate-600/50">
@@ -1699,15 +1753,9 @@ function App() {
                         </div>
                         <div className="flex items-center">
                           <span className="text-slate-400 text-xs w-16">WhatsApp:</span>
-                          <span className="text-green-400 text-sm">{stationInfo.whatsapp}</span>
+                          <span className="text-green-400 text-sm">{stationInfo.whatsapp || "5026017368"}</span>
                         </div>
                       </div>
-                    </div>
-
-                    <div className="pt-3 border-t border-slate-600/50">
-                      <p className="text-slate-300 text-sm italic">
-                        <strong className="text-orange-400">Mission:</strong> {stationInfo.mission}
-                      </p>
                     </div>
                   </div>
                 ) : (
