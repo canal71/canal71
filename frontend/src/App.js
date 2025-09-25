@@ -883,9 +883,9 @@ function App() {
                       {/* <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1 tracking-wide">
                         RADIO HAITI FUSION
                       </h1> */}
-                      <p className="text-lg md:text-xl text-orange-100 font-medium italic mb-3">
+                      {/* <p className="text-lg md:text-xl text-orange-100 font-medium italic mb-3">
                         🇭🇹 La radio qui va loin
-                      </p>
+                      </p> */}
                       <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
                         <Badge className="bg-red-500 text-white font-semibold px-3 py-1 animate-pulse">
                           🔴 LIVE
