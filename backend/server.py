@@ -2159,7 +2159,7 @@ async def get_tv_shows(category: str = "all", limit: int = 20, featured: bool = 
                 "rating": 4.9,
                 "tags": ["culture", "tradition", "histoire"],
                 "is_live": False,
-                "is_featured": true,
+                "is_featured": True,
                 "language": "français"
             },
             {
@@ -2176,7 +2176,7 @@ async def get_tv_shows(category: str = "all", limit: int = 20, featured: bool = 
                 "rating": 4.7,
                 "tags": ["compas", "live", "musique", "artistes"],
                 "is_live": False,
-                "is_featured": true,
+                "is_featured": True,
                 "language": "français"
             },
             {
