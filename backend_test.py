@@ -697,6 +697,322 @@ class RadioStationAPITester:
             description="Get trivia leaderboard filtered by Haitian music category"
         )
 
+    # Podcast API Tests
+    def test_get_podcast_categories(self):
+        """Test getting podcast categories"""
+        success, response = self.run_test(
+            "Get Podcast Categories",
+            "GET",
+            "podcasts/categories",
+            200,
+            description="Get available podcast categories"
+        )
+        
+        if success and response:
+            categories = response.get('categories', [])
+            print(f"   Found {len(categories)} podcast categories")
+            expected_categories = ["music_show", "interview", "talk_show", "news", "comedy"]
+            for category in categories:
+                cat_id = category.get('id')
+                if cat_id in expected_categories:
+                    print(f"   ✅ {category.get('name')} ({cat_id}) - {category.get('episode_count')} episodes")
+                else:
+                    print(f"   ⚠️  Unexpected category: {cat_id}")
+        
+        return success, response
+
+    def test_get_podcast_episodes_all(self):
+        """Test getting all podcast episodes"""
+        success, response = self.run_test(
+            "Get All Podcast Episodes",
+            "GET",
+            "podcasts/episodes?category=all",
+            200,
+            description="Get all podcast episodes"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} podcast episodes")
+            for i, episode in enumerate(response[:3]):  # Show first 3 episodes
+                print(f"   {i+1}. {episode.get('title')} - {episode.get('category')} ({episode.get('duration')})")
+                print(f"      Host: {episode.get('host')}, Plays: {episode.get('play_count')}, Downloads: {episode.get('download_count')}")
+            
+            # Store first episode ID for individual episode tests
+            if response:
+                self.sample_episode_id = response[0].get('id')
+        
+        return success, response
+
+    def test_get_podcast_episodes_by_category_music_show(self):
+        """Test getting podcast episodes filtered by music_show category"""
+        success, response = self.run_test(
+            "Get Music Show Episodes",
+            "GET",
+            "podcasts/episodes?category=music_show",
+            200,
+            description="Get podcast episodes filtered by music_show category"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} music show episodes")
+            # Verify all episodes are music_show category
+            for episode in response:
+                if episode.get('category') != 'music_show':
+                    print(f"   ⚠️  Warning: Episode '{episode.get('title')}' has category '{episode.get('category')}', expected 'music_show'")
+        
+        return success, response
+
+    def test_get_podcast_episodes_by_category_interview(self):
+        """Test getting podcast episodes filtered by interview category"""
+        success, response = self.run_test(
+            "Get Interview Episodes",
+            "GET",
+            "podcasts/episodes?category=interview",
+            200,
+            description="Get podcast episodes filtered by interview category"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} interview episodes")
+            for episode in response:
+                if episode.get('category') != 'interview':
+                    print(f"   ⚠️  Warning: Episode '{episode.get('title')}' has category '{episode.get('category')}', expected 'interview'")
+        
+        return success, response
+
+    def test_get_podcast_episodes_by_category_talk_show(self):
+        """Test getting podcast episodes filtered by talk_show category"""
+        return self.run_test(
+            "Get Talk Show Episodes",
+            "GET",
+            "podcasts/episodes?category=talk_show",
+            200,
+            description="Get podcast episodes filtered by talk_show category"
+        )
+
+    def test_get_podcast_episodes_by_category_news(self):
+        """Test getting podcast episodes filtered by news category"""
+        return self.run_test(
+            "Get News Episodes",
+            "GET",
+            "podcasts/episodes?category=news",
+            200,
+            description="Get podcast episodes filtered by news category"
+        )
+
+    def test_get_podcast_episodes_by_category_comedy(self):
+        """Test getting podcast episodes filtered by comedy category"""
+        return self.run_test(
+            "Get Comedy Episodes",
+            "GET",
+            "podcasts/episodes?category=comedy",
+            200,
+            description="Get podcast episodes filtered by comedy category"
+        )
+
+    def test_get_featured_episodes(self):
+        """Test getting featured podcast episodes"""
+        success, response = self.run_test(
+            "Get Featured Episodes",
+            "GET",
+            "podcasts/featured",
+            200,
+            description="Get featured podcast episodes"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} featured episodes")
+            for episode in response:
+                if not episode.get('is_featured'):
+                    print(f"   ⚠️  Warning: Episode '{episode.get('title')}' is not marked as featured")
+                else:
+                    print(f"   ✅ Featured: {episode.get('title')} - {episode.get('category')}")
+        
+        return success, response
+
+    def test_get_podcast_episodes_featured_filter(self):
+        """Test getting episodes with featured=true filter"""
+        success, response = self.run_test(
+            "Get Episodes (Featured Filter)",
+            "GET",
+            "podcasts/episodes?featured=true",
+            200,
+            description="Get podcast episodes with featured=true filter"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} episodes with featured filter")
+            for episode in response:
+                if not episode.get('is_featured'):
+                    print(f"   ⚠️  Warning: Episode '{episode.get('title')}' is not marked as featured but returned in featured filter")
+        
+        return success, response
+
+    def test_get_specific_episode(self):
+        """Test getting a specific podcast episode by ID"""
+        if not hasattr(self, 'sample_episode_id') or not self.sample_episode_id:
+            print("⚠️  Skipping: No episode ID available from previous test")
+            return False, {}
+        
+        success, response = self.run_test(
+            "Get Specific Episode",
+            "GET",
+            f"podcasts/episodes/{self.sample_episode_id}",
+            200,
+            description=f"Get specific podcast episode by ID: {self.sample_episode_id}"
+        )
+        
+        if success and response:
+            print(f"   Episode: {response.get('title')}")
+            print(f"   Host: {response.get('host')}")
+            print(f"   Category: {response.get('category')}")
+            print(f"   Duration: {response.get('duration')}")
+            print(f"   Play Count: {response.get('play_count')}")
+            print(f"   Download Count: {response.get('download_count')}")
+            print(f"   Featured: {response.get('is_featured')}")
+        
+        return success, response
+
+    def test_get_nonexistent_episode(self):
+        """Test getting a non-existent podcast episode"""
+        fake_episode_id = "nonexistent-episode-id-12345"
+        
+        success, response = self.run_test(
+            "Get Non-existent Episode",
+            "GET",
+            f"podcasts/episodes/{fake_episode_id}",
+            404,
+            description=f"Test 404 response for non-existent episode ID: {fake_episode_id}"
+        )
+        
+        return success, response
+
+    def test_track_episode_play(self):
+        """Test tracking episode play count"""
+        if not hasattr(self, 'sample_episode_id') or not self.sample_episode_id:
+            print("⚠️  Skipping: No episode ID available from previous test")
+            return False, {}
+        
+        # First get current play count
+        get_success, get_response = self.run_test(
+            "Get Episode Before Play Track",
+            "GET",
+            f"podcasts/episodes/{self.sample_episode_id}",
+            200,
+            description="Get episode to check play count before tracking"
+        )
+        
+        initial_play_count = 0
+        if get_success and get_response:
+            initial_play_count = get_response.get('play_count', 0)
+            print(f"   Initial play count: {initial_play_count}")
+        
+        # Track a play
+        success, response = self.run_test(
+            "Track Episode Play",
+            "POST",
+            f"podcasts/episodes/{self.sample_episode_id}/play",
+            200,
+            description=f"Track play for episode ID: {self.sample_episode_id}"
+        )
+        
+        if success:
+            # Verify play count increased
+            verify_success, verify_response = self.run_test(
+                "Verify Play Count Increased",
+                "GET",
+                f"podcasts/episodes/{self.sample_episode_id}",
+                200,
+                description="Verify play count was incremented"
+            )
+            
+            if verify_success and verify_response:
+                new_play_count = verify_response.get('play_count', 0)
+                print(f"   New play count: {new_play_count}")
+                if new_play_count == initial_play_count + 1:
+                    print(f"   ✅ Play count correctly incremented from {initial_play_count} to {new_play_count}")
+                else:
+                    print(f"   ⚠️  Warning: Expected play count {initial_play_count + 1}, got {new_play_count}")
+        
+        return success, response
+
+    def test_track_episode_download(self):
+        """Test tracking episode download count"""
+        if not hasattr(self, 'sample_episode_id') or not self.sample_episode_id:
+            print("⚠️  Skipping: No episode ID available from previous test")
+            return False, {}
+        
+        # First get current download count
+        get_success, get_response = self.run_test(
+            "Get Episode Before Download Track",
+            "GET",
+            f"podcasts/episodes/{self.sample_episode_id}",
+            200,
+            description="Get episode to check download count before tracking"
+        )
+        
+        initial_download_count = 0
+        if get_success and get_response:
+            initial_download_count = get_response.get('download_count', 0)
+            print(f"   Initial download count: {initial_download_count}")
+        
+        # Track a download
+        success, response = self.run_test(
+            "Track Episode Download",
+            "POST",
+            f"podcasts/episodes/{self.sample_episode_id}/download",
+            200,
+            description=f"Track download for episode ID: {self.sample_episode_id}"
+        )
+        
+        if success:
+            # Verify download count increased
+            verify_success, verify_response = self.run_test(
+                "Verify Download Count Increased",
+                "GET",
+                f"podcasts/episodes/{self.sample_episode_id}",
+                200,
+                description="Verify download count was incremented"
+            )
+            
+            if verify_success and verify_response:
+                new_download_count = verify_response.get('download_count', 0)
+                print(f"   New download count: {new_download_count}")
+                if new_download_count == initial_download_count + 1:
+                    print(f"   ✅ Download count correctly incremented from {initial_download_count} to {new_download_count}")
+                else:
+                    print(f"   ⚠️  Warning: Expected download count {initial_download_count + 1}, got {new_download_count}")
+        
+        return success, response
+
+    def test_track_play_nonexistent_episode(self):
+        """Test tracking play for non-existent episode"""
+        fake_episode_id = "nonexistent-episode-id-12345"
+        
+        success, response = self.run_test(
+            "Track Play (Non-existent Episode)",
+            "POST",
+            f"podcasts/episodes/{fake_episode_id}/play",
+            200,  # API doesn't validate episode existence for tracking
+            description=f"Track play for non-existent episode ID: {fake_episode_id}"
+        )
+        
+        return success, response
+
+    def test_track_download_nonexistent_episode(self):
+        """Test tracking download for non-existent episode"""
+        fake_episode_id = "nonexistent-episode-id-12345"
+        
+        success, response = self.run_test(
+            "Track Download (Non-existent Episode)",
+            "POST",
+            f"podcasts/episodes/{fake_episode_id}/download",
+            200,  # API doesn't validate episode existence for tracking
+            description=f"Track download for non-existent episode ID: {fake_episode_id}"
+        )
+        
+        return success, response
+
 def main():
     print("🎵 Radio Station API Testing Suite")
     print("=" * 50)
