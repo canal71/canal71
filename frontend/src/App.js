@@ -826,7 +826,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-magenta-900 via-purple-800 to-fuchsia-900 relative">
+    <div className="min-h-screen bg-gradient-to-br from-fuchsia-900 via-purple-800 to-pink-900 relative">
       {/* Single unified background */}
       <div 
         className="absolute inset-0 opacity-5"
