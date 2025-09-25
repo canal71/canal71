@@ -1748,24 +1748,24 @@ function App() {
                 </h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-3">
-                    <div className="bg-slate-800/50 rounded-lg p-3">
+                    <div className="bg-magenta-800/50 rounded-lg p-3">
                       <h4 className="font-semibold text-white text-sm mb-1">Émission Actuelle</h4>
                       <p className="text-slate-300 text-sm">Compas Direct Live</p>
                       <p className="text-slate-400 text-xs">Avec DJ Kenley</p>
                     </div>
-                    <div className="bg-slate-800/50 rounded-lg p-3">
+                    <div className="bg-magenta-800/50 rounded-lg p-3">
                       <h4 className="font-semibold text-white text-sm mb-1">Prochaine Émission</h4>
                       <p className="text-slate-300 text-sm">Nouvèl ak Mizik</p>
                       <p className="text-slate-400 text-xs">18:00 - 20:00</p>
                     </div>
                   </div>
                   <div className="space-y-3">
-                    <div className="bg-slate-800/50 rounded-lg p-3">
+                    <div className="bg-magenta-800/50 rounded-lg p-3">
                       <h4 className="font-semibold text-white text-sm mb-1">Fréquence</h4>
                       <p className="text-slate-300 text-sm">105.3 FM</p>
                       <p className="text-slate-400 text-xs">Cap-Haïtien & environs</p>
                     </div>
-                    <div className="bg-slate-800/50 rounded-lg p-3">
+                    <div className="bg-magenta-800/50 rounded-lg p-3">
                       <h4 className="font-semibold text-white text-sm mb-1">Qualité Stream</h4>
                       <p className="text-slate-300 text-sm">128 kbps MP3</p>
                       <p className="text-slate-400 text-xs">Haute qualité stéréo</p>
