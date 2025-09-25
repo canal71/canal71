@@ -1052,7 +1052,7 @@ function App() {
                           variant="ghost"
                           className={streamingMode === 'video' ? 'bg-red-600 text-white' : 'text-white hover:bg-white/20'}
                         >
-                          📺 TV
+                          📺 Live
                         </Button>
                         <Button
                           onClick={() => switchStreamingMode('audio_only')}
@@ -1063,6 +1063,15 @@ function App() {
                           📻 Radio
                         </Button>
                       </div>
+                      
+                      <Button
+                        onClick={() => setShowTvSection(!showTvSection)}
+                        size="sm"
+                        className={`${showTvSection ? 'bg-purple-600 hover:bg-purple-700' : 'bg-slate-600 hover:bg-slate-700'} text-white`}
+                      >
+                        <Tv className="w-4 h-4 mr-1" />
+                        TV Shows
+                      </Button>
                     </div>
                   </div>
                 </div>
