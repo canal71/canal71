@@ -1217,45 +1217,144 @@ async def get_donation_info():
 async def get_djs():
     djs_data = await db.djs.find().to_list(length=None)
     if not djs_data:
-        # Return sample DJs if none exist
+        # Radio Haiti Fusion DJ Team with photos
         sample_djs = [
             {
                 "name": "Kenley Pierre",
                 "stage_name": "DJ Kenley",
-                "bio": "Passionné de musique haïtienne depuis plus de 10 ans, DJ Kenley anime l'émission matinale avec énergie et bonne humeur.",
-                "photo_url": "https://via.placeholder.com/150x150?text=DJ+Kenley",
-                "specialty": "Compas & Zouk",
+                "bio": "Animateur vedette des émissions matinales, DJ Kenley réveille Haiti avec énergie depuis plus de 10 ans. Spécialiste du compas et expert en musique haïtienne contemporaine.",
+                "photo_url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+                "specialty": "Compas & Morning Shows",
                 "years_experience": 10,
                 "social_media": {"instagram": "@djkenley", "facebook": "DJ Kenley Official"},
-                "schedule": "Lundi - Vendredi 6h-10h",
+                "schedule": "Reveil en Douceur & Breakfast Show",
                 "is_active": True
             },
             {
-                "name": "Marie Jeanne",
-                "stage_name": "DJ Marie J",
-                "bio": "Experte en musique internationale et haïtienne, Marie J apporte une touche féminine unique à nos ondes.",
-                "photo_url": "https://via.placeholder.com/150x150?text=DJ+Marie",
-                "specialty": "R&B & Compas",
-                "years_experience": 7,
-                "social_media": {"instagram": "@djmariej", "twitter": "@mariejradio"},
-                "schedule": "Weekend 14h-18h",
+                "name": "Marie Jeanne Celestin",
+                "stage_name": "Marie Jeanne",
+                "bio": "Voix féminine emblématique de Radio Haiti Fusion, Marie Jeanne anime Romance en Musique avec passion et sensibilité.",
+                "photo_url": "https://images.unsplash.com/photo-1494790108755-2616b612b494?w=150&h=150&fit=crop&crop=face",
+                "specialty": "Romantique & Ballades",
+                "years_experience": 8,
+                "social_media": {"instagram": "@mariejeanne_rhf", "facebook": "Marie Jeanne RHF"},
+                "schedule": "Romance en Musique",
                 "is_active": True
             },
             {
                 "name": "Jean Claude Michel",
                 "stage_name": "JC Mix",
-                "bio": "Producteur et DJ, JC Mix est reconnu pour ses mixes innovants mélangeant tradition et modernité.",
-                "photo_url": "https://via.placeholder.com/150x150?text=JC+Mix",
+                "bio": "Producteur et DJ légendaire, JC Mix révolutionne les ondes avec ses mixes créatifs. Référence incontournable du rap kreyòl et hip-hop haïtien.",
+                "photo_url": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
                 "specialty": "Hip-Hop & Rap Kreyòl",
+                "years_experience": 15,
+                "social_media": {"instagram": "@jcmixofficial", "youtube": "JC Mix Official"},
+                "schedule": "Mes Premieres Tubes",
+                "is_active": True
+            },
+            {
+                "name": "Dr. Marie Carmel Joseph",
+                "stage_name": "Dr. Marie Carmel",
+                "bio": "Historienne et animatrice culturelle, Dr. Marie Carmel fait découvrir les richesses de la culture haïtienne à travers Kwaze Chimen.",
+                "photo_url": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face",
+                "specialty": "Culture & Éducation",
+                "years_experience": 20,
+                "social_media": {"facebook": "Dr Marie Carmel Culture", "linkedin": "marie-carmel-joseph"},
+                "schedule": "Kwaze Chimen (Culture)",
+                "is_active": True
+            },
+            {
+                "name": "Roberto Martinez",
+                "stage_name": "DJ Latino",
+                "bio": "Expert en musique latine, DJ Latino transporte les auditeurs dans l'univers rythmé de l'Amérique Latine chaque matin.",
+                "photo_url": "https://images.unsplash.com/photo-1566492031773-4f4e44671d66?w=150&h=150&fit=crop&crop=face",
+                "specialty": "Musique Latino",
                 "years_experience": 12,
-                "social_media": {"youtube": "JC Mix Official", "instagram": "@jcmixofficial"},
-                "schedule": "Lundi, Mercredi, Vendredi 20h-22h",
+                "social_media": {"instagram": "@djlatino_rhf", "facebook": "DJ Latino RHF"},
+                "schedule": "Fusion Latino Mix",
+                "is_active": True
+            },
+            {
+                "name": "Marcus Thompson",
+                "stage_name": "DJ Caribbean",
+                "bio": "Ambassadeur de la musique caribéenne, DJ Caribbean fait voyager les auditeurs à travers les îles avec reggae, soca et compas.",
+                "photo_url": "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=150&h=150&fit=crop&crop=face",
+                "specialty": "Caribbean & Reggae",
+                "years_experience": 9,
+                "social_media": {"instagram": "@djcaribbean", "twitter": "@caribbean_vibes"},
+                "schedule": "Caribbean Vibe Show",
+                "is_active": True
+            },
+            {
+                "name": "Sophie Brillant",
+                "stage_name": "DJ Sunshine",
+                "bio": "Avec sa personnalité pétillante, DJ Sunshine illumine les matinées avec des mélodies ensoleillées et de la bonne humeur.",
+                "photo_url": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+                "specialty": "Pop & Feel Good",
+                "years_experience": 6,
+                "social_media": {"instagram": "@djsunshine_rhf", "tiktok": "@sunshine_melodies"},
+                "schedule": "Sunshine Melodies",
+                "is_active": True
+            },
+            {
+                "name": "Vincent Larose",
+                "stage_name": "DJ Retro",
+                "bio": "Gardien des souvenirs musicaux, DJ Retro fait revivre les hits d'antan lors de ses émissions légendaires du vendredi soir.",
+                "photo_url": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+                "specialty": "Rétro & Vintage",
+                "years_experience": 18,
+                "social_media": {"facebook": "DJ Retro RHF", "instagram": "@djretro_vintage"},
+                "schedule": "RETRO FRIDAY LIVE",
+                "is_active": True
+            },
+            {
+                "name": "Claire Moïse",
+                "stage_name": "Marie Spirituelle",
+                "bio": "Voix apaisante du petit matin, Marie Spirituelle guide les âmes vers l'éveil spirituel avec gospel et musique inspirante.",
+                "photo_url": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
+                "specialty": "Gospel & Spirituel",
+                "years_experience": 14,
+                "social_media": {"facebook": "Marie Spirituelle", "youtube": "Reveil Spirituel"},
+                "schedule": "Reveil Spirituel",
+                "is_active": True
+            },
+            {
+                "name": "David Lumumba",
+                "stage_name": "Maestro Jazz",
+                "bio": "Virtuose du jazz et du blues, Maestro Jazz clôture les soirées avec sophistication et élégance musicale.",
+                "photo_url": "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=150&h=150&fit=crop&crop=face",
+                "specialty": "Jazz & Blues",
+                "years_experience": 25,
+                "social_media": {"instagram": "@maestro_jazz", "facebook": "Maestro Jazz RHF"},
+                "schedule": "Le Temps du Jazz",
+                "is_active": True
+            },
+            {
+                "name": "Antonio Rodriguez",
+                "stage_name": "DJ Sonidero",
+                "bio": "Spécialiste authentique de la musique mexicaine, DJ Sonidero fait découvrir les trésors du mariachi et de la ranchera.",
+                "photo_url": "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=150&h=150&fit=crop&crop=face",
+                "specialty": "Mariachi & Ranchera",
+                "years_experience": 16,
+                "social_media": {"instagram": "@sonidero_domingo", "facebook": "DJ Sonidero RHF"},
+                "schedule": "Domingo Sonidero",
+                "is_active": True
+            },
+            {
+                "name": "Patricia Konpa",
+                "stage_name": "DJ Konpa",
+                "bio": "Reine du compas moderne, DJ Konpa fait vibrer les weekends avec les meilleurs morceaux compas contemporains et classiques.",
+                "photo_url": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=150&h=150&fit=crop&crop=face",
+                "specialty": "Compas Moderne",
+                "years_experience": 11,
+                "social_media": {"instagram": "@djkonpa_rhf", "facebook": "DJ Konpa Official"},
+                "schedule": "Detente Konpa",
                 "is_active": True
             }
         ]
         return [DJ(**dj) for dj in sample_djs]
     
-    return [DJ(**dj_data) for dj_data in djs_data]
+    return [DJ(**parse_from_mongo(dj_data)) for dj_data in djs_data]
 
 @api_router.post("/djs", response_model=DJ)
 async def create_dj(dj_input: DJCreate):
