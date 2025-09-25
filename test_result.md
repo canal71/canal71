@@ -190,8 +190,7 @@ metadata:
 test_plan:
   current_focus:
     - "Voice recorder functionality"
-    - "Top 10 Charts API endpoints"
-    - "Trivia Game API endpoints"
+    - "Podcast API endpoints"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
