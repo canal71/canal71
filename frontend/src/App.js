@@ -1337,6 +1337,176 @@ function App() {
               </CardContent>
             </Card>
 
+            {/* TV Section */}
+            {showTvSection && (
+              <Card className="bg-gradient-to-r from-purple-600/20 to-indigo-600/20 backdrop-blur-sm border-slate-600/50">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                    <Tv className="w-5 h-5 mr-2 text-purple-500" />
+                    Radio Haiti Fusion TV
+                  </h3>
+                  
+                  {/* TV Channel Info */}
+                  {tvChannel && (
+                    <div className="mb-6 bg-slate-700/50 rounded-lg p-4 border border-purple-500/30">
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center space-x-3">
+                          <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center">
+                            <Tv className="w-6 h-6 text-white" />
+                          </div>
+                          <div>
+                            <h4 className="text-white font-semibold">{tvChannel.name}</h4>
+                            <p className="text-slate-300 text-sm">{tvChannel.description}</p>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <div className="flex items-center space-x-2 text-red-400 font-semibold mb-1">
+                            <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                            <span className="text-sm">LIVE</span>
+                          </div>
+                          <p className="text-slate-400 text-xs">{tvChannel.viewer_count} spectateurs</p>
+                        </div>
+                      </div>
+                      
+                      {/* Live TV Stream */}
+                      <div className="relative aspect-video bg-black rounded-lg overflow-hidden mb-3">
+                        <video
+                          controls
+                          className="w-full h-full"
+                          poster="https://via.placeholder.com/800x450?text=Radio+Haiti+Fusion+TV"
+                        >
+                          <source src={tvChannel.stream_url} type="video/mp4" />
+                          Votre navigateur ne supporte pas la vidéo.
+                        </video>
+                      </div>
+                      
+                      <div className="flex items-center justify-between text-sm">
+                        <div className="flex items-center space-x-4">
+                          <span className="text-slate-300">En cours: <span className="text-white">{tvChannel.current_show}</span></span>
+                          <span className="text-slate-300">Ensuite: <span className="text-purple-400">{tvChannel.next_show}</span></span>
+                        </div>
+                        <Button size="sm" variant="outline" className="text-purple-400 border-purple-400">
+                          Programme TV
+                        </Button>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* TV Categories Filter */}
+                  <div className="mb-4">
+                    <select 
+                      value={selectedTvCategory}
+                      onChange={(e) => {
+                        setSelectedTvCategory(e.target.value);
+                        loadTvShows(e.target.value);
+                      }}
+                      className="w-full bg-slate-700/60 border-slate-500 text-white rounded px-3 py-2 text-sm"
+                    >
+                      <option value="all">Toutes les catégories</option>
+                      {tvCategories && tvCategories.map(category => (
+                        <option key={category.id} value={category.id}>
+                          {category.name} ({category.show_count})
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  
+                  {/* TV Shows Grid */}
+                  <div className="grid md:grid-cols-2 gap-4 max-h-96 overflow-y-auto">
+                    {tvShows && tvShows.map((show, index) => (
+                      <div key={show.id || index} className="bg-slate-700/50 rounded-lg overflow-hidden hover:border-purple-500/50 transition-all duration-200 border border-transparent">
+                        <div className="relative">
+                          <img 
+                            src={show.thumbnail_url} 
+                            alt={show.title}
+                            className="w-full h-24 object-cover"
+                          />
+                          <div className="absolute top-2 right-2">
+                            {show.is_live && (
+                              <Badge className="bg-red-500 text-white text-xs">
+                                🔴 LIVE
+                              </Badge>
+                            )}
+                            {show.is_featured && (
+                              <Badge className="bg-yellow-500 text-black text-xs ml-1">
+                                ⭐ FEATURED
+                              </Badge>
+                            )}
+                          </div>
+                          <div className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                            {show.duration}
+                          </div>
+                        </div>
+                        
+                        <div className="p-3">
+                          <h5 className="text-white font-medium text-sm mb-1 truncate">{show.title}</h5>
+                          <p className="text-slate-400 text-xs mb-2">{show.host}</p>
+                          <p className="text-slate-300 text-xs mb-3 line-clamp-2">{show.description}</p>
+                          
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-2 text-xs text-slate-400">
+                              <span className="flex items-center">
+                                <Users className="w-3 h-3 mr-1" />
+                                {show.view_count.toLocaleString()}
+                              </span>
+                              <span className="flex items-center">
+                                <Star className="w-3 h-3 mr-1" />
+                                {show.rating}
+                              </span>
+                            </div>
+                            
+                            <Button
+                              size="sm"
+                              onClick={() => playTvShow(show)}
+                              className="bg-purple-600 hover:bg-purple-700 text-white p-1"
+                              title="Regarder"
+                            >
+                              <Play className="w-3 h-3" />
+                            </Button>
+                          </div>
+                          
+                          {show.tags && show.tags.length > 0 && (
+                            <div className="flex flex-wrap gap-1 mt-2">
+                              {show.tags.slice(0, 2).map((tag, tagIndex) => (
+                                <span key={tagIndex} className="bg-purple-600/20 text-purple-300 text-xs px-2 py-1 rounded">
+                                  #{tag}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Currently Playing TV Show */}
+                  {currentTvShow && (
+                    <div className="mt-4 pt-4 border-t border-slate-600/50">
+                      <div className="bg-slate-700/50 rounded-lg p-3">
+                        <div className="flex items-center justify-between mb-2">
+                          <p className="text-white text-sm font-medium truncate">
+                            En cours: {currentTvShow.title}
+                          </p>
+                          <Badge className="bg-purple-600 text-white">
+                            TV
+                          </Badge>
+                        </div>
+                        
+                        {currentTvShow.video_url && (
+                          <video
+                            src={currentTvShow.video_url}
+                            controls
+                            className="w-full h-48 bg-black rounded"
+                            poster={currentTvShow.thumbnail_url}
+                          />
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            )}
+
             {/* Podcast Episodes Section */}
             <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
               <CardContent className="p-6">
