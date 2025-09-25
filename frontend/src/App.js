@@ -880,9 +880,9 @@ function App() {
 
                     {/* Station Info */}
                     <div className="text-center md:text-left">
-                      <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1 tracking-wide">
+                      {/* <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1 tracking-wide">
                         RADIO HAITI FUSION
-                      </h1>
+                      </h1> */}
                       <p className="text-lg md:text-xl text-orange-100 font-medium italic mb-3">
                         🇭🇹 La radio qui va loin
                       </p>
