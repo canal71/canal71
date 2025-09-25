@@ -1,10 +1,10 @@
 {
-  "timestamp": "2025-09-25T00:11:05.065737",
+  "timestamp": "2025-09-25T00:51:14.945295",
   "summary": {
-    "total_tests": 48,
-    "passed_tests": 40,
-    "failed_tests": 8,
-    "success_rate": 83.33333333333334
+    "total_tests": 68,
+    "passed_tests": 54,
+    "failed_tests": 14,
+    "success_rate": 79.41176470588235
   },
   "test_results": [
     {
@@ -56,10 +56,10 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "6156d17e-07ac-4b75-b2f3-8716b6a2aea1",
-        "username": "test_user_1758759060",
+        "id": "1336c60c-bca9-4467-a6d8-7f3b43904bfe",
+        "username": "test_user_1758761469",
         "message": "This is a test comment for the radio station!",
-        "timestamp": "2025-09-25T00:11:00.383271Z"
+        "timestamp": "2025-09-25T00:51:09.625310Z"
       },
       "error": null
     },
@@ -72,10 +72,10 @@
       "success": true,
       "response_data": [
         {
-          "id": "6156d17e-07ac-4b75-b2f3-8716b6a2aea1",
-          "username": "test_user_1758759060",
+          "id": "1336c60c-bca9-4467-a6d8-7f3b43904bfe",
+          "username": "test_user_1758761469",
           "message": "This is a test comment for the radio station!",
-          "timestamp": "2025-09-25T00:11:00.383271Z"
+          "timestamp": "2025-09-25T00:51:09.625310Z"
         }
       ],
       "error": null
@@ -88,10 +88,10 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "e20ce275-7bf5-4d88-9fa8-51346d780fb0",
+        "id": "6dfa962e-1721-4958-806f-d3383f55b2ad",
         "username": "Alice",
         "message": "Great music!",
-        "timestamp": "2025-09-25T00:11:00.497786Z"
+        "timestamp": "2025-09-25T00:51:09.705685Z"
       },
       "error": null
     },
@@ -103,10 +103,10 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "5c88cfda-58a8-4fbf-9a64-7be166a18a14",
+        "id": "69b27925-787b-4c61-949c-f26a2b39cb6a",
         "username": "Bob",
         "message": "Love this station!",
-        "timestamp": "2025-09-25T00:11:01.034375Z"
+        "timestamp": "2025-09-25T00:51:10.242433Z"
       },
       "error": null
     },
@@ -118,10 +118,10 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "41a4c26d-71c2-457b-bb61-b75db5b8579c",
+        "id": "14661061-01a1-4861-8aba-7ae526e41aba",
         "username": "Charlie",
         "message": "Keep it up!",
-        "timestamp": "2025-09-25T00:11:01.575346Z"
+        "timestamp": "2025-09-25T00:51:10.778351Z"
       },
       "error": null
     },
@@ -266,12 +266,12 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "1f966d9a-e56d-431e-9396-fc09d7889c03",
+        "id": "5e2ac151-36ce-4205-bdc7-f42a5ed363ec",
         "listener_name": "Maria Rodriguez",
         "message_type": "song_request",
         "audio_data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
         "duration": 5.2,
-        "timestamp": "2025-09-25T00:11:02.227714Z",
+        "timestamp": "2025-09-25T00:51:11.425625Z",
         "status": "pending",
         "transcription": null
       },
@@ -311,12 +311,12 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "db37cb06-c7c9-40a8-ae99-59f1db5dbf22",
+        "id": "6d21b40f-8b8a-4185-b9bb-21a7b68377d9",
         "listener_name": "Jean Baptiste",
         "message_type": "song_request",
         "audio_data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
         "duration": 3.5,
-        "timestamp": "2025-09-25T00:11:02.308620Z",
+        "timestamp": "2025-09-25T00:51:11.497597Z",
         "status": "pending",
         "transcription": null
       },
@@ -330,12 +330,12 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "4f9b2c08-ac9b-4ad6-bd29-4bbe6aa7ad42",
+        "id": "df25273a-e2cf-4518-b936-002fcf01b85f",
         "listener_name": "Marie Claire",
         "message_type": "dedication",
         "audio_data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
         "duration": 7.8,
-        "timestamp": "2025-09-25T00:11:02.845939Z",
+        "timestamp": "2025-09-25T00:51:12.033439Z",
         "status": "pending",
         "transcription": null
       },
@@ -349,12 +349,12 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "7d64f30e-b383-45e8-8302-2c8b392c8bc9",
+        "id": "8c0c45b6-006e-4b57-9653-5e84d8fa7156",
         "listener_name": "Pierre Louis",
         "message_type": "shoutout",
         "audio_data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
         "duration": 4.2,
-        "timestamp": "2025-09-25T00:11:03.384184Z",
+        "timestamp": "2025-09-25T00:51:12.569571Z",
         "status": "pending",
         "transcription": null
       },
@@ -590,12 +590,12 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "0dd761c9-6403-4f94-b421-556b43754fa7",
+        "id": "e8cb48b3-502a-4411-8406-c48c93f16a13",
         "listener_name": "Audio Test User",
         "message_type": "song_request",
         "audio_data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
         "duration": 2.5,
-        "timestamp": "2025-09-25T00:11:03.991487Z",
+        "timestamp": "2025-09-25T00:51:13.170648Z",
         "status": "pending",
         "transcription": null
       },
@@ -604,7 +604,7 @@
     {
       "test_name": "Get Voice Message Audio",
       "method": "GET",
-      "endpoint": "voice-messages/0dd761c9-6403-4f94-b421-556b43754fa7/audio",
+      "endpoint": "voice-messages/e8cb48b3-502a-4411-8406-c48c93f16a13/audio",
       "expected_status": 200,
       "actual_status": 200,
       "success": true,
@@ -639,7 +639,7 @@
           "genre": null,
           "position": 11,
           "previous_position": null,
-          "votes": 2,
+          "votes": 3,
           "request_count": 0,
           "chart_category": "most_requested",
           "artwork_url": null,
@@ -657,7 +657,7 @@
           "genre": null,
           "position": 11,
           "previous_position": null,
-          "votes": 2,
+          "votes": 3,
           "request_count": 0,
           "chart_category": "most_requested",
           "artwork_url": null,
@@ -679,7 +679,7 @@
       "success": true,
       "response_data": [
         {
-          "id": "b0714d8f-f5f1-45ca-96a8-d3ad303e63cc",
+          "id": "1956e388-c106-475a-bf53-4ffe02b41bae",
           "song_title": "Ayiti Cheri",
           "artist": "Manman Brigit",
           "album": null,
@@ -694,10 +694,10 @@
           "youtube_url": null,
           "weeks_on_chart": 3,
           "peak_position": 1,
-          "timestamp": "2025-09-25T00:11:04.129236Z"
+          "timestamp": "2025-09-25T00:51:13.351367Z"
         },
         {
-          "id": "4ed49562-8580-4dea-aa78-81f9eb3a61e7",
+          "id": "b78e1cca-cfff-4711-a708-74a813def9f7",
           "song_title": "Nou La",
           "artist": "BIC",
           "album": null,
@@ -712,10 +712,10 @@
           "youtube_url": null,
           "weeks_on_chart": 3,
           "peak_position": 2,
-          "timestamp": "2025-09-25T00:11:04.129250Z"
+          "timestamp": "2025-09-25T00:51:13.351383Z"
         },
         {
-          "id": "8b1ee666-fb54-4990-b946-d51e97956ece",
+          "id": "b8e69ac6-aeeb-4e4a-9036-84e3ce6af2d1",
           "song_title": "Konpa Gonaives",
           "artist": "Septentrional",
           "album": null,
@@ -730,10 +730,10 @@
           "youtube_url": null,
           "weeks_on_chart": 3,
           "peak_position": 3,
-          "timestamp": "2025-09-25T00:11:04.129257Z"
+          "timestamp": "2025-09-25T00:51:13.351390Z"
         },
         {
-          "id": "702a03c3-acbb-488a-845c-55df48e6c1ce",
+          "id": "c2a46f0e-b961-4021-a3d9-57d5dcb76865",
           "song_title": "Map Marye",
           "artist": "Tabou Combo",
           "album": null,
@@ -748,10 +748,10 @@
           "youtube_url": null,
           "weeks_on_chart": 3,
           "peak_position": 4,
-          "timestamp": "2025-09-25T00:11:04.129263Z"
+          "timestamp": "2025-09-25T00:51:13.351396Z"
         },
         {
-          "id": "1fde59db-4b3d-4768-948d-80218ab26d5e",
+          "id": "36d0c4b7-ddc3-4cfc-b5df-6f5b64ed48c0",
           "song_title": "Kanga",
           "artist": "Boukman Eksperyans",
           "album": null,
@@ -766,7 +766,7 @@
           "youtube_url": null,
           "weeks_on_chart": 3,
           "peak_position": 5,
-          "timestamp": "2025-09-25T00:11:04.129269Z"
+          "timestamp": "2025-09-25T00:51:13.351402Z"
         }
       ],
       "error": null
@@ -814,7 +814,7 @@
       "success": true,
       "response_data": [
         {
-          "id": "ab995d55-436d-40f2-9d65-ccd3a86e1708",
+          "id": "12c50113-f56a-4b60-bc9f-665860e609de",
           "question": "Quel est le rythme musical traditionnel le plus populaire d'Ha\u00efti?",
           "options": [
             "Merengue",
@@ -830,7 +830,7 @@
           "points": 10
         },
         {
-          "id": "b7e99fea-d04c-46e5-b23f-7bbfaad30fdc",
+          "id": "4f4f1b6c-d1a2-4c76-8ab0-8f59e1781d98",
           "question": "Qui est consid\u00e9r\u00e9 comme le 'Roi du Compas'?",
           "options": [
             "Tabou Combo",
@@ -846,7 +846,7 @@
           "points": 10
         },
         {
-          "id": "0f065fbf-593a-4398-9b38-ff87e7da460f",
+          "id": "79846913-b6df-47e6-8268-6bc36d297e5d",
           "question": "Dans quelle ville se trouve Radio Haiti Fusion?",
           "options": [
             "Cap-Ha\u00eftien",
@@ -862,7 +862,7 @@
           "points": 10
         },
         {
-          "id": "7cd77c04-b91d-4d9f-803b-72180b94f4c6",
+          "id": "246ca21b-41f9-46ee-8f9c-6e053273b33e",
           "question": "Quel groupe a popularis\u00e9 la chanson 'Pa Manyen'?",
           "options": [
             "RAM",
@@ -878,7 +878,7 @@
           "points": 10
         },
         {
-          "id": "fd85b491-100a-47a6-bb27-f5c76295dcde",
+          "id": "7a6a29d3-6142-4862-a566-c7eccacd95c1",
           "question": "Quelle est la date de l'ind\u00e9pendance d'Ha\u00efti?",
           "options": [
             "1er Janvier 1804",
@@ -905,7 +905,7 @@
       "success": true,
       "response_data": [
         {
-          "id": "52aade5d-258c-4112-8026-4a97fd33ccfe",
+          "id": "67145143-8a63-44b4-8e82-08c7af40ede6",
           "question": "Quel est le rythme musical traditionnel le plus populaire d'Ha\u00efti?",
           "options": [
             "Merengue",
@@ -921,7 +921,7 @@
           "points": 10
         },
         {
-          "id": "7772012a-5a8c-4323-be02-73655cf88f7d",
+          "id": "4ac02a78-64a2-4dab-97b8-329a75c1d389",
           "question": "Qui est consid\u00e9r\u00e9 comme le 'Roi du Compas'?",
           "options": [
             "Tabou Combo",
@@ -937,7 +937,7 @@
           "points": 10
         },
         {
-          "id": "c034b5c7-a0f4-4345-bbc6-8767c4e71efe",
+          "id": "a19291a9-b76e-45e4-9817-2a6a07710bda",
           "question": "Dans quelle ville se trouve Radio Haiti Fusion?",
           "options": [
             "Cap-Ha\u00eftien",
@@ -953,7 +953,7 @@
           "points": 10
         },
         {
-          "id": "eb7c23df-2ec7-4475-91f5-5bfe98cda451",
+          "id": "6e6eb1a4-a039-4f30-be82-80a99db5824b",
           "question": "Quel groupe a popularis\u00e9 la chanson 'Pa Manyen'?",
           "options": [
             "RAM",
@@ -969,7 +969,7 @@
           "points": 10
         },
         {
-          "id": "e0b26c8f-2eb4-4342-bd5d-c9a729b076fb",
+          "id": "1008ab64-888e-4735-8adf-838cbc2fd212",
           "question": "Quelle est la date de l'ind\u00e9pendance d'Ha\u00efti?",
           "options": [
             "1er Janvier 1804",
@@ -996,7 +996,7 @@
       "success": true,
       "response_data": [
         {
-          "id": "d127008b-8c9b-4079-b5eb-ff817db43eab",
+          "id": "32defb62-cabd-4577-97df-23d8de9f39c6",
           "question": "Quel est le rythme musical traditionnel le plus populaire d'Ha\u00efti?",
           "options": [
             "Merengue",
@@ -1012,7 +1012,7 @@
           "points": 10
         },
         {
-          "id": "8995902b-a9f3-4404-a92d-64967c8454f2",
+          "id": "aa30df11-d854-40ec-99a8-f01bb1f77571",
           "question": "Qui est consid\u00e9r\u00e9 comme le 'Roi du Compas'?",
           "options": [
             "Tabou Combo",
@@ -1028,7 +1028,7 @@
           "points": 10
         },
         {
-          "id": "98d48b75-0b4c-46f6-8c23-3fb28e0dab6d",
+          "id": "959bf5b3-ea55-41dc-85d5-ed02acc0548f",
           "question": "Dans quelle ville se trouve Radio Haiti Fusion?",
           "options": [
             "Cap-Ha\u00eftien",
@@ -1044,7 +1044,7 @@
           "points": 10
         },
         {
-          "id": "15e7cbbc-ef58-4540-9002-b62d38ddd97f",
+          "id": "7d0dd785-58eb-4325-ae6f-c96aa605f728",
           "question": "Quel groupe a popularis\u00e9 la chanson 'Pa Manyen'?",
           "options": [
             "RAM",
@@ -1060,7 +1060,7 @@
           "points": 10
         },
         {
-          "id": "7056c1fc-3be6-48e3-96c5-a3142d7fda7c",
+          "id": "3dc23246-882b-413c-9d54-8e947913313b",
           "question": "Quelle est la date de l'ind\u00e9pendance d'Ha\u00efti?",
           "options": [
             "1er Janvier 1804",
@@ -1086,11 +1086,11 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "c6ec072e-fc67-48b9-8623-0476e7a28e36",
+        "id": "3d347235-962d-4511-a454-f35b0a1055d5",
         "player_name": "Test Player",
         "questions": [
           {
-            "id": "d4c311e0-501e-405f-9d07-7270a46f98a0",
+            "id": "81895c6a-04c6-4a40-8311-9177350cb842",
             "question": "Quel est le rythme musical traditionnel le plus populaire d'Ha\u00efti?",
             "options": [
               "Merengue",
@@ -1106,7 +1106,7 @@
             "points": 10
           },
           {
-            "id": "a0716f3d-8e06-4d7a-a145-92122f76bcba",
+            "id": "06e80c1c-7815-4700-a0f4-e25af3ebe1f1",
             "question": "Qui est consid\u00e9r\u00e9 comme le 'Roi du Compas'?",
             "options": [
               "Tabou Combo",
@@ -1122,7 +1122,7 @@
             "points": 10
           },
           {
-            "id": "faa25061-ebce-40f2-92a7-6103f877483a",
+            "id": "0301a073-c7e6-416c-bc78-f2caaff0fe98",
             "question": "Dans quelle ville se trouve Radio Haiti Fusion?",
             "options": [
               "Cap-Ha\u00eftien",
@@ -1138,7 +1138,7 @@
             "points": 10
           },
           {
-            "id": "174bdcf7-bd4a-4ff2-bd6a-a41f2061f403",
+            "id": "222bff6a-5c23-4b34-9e53-6c67419c1f5c",
             "question": "Quel groupe a popularis\u00e9 la chanson 'Pa Manyen'?",
             "options": [
               "RAM",
@@ -1154,7 +1154,7 @@
             "points": 10
           },
           {
-            "id": "1d2eb66e-642d-4049-a3a2-464b5ff74885",
+            "id": "f2a470da-2ccd-4512-87a2-51ca527b56e7",
             "question": "Quelle est la date de l'ind\u00e9pendance d'Ha\u00efti?",
             "options": [
               "1er Janvier 1804",
@@ -1175,7 +1175,7 @@
         "lives": 3,
         "category": "mixed",
         "status": "active",
-        "started_at": "2025-09-25T00:11:04.390006Z",
+        "started_at": "2025-09-25T00:51:13.598541Z",
         "completed_at": null
       },
       "error": null
@@ -1188,11 +1188,11 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "19116e30-8f33-4180-9c04-91adeee30570",
+        "id": "55e2e016-123d-4ec0-8e5a-044c1d358ad2",
         "player_name": "Music Lover",
         "questions": [
           {
-            "id": "ffcf7dfc-db98-4703-bfc8-9a7249c24c96",
+            "id": "68d47cea-74e7-4905-90d2-42fb73ff411c",
             "question": "Quel est le rythme musical traditionnel le plus populaire d'Ha\u00efti?",
             "options": [
               "Merengue",
@@ -1208,7 +1208,7 @@
             "points": 10
           },
           {
-            "id": "cadcab1a-c086-4f07-ab88-9ebf09f3f845",
+            "id": "6b6d56fa-4e8f-4f66-872f-d78c9e412090",
             "question": "Qui est consid\u00e9r\u00e9 comme le 'Roi du Compas'?",
             "options": [
               "Tabou Combo",
@@ -1224,7 +1224,7 @@
             "points": 10
           },
           {
-            "id": "276078ae-ca79-422a-867e-c1a0794c7e7d",
+            "id": "21f560b8-0e42-47a0-b091-e2808fedb15c",
             "question": "Dans quelle ville se trouve Radio Haiti Fusion?",
             "options": [
               "Cap-Ha\u00eftien",
@@ -1240,7 +1240,7 @@
             "points": 10
           },
           {
-            "id": "38860d0c-9ea0-4db9-a3d0-f32e2d584fda",
+            "id": "c259b1f2-db2c-473f-aa96-03901100c02b",
             "question": "Quel groupe a popularis\u00e9 la chanson 'Pa Manyen'?",
             "options": [
               "RAM",
@@ -1256,7 +1256,7 @@
             "points": 10
           },
           {
-            "id": "b3abd6fe-d922-417e-b4e0-eea83021202e",
+            "id": "39ffc7a4-66af-4c46-9273-7b95a794e320",
             "question": "Quelle est la date de l'ind\u00e9pendance d'Ha\u00efti?",
             "options": [
               "1er Janvier 1804",
@@ -1277,7 +1277,7 @@
         "lives": 3,
         "category": "haitian_music",
         "status": "active",
-        "started_at": "2025-09-25T00:11:04.425936Z",
+        "started_at": "2025-09-25T00:51:13.634347Z",
         "completed_at": null
       },
       "error": null
@@ -1285,7 +1285,7 @@
     {
       "test_name": "Answer Trivia Question (Correct)",
       "method": "POST",
-      "endpoint": "trivia/games/c6ec072e-fc67-48b9-8623-0476e7a28e36/answer?selected_answer=1",
+      "endpoint": "trivia/games/3d347235-962d-4511-a454-f35b0a1055d5/answer?selected_answer=1",
       "expected_status": 200,
       "actual_status": 200,
       "success": true,
@@ -1303,7 +1303,7 @@
     {
       "test_name": "Answer Trivia Question (Incorrect)",
       "method": "POST",
-      "endpoint": "trivia/games/c6ec072e-fc67-48b9-8623-0476e7a28e36/answer?selected_answer=2",
+      "endpoint": "trivia/games/3d347235-962d-4511-a454-f35b0a1055d5/answer?selected_answer=2",
       "expected_status": 200,
       "actual_status": 200,
       "success": true,
@@ -1386,80 +1386,1068 @@
       "method": "GET",
       "endpoint": "podcasts/episodes?category=all",
       "expected_status": 200,
-      "actual_status": 500,
-      "success": false,
-      "response_data": null,
-      "error": "Internal Server Error"
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "daaf095e-40c5-4e08-8f63-94f321fa8aaa",
+          "title": "Matin\u00e9e Compas avec DJ Kenley",
+          "description": "R\u00e9veillez-vous avec les meilleurs hits compas! DJ Kenley vous pr\u00e9sente une s\u00e9lection exclusive des tubes qui font danser Ha\u00efti.",
+          "category": "music_show",
+          "host": "DJ Kenley",
+          "duration": "1:45:30",
+          "audio_url": "https://example.com/episodes/morning-compas-01.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Morning+Compas",
+          "published_date": "2025-09-25T00:51:13.880951Z",
+          "episode_number": 15,
+          "season": 1,
+          "download_count": 2840,
+          "play_count": 8920,
+          "tags": [
+            "compas",
+            "morning",
+            "music",
+            "dance"
+          ],
+          "is_featured": true,
+          "transcript": null,
+          "file_size": "95.2 MB"
+        },
+        {
+          "id": "6857f2fc-77fe-4a31-a932-e52c4c741b2e",
+          "title": "Interview Exclusive avec T-Vice",
+          "description": "D\u00e9couvrez l'histoire fascinante du groupe T-Vice, leurs inspirations et leurs projets futurs dans cette interview exclusive.",
+          "category": "interview",
+          "host": "Marie Jeanne",
+          "duration": "42:15",
+          "audio_url": "https://example.com/episodes/t-vice-interview.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=T-Vice+Interview",
+          "published_date": "2025-09-25T00:51:13.880970Z",
+          "episode_number": 8,
+          "season": 2,
+          "download_count": 4200,
+          "play_count": 12500,
+          "tags": [
+            "interview",
+            "t-vice",
+            "music",
+            "artists"
+          ],
+          "is_featured": true,
+          "transcript": null,
+          "file_size": "38.4 MB"
+        },
+        {
+          "id": "b377497b-8071-4287-9a9a-a7fdd6464732",
+          "title": "Actualit\u00e9s Ha\u00eftiennes de la Semaine",
+          "description": "R\u00e9sum\u00e9 des \u00e9v\u00e9nements marquants de la semaine en Ha\u00efti et dans la diaspora ha\u00eftienne.",
+          "category": "news",
+          "host": "Jean Claude Michel",
+          "duration": "28:45",
+          "audio_url": "https://example.com/episodes/news-weekly-03.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Actualit\u00e9s",
+          "published_date": "2025-09-25T00:51:13.880977Z",
+          "episode_number": 12,
+          "season": 1,
+          "download_count": 1850,
+          "play_count": 5200,
+          "tags": [
+            "news",
+            "haiti",
+            "diaspora",
+            "weekly"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "26.1 MB"
+        },
+        {
+          "id": "fc789cc2-1cdb-44ff-b123-8cadfbeab55a",
+          "title": "Histoire du Compas Direct",
+          "description": "Plongez dans l'histoire riche du compas direct, de Nemours Jean-Baptiste aux artistes contemporains.",
+          "category": "talk_show",
+          "host": "Dr. Marie Carmel",
+          "duration": "52:20",
+          "audio_url": "https://example.com/episodes/compas-history.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Histoire+Compas",
+          "published_date": "2025-09-25T00:51:13.880996Z",
+          "episode_number": 5,
+          "season": 1,
+          "download_count": 3100,
+          "play_count": 7800,
+          "tags": [
+            "history",
+            "compas",
+            "culture",
+            "music"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "47.6 MB"
+        },
+        {
+          "id": "af955fcc-b882-4f42-8a68-c923a511ffe0",
+          "title": "Mix Zouk & Compas Weekend",
+          "description": "Le mix parfait pour vos weekends! Une fusion entre zouk et compas pour faire danser toute la famille.",
+          "category": "music_show",
+          "host": "DJ Mix Master",
+          "duration": "1:20:15",
+          "audio_url": "https://example.com/episodes/weekend-mix-02.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Weekend+Mix",
+          "published_date": "2025-09-25T00:51:13.881002Z",
+          "episode_number": 22,
+          "season": 1,
+          "download_count": 3800,
+          "play_count": 9500,
+          "tags": [
+            "zouk",
+            "compas",
+            "mix",
+            "weekend",
+            "dance"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "72.8 MB"
+        }
+      ],
+      "error": null
     },
     {
       "test_name": "Get Music Show Episodes",
       "method": "GET",
       "endpoint": "podcasts/episodes?category=music_show",
       "expected_status": 200,
-      "actual_status": 500,
-      "success": false,
-      "response_data": null,
-      "error": "Internal Server Error"
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "b85c9efa-3c30-4787-86c3-f466b515a740",
+          "title": "Matin\u00e9e Compas avec DJ Kenley",
+          "description": "R\u00e9veillez-vous avec les meilleurs hits compas! DJ Kenley vous pr\u00e9sente une s\u00e9lection exclusive des tubes qui font danser Ha\u00efti.",
+          "category": "music_show",
+          "host": "DJ Kenley",
+          "duration": "1:45:30",
+          "audio_url": "https://example.com/episodes/morning-compas-01.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Morning+Compas",
+          "published_date": "2025-09-25T00:51:13.916608Z",
+          "episode_number": 15,
+          "season": 1,
+          "download_count": 2840,
+          "play_count": 8920,
+          "tags": [
+            "compas",
+            "morning",
+            "music",
+            "dance"
+          ],
+          "is_featured": true,
+          "transcript": null,
+          "file_size": "95.2 MB"
+        },
+        {
+          "id": "811866b1-aaf6-47ae-9106-fed57c04cb8b",
+          "title": "Interview Exclusive avec T-Vice",
+          "description": "D\u00e9couvrez l'histoire fascinante du groupe T-Vice, leurs inspirations et leurs projets futurs dans cette interview exclusive.",
+          "category": "interview",
+          "host": "Marie Jeanne",
+          "duration": "42:15",
+          "audio_url": "https://example.com/episodes/t-vice-interview.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=T-Vice+Interview",
+          "published_date": "2025-09-25T00:51:13.916623Z",
+          "episode_number": 8,
+          "season": 2,
+          "download_count": 4200,
+          "play_count": 12500,
+          "tags": [
+            "interview",
+            "t-vice",
+            "music",
+            "artists"
+          ],
+          "is_featured": true,
+          "transcript": null,
+          "file_size": "38.4 MB"
+        },
+        {
+          "id": "8825a2e4-96d7-4588-ab2e-7c1768407643",
+          "title": "Actualit\u00e9s Ha\u00eftiennes de la Semaine",
+          "description": "R\u00e9sum\u00e9 des \u00e9v\u00e9nements marquants de la semaine en Ha\u00efti et dans la diaspora ha\u00eftienne.",
+          "category": "news",
+          "host": "Jean Claude Michel",
+          "duration": "28:45",
+          "audio_url": "https://example.com/episodes/news-weekly-03.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Actualit\u00e9s",
+          "published_date": "2025-09-25T00:51:13.916629Z",
+          "episode_number": 12,
+          "season": 1,
+          "download_count": 1850,
+          "play_count": 5200,
+          "tags": [
+            "news",
+            "haiti",
+            "diaspora",
+            "weekly"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "26.1 MB"
+        },
+        {
+          "id": "31f98f5d-59dd-436e-bd53-1df10f3aabfc",
+          "title": "Histoire du Compas Direct",
+          "description": "Plongez dans l'histoire riche du compas direct, de Nemours Jean-Baptiste aux artistes contemporains.",
+          "category": "talk_show",
+          "host": "Dr. Marie Carmel",
+          "duration": "52:20",
+          "audio_url": "https://example.com/episodes/compas-history.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Histoire+Compas",
+          "published_date": "2025-09-25T00:51:13.916634Z",
+          "episode_number": 5,
+          "season": 1,
+          "download_count": 3100,
+          "play_count": 7800,
+          "tags": [
+            "history",
+            "compas",
+            "culture",
+            "music"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "47.6 MB"
+        },
+        {
+          "id": "0d57c19f-21f7-46d8-9938-36098bad50c0",
+          "title": "Mix Zouk & Compas Weekend",
+          "description": "Le mix parfait pour vos weekends! Une fusion entre zouk et compas pour faire danser toute la famille.",
+          "category": "music_show",
+          "host": "DJ Mix Master",
+          "duration": "1:20:15",
+          "audio_url": "https://example.com/episodes/weekend-mix-02.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Weekend+Mix",
+          "published_date": "2025-09-25T00:51:13.916641Z",
+          "episode_number": 22,
+          "season": 1,
+          "download_count": 3800,
+          "play_count": 9500,
+          "tags": [
+            "zouk",
+            "compas",
+            "mix",
+            "weekend",
+            "dance"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "72.8 MB"
+        }
+      ],
+      "error": null
     },
     {
       "test_name": "Get Interview Episodes",
       "method": "GET",
       "endpoint": "podcasts/episodes?category=interview",
       "expected_status": 200,
-      "actual_status": 500,
-      "success": false,
-      "response_data": null,
-      "error": "Internal Server Error"
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "deb6c5fd-01c7-4652-b458-e05ea316c665",
+          "title": "Matin\u00e9e Compas avec DJ Kenley",
+          "description": "R\u00e9veillez-vous avec les meilleurs hits compas! DJ Kenley vous pr\u00e9sente une s\u00e9lection exclusive des tubes qui font danser Ha\u00efti.",
+          "category": "music_show",
+          "host": "DJ Kenley",
+          "duration": "1:45:30",
+          "audio_url": "https://example.com/episodes/morning-compas-01.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Morning+Compas",
+          "published_date": "2025-09-25T00:51:13.951743Z",
+          "episode_number": 15,
+          "season": 1,
+          "download_count": 2840,
+          "play_count": 8920,
+          "tags": [
+            "compas",
+            "morning",
+            "music",
+            "dance"
+          ],
+          "is_featured": true,
+          "transcript": null,
+          "file_size": "95.2 MB"
+        },
+        {
+          "id": "db569034-9eec-4248-9ae8-d58a99d08b65",
+          "title": "Interview Exclusive avec T-Vice",
+          "description": "D\u00e9couvrez l'histoire fascinante du groupe T-Vice, leurs inspirations et leurs projets futurs dans cette interview exclusive.",
+          "category": "interview",
+          "host": "Marie Jeanne",
+          "duration": "42:15",
+          "audio_url": "https://example.com/episodes/t-vice-interview.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=T-Vice+Interview",
+          "published_date": "2025-09-25T00:51:13.951757Z",
+          "episode_number": 8,
+          "season": 2,
+          "download_count": 4200,
+          "play_count": 12500,
+          "tags": [
+            "interview",
+            "t-vice",
+            "music",
+            "artists"
+          ],
+          "is_featured": true,
+          "transcript": null,
+          "file_size": "38.4 MB"
+        },
+        {
+          "id": "06ba38de-2637-4ac9-86e0-7a99ec5c71fc",
+          "title": "Actualit\u00e9s Ha\u00eftiennes de la Semaine",
+          "description": "R\u00e9sum\u00e9 des \u00e9v\u00e9nements marquants de la semaine en Ha\u00efti et dans la diaspora ha\u00eftienne.",
+          "category": "news",
+          "host": "Jean Claude Michel",
+          "duration": "28:45",
+          "audio_url": "https://example.com/episodes/news-weekly-03.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Actualit\u00e9s",
+          "published_date": "2025-09-25T00:51:13.951763Z",
+          "episode_number": 12,
+          "season": 1,
+          "download_count": 1850,
+          "play_count": 5200,
+          "tags": [
+            "news",
+            "haiti",
+            "diaspora",
+            "weekly"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "26.1 MB"
+        },
+        {
+          "id": "5884207c-164f-45e3-9d35-dd993a11bce3",
+          "title": "Histoire du Compas Direct",
+          "description": "Plongez dans l'histoire riche du compas direct, de Nemours Jean-Baptiste aux artistes contemporains.",
+          "category": "talk_show",
+          "host": "Dr. Marie Carmel",
+          "duration": "52:20",
+          "audio_url": "https://example.com/episodes/compas-history.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Histoire+Compas",
+          "published_date": "2025-09-25T00:51:13.951769Z",
+          "episode_number": 5,
+          "season": 1,
+          "download_count": 3100,
+          "play_count": 7800,
+          "tags": [
+            "history",
+            "compas",
+            "culture",
+            "music"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "47.6 MB"
+        },
+        {
+          "id": "35259c1d-a136-4f87-bbf9-4d6e3639699f",
+          "title": "Mix Zouk & Compas Weekend",
+          "description": "Le mix parfait pour vos weekends! Une fusion entre zouk et compas pour faire danser toute la famille.",
+          "category": "music_show",
+          "host": "DJ Mix Master",
+          "duration": "1:20:15",
+          "audio_url": "https://example.com/episodes/weekend-mix-02.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Weekend+Mix",
+          "published_date": "2025-09-25T00:51:13.951775Z",
+          "episode_number": 22,
+          "season": 1,
+          "download_count": 3800,
+          "play_count": 9500,
+          "tags": [
+            "zouk",
+            "compas",
+            "mix",
+            "weekend",
+            "dance"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "72.8 MB"
+        }
+      ],
+      "error": null
     },
     {
       "test_name": "Get Talk Show Episodes",
       "method": "GET",
       "endpoint": "podcasts/episodes?category=talk_show",
       "expected_status": 200,
-      "actual_status": 500,
-      "success": false,
-      "response_data": null,
-      "error": "Internal Server Error"
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "10e2c668-0991-49e9-a13d-59872387ebc7",
+          "title": "Matin\u00e9e Compas avec DJ Kenley",
+          "description": "R\u00e9veillez-vous avec les meilleurs hits compas! DJ Kenley vous pr\u00e9sente une s\u00e9lection exclusive des tubes qui font danser Ha\u00efti.",
+          "category": "music_show",
+          "host": "DJ Kenley",
+          "duration": "1:45:30",
+          "audio_url": "https://example.com/episodes/morning-compas-01.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Morning+Compas",
+          "published_date": "2025-09-25T00:51:13.985856Z",
+          "episode_number": 15,
+          "season": 1,
+          "download_count": 2840,
+          "play_count": 8920,
+          "tags": [
+            "compas",
+            "morning",
+            "music",
+            "dance"
+          ],
+          "is_featured": true,
+          "transcript": null,
+          "file_size": "95.2 MB"
+        },
+        {
+          "id": "dbfa7440-73ec-45d2-af3a-485c8c5fa65f",
+          "title": "Interview Exclusive avec T-Vice",
+          "description": "D\u00e9couvrez l'histoire fascinante du groupe T-Vice, leurs inspirations et leurs projets futurs dans cette interview exclusive.",
+          "category": "interview",
+          "host": "Marie Jeanne",
+          "duration": "42:15",
+          "audio_url": "https://example.com/episodes/t-vice-interview.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=T-Vice+Interview",
+          "published_date": "2025-09-25T00:51:13.985869Z",
+          "episode_number": 8,
+          "season": 2,
+          "download_count": 4200,
+          "play_count": 12500,
+          "tags": [
+            "interview",
+            "t-vice",
+            "music",
+            "artists"
+          ],
+          "is_featured": true,
+          "transcript": null,
+          "file_size": "38.4 MB"
+        },
+        {
+          "id": "ec91767d-0159-43ae-8c4c-5da1516bf032",
+          "title": "Actualit\u00e9s Ha\u00eftiennes de la Semaine",
+          "description": "R\u00e9sum\u00e9 des \u00e9v\u00e9nements marquants de la semaine en Ha\u00efti et dans la diaspora ha\u00eftienne.",
+          "category": "news",
+          "host": "Jean Claude Michel",
+          "duration": "28:45",
+          "audio_url": "https://example.com/episodes/news-weekly-03.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Actualit\u00e9s",
+          "published_date": "2025-09-25T00:51:13.985875Z",
+          "episode_number": 12,
+          "season": 1,
+          "download_count": 1850,
+          "play_count": 5200,
+          "tags": [
+            "news",
+            "haiti",
+            "diaspora",
+            "weekly"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "26.1 MB"
+        },
+        {
+          "id": "e9406353-57d0-475b-bbb0-6b2d2a262891",
+          "title": "Histoire du Compas Direct",
+          "description": "Plongez dans l'histoire riche du compas direct, de Nemours Jean-Baptiste aux artistes contemporains.",
+          "category": "talk_show",
+          "host": "Dr. Marie Carmel",
+          "duration": "52:20",
+          "audio_url": "https://example.com/episodes/compas-history.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Histoire+Compas",
+          "published_date": "2025-09-25T00:51:13.985881Z",
+          "episode_number": 5,
+          "season": 1,
+          "download_count": 3100,
+          "play_count": 7800,
+          "tags": [
+            "history",
+            "compas",
+            "culture",
+            "music"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "47.6 MB"
+        },
+        {
+          "id": "0a57a667-2491-4b98-8beb-e0e63e00ad77",
+          "title": "Mix Zouk & Compas Weekend",
+          "description": "Le mix parfait pour vos weekends! Une fusion entre zouk et compas pour faire danser toute la famille.",
+          "category": "music_show",
+          "host": "DJ Mix Master",
+          "duration": "1:20:15",
+          "audio_url": "https://example.com/episodes/weekend-mix-02.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Weekend+Mix",
+          "published_date": "2025-09-25T00:51:13.985887Z",
+          "episode_number": 22,
+          "season": 1,
+          "download_count": 3800,
+          "play_count": 9500,
+          "tags": [
+            "zouk",
+            "compas",
+            "mix",
+            "weekend",
+            "dance"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "72.8 MB"
+        }
+      ],
+      "error": null
     },
     {
       "test_name": "Get News Episodes",
       "method": "GET",
       "endpoint": "podcasts/episodes?category=news",
       "expected_status": 200,
-      "actual_status": 500,
-      "success": false,
-      "response_data": null,
-      "error": "Internal Server Error"
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "868717a5-4b49-45e4-bfac-31fb99743d0d",
+          "title": "Matin\u00e9e Compas avec DJ Kenley",
+          "description": "R\u00e9veillez-vous avec les meilleurs hits compas! DJ Kenley vous pr\u00e9sente une s\u00e9lection exclusive des tubes qui font danser Ha\u00efti.",
+          "category": "music_show",
+          "host": "DJ Kenley",
+          "duration": "1:45:30",
+          "audio_url": "https://example.com/episodes/morning-compas-01.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Morning+Compas",
+          "published_date": "2025-09-25T00:51:14.018627Z",
+          "episode_number": 15,
+          "season": 1,
+          "download_count": 2840,
+          "play_count": 8920,
+          "tags": [
+            "compas",
+            "morning",
+            "music",
+            "dance"
+          ],
+          "is_featured": true,
+          "transcript": null,
+          "file_size": "95.2 MB"
+        },
+        {
+          "id": "8476af6f-872e-48a1-b662-555335011d95",
+          "title": "Interview Exclusive avec T-Vice",
+          "description": "D\u00e9couvrez l'histoire fascinante du groupe T-Vice, leurs inspirations et leurs projets futurs dans cette interview exclusive.",
+          "category": "interview",
+          "host": "Marie Jeanne",
+          "duration": "42:15",
+          "audio_url": "https://example.com/episodes/t-vice-interview.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=T-Vice+Interview",
+          "published_date": "2025-09-25T00:51:14.018642Z",
+          "episode_number": 8,
+          "season": 2,
+          "download_count": 4200,
+          "play_count": 12500,
+          "tags": [
+            "interview",
+            "t-vice",
+            "music",
+            "artists"
+          ],
+          "is_featured": true,
+          "transcript": null,
+          "file_size": "38.4 MB"
+        },
+        {
+          "id": "3119c56d-263c-4226-a55a-c5ffedb5e45d",
+          "title": "Actualit\u00e9s Ha\u00eftiennes de la Semaine",
+          "description": "R\u00e9sum\u00e9 des \u00e9v\u00e9nements marquants de la semaine en Ha\u00efti et dans la diaspora ha\u00eftienne.",
+          "category": "news",
+          "host": "Jean Claude Michel",
+          "duration": "28:45",
+          "audio_url": "https://example.com/episodes/news-weekly-03.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Actualit\u00e9s",
+          "published_date": "2025-09-25T00:51:14.018649Z",
+          "episode_number": 12,
+          "season": 1,
+          "download_count": 1850,
+          "play_count": 5200,
+          "tags": [
+            "news",
+            "haiti",
+            "diaspora",
+            "weekly"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "26.1 MB"
+        },
+        {
+          "id": "6d0f5cf6-e347-45e8-930c-05ddc24c59f4",
+          "title": "Histoire du Compas Direct",
+          "description": "Plongez dans l'histoire riche du compas direct, de Nemours Jean-Baptiste aux artistes contemporains.",
+          "category": "talk_show",
+          "host": "Dr. Marie Carmel",
+          "duration": "52:20",
+          "audio_url": "https://example.com/episodes/compas-history.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Histoire+Compas",
+          "published_date": "2025-09-25T00:51:14.018655Z",
+          "episode_number": 5,
+          "season": 1,
+          "download_count": 3100,
+          "play_count": 7800,
+          "tags": [
+            "history",
+            "compas",
+            "culture",
+            "music"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "47.6 MB"
+        },
+        {
+          "id": "46681f3e-f1bb-43c9-a227-fcbfefc6df9a",
+          "title": "Mix Zouk & Compas Weekend",
+          "description": "Le mix parfait pour vos weekends! Une fusion entre zouk et compas pour faire danser toute la famille.",
+          "category": "music_show",
+          "host": "DJ Mix Master",
+          "duration": "1:20:15",
+          "audio_url": "https://example.com/episodes/weekend-mix-02.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Weekend+Mix",
+          "published_date": "2025-09-25T00:51:14.018661Z",
+          "episode_number": 22,
+          "season": 1,
+          "download_count": 3800,
+          "play_count": 9500,
+          "tags": [
+            "zouk",
+            "compas",
+            "mix",
+            "weekend",
+            "dance"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "72.8 MB"
+        }
+      ],
+      "error": null
     },
     {
       "test_name": "Get Comedy Episodes",
       "method": "GET",
       "endpoint": "podcasts/episodes?category=comedy",
       "expected_status": 200,
-      "actual_status": 500,
-      "success": false,
-      "response_data": null,
-      "error": "Internal Server Error"
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "5aaaf450-61b2-490d-9bb8-cdbed7211ad8",
+          "title": "Matin\u00e9e Compas avec DJ Kenley",
+          "description": "R\u00e9veillez-vous avec les meilleurs hits compas! DJ Kenley vous pr\u00e9sente une s\u00e9lection exclusive des tubes qui font danser Ha\u00efti.",
+          "category": "music_show",
+          "host": "DJ Kenley",
+          "duration": "1:45:30",
+          "audio_url": "https://example.com/episodes/morning-compas-01.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Morning+Compas",
+          "published_date": "2025-09-25T00:51:14.056868Z",
+          "episode_number": 15,
+          "season": 1,
+          "download_count": 2840,
+          "play_count": 8920,
+          "tags": [
+            "compas",
+            "morning",
+            "music",
+            "dance"
+          ],
+          "is_featured": true,
+          "transcript": null,
+          "file_size": "95.2 MB"
+        },
+        {
+          "id": "0f1897ec-fb99-4ab8-9de6-641da997cd5e",
+          "title": "Interview Exclusive avec T-Vice",
+          "description": "D\u00e9couvrez l'histoire fascinante du groupe T-Vice, leurs inspirations et leurs projets futurs dans cette interview exclusive.",
+          "category": "interview",
+          "host": "Marie Jeanne",
+          "duration": "42:15",
+          "audio_url": "https://example.com/episodes/t-vice-interview.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=T-Vice+Interview",
+          "published_date": "2025-09-25T00:51:14.056885Z",
+          "episode_number": 8,
+          "season": 2,
+          "download_count": 4200,
+          "play_count": 12500,
+          "tags": [
+            "interview",
+            "t-vice",
+            "music",
+            "artists"
+          ],
+          "is_featured": true,
+          "transcript": null,
+          "file_size": "38.4 MB"
+        },
+        {
+          "id": "ed18420f-a9a5-41e4-b697-fa252b5a99e2",
+          "title": "Actualit\u00e9s Ha\u00eftiennes de la Semaine",
+          "description": "R\u00e9sum\u00e9 des \u00e9v\u00e9nements marquants de la semaine en Ha\u00efti et dans la diaspora ha\u00eftienne.",
+          "category": "news",
+          "host": "Jean Claude Michel",
+          "duration": "28:45",
+          "audio_url": "https://example.com/episodes/news-weekly-03.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Actualit\u00e9s",
+          "published_date": "2025-09-25T00:51:14.056892Z",
+          "episode_number": 12,
+          "season": 1,
+          "download_count": 1850,
+          "play_count": 5200,
+          "tags": [
+            "news",
+            "haiti",
+            "diaspora",
+            "weekly"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "26.1 MB"
+        },
+        {
+          "id": "76d904c8-c70e-45dd-a3d0-757a708ea6cc",
+          "title": "Histoire du Compas Direct",
+          "description": "Plongez dans l'histoire riche du compas direct, de Nemours Jean-Baptiste aux artistes contemporains.",
+          "category": "talk_show",
+          "host": "Dr. Marie Carmel",
+          "duration": "52:20",
+          "audio_url": "https://example.com/episodes/compas-history.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Histoire+Compas",
+          "published_date": "2025-09-25T00:51:14.056898Z",
+          "episode_number": 5,
+          "season": 1,
+          "download_count": 3100,
+          "play_count": 7800,
+          "tags": [
+            "history",
+            "compas",
+            "culture",
+            "music"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "47.6 MB"
+        },
+        {
+          "id": "6991ee18-a1a4-4691-9264-c1aaac760dd4",
+          "title": "Mix Zouk & Compas Weekend",
+          "description": "Le mix parfait pour vos weekends! Une fusion entre zouk et compas pour faire danser toute la famille.",
+          "category": "music_show",
+          "host": "DJ Mix Master",
+          "duration": "1:20:15",
+          "audio_url": "https://example.com/episodes/weekend-mix-02.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Weekend+Mix",
+          "published_date": "2025-09-25T00:51:14.056904Z",
+          "episode_number": 22,
+          "season": 1,
+          "download_count": 3800,
+          "play_count": 9500,
+          "tags": [
+            "zouk",
+            "compas",
+            "mix",
+            "weekend",
+            "dance"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "72.8 MB"
+        }
+      ],
+      "error": null
     },
     {
       "test_name": "Get Featured Episodes",
       "method": "GET",
       "endpoint": "podcasts/featured",
       "expected_status": 200,
-      "actual_status": 500,
-      "success": false,
-      "response_data": null,
-      "error": "Internal Server Error"
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "614028d0-558b-4cc3-a8a7-99258a487109",
+          "title": "Matin\u00e9e Compas avec DJ Kenley",
+          "description": "R\u00e9veillez-vous avec les meilleurs hits compas! DJ Kenley vous pr\u00e9sente une s\u00e9lection exclusive des tubes qui font danser Ha\u00efti.",
+          "category": "music_show",
+          "host": "DJ Kenley",
+          "duration": "1:45:30",
+          "audio_url": "https://example.com/episodes/morning-compas-01.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Morning+Compas",
+          "published_date": "2025-09-25T00:51:14.093082Z",
+          "episode_number": 15,
+          "season": 1,
+          "download_count": 2840,
+          "play_count": 8920,
+          "tags": [
+            "compas",
+            "morning",
+            "music",
+            "dance"
+          ],
+          "is_featured": true,
+          "transcript": null,
+          "file_size": "95.2 MB"
+        },
+        {
+          "id": "dd7e1cb5-9217-468c-9eb6-3cbdf44379bc",
+          "title": "Interview Exclusive avec T-Vice",
+          "description": "D\u00e9couvrez l'histoire fascinante du groupe T-Vice, leurs inspirations et leurs projets futurs dans cette interview exclusive.",
+          "category": "interview",
+          "host": "Marie Jeanne",
+          "duration": "42:15",
+          "audio_url": "https://example.com/episodes/t-vice-interview.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=T-Vice+Interview",
+          "published_date": "2025-09-25T00:51:14.093096Z",
+          "episode_number": 8,
+          "season": 2,
+          "download_count": 4200,
+          "play_count": 12500,
+          "tags": [
+            "interview",
+            "t-vice",
+            "music",
+            "artists"
+          ],
+          "is_featured": true,
+          "transcript": null,
+          "file_size": "38.4 MB"
+        },
+        {
+          "id": "2fa8d512-f9a1-41c8-8f57-11acdad84777",
+          "title": "Actualit\u00e9s Ha\u00eftiennes de la Semaine",
+          "description": "R\u00e9sum\u00e9 des \u00e9v\u00e9nements marquants de la semaine en Ha\u00efti et dans la diaspora ha\u00eftienne.",
+          "category": "news",
+          "host": "Jean Claude Michel",
+          "duration": "28:45",
+          "audio_url": "https://example.com/episodes/news-weekly-03.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Actualit\u00e9s",
+          "published_date": "2025-09-25T00:51:14.093103Z",
+          "episode_number": 12,
+          "season": 1,
+          "download_count": 1850,
+          "play_count": 5200,
+          "tags": [
+            "news",
+            "haiti",
+            "diaspora",
+            "weekly"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "26.1 MB"
+        },
+        {
+          "id": "eaf4c917-dd23-401f-b682-bc5e8f9aa3af",
+          "title": "Histoire du Compas Direct",
+          "description": "Plongez dans l'histoire riche du compas direct, de Nemours Jean-Baptiste aux artistes contemporains.",
+          "category": "talk_show",
+          "host": "Dr. Marie Carmel",
+          "duration": "52:20",
+          "audio_url": "https://example.com/episodes/compas-history.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Histoire+Compas",
+          "published_date": "2025-09-25T00:51:14.093108Z",
+          "episode_number": 5,
+          "season": 1,
+          "download_count": 3100,
+          "play_count": 7800,
+          "tags": [
+            "history",
+            "compas",
+            "culture",
+            "music"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "47.6 MB"
+        },
+        {
+          "id": "4751ac86-e741-4853-ba0c-a443666ed912",
+          "title": "Mix Zouk & Compas Weekend",
+          "description": "Le mix parfait pour vos weekends! Une fusion entre zouk et compas pour faire danser toute la famille.",
+          "category": "music_show",
+          "host": "DJ Mix Master",
+          "duration": "1:20:15",
+          "audio_url": "https://example.com/episodes/weekend-mix-02.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Weekend+Mix",
+          "published_date": "2025-09-25T00:51:14.093114Z",
+          "episode_number": 22,
+          "season": 1,
+          "download_count": 3800,
+          "play_count": 9500,
+          "tags": [
+            "zouk",
+            "compas",
+            "mix",
+            "weekend",
+            "dance"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "72.8 MB"
+        }
+      ],
+      "error": null
     },
     {
       "test_name": "Get Episodes (Featured Filter)",
       "method": "GET",
       "endpoint": "podcasts/episodes?featured=true",
       "expected_status": 200,
-      "actual_status": 500,
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "1286d4d4-1a67-419d-8522-b7daa6af3933",
+          "title": "Matin\u00e9e Compas avec DJ Kenley",
+          "description": "R\u00e9veillez-vous avec les meilleurs hits compas! DJ Kenley vous pr\u00e9sente une s\u00e9lection exclusive des tubes qui font danser Ha\u00efti.",
+          "category": "music_show",
+          "host": "DJ Kenley",
+          "duration": "1:45:30",
+          "audio_url": "https://example.com/episodes/morning-compas-01.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Morning+Compas",
+          "published_date": "2025-09-25T00:51:14.126497Z",
+          "episode_number": 15,
+          "season": 1,
+          "download_count": 2840,
+          "play_count": 8920,
+          "tags": [
+            "compas",
+            "morning",
+            "music",
+            "dance"
+          ],
+          "is_featured": true,
+          "transcript": null,
+          "file_size": "95.2 MB"
+        },
+        {
+          "id": "8df5ae81-0452-4020-949c-cd56258a3aae",
+          "title": "Interview Exclusive avec T-Vice",
+          "description": "D\u00e9couvrez l'histoire fascinante du groupe T-Vice, leurs inspirations et leurs projets futurs dans cette interview exclusive.",
+          "category": "interview",
+          "host": "Marie Jeanne",
+          "duration": "42:15",
+          "audio_url": "https://example.com/episodes/t-vice-interview.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=T-Vice+Interview",
+          "published_date": "2025-09-25T00:51:14.126515Z",
+          "episode_number": 8,
+          "season": 2,
+          "download_count": 4200,
+          "play_count": 12500,
+          "tags": [
+            "interview",
+            "t-vice",
+            "music",
+            "artists"
+          ],
+          "is_featured": true,
+          "transcript": null,
+          "file_size": "38.4 MB"
+        },
+        {
+          "id": "5a64e607-f672-4e44-a738-232710f5ba97",
+          "title": "Actualit\u00e9s Ha\u00eftiennes de la Semaine",
+          "description": "R\u00e9sum\u00e9 des \u00e9v\u00e9nements marquants de la semaine en Ha\u00efti et dans la diaspora ha\u00eftienne.",
+          "category": "news",
+          "host": "Jean Claude Michel",
+          "duration": "28:45",
+          "audio_url": "https://example.com/episodes/news-weekly-03.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Actualit\u00e9s",
+          "published_date": "2025-09-25T00:51:14.126521Z",
+          "episode_number": 12,
+          "season": 1,
+          "download_count": 1850,
+          "play_count": 5200,
+          "tags": [
+            "news",
+            "haiti",
+            "diaspora",
+            "weekly"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "26.1 MB"
+        },
+        {
+          "id": "b6fff46f-5888-4ef6-af55-f3f7e87808af",
+          "title": "Histoire du Compas Direct",
+          "description": "Plongez dans l'histoire riche du compas direct, de Nemours Jean-Baptiste aux artistes contemporains.",
+          "category": "talk_show",
+          "host": "Dr. Marie Carmel",
+          "duration": "52:20",
+          "audio_url": "https://example.com/episodes/compas-history.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Histoire+Compas",
+          "published_date": "2025-09-25T00:51:14.126527Z",
+          "episode_number": 5,
+          "season": 1,
+          "download_count": 3100,
+          "play_count": 7800,
+          "tags": [
+            "history",
+            "compas",
+            "culture",
+            "music"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "47.6 MB"
+        },
+        {
+          "id": "ce645bfc-c02c-483e-a4e2-10fd34744f8b",
+          "title": "Mix Zouk & Compas Weekend",
+          "description": "Le mix parfait pour vos weekends! Une fusion entre zouk et compas pour faire danser toute la famille.",
+          "category": "music_show",
+          "host": "DJ Mix Master",
+          "duration": "1:20:15",
+          "audio_url": "https://example.com/episodes/weekend-mix-02.mp3",
+          "cover_art": "https://via.placeholder.com/300x300?text=Weekend+Mix",
+          "published_date": "2025-09-25T00:51:14.126533Z",
+          "episode_number": 22,
+          "season": 1,
+          "download_count": 3800,
+          "play_count": 9500,
+          "tags": [
+            "zouk",
+            "compas",
+            "mix",
+            "weekend",
+            "dance"
+          ],
+          "is_featured": false,
+          "transcript": null,
+          "file_size": "72.8 MB"
+        }
+      ],
+      "error": null
+    },
+    {
+      "test_name": "Get Specific Episode",
+      "method": "GET",
+      "endpoint": "podcasts/episodes/daaf095e-40c5-4e08-8f63-94f321fa8aaa",
+      "expected_status": 200,
+      "actual_status": 404,
       "success": false,
       "response_data": null,
-      "error": "Internal Server Error"
+      "error": {
+        "detail": "Episode not found"
+      }
     },
     {
       "test_name": "Get Non-existent Episode",
@@ -1472,6 +2460,78 @@
         "detail": "Episode not found"
       },
       "error": null
+    },
+    {
+      "test_name": "Get Episode Before Play Track",
+      "method": "GET",
+      "endpoint": "podcasts/episodes/daaf095e-40c5-4e08-8f63-94f321fa8aaa",
+      "expected_status": 200,
+      "actual_status": 404,
+      "success": false,
+      "response_data": null,
+      "error": {
+        "detail": "Episode not found"
+      }
+    },
+    {
+      "test_name": "Track Episode Play",
+      "method": "POST",
+      "endpoint": "podcasts/episodes/daaf095e-40c5-4e08-8f63-94f321fa8aaa/play",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "message": "Play count updated"
+      },
+      "error": null
+    },
+    {
+      "test_name": "Verify Play Count Increased",
+      "method": "GET",
+      "endpoint": "podcasts/episodes/daaf095e-40c5-4e08-8f63-94f321fa8aaa",
+      "expected_status": 200,
+      "actual_status": 404,
+      "success": false,
+      "response_data": null,
+      "error": {
+        "detail": "Episode not found"
+      }
+    },
+    {
+      "test_name": "Get Episode Before Download Track",
+      "method": "GET",
+      "endpoint": "podcasts/episodes/daaf095e-40c5-4e08-8f63-94f321fa8aaa",
+      "expected_status": 200,
+      "actual_status": 404,
+      "success": false,
+      "response_data": null,
+      "error": {
+        "detail": "Episode not found"
+      }
+    },
+    {
+      "test_name": "Track Episode Download",
+      "method": "POST",
+      "endpoint": "podcasts/episodes/daaf095e-40c5-4e08-8f63-94f321fa8aaa/download",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "message": "Download count updated"
+      },
+      "error": null
+    },
+    {
+      "test_name": "Verify Download Count Increased",
+      "method": "GET",
+      "endpoint": "podcasts/episodes/daaf095e-40c5-4e08-8f63-94f321fa8aaa",
+      "expected_status": 200,
+      "actual_status": 404,
+      "success": false,
+      "response_data": null,
+      "error": {
+        "detail": "Episode not found"
+      }
     },
     {
       "test_name": "Track Play (Non-existent Episode)",
@@ -1494,6 +2554,251 @@
       "success": true,
       "response_data": {
         "message": "Download count updated"
+      },
+      "error": null
+    },
+    {
+      "test_name": "Get TV Channel Info",
+      "method": "GET",
+      "endpoint": "tv/channel",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "id": "4e97e0ec-fccf-4a8e-9356-7697164f2826",
+        "name": "Radio Haiti Fusion TV",
+        "description": "Cha\u00eene TV officielle de Radio Haiti Fusion - Programmes, \u00e9missions et divertissement ha\u00eftien 24h/24",
+        "logo_url": "https://via.placeholder.com/200x100?text=RHF+TV",
+        "stream_url": "https://xtremeradiohosting.com/8288/stream",
+        "backup_stream_urls": [
+          "https://xtremeradiohosting.com/8076/stream"
+        ],
+        "current_show": "Programme en Direct",
+        "next_show": "\u00c9mission du Soir",
+        "is_live": true,
+        "viewer_count": 1250
+      },
+      "error": null
+    },
+    {
+      "test_name": "Get All TV Shows",
+      "method": "GET",
+      "endpoint": "tv/shows?category=all",
+      "expected_status": 200,
+      "actual_status": 500,
+      "success": false,
+      "response_data": null,
+      "error": "Internal Server Error"
+    },
+    {
+      "test_name": "Get Variety TV Shows",
+      "method": "GET",
+      "endpoint": "tv/shows?category=variety",
+      "expected_status": 200,
+      "actual_status": 500,
+      "success": false,
+      "response_data": null,
+      "error": "Internal Server Error"
+    },
+    {
+      "test_name": "Get News TV Shows",
+      "method": "GET",
+      "endpoint": "tv/shows?category=news",
+      "expected_status": 200,
+      "actual_status": 500,
+      "success": false,
+      "response_data": null,
+      "error": "Internal Server Error"
+    },
+    {
+      "test_name": "Get Music TV Shows",
+      "method": "GET",
+      "endpoint": "tv/shows?category=music",
+      "expected_status": 200,
+      "actual_status": 500,
+      "success": false,
+      "response_data": null,
+      "error": "Internal Server Error"
+    },
+    {
+      "test_name": "Get Talk TV Shows",
+      "method": "GET",
+      "endpoint": "tv/shows?category=talk",
+      "expected_status": 200,
+      "actual_status": 500,
+      "success": false,
+      "response_data": null,
+      "error": "Internal Server Error"
+    },
+    {
+      "test_name": "Get Documentary TV Shows",
+      "method": "GET",
+      "endpoint": "tv/shows?category=documentary",
+      "expected_status": 200,
+      "actual_status": 500,
+      "success": false,
+      "response_data": null,
+      "error": "Internal Server Error"
+    },
+    {
+      "test_name": "Get Comedy TV Shows",
+      "method": "GET",
+      "endpoint": "tv/shows?category=comedy",
+      "expected_status": 200,
+      "actual_status": 500,
+      "success": false,
+      "response_data": null,
+      "error": "Internal Server Error"
+    },
+    {
+      "test_name": "Get TV Categories",
+      "method": "GET",
+      "endpoint": "tv/categories",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "categories": [
+          {
+            "id": "variety",
+            "name": "Vari\u00e9t\u00e9s",
+            "description": "\u00c9missions de divertissement et spectacles",
+            "show_count": 15
+          },
+          {
+            "id": "news",
+            "name": "Actualit\u00e9s",
+            "description": "Journaux t\u00e9l\u00e9vis\u00e9s et reportages",
+            "show_count": 8
+          },
+          {
+            "id": "music",
+            "name": "Musique",
+            "description": "Concerts, clips et \u00e9missions musicales",
+            "show_count": 12
+          },
+          {
+            "id": "talk",
+            "name": "Talk Shows",
+            "description": "D\u00e9bats et discussions avec invit\u00e9s",
+            "show_count": 6
+          },
+          {
+            "id": "documentary",
+            "name": "Documentaires",
+            "description": "Programmes culturels et \u00e9ducatifs",
+            "show_count": 9
+          },
+          {
+            "id": "comedy",
+            "name": "Com\u00e9die",
+            "description": "Spectacles d'humour et divertissement",
+            "show_count": 4
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_name": "Get TV Schedule",
+      "method": "GET",
+      "endpoint": "tv/schedule",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "e3263b2f-079a-4514-a896-9f18006a40b1",
+          "show_title": "Matin Haiti Fusion TV",
+          "description": "\u00c9mission matinale avec actualit\u00e9s et divertissement",
+          "host": "DJ Niko & Kaelle",
+          "day_of_week": "Lundi-Vendredi",
+          "start_time": "07:00",
+          "end_time": "09:00",
+          "category": "variety",
+          "is_live": true,
+          "is_repeat": false
+        },
+        {
+          "id": "b4e02b59-3b53-4993-ae64-943e4a12a8ec",
+          "show_title": "Journal TV Midi",
+          "description": "Actualit\u00e9s de la mi-journ\u00e9e",
+          "host": "\u00c9quipe Journalisme",
+          "day_of_week": "Lundi-Vendredi",
+          "start_time": "12:00",
+          "end_time": "12:30",
+          "category": "news",
+          "is_live": true,
+          "is_repeat": false
+        },
+        {
+          "id": "093880a4-58d7-41da-9270-9fce45303c9a",
+          "show_title": "Culture Krey\u00f2l",
+          "description": "\u00c9mission culturelle ha\u00eftienne",
+          "host": "Brigitte",
+          "day_of_week": "Mercredi",
+          "start_time": "19:00",
+          "end_time": "20:00",
+          "category": "documentary",
+          "is_live": true,
+          "is_repeat": false
+        },
+        {
+          "id": "f0de1fe9-c4c9-4156-9b1b-4c8215336cfb",
+          "show_title": "Compas Live Sessions",
+          "description": "Sessions musicales live",
+          "host": "Hugo",
+          "day_of_week": "Vendredi",
+          "start_time": "20:00",
+          "end_time": "21:30",
+          "category": "music",
+          "is_live": true,
+          "is_repeat": false
+        },
+        {
+          "id": "c8bb8e1b-d9de-405f-b651-6004305ee0cd",
+          "show_title": "Talk Show Dimanche",
+          "description": "Discussions et d\u00e9bats du dimanche",
+          "host": "Don Camilo",
+          "day_of_week": "Dimanche",
+          "start_time": "15:00",
+          "end_time": "16:30",
+          "category": "talk",
+          "is_live": true,
+          "is_repeat": false
+        }
+      ],
+      "error": null
+    },
+    {
+      "test_name": "Get Featured TV Shows",
+      "method": "GET",
+      "endpoint": "tv/featured",
+      "expected_status": 200,
+      "actual_status": 500,
+      "success": false,
+      "response_data": null,
+      "error": "Internal Server Error"
+    },
+    {
+      "test_name": "Get TV Shows (Featured Filter)",
+      "method": "GET",
+      "endpoint": "tv/shows?featured=true",
+      "expected_status": 200,
+      "actual_status": 500,
+      "success": false,
+      "response_data": null,
+      "error": "Internal Server Error"
+    },
+    {
+      "test_name": "Track TV View (Non-existent Show)",
+      "method": "POST",
+      "endpoint": "tv/shows/nonexistent-tv-show-id-12345/view",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "message": "View count updated"
       },
       "error": null
     },
