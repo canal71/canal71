@@ -1271,56 +1271,248 @@ async def create_dj(dj_input: DJCreate):
 async def get_show_schedule():
     shows_data = await db.shows.find().to_list(length=None)
     if not shows_data:
-        # Return sample schedule if none exists
+        # Real Radio Haiti Fusion Programming Schedule
         sample_shows = [
+            # Daily Programming
             {
-                "name": "Réveil Konpa",
-                "description": "Commencez votre journée avec les meilleurs hits compas et les dernières nouvelles",
-                "host_dj": "DJ Kenley",
-                "day_of_week": "Lundi-Vendredi",
-                "start_time": "06:00",
-                "end_time": "10:00",
-                "genre": "Compas & Actualités",
-                "is_live": True
-            },
-            {
-                "name": "Midi Mizik",
-                "description": "Pause déjeuner avec un mélange de musique haïtienne et internationale",
-                "host_dj": "DJ Marie J",
-                "day_of_week": "Lundi-Vendredi",
-                "start_time": "12:00",
-                "end_time": "14:00",
-                "genre": "Variété",
+                "name": "Rythme Planetaire",
+                "description": "Musique internationale et hits planétaires pour commencer la nuit",
+                "host_dj": "DJ Night",
+                "day_of_week": "Lundi-Jeudi",
+                "start_time": "00:00",
+                "end_time": "02:00",
+                "genre": "International",
                 "is_live": False
             },
             {
-                "name": "Sware Konpa",
-                "description": "Les soirées compas avec les plus grands classiques et nouveautés",
+                "name": "Fusion En Couleur",
+                "description": "Un mix coloré de genres musicaux variés",
+                "host_dj": "DJ Colors",
+                "day_of_week": "Lundi-Jeudi",
+                "start_time": "02:00",
+                "end_time": "03:00",
+                "genre": "Mix",
+                "is_live": False
+            },
+            {
+                "name": "Reveil Spirituel",
+                "description": "Réveillez votre âme avec de la musique inspirante et spirituelle",
+                "host_dj": "Marie Spirituelle",
+                "day_of_week": "Lundi-Vendredi",
+                "start_time": "03:00",
+                "end_time": "05:00",
+                "genre": "Gospel & Spirituel",
+                "is_live": False
+            },
+            {
+                "name": "Reveil en Douceur",
+                "description": "Un réveil tout en douceur avec des mélodies apaisantes",
                 "host_dj": "DJ Kenley",
                 "day_of_week": "Lundi-Vendredi",
+                "start_time": "06:00",
+                "end_time": "07:00",
+                "genre": "Soft Rock & Pop",
+                "is_live": True
+            },
+            {
+                "name": "Sunshine Melodies",
+                "description": "Des mélodies ensoleillées pour bien commencer la journée",
+                "host_dj": "DJ Sunshine",
+                "day_of_week": "Lundi-Vendredi",
+                "start_time": "07:00",
+                "end_time": "08:00",
+                "genre": "Pop & Feel Good",
+                "is_live": False
+            },
+            {
+                "name": "Breakfast Show",
+                "description": "L'émission parfaite pour accompagner votre petit-déjeuner",
+                "host_dj": "DJ Kenley",
+                "day_of_week": "Lundi-Vendredi",
+                "start_time": "08:00",
+                "end_time": "09:00",
+                "genre": "Morning Mix",
+                "is_live": True
+            },
+            {
+                "name": "Fusion Latino Mix",
+                "description": "Les meilleurs hits latino pour faire bouger vos matinées",
+                "host_dj": "DJ Latino",
+                "day_of_week": "Lundi-Vendredi",
+                "start_time": "09:00",
+                "end_time": "10:00",
+                "genre": "Latino",
+                "is_live": False
+            },
+            {
+                "name": "Caribbean Vibe Show",
+                "description": "Voyage musical à travers les Caraïbes avec compas, reggae et soca",
+                "host_dj": "DJ Caribbean",
+                "day_of_week": "Lundi-Vendredi",
+                "start_time": "10:00",
+                "end_time": "12:00",
+                "genre": "Caribbean",
+                "is_live": False
+            },
+            {
+                "name": "Romance en Musique",
+                "description": "L'heure de la romance avec les plus belles ballades d'amour",
+                "host_dj": "Marie Jeanne",
+                "day_of_week": "Lundi-Vendredi",
+                "start_time": "12:00",
+                "end_time": "13:00",
+                "genre": "Romantique",
+                "is_live": False
+            },
+            {
+                "name": "Kwaze Chimen (Culture)",
+                "description": "Émission culturelle haïtienne - Histoire, traditions et patrimoine",
+                "host_dj": "Dr. Marie Carmel",
+                "day_of_week": "Lundi-Vendredi",
+                "start_time": "14:00",
+                "end_time": "15:00",
+                "genre": "Culture & Éducation",
+                "is_live": True
+            },
+            {
+                "name": "Traffic Jam",
+                "description": "Musique énergique pour vous accompagner dans les embouteillages",
+                "host_dj": "DJ Traffic",
+                "day_of_week": "Lundi-Vendredi",
+                "start_time": "16:00",
+                "end_time": "18:00",
+                "genre": "Énergique Mix",
+                "is_live": False
+            },
+            {
+                "name": "Fusion Ballade",
+                "description": "Soirée en douceur avec les plus belles ballades",
+                "host_dj": "DJ Ballade",
+                "day_of_week": "Lundi-Jeudi",
                 "start_time": "18:00",
-                "end_time": "20:00",
+                "end_time": "19:00",
+                "genre": "Ballade",
+                "is_live": False
+            },
+            {
+                "name": "Mes Premieres Tubes",
+                "description": "Redécouvrez vos tubes préférés d'hier et d'aujourd'hui",
+                "host_dj": "JC Mix",
+                "day_of_week": "Lundi-Jeudi",
+                "start_time": "19:00",
+                "end_time": "21:00",
+                "genre": "Hits & Nostalgie",
+                "is_live": False
+            },
+            {
+                "name": "Love Frequency",
+                "description": "Fréquence d'amour - Musique romantique pour les cœurs sensibles",
+                "host_dj": "DJ Love",
+                "day_of_week": "Lundi-Jeudi",
+                "start_time": "22:00",
+                "end_time": "23:00",
+                "genre": "Love Songs",
+                "is_live": False
+            },
+            {
+                "name": "Le Temps du Jazz",
+                "description": "Voyage dans l'univers sophistiqué du jazz et du blues",
+                "host_dj": "Maestro Jazz",
+                "day_of_week": "Lundi-Jeudi",
+                "start_time": "23:00",
+                "end_time": "00:00",
+                "genre": "Jazz & Blues",
+                "is_live": False
+            },
+            # Weekend Special Programming
+            {
+                "name": "RETRO FRIDAY LIVE",
+                "description": "Soirée rétro en direct avec les hits d'antan",
+                "host_dj": "DJ Retro",
+                "day_of_week": "Vendredi",
+                "start_time": "18:00",
+                "end_time": "23:59",
+                "genre": "Rétro",
+                "is_live": True
+            },
+            {
+                "name": "Positive Vibration",
+                "description": "Vibrations positives pour bien commencer le weekend",
+                "host_dj": "DJ Positive",
+                "day_of_week": "Samedi",
+                "start_time": "14:00",
+                "end_time": "15:00",
+                "genre": "Reggae & Positive",
+                "is_live": False
+            },
+            {
+                "name": "Detente Konpa",
+                "description": "Détente avec les meilleurs morceaux compas du moment",
+                "host_dj": "DJ Konpa",
+                "day_of_week": "Samedi",
+                "start_time": "18:00",
+                "end_time": "23:59",
                 "genre": "Compas",
                 "is_live": False
             },
             {
-                "name": "Weekend Vibes",
-                "description": "Détente du weekend avec R&B, zouk et musique internationale",
-                "host_dj": "DJ Marie J",
-                "day_of_week": "Samedi-Dimanche",
-                "start_time": "14:00",
-                "end_time": "18:00",
-                "genre": "R&B & Zouk",
+                "name": "Classique du Dimanche",
+                "description": "Réveil dominical avec la musique classique et traditionnelle",
+                "host_dj": "Marie Classique",
+                "day_of_week": "Dimanche",
+                "start_time": "04:00",
+                "end_time": "05:00",
+                "genre": "Classique",
                 "is_live": False
             },
             {
-                "name": "Nwit Rap Kreyòl",
-                "description": "Soirée dédiée au rap kreyòl et hip-hop haïtien",
-                "host_dj": "JC Mix",
-                "day_of_week": "Lundi, Mercredi, Vendredi",
-                "start_time": "20:00",
+                "name": "Domingo Sonidero",
+                "description": "Musique mexicaine authentique - Mariachi et Ranchera",
+                "host_dj": "DJ Sonidero",
+                "day_of_week": "Dimanche",
+                "start_time": "05:00",
+                "end_time": "07:00",
+                "genre": "Mariachi & Ranchera",
+                "is_live": False
+            },
+            {
+                "name": "Dimanche Tendre",
+                "description": "Dimanche en douceur avec les plus beaux boléros",
+                "host_dj": "DJ Bolero",
+                "day_of_week": "Dimanche",
+                "start_time": "07:00",
+                "end_time": "08:00",
+                "genre": "Bolero",
+                "is_live": False
+            },
+            {
+                "name": "Dimanche Dominicale",
+                "description": "Programmation spéciale dominicale - Mix varié et détente",
+                "host_dj": "Équipe Dimanche",
+                "day_of_week": "Dimanche",
+                "start_time": "10:00",
+                "end_time": "18:00",
+                "genre": "Mix Dominical",
+                "is_live": False
+            },
+            {
+                "name": "Ambiance Retro",
+                "description": "Ambiance rétro pour terminer le weekend en beauté",
+                "host_dj": "DJ Vintage",
+                "day_of_week": "Dimanche",
+                "start_time": "18:00",
                 "end_time": "22:00",
-                "genre": "Rap Kreyòl",
+                "genre": "Rétro & Vintage",
+                "is_live": False
+            },
+            {
+                "name": "Melodias en La Noche",
+                "description": "Mélodies nocturnes pour clôturer le weekend",
+                "host_dj": "DJ Noche",
+                "day_of_week": "Dimanche",
+                "start_time": "21:00",
+                "end_time": "22:00",
+                "genre": "Nocturne",
                 "is_live": False
             }
         ]
