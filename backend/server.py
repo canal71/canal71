@@ -1633,7 +1633,7 @@ async def get_podcast_episodes(category: str = "all", limit: int = 20, featured:
                 "download_count": 4200,
                 "play_count": 12500,
                 "tags": ["interview", "t-vice", "music", "artists"],
-                "is_featured": true,
+                "is_featured": True,
                 "file_size": "38.4 MB"
             },
             {
