@@ -749,6 +749,56 @@ function App() {
     }
   };
 
+  // TV Functions
+  const loadTvChannel = async () => {
+    try {
+      const response = await axios.get(`${API}/tv/channel`);
+      setTvChannel(response.data);
+    } catch (error) {
+      console.error('Failed to load TV channel:', error);
+    }
+  };
+
+  const loadTvCategories = async () => {
+    try {
+      const response = await axios.get(`${API}/tv/categories`);
+      setTvCategories(response.data.categories);
+    } catch (error) {
+      console.error('Failed to load TV categories:', error);
+    }
+  };
+
+  const loadTvShows = async (category = selectedTvCategory) => {
+    try {
+      const response = await axios.get(`${API}/tv/shows`, {
+        params: { category: category, limit: 20 }
+      });
+      setTvShows(response.data);
+    } catch (error) {
+      console.error('Failed to load TV shows:', error);
+    }
+  };
+
+  const loadTvSchedule = async () => {
+    try {
+      const response = await axios.get(`${API}/tv/schedule`);
+      setTvSchedule(response.data);
+    } catch (error) {
+      console.error('Failed to load TV schedule:', error);
+    }
+  };
+
+  const playTvShow = async (show) => {
+    try {
+      setCurrentTvShow(show);
+      
+      // Track view count
+      await axios.post(`${API}/tv/shows/${show.id}/view`);
+    } catch (error) {
+      console.error('Failed to play TV show:', error);
+    }
+  };
+
   // Google AdSense Integration
   useEffect(() => {
     // Add Google AdSense script
