@@ -2158,7 +2158,7 @@ async def get_tv_shows(category: str = "all", limit: int = 20, featured: bool = 
                 "view_count": 8900,
                 "rating": 4.9,
                 "tags": ["culture", "tradition", "histoire"],
-                "is_live": false,
+                "is_live": False,
                 "is_featured": true,
                 "language": "français"
             },
@@ -2175,7 +2175,7 @@ async def get_tv_shows(category: str = "all", limit: int = 20, featured: bool = 
                 "view_count": 22300,
                 "rating": 4.7,
                 "tags": ["compas", "live", "musique", "artistes"],
-                "is_live": false,
+                "is_live": False,
                 "is_featured": true,
                 "language": "français"
             },
@@ -2192,7 +2192,7 @@ async def get_tv_shows(category: str = "all", limit: int = 20, featured: bool = 
                 "view_count": 12800,
                 "rating": 4.6,
                 "tags": ["actualités", "haiti", "diaspora"],
-                "is_live": false,
+                "is_live": False,
                 "is_featured": false,
                 "language": "français"
             },
@@ -2209,7 +2209,7 @@ async def get_tv_shows(category: str = "all", limit: int = 20, featured: bool = 
                 "view_count": 9500,
                 "rating": 4.5,
                 "tags": ["débat", "société", "personnalités"],
-                "is_live": false,
+                "is_live": False,
                 "is_featured": false,
                 "language": "français"
             },
@@ -2226,7 +2226,7 @@ async def get_tv_shows(category: str = "all", limit: int = 20, featured: bool = 
                 "view_count": 18600,
                 "rating": 4.8,
                 "tags": ["humour", "comédie", "spectacle"],
-                "is_live": false,
+                "is_live": False,
                 "is_featured": false,
                 "language": "français"
             }
