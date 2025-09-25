@@ -86,6 +86,15 @@ function App() {
   const [podcastCurrentTime, setPodcastCurrentTime] = useState(0);
   const [podcastDuration, setPodcastDuration] = useState(0);
   
+  // TV state
+  const [tvShows, setTvShows] = useState([]);
+  const [tvCategories, setTvCategories] = useState([]);
+  const [selectedTvCategory, setSelectedTvCategory] = useState('all');
+  const [tvChannel, setTvChannel] = useState(null);
+  const [tvSchedule, setTvSchedule] = useState([]);
+  const [currentTvShow, setCurrentTvShow] = useState(null);
+  const [showTvSection, setShowTvSection] = useState(false);
+  
   const audioRef = useRef(null);
   const commentsEndRef = useRef(null);
 
