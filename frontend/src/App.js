@@ -3219,7 +3219,7 @@ function App() {
               </CardContent>
             </Card>
 
-            <Card className="bg-magenta-800/40 backdrop-blur-sm border-magenta-600/50 h-[500px] flex flex-col">
+            <Card className="bg-fuchsia-800/40 backdrop-blur-sm border-fuchsia-600/50 h-[500px] flex flex-col">
               <div className="p-4 border-b border-slate-600/50">
                 <div className="flex items-center space-x-2">
                   <MessageCircle className="w-5 h-5 text-slate-400" />
