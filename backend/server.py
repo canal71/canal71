@@ -359,6 +359,64 @@ class PodcastPlaylist(BaseModel):
     is_public: bool = True
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
+# TV Models
+class TVShow(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    title: str
+    description: str
+    category: str = "variety"  # variety, news, music, talk, drama, comedy, documentary
+    host: str = "Équipe TV"
+    duration: str = "60:00"  # MM:SS format
+    video_url: Optional[str] = None
+    thumbnail_url: Optional[str] = None
+    season: Optional[int] = 1
+    episode_number: Optional[int] = None
+    air_date: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    view_count: int = 0
+    rating: float = 0.0
+    tags: List[str] = []
+    is_live: bool = False
+    is_featured: bool = False
+    language: str = "français"
+
+class TVShowCreate(BaseModel):
+    title: str
+    description: str
+    category: str = "variety"
+    host: str = "Équipe TV"
+    duration: str = "60:00"
+    video_url: Optional[str] = None
+    thumbnail_url: Optional[str] = None
+    season: Optional[int] = 1
+    episode_number: Optional[int] = None
+    tags: List[str] = []
+    is_live: bool = False
+    is_featured: bool = False
+
+class TVSchedule(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    show_title: str
+    description: str
+    host: str
+    day_of_week: str = "Lundi-Vendredi"
+    start_time: str = "20:00"
+    end_time: str = "21:00"
+    category: str = "variety"
+    is_live: bool = True
+    is_repeat: bool = False
+
+class TVChannel(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name: str = "Radio Haiti Fusion TV"
+    description: str = "Chaîne TV officielle de Radio Haiti Fusion"
+    logo_url: Optional[str] = None
+    stream_url: Optional[str] = None
+    backup_stream_urls: List[str] = []
+    current_show: Optional[str] = None
+    next_show: Optional[str] = None
+    is_live: bool = True
+    viewer_count: int = 0
+
 class LiveStats(BaseModel):
     current_listeners: int = 1247
     peak_today: int = 1856
