@@ -688,6 +688,54 @@ function App() {
     setBreakingNews(sampleBreakingNews);
   };
 
+  // Podcast Functions
+  const loadPodcastCategories = async () => {
+    try {
+      const response = await axios.get(`${API}/podcasts/categories`);
+      setPodcastCategories(response.data.categories);
+    } catch (error) {
+      console.error('Failed to load podcast categories:', error);
+    }
+  };
+
+  const loadPodcastEpisodes = async (category = selectedPodcastCategory) => {
+    try {
+      const response = await axios.get(`${API}/podcasts/episodes`, {
+        params: { category: category, limit: 20 }
+      });
+      setPodcastEpisodes(response.data);
+    } catch (error) {
+      console.error('Failed to load podcast episodes:', error);
+    }
+  };
+
+  const playPodcast = async (episode) => {
+    try {
+      setCurrentPodcast(episode);
+      setIsPodcastPlaying(true);
+      
+      // Track play count
+      await axios.post(`${API}/podcasts/episodes/${episode.id}/play`);
+    } catch (error) {
+      console.error('Failed to play podcast:', error);
+    }
+  };
+
+  const downloadPodcast = async (episode) => {
+    try {
+      // Track download count
+      await axios.post(`${API}/podcasts/episodes/${episode.id}/download`);
+      
+      // Trigger download
+      const link = document.createElement('a');
+      link.href = episode.audio_url;
+      link.download = `${episode.title}.mp3`;
+      link.click();
+    } catch (error) {
+      console.error('Failed to download podcast:', error);
+    }
+  };
+
   // Google AdSense Integration
   useEffect(() => {
     // Add Google AdSense script
