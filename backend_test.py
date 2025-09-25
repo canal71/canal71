@@ -1397,6 +1397,22 @@ def main():
     tester.test_track_play_nonexistent_episode()
     tester.test_track_download_nonexistent_episode()
     
+    print("\n📺 Testing TV API System...")
+    tester.test_get_tv_channel()
+    tester.test_get_tv_shows_all()
+    tester.test_get_tv_shows_by_category_variety()
+    tester.test_get_tv_shows_by_category_news()
+    tester.test_get_tv_shows_by_category_music()
+    tester.test_get_tv_shows_by_category_talk()
+    tester.test_get_tv_shows_by_category_documentary()
+    tester.test_get_tv_shows_by_category_comedy()
+    tester.test_get_tv_categories()
+    tester.test_get_tv_schedule()
+    tester.test_get_featured_tv_shows()
+    tester.test_get_tv_shows_featured_filter()
+    tester.test_track_tv_show_view()
+    tester.test_track_tv_view_nonexistent_show()
+    
     print("\n🔌 Testing WebSocket Configuration...")
     tester.test_websocket_endpoint()
 
