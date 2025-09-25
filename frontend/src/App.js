@@ -1217,7 +1217,7 @@ function App() {
             </Card>
 
             {/* External Player Links */}
-            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
+            <Card className="bg-magenta-800/40 backdrop-blur-sm border-magenta-600/50">
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-white mb-4 flex items-center">
                   <Radio className="w-5 h-5 mr-2 text-orange-500" />
@@ -1508,7 +1508,7 @@ function App() {
             )}
 
             {/* Podcast Episodes Section */}
-            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
+            <Card className="bg-magenta-800/40 backdrop-blur-sm border-magenta-600/50">
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-white mb-4 flex items-center">
                   <Headphones className="w-5 h-5 mr-2 text-purple-500" />
@@ -1660,7 +1660,7 @@ function App() {
             </Card>
 
             {/* Recently Played */}
-            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
+            <Card className="bg-magenta-800/40 backdrop-blur-sm border-magenta-600/50">
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-white mb-4 flex items-center">
                   <svg className="w-5 h-5 mr-2 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
@@ -1776,7 +1776,7 @@ function App() {
             </Card>
 
             {/* Haiti Weather Widget */}
-            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
+            <Card className="bg-magenta-800/40 backdrop-blur-sm border-magenta-600/50">
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-white mb-4 flex items-center">
                   <svg className="w-5 h-5 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
@@ -1849,7 +1849,7 @@ function App() {
             </Card>
 
             {/* World News */}
-            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
+            <Card className="bg-magenta-800/40 backdrop-blur-sm border-magenta-600/50">
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-white mb-4 flex items-center">
                   <svg className="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
@@ -1892,7 +1892,7 @@ function App() {
             </Card>
 
             {/* About Radio Haiti Fusion */}
-            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
+            <Card className="bg-magenta-800/40 backdrop-blur-sm border-magenta-600/50">
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-white mb-4 flex items-center">
                   <svg className="w-5 h-5 mr-2 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
@@ -2131,7 +2131,7 @@ function App() {
             </Card>
 
             {/* Show Schedule */}
-            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
+            <Card className="bg-magenta-800/40 backdrop-blur-sm border-magenta-600/50">
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-white mb-4 flex items-center">
                   <svg className="w-5 h-5 mr-2 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
@@ -2181,7 +2181,7 @@ function App() {
             </Card>
 
             {/* DJ Space */}
-            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
+            <Card className="bg-magenta-800/40 backdrop-blur-sm border-magenta-600/50">
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-white mb-4 flex items-center">
                   <svg className="w-5 h-5 mr-2 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -2363,7 +2363,7 @@ function App() {
             </Card>
 
             {/* Live Statistics */}
-            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
+            <Card className="bg-magenta-800/40 backdrop-blur-sm border-magenta-600/50">
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-white mb-4 flex items-center">
                   <svg className="w-5 h-5 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
@@ -2411,7 +2411,7 @@ function App() {
             </Card>
 
             {/* Promotional Videos Carousel */}
-            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
+            <Card className="bg-magenta-800/40 backdrop-blur-sm border-magenta-600/50">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between mb-6">
                   <h3 className="text-xl font-bold text-white flex items-center">
@@ -2586,7 +2586,7 @@ function App() {
             </Card>
 
             {/* Dynamic Advertising Banners */}
-            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
+            <Card className="bg-magenta-800/40 backdrop-blur-sm border-magenta-600/50">
               <CardContent className="p-4">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-lg font-bold text-white flex items-center">
@@ -2717,7 +2717,7 @@ function App() {
             </Card>
 
             {/* Radio Directory Portal */}
-            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50">
+            <Card className="bg-magenta-800/40 backdrop-blur-sm border-magenta-600/50">
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-white mb-4 flex items-center">
                   <Radio className="w-5 h-5 mr-2 text-blue-500" />
@@ -3219,7 +3219,7 @@ function App() {
               </CardContent>
             </Card>
 
-            <Card className="bg-slate-800/40 backdrop-blur-sm border-slate-600/50 h-[500px] flex flex-col">
+            <Card className="bg-magenta-800/40 backdrop-blur-sm border-magenta-600/50 h-[500px] flex flex-col">
               <div className="p-4 border-b border-slate-600/50">
                 <div className="flex items-center space-x-2">
                   <MessageCircle className="w-5 h-5 text-slate-400" />
