@@ -1649,7 +1649,7 @@ async def get_podcast_episodes(category: str = "all", limit: int = 20, featured:
                 "download_count": 1850,
                 "play_count": 5200,
                 "tags": ["news", "haiti", "diaspora", "weekly"],
-                "is_featured": false,
+                "is_featured": False,
                 "file_size": "26.1 MB"
             },
             {
@@ -1665,7 +1665,7 @@ async def get_podcast_episodes(category: str = "all", limit: int = 20, featured:
                 "download_count": 3100,
                 "play_count": 7800,
                 "tags": ["history", "compas", "culture", "music"],
-                "is_featured": false,
+                "is_featured": False,
                 "file_size": "47.6 MB"
             },
             {
@@ -1681,7 +1681,7 @@ async def get_podcast_episodes(category: str = "all", limit: int = 20, featured:
                 "download_count": 3800,
                 "play_count": 9500,
                 "tags": ["zouk", "compas", "mix", "weekend", "dance"],
-                "is_featured": false,
+                "is_featured": False,
                 "file_size": "72.8 MB"
             }
         ]
