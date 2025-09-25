@@ -1013,6 +1013,323 @@ class RadioStationAPITester:
         
         return success, response
 
+    # TV API Tests
+    def test_get_tv_channel(self):
+        """Test getting TV channel information"""
+        success, response = self.run_test(
+            "Get TV Channel Info",
+            "GET",
+            "tv/channel",
+            200,
+            description="Get Radio Haiti Fusion TV channel information"
+        )
+        
+        if success and response:
+            print(f"   Channel: {response.get('name')}")
+            print(f"   Description: {response.get('description')}")
+            print(f"   Stream URL: {response.get('stream_url')}")
+            print(f"   Current Show: {response.get('current_show')}")
+            print(f"   Next Show: {response.get('next_show')}")
+            print(f"   Live Status: {response.get('is_live')}")
+            print(f"   Viewer Count: {response.get('viewer_count')}")
+            
+            # Validate required fields
+            required_fields = ['name', 'description', 'stream_url', 'current_show', 'next_show', 'is_live', 'viewer_count']
+            missing_fields = [field for field in required_fields if field not in response]
+            if missing_fields:
+                print(f"   ⚠️  Warning: Missing fields in response: {missing_fields}")
+            else:
+                print(f"   ✅ All required channel fields present")
+        
+        return success, response
+
+    def test_get_tv_shows_all(self):
+        """Test getting all TV shows"""
+        success, response = self.run_test(
+            "Get All TV Shows",
+            "GET",
+            "tv/shows?category=all",
+            200,
+            description="Get all TV shows"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} TV shows")
+            expected_shows = ["Matin Haiti Fusion TV", "Culture Kreyòl", "Compas Live Sessions"]
+            found_shows = [show.get('title') for show in response]
+            
+            for expected_show in expected_shows:
+                if any(expected_show in title for title in found_shows):
+                    print(f"   ✅ Found expected show: {expected_show}")
+                else:
+                    print(f"   ⚠️  Expected show not found: {expected_show}")
+            
+            # Show first few shows
+            for i, show in enumerate(response[:3]):
+                print(f"   {i+1}. {show.get('title')} - {show.get('category')} ({show.get('duration')})")
+                print(f"      Host: {show.get('host')}, Views: {show.get('view_count')}, Rating: {show.get('rating')}")
+            
+            # Store first show ID for view tracking test
+            if response:
+                self.sample_tv_show_id = response[0].get('id')
+        
+        return success, response
+
+    def test_get_tv_shows_by_category_variety(self):
+        """Test getting TV shows filtered by variety category"""
+        success, response = self.run_test(
+            "Get Variety TV Shows",
+            "GET",
+            "tv/shows?category=variety",
+            200,
+            description="Get TV shows filtered by variety category"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} variety shows")
+            # Verify all shows are variety category
+            for show in response:
+                if show.get('category') != 'variety':
+                    print(f"   ⚠️  Warning: Show '{show.get('title')}' has category '{show.get('category')}', expected 'variety'")
+                else:
+                    print(f"   ✅ Variety show: {show.get('title')}")
+        
+        return success, response
+
+    def test_get_tv_shows_by_category_news(self):
+        """Test getting TV shows filtered by news category"""
+        success, response = self.run_test(
+            "Get News TV Shows",
+            "GET",
+            "tv/shows?category=news",
+            200,
+            description="Get TV shows filtered by news category"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} news shows")
+            for show in response:
+                if show.get('category') != 'news':
+                    print(f"   ⚠️  Warning: Show '{show.get('title')}' has category '{show.get('category')}', expected 'news'")
+        
+        return success, response
+
+    def test_get_tv_shows_by_category_music(self):
+        """Test getting TV shows filtered by music category"""
+        success, response = self.run_test(
+            "Get Music TV Shows",
+            "GET",
+            "tv/shows?category=music",
+            200,
+            description="Get TV shows filtered by music category"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} music shows")
+            for show in response:
+                if show.get('category') != 'music':
+                    print(f"   ⚠️  Warning: Show '{show.get('title')}' has category '{show.get('category')}', expected 'music'")
+        
+        return success, response
+
+    def test_get_tv_shows_by_category_talk(self):
+        """Test getting TV shows filtered by talk category"""
+        return self.run_test(
+            "Get Talk TV Shows",
+            "GET",
+            "tv/shows?category=talk",
+            200,
+            description="Get TV shows filtered by talk category"
+        )
+
+    def test_get_tv_shows_by_category_documentary(self):
+        """Test getting TV shows filtered by documentary category"""
+        return self.run_test(
+            "Get Documentary TV Shows",
+            "GET",
+            "tv/shows?category=documentary",
+            200,
+            description="Get TV shows filtered by documentary category"
+        )
+
+    def test_get_tv_shows_by_category_comedy(self):
+        """Test getting TV shows filtered by comedy category"""
+        return self.run_test(
+            "Get Comedy TV Shows",
+            "GET",
+            "tv/shows?category=comedy",
+            200,
+            description="Get TV shows filtered by comedy category"
+        )
+
+    def test_get_tv_categories(self):
+        """Test getting TV show categories"""
+        success, response = self.run_test(
+            "Get TV Categories",
+            "GET",
+            "tv/categories",
+            200,
+            description="Get available TV show categories"
+        )
+        
+        if success and response:
+            categories = response.get('categories', [])
+            print(f"   Found {len(categories)} TV categories")
+            expected_categories = ["variety", "news", "music", "talk", "documentary", "comedy"]
+            
+            for category in categories:
+                cat_id = category.get('id')
+                if cat_id in expected_categories:
+                    print(f"   ✅ {category.get('name')} ({cat_id}) - {category.get('show_count')} shows")
+                    print(f"      Description: {category.get('description')}")
+                else:
+                    print(f"   ⚠️  Unexpected category: {cat_id}")
+            
+            # Verify all expected categories are present
+            found_category_ids = [cat.get('id') for cat in categories]
+            missing_categories = [cat for cat in expected_categories if cat not in found_category_ids]
+            if missing_categories:
+                print(f"   ⚠️  Missing expected categories: {missing_categories}")
+            else:
+                print(f"   ✅ All expected categories present")
+        
+        return success, response
+
+    def test_get_tv_schedule(self):
+        """Test getting TV programming schedule"""
+        success, response = self.run_test(
+            "Get TV Schedule",
+            "GET",
+            "tv/schedule",
+            200,
+            description="Get TV programming schedule"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} scheduled shows")
+            for i, show in enumerate(response[:5]):  # Show first 5 schedule entries
+                print(f"   {i+1}. {show.get('show_title')} - {show.get('day_of_week')} {show.get('start_time')}-{show.get('end_time')}")
+                print(f"      Host: {show.get('host')}, Category: {show.get('category')}, Live: {show.get('is_live')}")
+            
+            # Validate schedule structure
+            for show in response:
+                required_fields = ['show_title', 'host', 'day_of_week', 'start_time', 'end_time', 'category']
+                missing_fields = [field for field in required_fields if field not in show]
+                if missing_fields:
+                    print(f"   ⚠️  Warning: Schedule entry '{show.get('show_title')}' missing fields: {missing_fields}")
+        
+        return success, response
+
+    def test_get_featured_tv_shows(self):
+        """Test getting featured TV shows"""
+        success, response = self.run_test(
+            "Get Featured TV Shows",
+            "GET",
+            "tv/featured",
+            200,
+            description="Get featured TV shows"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} featured TV shows")
+            for show in response:
+                if not show.get('is_featured'):
+                    print(f"   ⚠️  Warning: Show '{show.get('title')}' is not marked as featured")
+                else:
+                    print(f"   ✅ Featured: {show.get('title')} - {show.get('category')}")
+                    print(f"      Host: {show.get('host')}, Views: {show.get('view_count')}, Rating: {show.get('rating')}")
+        
+        return success, response
+
+    def test_get_tv_shows_featured_filter(self):
+        """Test getting TV shows with featured=true filter"""
+        success, response = self.run_test(
+            "Get TV Shows (Featured Filter)",
+            "GET",
+            "tv/shows?featured=true",
+            200,
+            description="Get TV shows with featured=true filter"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} shows with featured filter")
+            for show in response:
+                if not show.get('is_featured'):
+                    print(f"   ⚠️  Warning: Show '{show.get('title')}' is not marked as featured but returned in featured filter")
+                else:
+                    print(f"   ✅ Featured show: {show.get('title')}")
+        
+        return success, response
+
+    def test_track_tv_show_view(self):
+        """Test tracking TV show view count"""
+        if not hasattr(self, 'sample_tv_show_id') or not self.sample_tv_show_id:
+            print("⚠️  Skipping: No TV show ID available from previous test")
+            return False, {}
+        
+        # First get current view count by getting all shows and finding our show
+        get_success, get_response = self.run_test(
+            "Get TV Shows Before View Track",
+            "GET",
+            "tv/shows?category=all",
+            200,
+            description="Get TV shows to check view count before tracking"
+        )
+        
+        initial_view_count = 0
+        if get_success and get_response:
+            for show in get_response:
+                if show.get('id') == self.sample_tv_show_id:
+                    initial_view_count = show.get('view_count', 0)
+                    print(f"   Initial view count for '{show.get('title')}': {initial_view_count}")
+                    break
+        
+        # Track a view
+        success, response = self.run_test(
+            "Track TV Show View",
+            "POST",
+            f"tv/shows/{self.sample_tv_show_id}/view",
+            200,
+            description=f"Track view for TV show ID: {self.sample_tv_show_id}"
+        )
+        
+        if success:
+            # Verify view count increased
+            verify_success, verify_response = self.run_test(
+                "Verify TV View Count Increased",
+                "GET",
+                "tv/shows?category=all",
+                200,
+                description="Verify TV show view count was incremented"
+            )
+            
+            if verify_success and verify_response:
+                for show in verify_response:
+                    if show.get('id') == self.sample_tv_show_id:
+                        new_view_count = show.get('view_count', 0)
+                        print(f"   New view count for '{show.get('title')}': {new_view_count}")
+                        if new_view_count == initial_view_count + 1:
+                            print(f"   ✅ View count correctly incremented from {initial_view_count} to {new_view_count}")
+                        else:
+                            print(f"   ⚠️  Warning: Expected view count {initial_view_count + 1}, got {new_view_count}")
+                        break
+        
+        return success, response
+
+    def test_track_tv_view_nonexistent_show(self):
+        """Test tracking view for non-existent TV show"""
+        fake_show_id = "nonexistent-tv-show-id-12345"
+        
+        success, response = self.run_test(
+            "Track TV View (Non-existent Show)",
+            "POST",
+            f"tv/shows/{fake_show_id}/view",
+            200,  # API doesn't validate show existence for tracking
+            description=f"Track view for non-existent TV show ID: {fake_show_id}"
+        )
+        
+        return success, response
+
 def main():
     print("🎵 Radio Station API Testing Suite")
     print("=" * 50)
