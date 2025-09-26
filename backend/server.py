@@ -122,29 +122,29 @@ class NewsArticle(BaseModel):
     image_url: Optional[str] = None
 
 class StationInfo(BaseModel):
-    station_name: str = "Radio Haiti Fusion"
-    tagline: str = "La radio qui va loin"
+    station_name: str = "Xtreme Hosting Media"
+    tagline: str = "Your Ultimate Media Experience"
     
     # Biography - English & French
-    bio_en: str = "Radio Haïti Fusion is a dynamic radio station that blends culture, music, and information to inspire and entertain. Rooted in Haitian traditions while embracing global influences, we are a cultural bridge connecting Haitians at home and abroad with the world."
-    bio_fr: str = "Radio Haïti Fusion est une station dynamique qui fusionne culture, musique et information pour inspirer et divertir. Ancrée dans les traditions haïtiennes tout en s'ouvrant aux influences mondiales, elle est un pont culturel reliant les Haïtiens d'ici et d'ailleurs au reste du monde."
+    bio_en: str = "Xtreme Hosting Media is a dynamic media platform that blends culture, music, and information to inspire and entertain. Rooted in Caribbean traditions while embracing global influences, we are a cultural bridge connecting communities worldwide."
+    bio_fr: str = "Xtreme Hosting Media est une plateforme média dynamique qui fusionne culture, musique et information pour inspirer et divertir. Ancrée dans les traditions caribéennes tout en s'ouvrant aux influences mondiales, elle est un pont culturel reliant les communautés du monde entier."
     
     # Mission - English & French  
-    mission_en: str = "Our mission is to inform, inspire, and entertain with diverse programs that reflect Haitian identity while embracing international perspectives. We are committed to unity, positivity, and creativity through every broadcast."
-    mission_fr: str = "Notre mission est d'informer, d'inspirer et de divertir avec une programmation variée qui reflète l'identité haïtienne tout en s'ouvrant aux perspectives internationales. Nous nous engageons à promouvoir l'unité, la positivité et la créativité à travers chacune de nos émissions."
+    mission_en: str = "Our mission is to inform, inspire, and entertain with diverse programs that reflect cultural identity while embracing international perspectives. We are committed to unity, positivity, and creativity through every broadcast."
+    mission_fr: str = "Notre mission est d'informer, d'inspirer et de divertir avec une programmation variée qui reflète l'identité culturelle tout en s'ouvrant aux perspectives internationales. Nous nous engageons à promouvoir l'unité, la positivité et la créativité à travers chacune de nos émissions."
     
     # Vision - English & French
-    vision_en: str = "Our vision is to become the leading Haitian-Caribbean radio station with global influence, recognized for cultural pride, innovation, and community impact — a station without borders where every listener feels connected and inspired."
-    vision_fr: str = "Notre vision est de devenir la principale station haïtiano-caribéenne à rayonnement mondial, reconnue pour sa fierté culturelle, son innovation et son impact communautaire — une radio sans frontières où chaque auditeur se sent connecté et inspiré."
+    vision_en: str = "Our vision is to become the leading multimedia platform with global influence, recognized for cultural pride, innovation, and community impact — a platform without borders where every listener feels connected and inspired."
+    vision_fr: str = "Notre vision est de devenir la principale plateforme multimédia à rayonnement mondial, reconnue pour sa fierté culturelle, son innovation et son impact communautaire — une plateforme sans frontières où chaque auditeur se sent connecté et inspiré."
     
     # Station Details
-    description: str = "Radio Haïti Fusion est une station dynamique qui fusionne culture, musique et information pour inspirer et divertir."
+    description: str = "Xtreme Hosting Media est une plateforme dynamique qui fusionne culture, musique et information pour inspirer et divertir."
     founded_year: int = 2020
     frequency: str = "105.3 FM"
     location: str = "Cap-Haïtien, Haïti"
-    contact_email: str = "info@radiohaitifusion.com"
-    promo_email: str = "haitifusionpromo@gmail.com"
-    website: str = "www.radiohaitifusion.com"
+    contact_email: str = "info@xtremehostingmedia.com"
+    promo_email: str = "promo@xtremehostingmedia.com"
+    website: str = "www.xtremehostingmedia.com"
     whatsapp: str = "5026017368"
     contact_phone: str = "+509 xxxx-xxxx"
 
