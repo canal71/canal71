@@ -1142,6 +1142,15 @@ function App() {
                         <Tv className="w-4 h-4 mr-1" />
                         TV Shows
                       </Button>
+                      
+                      <Button
+                        onClick={() => setShowHostingSection(!showHostingSection)}
+                        size="sm"
+                        className={`${showHostingSection ? 'bg-green-600 hover:bg-green-700' : 'bg-slate-600 hover:bg-slate-700'} text-white`}
+                      >
+                        <Server className="w-4 h-4 mr-1" />
+                        Hosting
+                      </Button>
                     </div>
                   </div>
                 </div>
