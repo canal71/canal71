@@ -2610,7 +2610,7 @@ async def get_support_tickets(status: str = "open"):
                 "description": "Can you help us configure the AutoDJ feature? We want to schedule playlists for overnight hours.",
                 "priority": "medium",
                 "status": "open",
-                "admin_notes": null
+                "admin_notes": None
             }
         ]
         return [SupportTicket(**ticket) for ticket in sample_tickets]
