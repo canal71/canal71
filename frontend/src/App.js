@@ -164,37 +164,96 @@ function App() {
       console.log('WebSocket disconnected');
     };
 
-    // Load initial data
-    loadRadioStatus();
-    loadComments();
-    loadRadioDirectory();
-    loadNowPlaying();
-    loadWeather();
-    loadNews();
-    loadStationInfo();
-    loadDonationInfo();
-    loadDJs();
-    loadShowSchedule();
-    loadSocialMedia();
-    loadLiveStats();
-    loadEmergencyAlerts();
-    loadSongRequests();
-    loadStudioStatus();
-    loadVideoStatus();
-    loadPromotionalVideos();
-    loadAdvertisements();
-    loadChartCategories();
-    loadCharts();
-    loadTriviaLeaderboard();
-    loadBreakingNews();
-    loadPodcastCategories();
-    loadPodcastEpisodes();
-    loadTvChannel();
-    loadTvCategories();
-    loadTvShows();
-    loadTvSchedule();
-    loadHostingPlans();
-    loadHostingStats();
+    // Load critical data first (Stage 1)
+    const loadCriticalData = async () => {
+      try {
+        await Promise.all([
+          loadRadioStatus(),
+          loadNowPlaying(),
+          loadStudioStatus(),
+          loadVideoStatus(),
+          loadLiveStats()
+        ]);
+      } catch (error) {
+        console.error('Failed to load critical data:', error);
+      }
+    };
+
+    // Load content data (Stage 2)  
+    const loadContentData = async () => {
+      try {
+        await Promise.all([
+          loadComments(),
+          loadWeather(),
+          loadNews(),
+          loadStationInfo(),
+          loadSocialMedia(),
+          loadEmergencyAlerts(),
+          loadSongRequests()
+        ]);
+      } catch (error) {
+        console.error('Failed to load content data:', error);
+      }
+    };
+
+    // Load feature data (Stage 3)
+    const loadFeatureData = async () => {
+      try {
+        await Promise.all([
+          loadDJs(),
+          loadShowSchedule(),
+          loadPromotionalVideos(),
+          loadAdvertisements(),
+          loadChartCategories(),
+          loadCharts(),
+          loadTriviaLeaderboard(),
+          loadBreakingNews()
+        ]);
+      } catch (error) {
+        console.error('Failed to load feature data:', error);
+      }
+    };
+
+    // Load multimedia data (Stage 4)
+    const loadMultimediaData = async () => {
+      try {
+        await Promise.all([
+          loadPodcastCategories(),
+          loadPodcastEpisodes(),
+          loadTvChannel(),
+          loadTvCategories(),
+          loadTvShows(),
+          loadTvSchedule()
+        ]);
+      } catch (error) {
+        console.error('Failed to load multimedia data:', error);
+      }
+    };
+
+    // Load hosting data (Stage 5)
+    const loadHostingData = async () => {
+      try {
+        await Promise.all([
+          loadHostingPlans(),
+          loadHostingStats(),
+          loadRadioDirectory(),
+          loadDonationInfo()
+        ]);
+      } catch (error) {
+        console.error('Failed to load hosting data:', error);
+      }
+    };
+
+    // Execute loading in stages with delays
+    const initializeApp = async () => {
+      await loadCriticalData();
+      setTimeout(() => loadContentData(), 100);
+      setTimeout(() => loadFeatureData(), 300);
+      setTimeout(() => loadMultimediaData(), 500);
+      setTimeout(() => loadHostingData(), 700);
+    };
+
+    initializeApp();
 
     return () => {
       if (websocket.readyState === WebSocket.OPEN) {
