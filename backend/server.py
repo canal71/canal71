@@ -2383,6 +2383,240 @@ async def get_featured_tv_shows(limit: int = 5):
     """Get featured TV shows"""
     return await get_tv_shows(featured=True, limit=limit)
 
+# Reseller Stream Hosting API
+@api_router.get("/hosting/plans", response_model=List[StreamingPlan])
+async def get_hosting_plans():
+    """Get available streaming hosting plans"""
+    plans_data = await db.streaming_plans.find().to_list(length=None)
+    
+    if not plans_data:
+        # Sample hosting plans
+        sample_plans = [
+            {
+                "name": "Starter",
+                "description": "Perfect pour les nouvelles stations de radio",
+                "max_listeners": 50,
+                "bandwidth": "128 kbps",
+                "storage_gb": 5,
+                "monthly_price": 29.99,
+                "features": [
+                    "Stream 24/7",
+                    "Panel d'administration",
+                    "Statistiques de base",
+                    "Support email"
+                ],
+                "is_popular": False,
+                "setup_fee": 0.0,
+                "trial_days": 7
+            },
+            {
+                "name": "Professional",
+                "description": "Idéal pour les stations établies",
+                "max_listeners": 150,
+                "bandwidth": "256 kbps",
+                "storage_gb": 15,
+                "monthly_price": 59.99,
+                "features": [
+                    "Stream haute qualité",
+                    "Panel avancé",
+                    "Statistiques détaillées",
+                    "Support prioritaire",
+                    "URLs personnalisées",
+                    "Backup automatique"
+                ],
+                "is_popular": True,
+                "setup_fee": 0.0,
+                "trial_days": 14
+            },
+            {
+                "name": "Enterprise",
+                "description": "Solutions pour grandes stations",
+                "max_listeners": 500,
+                "bandwidth": "320 kbps",
+                "storage_gb": 50,
+                "monthly_price": 129.99,
+                "features": [
+                    "Stream qualité CD",
+                    "Panel enterprise",
+                    "Analytics avancées",
+                    "Support 24/7",
+                    "White label",
+                    "API access",
+                    "Multiple streams",
+                    "CDN global"
+                ],
+                "is_popular": False,
+                "setup_fee": 50.0,
+                "trial_days": 30
+            },
+            {
+                "name": "Premium",
+                "description": "Solution unlimited pour réseaux",
+                "max_listeners": 1000,
+                "bandwidth": "320 kbps",
+                "storage_gb": 100,
+                "monthly_price": 249.99,
+                "features": [
+                    "Listeners illimités*",
+                    "Bande passante premium",
+                    "Stockage étendu",
+                    "Support dédié",
+                    "Intégration personnalisée",
+                    "SLA 99.9%",
+                    "Monitoring avancé",
+                    "Disaster recovery"
+                ],
+                "is_popular": False,
+                "setup_fee": 100.0,
+                "trial_days": 30
+            }
+        ]
+        return [StreamingPlan(**plan) for plan in sample_plans]
+    
+    return [StreamingPlan(**parse_from_mongo(plan)) for plan in plans_data]
+
+@api_router.post("/hosting/signup", response_model=ResellerClient)
+async def create_hosting_client(client_data: ResellerClientCreate):
+    """Sign up new hosting client"""
+    # Generate stream URL and admin panel URL
+    stream_id = str(uuid.uuid4())[:8]
+    
+    client = ResellerClient(
+        **client_data.dict(),
+        stream_url=f"https://stream.xtremehostingmedia.com/{stream_id}/stream",
+        admin_panel_url=f"https://admin.xtremehostingmedia.com/{stream_id}",
+        status="trial",
+        expiry_date=datetime.now(timezone.utc) + timedelta(days=14)  # 14-day trial
+    )
+    
+    mongo_data = prepare_for_mongo(client.dict())
+    await db.reseller_clients.insert_one(mongo_data)
+    
+    return client
+
+@api_router.get("/hosting/clients", response_model=List[ResellerClient])
+async def get_hosting_clients(status: str = "all"):
+    """Get hosting clients (admin only)"""
+    match_filter = {}
+    if status != "all":
+        match_filter["status"] = status
+    
+    clients_data = await db.reseller_clients.find(match_filter).sort("created_date", -1).to_list(length=None)
+    
+    if not clients_data:
+        # Sample clients for demo
+        sample_clients = [
+            {
+                "station_name": "Radio Konpa Classic",
+                "contact_name": "Marie Dubois",
+                "email": "marie@radiokonpa.com",
+                "phone": "+509 3456-7890",
+                "plan_id": "professional",
+                "stream_url": "https://stream.xtremehostingmedia.com/rk001/stream",
+                "admin_panel_url": "https://admin.xtremehostingmedia.com/rk001",
+                "status": "active",
+                "current_listeners": 89,
+                "monthly_bandwidth_gb": 245.6,
+                "notes": "Client fidèle depuis 2 ans"
+            },
+            {
+                "station_name": "Caribbean Beats FM",
+                "contact_name": "Jean-Paul Martin",
+                "email": "jp@caribbeatsfm.com",
+                "phone": "+1 786-555-0123",
+                "plan_id": "starter",
+                "stream_url": "https://stream.xtremehostingmedia.com/cb002/stream",
+                "admin_panel_url": "https://admin.xtremehostingmedia.com/cb002",
+                "status": "trial",
+                "current_listeners": 23,
+                "monthly_bandwidth_gb": 56.2,
+                "notes": "Essai gratuit - expire dans 5 jours"
+            },
+            {
+                "station_name": "Zouk Paradise Radio",
+                "contact_name": "Sandra Joseph",
+                "email": "sandra@zoukparadise.com",
+                "phone": "+590 690-12-34-56",
+                "plan_id": "enterprise",
+                "stream_url": "https://stream.xtremehostingmedia.com/zp003/stream",
+                "admin_panel_url": "https://admin.xtremehostingmedia.com/zp003",
+                "status": "active",
+                "current_listeners": 234,
+                "monthly_bandwidth_gb": 567.8,
+                "notes": "Client premium - support prioritaire"
+            }
+        ]
+        return [ResellerClient(**client) for client in sample_clients]
+    
+    return [ResellerClient(**parse_from_mongo(client)) for client in clients_data]
+
+@api_router.get("/hosting/stats")
+async def get_hosting_overview():
+    """Get hosting business overview"""
+    return {
+        "total_clients": 156,
+        "active_clients": 142,
+        "trial_clients": 8,
+        "suspended_clients": 6,
+        "monthly_revenue": 8745.50,
+        "total_listeners_now": 3250,
+        "bandwidth_used_gb": 1250.75,
+        "uptime_percentage": 99.8,
+        "top_plans": [
+            {"name": "Professional", "clients": 89, "percentage": 57.1},
+            {"name": "Starter", "clients": 45, "percentage": 28.8},
+            {"name": "Enterprise", "clients": 18, "percentage": 11.5},
+            {"name": "Premium", "clients": 4, "percentage": 2.6}
+        ],
+        "recent_signups": 12,
+        "churn_rate": 2.3
+    }
+
+@api_router.post("/hosting/tickets", response_model=SupportTicket)
+async def create_support_ticket(client_id: str, subject: str, description: str, priority: str = "medium"):
+    """Create support ticket"""
+    ticket = SupportTicket(
+        client_id=client_id,
+        subject=subject,
+        description=description,
+        priority=priority
+    )
+    
+    mongo_data = prepare_for_mongo(ticket.dict())
+    await db.support_tickets.insert_one(mongo_data)
+    
+    return ticket
+
+@api_router.get("/hosting/tickets", response_model=List[SupportTicket])
+async def get_support_tickets(status: str = "open"):
+    """Get support tickets"""
+    match_filter = {"status": status} if status != "all" else {}
+    tickets_data = await db.support_tickets.find(match_filter).sort("created_date", -1).to_list(length=None)
+    
+    if not tickets_data:
+        # Sample tickets
+        sample_tickets = [
+            {
+                "client_id": "rk001",
+                "subject": "Stream cutting out intermittently",
+                "description": "Our stream keeps disconnecting every few hours. Listeners are complaining about interruptions.",
+                "priority": "high",
+                "status": "in_progress",
+                "admin_notes": "Investigating server load - may need bandwidth upgrade"
+            },
+            {
+                "client_id": "cb002",
+                "subject": "Need help with autodj setup",
+                "description": "Can you help us configure the AutoDJ feature? We want to schedule playlists for overnight hours.",
+                "priority": "medium",
+                "status": "open",
+                "admin_notes": null
+            }
+        ]
+        return [SupportTicket(**ticket) for ticket in sample_tickets]
+    
+    return [SupportTicket(**parse_from_mongo(ticket)) for ticket in tickets_data]
+
 # Include the router in the main app
 app.include_router(api_router)
 
