@@ -5,7 +5,7 @@ import json
 import sys
 
 def test_tv_api():
-    base_url = "https://radiofusion.preview.emergentagent.com/api"
+    base_url = "https://xtremecast.preview.emergentagent.com/api"
     
     tests = [
         ("GET TV Channel", "GET", f"{base_url}/tv/channel"),
