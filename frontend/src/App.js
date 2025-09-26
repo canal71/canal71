@@ -815,6 +815,60 @@ function App() {
     }
   };
 
+  // Reseller Hosting Functions
+  const loadHostingPlans = async () => {
+    try {
+      const response = await axios.get(`${API}/hosting/plans`);
+      setHostingPlans(response.data);
+    } catch (error) {
+      console.error('Failed to load hosting plans:', error);
+    }
+  };
+
+  const loadHostingStats = async () => {
+    try {
+      const response = await axios.get(`${API}/hosting/stats`);
+      setHostingStats(response.data);
+    } catch (error) {
+      console.error('Failed to load hosting stats:', error);
+    }
+  };
+
+  const loadHostingClients = async () => {
+    try {
+      const response = await axios.get(`${API}/hosting/clients`);
+      setHostingClients(response.data);
+    } catch (error) {
+      console.error('Failed to load hosting clients:', error);
+    }
+  };
+
+  const submitHostingSignup = async (e) => {
+    e.preventDefault();
+    if (!hostingSignupForm.station_name || !hostingSignupForm.contact_name || !hostingSignupForm.email) {
+      alert('Veuillez remplir tous les champs requis.');
+      return;
+    }
+
+    try {
+      const response = await axios.post(`${API}/hosting/signup`, hostingSignupForm);
+      alert(`Bienvenue ${response.data.station_name}! Votre compte a été créé avec succès. Vous recevrez un email avec vos informations de connexion.`);
+      
+      // Reset form
+      setHostingSignupForm({
+        station_name: '',
+        contact_name: '',
+        email: '',
+        phone: '',
+        plan_id: 'professional',
+        notes: ''
+      });
+    } catch (error) {
+      console.error('Failed to create hosting account:', error);
+      alert('Erreur lors de la création du compte. Veuillez réessayer.');
+    }
+  };
+
   // Google AdSense Integration
   useEffect(() => {
     // Add Google AdSense script
