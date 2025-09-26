@@ -2129,7 +2129,7 @@ async def get_tv_shows(category: str = "all", limit: int = 20, featured: bool = 
         # Return sample TV shows
         sample_shows = [
             {
-                "title": "Matin Haiti Fusion TV",
+                "title": "Matin Xtreme Media TV",
                 "description": "Émission matinale avec actualités, interviews et divertissement pour bien commencer la journée.",
                 "category": "variety",
                 "host": "DJ Niko & Kaelle",
