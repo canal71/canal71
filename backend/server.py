@@ -417,6 +417,64 @@ class TVChannel(BaseModel):
     is_live: bool = True
     viewer_count: int = 0
 
+# Reseller Stream Hosting Models
+class StreamingPlan(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name: str
+    description: str
+    max_listeners: int
+    bandwidth: str  # e.g., "128 kbps", "320 kbps"
+    storage_gb: int
+    monthly_price: float
+    features: List[str] = []
+    is_popular: bool = False
+    setup_fee: float = 0.0
+    trial_days: int = 0
+
+class ResellerClient(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    station_name: str
+    contact_name: str
+    email: str
+    phone: Optional[str] = None
+    plan_id: str
+    stream_url: Optional[str] = None
+    admin_panel_url: Optional[str] = None
+    status: str = "active"  # active, suspended, trial, expired
+    created_date: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    expiry_date: Optional[datetime] = None
+    current_listeners: int = 0
+    monthly_bandwidth_gb: float = 0.0
+    notes: Optional[str] = None
+
+class ResellerClientCreate(BaseModel):
+    station_name: str
+    contact_name: str
+    email: str
+    phone: Optional[str] = None
+    plan_id: str
+    notes: Optional[str] = None
+
+class StreamingStats(BaseModel):
+    client_id: str
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    current_listeners: int = 0
+    peak_listeners: int = 0
+    bandwidth_used_mb: float = 0.0
+    uptime_percentage: float = 99.9
+    total_listening_hours: float = 0.0
+
+class SupportTicket(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    client_id: str
+    subject: str
+    description: str
+    priority: str = "medium"  # low, medium, high, urgent
+    status: str = "open"  # open, in_progress, resolved, closed
+    created_date: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    resolved_date: Optional[datetime] = None
+    admin_notes: Optional[str] = None
+
 class LiveStats(BaseModel):
     current_listeners: int = 1247
     peak_today: int = 1856
