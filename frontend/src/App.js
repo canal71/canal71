@@ -1095,6 +1095,66 @@ function App() {
         </Card>
       </div>
 
+      {/* Now Playing Section - Always Visible Under Header */}
+      <div className="px-4 md:px-6 mb-4">
+        <Card className="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 border-orange-500/30">
+          <CardContent className="p-6">
+            <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
+              {/* Album Artwork */}
+              <div className="w-20 h-20 bg-gradient-to-br from-slate-700 to-slate-600 rounded-full shadow-lg flex items-center justify-center border-4 border-orange-400/50 flex-shrink-0">
+                {nowPlaying?.artwork_url ? (
+                  <img 
+                    src={nowPlaying.artwork_url} 
+                    alt="Album Artwork" 
+                    className="w-16 h-16 rounded-full object-cover"
+                    onError={(e) => {
+                      e.target.src = "https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/2zozn1fx_radiohaitifusion.jpg";
+                    }}
+                  />
+                ) : (
+                  <img 
+                    src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/2zozn1fx_radiohaitifusion.jpg" 
+                    alt="Radio Haiti Fusion Logo" 
+                    className="w-16 h-16 rounded-full object-cover"
+                  />
+                )}
+              </div>
+              
+              {/* Song Info */}
+              <div className="flex-1 text-center md:text-left">
+                <h3 className="text-xl font-bold text-white mb-1">
+                  🎵 Maintenant en Direct
+                </h3>
+                <div className="space-y-1">
+                  <p className="text-lg font-semibold text-orange-400">
+                    {nowPlaying?.song || "Mwen Renmen'w"}
+                  </p>
+                  <p className="text-slate-300">
+                    Par: {nowPlaying?.artist || "T-Vice"}
+                  </p>
+                  {nowPlaying?.genre && (
+                    <Badge className="bg-orange-500 text-white">
+                      {nowPlaying.genre}
+                    </Badge>
+                  )}
+                </div>
+              </div>
+              
+              {/* Live Indicator */}
+              <div className="flex flex-col items-center space-y-2">
+                <div className="flex items-center space-x-2">
+                  <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                  <span className="text-red-400 font-semibold text-sm">EN DIRECT</span>
+                </div>
+                <div className="text-slate-400 text-xs">
+                  {new Date().toLocaleTimeString('fr-FR', {hour: '2-digit', minute:'2-digit'})}
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
       {/* News Scroller */}
       {showBreakingNews && (
         <div className="bg-red-600 text-white py-2 overflow-hidden relative border-b border-red-500">
