@@ -615,18 +615,30 @@ async def get_radio_status():
         genre="Compas"
     )
 
+# Global variable to store current playing track
+current_playing_track = {
+    "song": "Mwen Renmen'w",
+    "artist": "T-Vice", 
+    "album": "Best of Compas",
+    "artwork_url": "https://i.scdn.co/image/ab67616d0000b273f3b7b9a1b5b2c1e8d4c0b2a1",
+    "duration": "4:32",
+    "genre": "Compas",
+    "timestamp": datetime.now(timezone.utc).isoformat()
+}
+
 @api_router.get("/now-playing", response_model=NowPlaying)
 async def get_now_playing():
-    # Get the current song info - in production, this would come from your streaming server
-    current_playing = NowPlaying(
-        song="Mwen Renmen'w",
-        artist="T-Vice",
-        album="Best of Compas",
-        artwork_url="https://i.scdn.co/image/ab67616d0000b273f3b7b9a1b5b2c1e8d4c0b2a1",
-        duration="4:32",
-        genre="Compas"
-    )
-    return current_playing
+    # Get the current song info from global variable or database
+    # First, try to get the latest from database
+    latest_track = await db.now_playing.find().sort("timestamp", -1).limit(1).to_list(length=1)
+    
+    if latest_track:
+        # Return the most recent track from database
+        track_data = parse_from_mongo(latest_track[0])
+        return NowPlaying(**track_data)
+    else:
+        # Return default/current playing track
+        return NowPlaying(**current_playing_track)
 
 @api_router.post("/now-playing", response_model=NowPlaying)
 async def update_now_playing(track_info: NowPlayingUpdate):
