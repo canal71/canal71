@@ -193,6 +193,8 @@ function App() {
     loadTvCategories();
     loadTvShows();
     loadTvSchedule();
+    loadHostingPlans();
+    loadHostingStats();
 
     return () => {
       if (websocket.readyState === WebSocket.OPEN) {
