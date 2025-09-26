@@ -626,19 +626,91 @@ current_playing_track = {
     "timestamp": datetime.now(timezone.utc).isoformat()
 }
 
+# Sample songs for auto-rotation
+sample_songs = [
+    {
+        "song": "Pa Manyen",
+        "artist": "Disip",
+        "album": "Haitian Compas Hits",
+        "artwork_url": "https://i.scdn.co/image/ab67616d0000b273a8c2b5d4e1f3c2a9b7e6f4d8",
+        "duration": "3:45",
+        "genre": "Compas"
+    },
+    {
+        "song": "Kite Mwen Viv",
+        "artist": "Sweet Micky",
+        "album": "Konpa Collection",
+        "artwork_url": "https://i.scdn.co/image/ab67616d0000b273c5d8a2f1b4e3c6b9a8e7f5d2",
+        "duration": "4:12",
+        "genre": "Compas"
+    },
+    {
+        "song": "Ayisyen",
+        "artist": "Boukman Eksperyans",
+        "album": "Revolutionnaire",
+        "artwork_url": "https://i.scdn.co/image/ab67616d0000b273b9c3f2e1a8d4c7b5e6f9a2d8",
+        "duration": "5:28",
+        "genre": "Racine"
+    },
+    {
+        "song": "Mwen Renmen'w",
+        "artist": "T-Vice", 
+        "album": "Best of Compas",
+        "artwork_url": "https://i.scdn.co/image/ab67616d0000b273f3b7b9a1b5b2c1e8d4c0b2a1",
+        "duration": "4:32",
+        "genre": "Compas"
+    },
+    {
+        "song": "Lanmou San Manti",
+        "artist": "Tabou Combo",
+        "album": "Classic Compas",
+        "artwork_url": "https://i.scdn.co/image/ab67616d0000b273e2f5c8b1a9d3c4b7e8f6a5d9",
+        "duration": "4:18",
+        "genre": "Compas"
+    },
+    {
+        "song": "Haiti Chérie", 
+        "artist": "Wyclef Jean",
+        "album": "From the Hut, to the Projects",
+        "artwork_url": "https://i.scdn.co/image/ab67616d0000b273d4c7b2a8e5f1c9b6a3e8f2d5",
+        "duration": "3:56",
+        "genre": "Hip-Hop Créole"
+    }
+]
+
+current_song_index = 0
+last_song_change = datetime.now(timezone.utc)
+
 @api_router.get("/now-playing", response_model=NowPlaying)
 async def get_now_playing():
-    # Get the current song info from global variable or database
-    # First, try to get the latest from database
+    global current_song_index, last_song_change, current_playing_track
+    
+    # Auto-rotate songs every 4 minutes (simulate radio)
+    current_time = datetime.now(timezone.utc)
+    if (current_time - last_song_change).total_seconds() > 240:  # 4 minutes
+        current_song_index = (current_song_index + 1) % len(sample_songs)
+        current_playing_track = sample_songs[current_song_index].copy()
+        current_playing_track["timestamp"] = current_time.isoformat()
+        last_song_change = current_time
+        
+        # Broadcast the new track via WebSocket
+        await manager.broadcast(json.dumps({
+            "type": "now_playing_update",
+            "track": current_playing_track
+        }))
+    
+    # First, try to get the latest from database (manual updates)
     latest_track = await db.now_playing.find().sort("timestamp", -1).limit(1).to_list(length=1)
     
     if latest_track:
-        # Return the most recent track from database
-        track_data = parse_from_mongo(latest_track[0])
-        return NowPlaying(**track_data)
-    else:
-        # Return default/current playing track
-        return NowPlaying(**current_playing_track)
+        # Check if database track is newer than auto-rotation
+        db_track = parse_from_mongo(latest_track[0])
+        db_time = datetime.fromisoformat(db_track.get("timestamp", "1970-01-01T00:00:00+00:00"))
+        if db_time > last_song_change:
+            return NowPlaying(**db_track)
+    
+    # Return current auto-rotated track
+    return NowPlaying(**current_playing_track)
 
 @api_router.post("/now-playing", response_model=NowPlaying)
 async def update_now_playing(track_info: NowPlayingUpdate):
