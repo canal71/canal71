@@ -1586,6 +1586,206 @@ function App() {
               </Card>
             )}
 
+            {/* Reseller Stream Hosting Section */}
+            {showHostingSection && (
+              <Card className="bg-gradient-to-r from-green-600/20 to-emerald-600/20 backdrop-blur-sm border-slate-600/50">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                    <Server className="w-5 h-5 mr-2 text-green-500" />
+                    Stream Hosting Solutions
+                  </h3>
+                  
+                  {/* Hosting Stats Overview */}
+                  {hostingStats && (
+                    <div className="mb-6 grid md:grid-cols-4 gap-4">
+                      <div className="bg-slate-700/50 rounded-lg p-3 text-center">
+                        <div className="text-2xl font-bold text-green-400">{hostingStats.active_clients}</div>
+                        <div className="text-slate-300 text-xs">Clients Actifs</div>
+                      </div>
+                      <div className="bg-slate-700/50 rounded-lg p-3 text-center">
+                        <div className="text-2xl font-bold text-blue-400">{hostingStats.total_listeners_now.toLocaleString()}</div>
+                        <div className="text-slate-300 text-xs">Auditeurs Total</div>
+                      </div>
+                      <div className="bg-slate-700/50 rounded-lg p-3 text-center">
+                        <div className="text-2xl font-bold text-yellow-400">${hostingStats.monthly_revenue.toLocaleString()}</div>
+                        <div className="text-slate-300 text-xs">Revenus Mensuels</div>
+                      </div>
+                      <div className="bg-slate-700/50 rounded-lg p-3 text-center">
+                        <div className="text-2xl font-bold text-purple-400">{hostingStats.uptime_percentage}%</div>
+                        <div className="text-slate-300 text-xs">Uptime</div>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Hosting Plans */}
+                  <div className="mb-6">
+                    <h4 className="text-lg font-semibold text-white mb-3">Plans d'Hébergement</h4>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                      {hostingPlans && hostingPlans.map((plan, index) => (
+                        <div key={plan.id || index} className={`bg-slate-700/50 rounded-lg p-4 border-2 transition-all duration-200 hover:border-green-500/50 ${plan.is_popular ? 'border-green-500/50 bg-green-600/10' : 'border-transparent'}`}>
+                          {plan.is_popular && (
+                            <div className="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded mb-2 text-center">
+                              POPULAIRE
+                            </div>
+                          )}
+                          
+                          <h5 className="text-white font-bold text-lg mb-2">{plan.name}</h5>
+                          <p className="text-slate-300 text-sm mb-3">{plan.description}</p>
+                          
+                          <div className="mb-4">
+                            <div className="text-3xl font-bold text-green-400">${plan.monthly_price}</div>
+                            <div className="text-slate-400 text-xs">par mois</div>
+                          </div>
+                          
+                          <div className="space-y-1 mb-4">
+                            <div className="flex justify-between text-sm">
+                              <span className="text-slate-400">Max Auditeurs:</span>
+                              <span className="text-white">{plan.max_listeners}</span>
+                            </div>
+                            <div className="flex justify-between text-sm">
+                              <span className="text-slate-400">Qualité:</span>
+                              <span className="text-white">{plan.bandwidth}</span>
+                            </div>
+                            <div className="flex justify-between text-sm">
+                              <span className="text-slate-400">Stockage:</span>
+                              <span className="text-white">{plan.storage_gb} GB</span>
+                            </div>
+                            {plan.trial_days > 0 && (
+                              <div className="flex justify-between text-sm">
+                                <span className="text-slate-400">Essai gratuit:</span>
+                                <span className="text-green-400">{plan.trial_days} jours</span>
+                              </div>
+                            )}
+                          </div>
+                          
+                          <div className="space-y-1 mb-4">
+                            {plan.features.slice(0, 4).map((feature, fIndex) => (
+                              <div key={fIndex} className="flex items-center text-xs text-slate-300">
+                                <div className="w-1 h-1 bg-green-400 rounded-full mr-2"></div>
+                                {feature}
+                              </div>
+                            ))}
+                          </div>
+                          
+                          <Button
+                            onClick={() => {
+                              setHostingSignupForm({...hostingSignupForm, plan_id: plan.id});
+                              document.getElementById('hosting-signup').scrollIntoView({ behavior: 'smooth' });
+                            }}
+                            className={`w-full ${plan.is_popular ? 'bg-green-600 hover:bg-green-700' : 'bg-slate-600 hover:bg-slate-700'} text-white`}
+                          >
+                            Choisir ce Plan
+                          </Button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* Client Signup Form */}
+                  <div id="hosting-signup" className="bg-slate-700/30 rounded-lg p-4 border border-green-500/30">
+                    <h4 className="text-lg font-semibold text-white mb-3 flex items-center">
+                      <DollarSign className="w-5 h-5 mr-2 text-green-400" />
+                      Commencer Maintenant - Essai Gratuit
+                    </h4>
+                    
+                    <form onSubmit={submitHostingSignup} className="grid md:grid-cols-2 gap-4">
+                      <div className="space-y-3">
+                        <Input
+                          placeholder="Nom de la station *"
+                          value={hostingSignupForm.station_name}
+                          onChange={(e) => setHostingSignupForm({...hostingSignupForm, station_name: e.target.value})}
+                          className="bg-slate-700/60 border-slate-500 text-white placeholder:text-slate-300"
+                          required
+                        />
+                        <Input
+                          placeholder="Nom du contact *"
+                          value={hostingSignupForm.contact_name}
+                          onChange={(e) => setHostingSignupForm({...hostingSignupForm, contact_name: e.target.value})}
+                          className="bg-slate-700/60 border-slate-500 text-white placeholder:text-slate-300"
+                          required
+                        />
+                        <Input
+                          type="email"
+                          placeholder="Email *"
+                          value={hostingSignupForm.email}
+                          onChange={(e) => setHostingSignupForm({...hostingSignupForm, email: e.target.value})}
+                          className="bg-slate-700/60 border-slate-500 text-white placeholder:text-slate-300"
+                          required
+                        />
+                      </div>
+                      
+                      <div className="space-y-3">
+                        <Input
+                          placeholder="Téléphone (optionnel)"
+                          value={hostingSignupForm.phone}
+                          onChange={(e) => setHostingSignupForm({...hostingSignupForm, phone: e.target.value})}
+                          className="bg-slate-700/60 border-slate-500 text-white placeholder:text-slate-300"
+                        />
+                        <select
+                          value={hostingSignupForm.plan_id}
+                          onChange={(e) => setHostingSignupForm({...hostingSignupForm, plan_id: e.target.value})}
+                          className="w-full bg-slate-700/60 border-slate-500 text-white rounded px-3 py-2"
+                        >
+                          {hostingPlans && hostingPlans.map(plan => (
+                            <option key={plan.id} value={plan.id}>
+                              {plan.name} - ${plan.monthly_price}/mois
+                            </option>
+                          ))}
+                        </select>
+                        <textarea
+                          placeholder="Notes ou besoins spéciaux (optionnel)"
+                          value={hostingSignupForm.notes}
+                          onChange={(e) => setHostingSignupForm({...hostingSignupForm, notes: e.target.value})}
+                          className="w-full bg-slate-700/60 border-slate-500 text-white placeholder:text-slate-300 rounded px-3 py-2 text-sm"
+                          rows="2"
+                        />
+                      </div>
+                      
+                      <div className="md:col-span-2">
+                        <Button
+                          type="submit"
+                          className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3"
+                        >
+                          <Server className="w-4 h-4 mr-2" />
+                          Créer mon Compte - Essai Gratuit 14 Jours
+                        </Button>
+                        <p className="text-slate-400 text-xs mt-2 text-center">
+                          * Pas de carte de crédit requise pour l'essai gratuit
+                        </p>
+                      </div>
+                    </form>
+                  </div>
+                  
+                  {/* Business Features */}
+                  <div className="mt-6 grid md:grid-cols-3 gap-4">
+                    <div className="bg-slate-700/30 rounded-lg p-3">
+                      <div className="flex items-center mb-2">
+                        <BarChart3 className="w-4 h-4 text-blue-400 mr-2" />
+                        <h5 className="text-white font-semibold text-sm">Statistiques Avancées</h5>
+                      </div>
+                      <p className="text-slate-300 text-xs">Analyses détaillées des auditeurs, géolocalisation, et rapports de performance.</p>
+                    </div>
+                    
+                    <div className="bg-slate-700/30 rounded-lg p-3">
+                      <div className="flex items-center mb-2">
+                        <Server className="w-4 h-4 text-green-400 mr-2" />
+                        <h5 className="text-white font-semibold text-sm">Infrastructure Robuste</h5>
+                      </div>
+                      <p className="text-slate-300 text-xs">Serveurs redondants, CDN global, et SLA 99.9% pour une diffusion fiable.</p>
+                    </div>
+                    
+                    <div className="bg-slate-700/30 rounded-lg p-3">
+                      <div className="flex items-center mb-2">
+                        <Users className="w-4 h-4 text-purple-400 mr-2" />
+                        <h5 className="text-white font-semibold text-sm">Support Expert</h5>
+                      </div>
+                      <p className="text-slate-300 text-xs">Équipe technique spécialisée, support 24/7, et assistance à la migration.</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+
             {/* Podcast Episodes Section */}
             <Card className="bg-fuchsia-800/40 backdrop-blur-sm border-fuchsia-600/50">
               <CardContent className="p-6">
