@@ -712,6 +712,25 @@ async def get_now_playing():
     # Return current auto-rotated track
     return NowPlaying(**current_playing_track)
 
+@api_router.post("/now-playing/update-current")
+async def update_current_song():
+    """Manually trigger song change for testing"""
+    global current_song_index, last_song_change, current_playing_track
+    
+    # Move to next song
+    current_song_index = (current_song_index + 1) % len(sample_songs)
+    current_playing_track = sample_songs[current_song_index].copy()
+    current_playing_track["timestamp"] = datetime.now(timezone.utc).isoformat()
+    last_song_change = datetime.now(timezone.utc)
+    
+    # Broadcast the new track via WebSocket
+    await manager.broadcast(json.dumps({
+        "type": "now_playing_update", 
+        "track": current_playing_track
+    }))
+    
+    return {"message": "Song updated", "current_song": current_playing_track}
+
 @api_router.post("/now-playing", response_model=NowPlaying)
 async def update_now_playing(track_info: NowPlayingUpdate):
     # Update current playing track - useful for DJ management
