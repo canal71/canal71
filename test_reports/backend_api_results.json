@@ -1,10 +1,10 @@
 {
-  "timestamp": "2025-09-25T00:51:14.945295",
+  "timestamp": "2025-09-26T23:32:26.837728",
   "summary": {
-    "total_tests": 68,
-    "passed_tests": 54,
+    "total_tests": 87,
+    "passed_tests": 73,
     "failed_tests": 14,
-    "success_rate": 79.41176470588235
+    "success_rate": 83.9080459770115
   },
   "test_results": [
     {
@@ -56,10 +56,10 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "1336c60c-bca9-4467-a6d8-7f3b43904bfe",
-        "username": "test_user_1758761469",
+        "id": "d8b17ea6-00a1-4aa1-8caa-aa868cb27111",
+        "username": "test_user_1758929538",
         "message": "This is a test comment for the radio station!",
-        "timestamp": "2025-09-25T00:51:09.625310Z"
+        "timestamp": "2025-09-26T23:32:18.507328Z"
       },
       "error": null
     },
@@ -72,10 +72,10 @@
       "success": true,
       "response_data": [
         {
-          "id": "1336c60c-bca9-4467-a6d8-7f3b43904bfe",
-          "username": "test_user_1758761469",
+          "id": "d8b17ea6-00a1-4aa1-8caa-aa868cb27111",
+          "username": "test_user_1758929538",
           "message": "This is a test comment for the radio station!",
-          "timestamp": "2025-09-25T00:51:09.625310Z"
+          "timestamp": "2025-09-26T23:32:18.507328Z"
         }
       ],
       "error": null
@@ -88,10 +88,10 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "6dfa962e-1721-4958-806f-d3383f55b2ad",
+        "id": "11be5893-e500-4215-8080-e1aa94079b00",
         "username": "Alice",
         "message": "Great music!",
-        "timestamp": "2025-09-25T00:51:09.705685Z"
+        "timestamp": "2025-09-26T23:32:18.584266Z"
       },
       "error": null
     },
@@ -103,10 +103,10 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "69b27925-787b-4c61-949c-f26a2b39cb6a",
+        "id": "282abf71-3712-430a-968f-8cdacabb4b8d",
         "username": "Bob",
         "message": "Love this station!",
-        "timestamp": "2025-09-25T00:51:10.242433Z"
+        "timestamp": "2025-09-26T23:32:19.165299Z"
       },
       "error": null
     },
@@ -118,10 +118,10 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "14661061-01a1-4861-8aba-7ae526e41aba",
+        "id": "c0f055d8-8fcc-4705-a605-60cba83313e3",
         "username": "Charlie",
         "message": "Keep it up!",
-        "timestamp": "2025-09-25T00:51:10.778351Z"
+        "timestamp": "2025-09-26T23:32:19.704339Z"
       },
       "error": null
     },
@@ -266,12 +266,12 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "5e2ac151-36ce-4205-bdc7-f42a5ed363ec",
+        "id": "00e0c71b-d0fd-4f9b-b79a-3bb62d1d73ae",
         "listener_name": "Maria Rodriguez",
         "message_type": "song_request",
         "audio_data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
         "duration": 5.2,
-        "timestamp": "2025-09-25T00:51:11.425625Z",
+        "timestamp": "2025-09-26T23:32:20.383849Z",
         "status": "pending",
         "transcription": null
       },
@@ -311,12 +311,12 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "6d21b40f-8b8a-4185-b9bb-21a7b68377d9",
+        "id": "fb6c5447-256b-4b83-8f23-c23ce354527c",
         "listener_name": "Jean Baptiste",
         "message_type": "song_request",
         "audio_data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
         "duration": 3.5,
-        "timestamp": "2025-09-25T00:51:11.497597Z",
+        "timestamp": "2025-09-26T23:32:20.466406Z",
         "status": "pending",
         "transcription": null
       },
@@ -330,12 +330,12 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "df25273a-e2cf-4518-b936-002fcf01b85f",
+        "id": "c324b97b-7df4-4d0b-b67f-e87c5fc04bad",
         "listener_name": "Marie Claire",
         "message_type": "dedication",
         "audio_data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
         "duration": 7.8,
-        "timestamp": "2025-09-25T00:51:12.033439Z",
+        "timestamp": "2025-09-26T23:32:21.005769Z",
         "status": "pending",
         "transcription": null
       },
@@ -349,12 +349,12 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "8c0c45b6-006e-4b57-9653-5e84d8fa7156",
+        "id": "fb4c3329-164f-461c-900b-c264c96d7a8f",
         "listener_name": "Pierre Louis",
         "message_type": "shoutout",
         "audio_data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
         "duration": 4.2,
-        "timestamp": "2025-09-25T00:51:12.569571Z",
+        "timestamp": "2025-09-26T23:32:21.548767Z",
         "status": "pending",
         "transcription": null
       },
@@ -590,12 +590,12 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "e8cb48b3-502a-4411-8406-c48c93f16a13",
+        "id": "19fc737f-8bbe-4c75-a90f-210aeeae507e",
         "listener_name": "Audio Test User",
         "message_type": "song_request",
         "audio_data": "UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=",
         "duration": 2.5,
-        "timestamp": "2025-09-25T00:51:13.170648Z",
+        "timestamp": "2025-09-26T23:32:22.160070Z",
         "status": "pending",
         "transcription": null
       },
@@ -604,7 +604,7 @@
     {
       "test_name": "Get Voice Message Audio",
       "method": "GET",
-      "endpoint": "voice-messages/e8cb48b3-502a-4411-8406-c48c93f16a13/audio",
+      "endpoint": "voice-messages/19fc737f-8bbe-4c75-a90f-210aeeae507e/audio",
       "expected_status": 200,
       "actual_status": 200,
       "success": true,
@@ -639,7 +639,7 @@
           "genre": null,
           "position": 11,
           "previous_position": null,
-          "votes": 3,
+          "votes": 4,
           "request_count": 0,
           "chart_category": "most_requested",
           "artwork_url": null,
@@ -657,7 +657,7 @@
           "genre": null,
           "position": 11,
           "previous_position": null,
-          "votes": 3,
+          "votes": 4,
           "request_count": 0,
           "chart_category": "most_requested",
           "artwork_url": null,
@@ -679,7 +679,7 @@
       "success": true,
       "response_data": [
         {
-          "id": "1956e388-c106-475a-bf53-4ffe02b41bae",
+          "id": "3375b649-378f-492f-9ab1-9ad8aad0da85",
           "song_title": "Ayiti Cheri",
           "artist": "Manman Brigit",
           "album": null,
@@ -694,10 +694,10 @@
           "youtube_url": null,
           "weeks_on_chart": 3,
           "peak_position": 1,
-          "timestamp": "2025-09-25T00:51:13.351367Z"
+          "timestamp": "2025-09-26T23:32:22.354897Z"
         },
         {
-          "id": "b78e1cca-cfff-4711-a708-74a813def9f7",
+          "id": "1e909330-1f85-40fa-9f53-28b801b59074",
           "song_title": "Nou La",
           "artist": "BIC",
           "album": null,
@@ -712,10 +712,10 @@
           "youtube_url": null,
           "weeks_on_chart": 3,
           "peak_position": 2,
-          "timestamp": "2025-09-25T00:51:13.351383Z"
+          "timestamp": "2025-09-26T23:32:22.354912Z"
         },
         {
-          "id": "b8e69ac6-aeeb-4e4a-9036-84e3ce6af2d1",
+          "id": "784e8e07-5a95-4899-aef1-640619ae6ce7",
           "song_title": "Konpa Gonaives",
           "artist": "Septentrional",
           "album": null,
@@ -730,10 +730,10 @@
           "youtube_url": null,
           "weeks_on_chart": 3,
           "peak_position": 3,
-          "timestamp": "2025-09-25T00:51:13.351390Z"
+          "timestamp": "2025-09-26T23:32:22.354919Z"
         },
         {
-          "id": "c2a46f0e-b961-4021-a3d9-57d5dcb76865",
+          "id": "5eca7a3f-c115-4684-9152-a3ccb42ba502",
           "song_title": "Map Marye",
           "artist": "Tabou Combo",
           "album": null,
@@ -748,10 +748,10 @@
           "youtube_url": null,
           "weeks_on_chart": 3,
           "peak_position": 4,
-          "timestamp": "2025-09-25T00:51:13.351396Z"
+          "timestamp": "2025-09-26T23:32:22.354926Z"
         },
         {
-          "id": "36d0c4b7-ddc3-4cfc-b5df-6f5b64ed48c0",
+          "id": "e7aebc89-82a2-46b4-a3ae-e351d724fc46",
           "song_title": "Kanga",
           "artist": "Boukman Eksperyans",
           "album": null,
@@ -766,7 +766,7 @@
           "youtube_url": null,
           "weeks_on_chart": 3,
           "peak_position": 5,
-          "timestamp": "2025-09-25T00:51:13.351402Z"
+          "timestamp": "2025-09-26T23:32:22.354932Z"
         }
       ],
       "error": null
@@ -814,7 +814,7 @@
       "success": true,
       "response_data": [
         {
-          "id": "12c50113-f56a-4b60-bc9f-665860e609de",
+          "id": "0fc2ba5a-73bd-41a0-9a01-2d32b23041b3",
           "question": "Quel est le rythme musical traditionnel le plus populaire d'Ha\u00efti?",
           "options": [
             "Merengue",
@@ -830,7 +830,7 @@
           "points": 10
         },
         {
-          "id": "4f4f1b6c-d1a2-4c76-8ab0-8f59e1781d98",
+          "id": "77703588-d7c4-4a63-821e-23a07ba8fbeb",
           "question": "Qui est consid\u00e9r\u00e9 comme le 'Roi du Compas'?",
           "options": [
             "Tabou Combo",
@@ -846,7 +846,7 @@
           "points": 10
         },
         {
-          "id": "79846913-b6df-47e6-8268-6bc36d297e5d",
+          "id": "3697a5d1-595c-44fa-b7f2-54ed61dad918",
           "question": "Dans quelle ville se trouve Radio Haiti Fusion?",
           "options": [
             "Cap-Ha\u00eftien",
@@ -862,7 +862,7 @@
           "points": 10
         },
         {
-          "id": "246ca21b-41f9-46ee-8f9c-6e053273b33e",
+          "id": "03836ee4-5231-48c2-851a-84307f0049b1",
           "question": "Quel groupe a popularis\u00e9 la chanson 'Pa Manyen'?",
           "options": [
             "RAM",
@@ -878,7 +878,7 @@
           "points": 10
         },
         {
-          "id": "7a6a29d3-6142-4862-a566-c7eccacd95c1",
+          "id": "f76d0dc8-8cdc-45b8-91cc-f2150f4bc07c",
           "question": "Quelle est la date de l'ind\u00e9pendance d'Ha\u00efti?",
           "options": [
             "1er Janvier 1804",
@@ -905,7 +905,7 @@
       "success": true,
       "response_data": [
         {
-          "id": "67145143-8a63-44b4-8e82-08c7af40ede6",
+          "id": "67c6df35-c8f7-4899-89da-5627d2916d6f",
           "question": "Quel est le rythme musical traditionnel le plus populaire d'Ha\u00efti?",
           "options": [
             "Merengue",
@@ -921,7 +921,7 @@
           "points": 10
         },
         {
-          "id": "4ac02a78-64a2-4dab-97b8-329a75c1d389",
+          "id": "e3672437-c43f-4de6-a8da-a9f38bd8a4d8",
           "question": "Qui est consid\u00e9r\u00e9 comme le 'Roi du Compas'?",
           "options": [
             "Tabou Combo",
@@ -937,7 +937,7 @@
           "points": 10
         },
         {
-          "id": "a19291a9-b76e-45e4-9817-2a6a07710bda",
+          "id": "41e359f7-5633-48b0-af00-c1437f0be155",
           "question": "Dans quelle ville se trouve Radio Haiti Fusion?",
           "options": [
             "Cap-Ha\u00eftien",
@@ -953,7 +953,7 @@
           "points": 10
         },
         {
-          "id": "6e6eb1a4-a039-4f30-be82-80a99db5824b",
+          "id": "709d253e-cbd7-499a-acd0-44d784e3b46f",
           "question": "Quel groupe a popularis\u00e9 la chanson 'Pa Manyen'?",
           "options": [
             "RAM",
@@ -969,7 +969,7 @@
           "points": 10
         },
         {
-          "id": "1008ab64-888e-4735-8adf-838cbc2fd212",
+          "id": "dc4373b7-c86d-4de5-bdfb-7e75910f219a",
           "question": "Quelle est la date de l'ind\u00e9pendance d'Ha\u00efti?",
           "options": [
             "1er Janvier 1804",
@@ -996,7 +996,7 @@
       "success": true,
       "response_data": [
         {
-          "id": "32defb62-cabd-4577-97df-23d8de9f39c6",
+          "id": "c450a9e7-c7b8-4dc7-b511-e4ff0f1348da",
           "question": "Quel est le rythme musical traditionnel le plus populaire d'Ha\u00efti?",
           "options": [
             "Merengue",
@@ -1012,7 +1012,7 @@
           "points": 10
         },
         {
-          "id": "aa30df11-d854-40ec-99a8-f01bb1f77571",
+          "id": "76dcbe52-c64a-47c2-8c02-cdb0a54ecda4",
           "question": "Qui est consid\u00e9r\u00e9 comme le 'Roi du Compas'?",
           "options": [
             "Tabou Combo",
@@ -1028,7 +1028,7 @@
           "points": 10
         },
         {
-          "id": "959bf5b3-ea55-41dc-85d5-ed02acc0548f",
+          "id": "f25ce2a4-399a-437e-abd8-78458fdc52b7",
           "question": "Dans quelle ville se trouve Radio Haiti Fusion?",
           "options": [
             "Cap-Ha\u00eftien",
@@ -1044,7 +1044,7 @@
           "points": 10
         },
         {
-          "id": "7d0dd785-58eb-4325-ae6f-c96aa605f728",
+          "id": "adcada47-86e4-4b38-9c85-5a69e5615b60",
           "question": "Quel groupe a popularis\u00e9 la chanson 'Pa Manyen'?",
           "options": [
             "RAM",
@@ -1060,7 +1060,7 @@
           "points": 10
         },
         {
-          "id": "3dc23246-882b-413c-9d54-8e947913313b",
+          "id": "826f2808-338b-4212-89cc-0367ef607a60",
           "question": "Quelle est la date de l'ind\u00e9pendance d'Ha\u00efti?",
           "options": [
             "1er Janvier 1804",
@@ -1086,11 +1086,11 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "3d347235-962d-4511-a454-f35b0a1055d5",
+        "id": "65114083-9366-4a39-9c74-274c48a25f24",
         "player_name": "Test Player",
         "questions": [
           {
-            "id": "81895c6a-04c6-4a40-8311-9177350cb842",
+            "id": "97d82018-d86b-4b46-9d13-09e32454460a",
             "question": "Quel est le rythme musical traditionnel le plus populaire d'Ha\u00efti?",
             "options": [
               "Merengue",
@@ -1106,7 +1106,7 @@
             "points": 10
           },
           {
-            "id": "06e80c1c-7815-4700-a0f4-e25af3ebe1f1",
+            "id": "e51fffeb-7087-4a6d-8f83-00f5207123d0",
             "question": "Qui est consid\u00e9r\u00e9 comme le 'Roi du Compas'?",
             "options": [
               "Tabou Combo",
@@ -1122,7 +1122,7 @@
             "points": 10
           },
           {
-            "id": "0301a073-c7e6-416c-bc78-f2caaff0fe98",
+            "id": "65cb6050-2442-4feb-9c94-28e387617105",
             "question": "Dans quelle ville se trouve Radio Haiti Fusion?",
             "options": [
               "Cap-Ha\u00eftien",
@@ -1138,7 +1138,7 @@
             "points": 10
           },
           {
-            "id": "222bff6a-5c23-4b34-9e53-6c67419c1f5c",
+            "id": "ea927230-ad57-4c98-9b11-d43e5d524238",
             "question": "Quel groupe a popularis\u00e9 la chanson 'Pa Manyen'?",
             "options": [
               "RAM",
@@ -1154,7 +1154,7 @@
             "points": 10
           },
           {
-            "id": "f2a470da-2ccd-4512-87a2-51ca527b56e7",
+            "id": "eb3531cf-3098-4388-a747-15f3d43c3a9a",
             "question": "Quelle est la date de l'ind\u00e9pendance d'Ha\u00efti?",
             "options": [
               "1er Janvier 1804",
@@ -1175,7 +1175,7 @@
         "lives": 3,
         "category": "mixed",
         "status": "active",
-        "started_at": "2025-09-25T00:51:13.598541Z",
+        "started_at": "2025-09-26T23:32:22.633325Z",
         "completed_at": null
       },
       "error": null
@@ -1188,11 +1188,11 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "55e2e016-123d-4ec0-8e5a-044c1d358ad2",
+        "id": "1cf920f2-c8c8-438e-8173-83e0c64e804b",
         "player_name": "Music Lover",
         "questions": [
           {
-            "id": "68d47cea-74e7-4905-90d2-42fb73ff411c",
+            "id": "fc3bbc74-4597-4183-8a64-a2e4c160c867",
             "question": "Quel est le rythme musical traditionnel le plus populaire d'Ha\u00efti?",
             "options": [
               "Merengue",
@@ -1208,7 +1208,7 @@
             "points": 10
           },
           {
-            "id": "6b6d56fa-4e8f-4f66-872f-d78c9e412090",
+            "id": "178da5b5-1e90-47c4-a135-02f3a683f01d",
             "question": "Qui est consid\u00e9r\u00e9 comme le 'Roi du Compas'?",
             "options": [
               "Tabou Combo",
@@ -1224,7 +1224,7 @@
             "points": 10
           },
           {
-            "id": "21f560b8-0e42-47a0-b091-e2808fedb15c",
+            "id": "10f5a79e-5992-434a-9642-123c50bb8e5b",
             "question": "Dans quelle ville se trouve Radio Haiti Fusion?",
             "options": [
               "Cap-Ha\u00eftien",
@@ -1240,7 +1240,7 @@
             "points": 10
           },
           {
-            "id": "c259b1f2-db2c-473f-aa96-03901100c02b",
+            "id": "07aad318-9015-4bf3-b67e-56d8ab278d74",
             "question": "Quel groupe a popularis\u00e9 la chanson 'Pa Manyen'?",
             "options": [
               "RAM",
@@ -1256,7 +1256,7 @@
             "points": 10
           },
           {
-            "id": "39ffc7a4-66af-4c46-9273-7b95a794e320",
+            "id": "0042035f-2a9e-4a4f-bd6f-a4c203744da6",
             "question": "Quelle est la date de l'ind\u00e9pendance d'Ha\u00efti?",
             "options": [
               "1er Janvier 1804",
@@ -1277,7 +1277,7 @@
         "lives": 3,
         "category": "haitian_music",
         "status": "active",
-        "started_at": "2025-09-25T00:51:13.634347Z",
+        "started_at": "2025-09-26T23:32:22.674619Z",
         "completed_at": null
       },
       "error": null
@@ -1285,7 +1285,7 @@
     {
       "test_name": "Answer Trivia Question (Correct)",
       "method": "POST",
-      "endpoint": "trivia/games/3d347235-962d-4511-a454-f35b0a1055d5/answer?selected_answer=1",
+      "endpoint": "trivia/games/65114083-9366-4a39-9c74-274c48a25f24/answer?selected_answer=1",
       "expected_status": 200,
       "actual_status": 200,
       "success": true,
@@ -1303,7 +1303,7 @@
     {
       "test_name": "Answer Trivia Question (Incorrect)",
       "method": "POST",
-      "endpoint": "trivia/games/3d347235-962d-4511-a454-f35b0a1055d5/answer?selected_answer=2",
+      "endpoint": "trivia/games/65114083-9366-4a39-9c74-274c48a25f24/answer?selected_answer=2",
       "expected_status": 200,
       "actual_status": 200,
       "success": true,
@@ -1390,7 +1390,7 @@
       "success": true,
       "response_data": [
         {
-          "id": "daaf095e-40c5-4e08-8f63-94f321fa8aaa",
+          "id": "69f0d307-0f0a-4784-b53c-8f711e97eeb9",
           "title": "Matin\u00e9e Compas avec DJ Kenley",
           "description": "R\u00e9veillez-vous avec les meilleurs hits compas! DJ Kenley vous pr\u00e9sente une s\u00e9lection exclusive des tubes qui font danser Ha\u00efti.",
           "category": "music_show",
@@ -1398,7 +1398,7 @@
           "duration": "1:45:30",
           "audio_url": "https://example.com/episodes/morning-compas-01.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Morning+Compas",
-          "published_date": "2025-09-25T00:51:13.880951Z",
+          "published_date": "2025-09-26T23:32:22.915669Z",
           "episode_number": 15,
           "season": 1,
           "download_count": 2840,
@@ -1414,7 +1414,7 @@
           "file_size": "95.2 MB"
         },
         {
-          "id": "6857f2fc-77fe-4a31-a932-e52c4c741b2e",
+          "id": "cf228b99-ae34-43fd-a538-4dce8c80dbab",
           "title": "Interview Exclusive avec T-Vice",
           "description": "D\u00e9couvrez l'histoire fascinante du groupe T-Vice, leurs inspirations et leurs projets futurs dans cette interview exclusive.",
           "category": "interview",
@@ -1422,7 +1422,7 @@
           "duration": "42:15",
           "audio_url": "https://example.com/episodes/t-vice-interview.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=T-Vice+Interview",
-          "published_date": "2025-09-25T00:51:13.880970Z",
+          "published_date": "2025-09-26T23:32:22.915689Z",
           "episode_number": 8,
           "season": 2,
           "download_count": 4200,
@@ -1438,7 +1438,7 @@
           "file_size": "38.4 MB"
         },
         {
-          "id": "b377497b-8071-4287-9a9a-a7fdd6464732",
+          "id": "5b4862c3-bb2d-4c71-bfb2-3d9542115c2e",
           "title": "Actualit\u00e9s Ha\u00eftiennes de la Semaine",
           "description": "R\u00e9sum\u00e9 des \u00e9v\u00e9nements marquants de la semaine en Ha\u00efti et dans la diaspora ha\u00eftienne.",
           "category": "news",
@@ -1446,7 +1446,7 @@
           "duration": "28:45",
           "audio_url": "https://example.com/episodes/news-weekly-03.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Actualit\u00e9s",
-          "published_date": "2025-09-25T00:51:13.880977Z",
+          "published_date": "2025-09-26T23:32:22.915696Z",
           "episode_number": 12,
           "season": 1,
           "download_count": 1850,
@@ -1462,7 +1462,7 @@
           "file_size": "26.1 MB"
         },
         {
-          "id": "fc789cc2-1cdb-44ff-b123-8cadfbeab55a",
+          "id": "a731ee4d-713b-44a2-bb63-103219b7036d",
           "title": "Histoire du Compas Direct",
           "description": "Plongez dans l'histoire riche du compas direct, de Nemours Jean-Baptiste aux artistes contemporains.",
           "category": "talk_show",
@@ -1470,7 +1470,7 @@
           "duration": "52:20",
           "audio_url": "https://example.com/episodes/compas-history.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Histoire+Compas",
-          "published_date": "2025-09-25T00:51:13.880996Z",
+          "published_date": "2025-09-26T23:32:22.915701Z",
           "episode_number": 5,
           "season": 1,
           "download_count": 3100,
@@ -1486,7 +1486,7 @@
           "file_size": "47.6 MB"
         },
         {
-          "id": "af955fcc-b882-4f42-8a68-c923a511ffe0",
+          "id": "4e2a58a0-3078-44b9-85ee-e75379ecd686",
           "title": "Mix Zouk & Compas Weekend",
           "description": "Le mix parfait pour vos weekends! Une fusion entre zouk et compas pour faire danser toute la famille.",
           "category": "music_show",
@@ -1494,7 +1494,7 @@
           "duration": "1:20:15",
           "audio_url": "https://example.com/episodes/weekend-mix-02.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Weekend+Mix",
-          "published_date": "2025-09-25T00:51:13.881002Z",
+          "published_date": "2025-09-26T23:32:22.915707Z",
           "episode_number": 22,
           "season": 1,
           "download_count": 3800,
@@ -1522,7 +1522,7 @@
       "success": true,
       "response_data": [
         {
-          "id": "b85c9efa-3c30-4787-86c3-f466b515a740",
+          "id": "6b2f6645-72fd-4a7c-bc15-a8edc90c4218",
           "title": "Matin\u00e9e Compas avec DJ Kenley",
           "description": "R\u00e9veillez-vous avec les meilleurs hits compas! DJ Kenley vous pr\u00e9sente une s\u00e9lection exclusive des tubes qui font danser Ha\u00efti.",
           "category": "music_show",
@@ -1530,7 +1530,7 @@
           "duration": "1:45:30",
           "audio_url": "https://example.com/episodes/morning-compas-01.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Morning+Compas",
-          "published_date": "2025-09-25T00:51:13.916608Z",
+          "published_date": "2025-09-26T23:32:22.952445Z",
           "episode_number": 15,
           "season": 1,
           "download_count": 2840,
@@ -1546,7 +1546,7 @@
           "file_size": "95.2 MB"
         },
         {
-          "id": "811866b1-aaf6-47ae-9106-fed57c04cb8b",
+          "id": "f070d642-3f7c-46af-ae7b-02e74626562a",
           "title": "Interview Exclusive avec T-Vice",
           "description": "D\u00e9couvrez l'histoire fascinante du groupe T-Vice, leurs inspirations et leurs projets futurs dans cette interview exclusive.",
           "category": "interview",
@@ -1554,7 +1554,7 @@
           "duration": "42:15",
           "audio_url": "https://example.com/episodes/t-vice-interview.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=T-Vice+Interview",
-          "published_date": "2025-09-25T00:51:13.916623Z",
+          "published_date": "2025-09-26T23:32:22.952462Z",
           "episode_number": 8,
           "season": 2,
           "download_count": 4200,
@@ -1570,7 +1570,7 @@
           "file_size": "38.4 MB"
         },
         {
-          "id": "8825a2e4-96d7-4588-ab2e-7c1768407643",
+          "id": "4d702017-2271-4e42-acf1-ea44933a38d8",
           "title": "Actualit\u00e9s Ha\u00eftiennes de la Semaine",
           "description": "R\u00e9sum\u00e9 des \u00e9v\u00e9nements marquants de la semaine en Ha\u00efti et dans la diaspora ha\u00eftienne.",
           "category": "news",
@@ -1578,7 +1578,7 @@
           "duration": "28:45",
           "audio_url": "https://example.com/episodes/news-weekly-03.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Actualit\u00e9s",
-          "published_date": "2025-09-25T00:51:13.916629Z",
+          "published_date": "2025-09-26T23:32:22.952469Z",
           "episode_number": 12,
           "season": 1,
           "download_count": 1850,
@@ -1594,7 +1594,7 @@
           "file_size": "26.1 MB"
         },
         {
-          "id": "31f98f5d-59dd-436e-bd53-1df10f3aabfc",
+          "id": "eeda3781-3c04-45f3-856f-03955fc2a21b",
           "title": "Histoire du Compas Direct",
           "description": "Plongez dans l'histoire riche du compas direct, de Nemours Jean-Baptiste aux artistes contemporains.",
           "category": "talk_show",
@@ -1602,7 +1602,7 @@
           "duration": "52:20",
           "audio_url": "https://example.com/episodes/compas-history.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Histoire+Compas",
-          "published_date": "2025-09-25T00:51:13.916634Z",
+          "published_date": "2025-09-26T23:32:22.952475Z",
           "episode_number": 5,
           "season": 1,
           "download_count": 3100,
@@ -1618,7 +1618,7 @@
           "file_size": "47.6 MB"
         },
         {
-          "id": "0d57c19f-21f7-46d8-9938-36098bad50c0",
+          "id": "00feebb7-7d4c-499e-8d9d-916d827c8791",
           "title": "Mix Zouk & Compas Weekend",
           "description": "Le mix parfait pour vos weekends! Une fusion entre zouk et compas pour faire danser toute la famille.",
           "category": "music_show",
@@ -1626,7 +1626,7 @@
           "duration": "1:20:15",
           "audio_url": "https://example.com/episodes/weekend-mix-02.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Weekend+Mix",
-          "published_date": "2025-09-25T00:51:13.916641Z",
+          "published_date": "2025-09-26T23:32:22.952481Z",
           "episode_number": 22,
           "season": 1,
           "download_count": 3800,
@@ -1654,7 +1654,7 @@
       "success": true,
       "response_data": [
         {
-          "id": "deb6c5fd-01c7-4652-b458-e05ea316c665",
+          "id": "cfb6cdca-e8d1-42d9-884c-2151e355fb86",
           "title": "Matin\u00e9e Compas avec DJ Kenley",
           "description": "R\u00e9veillez-vous avec les meilleurs hits compas! DJ Kenley vous pr\u00e9sente une s\u00e9lection exclusive des tubes qui font danser Ha\u00efti.",
           "category": "music_show",
@@ -1662,7 +1662,7 @@
           "duration": "1:45:30",
           "audio_url": "https://example.com/episodes/morning-compas-01.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Morning+Compas",
-          "published_date": "2025-09-25T00:51:13.951743Z",
+          "published_date": "2025-09-26T23:32:22.989319Z",
           "episode_number": 15,
           "season": 1,
           "download_count": 2840,
@@ -1678,7 +1678,7 @@
           "file_size": "95.2 MB"
         },
         {
-          "id": "db569034-9eec-4248-9ae8-d58a99d08b65",
+          "id": "26dd8aa7-16d3-4699-a7dc-d8f3293ed91f",
           "title": "Interview Exclusive avec T-Vice",
           "description": "D\u00e9couvrez l'histoire fascinante du groupe T-Vice, leurs inspirations et leurs projets futurs dans cette interview exclusive.",
           "category": "interview",
@@ -1686,7 +1686,7 @@
           "duration": "42:15",
           "audio_url": "https://example.com/episodes/t-vice-interview.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=T-Vice+Interview",
-          "published_date": "2025-09-25T00:51:13.951757Z",
+          "published_date": "2025-09-26T23:32:22.989336Z",
           "episode_number": 8,
           "season": 2,
           "download_count": 4200,
@@ -1702,7 +1702,7 @@
           "file_size": "38.4 MB"
         },
         {
-          "id": "06ba38de-2637-4ac9-86e0-7a99ec5c71fc",
+          "id": "80e61588-61ef-444d-bbff-6f228f206dfb",
           "title": "Actualit\u00e9s Ha\u00eftiennes de la Semaine",
           "description": "R\u00e9sum\u00e9 des \u00e9v\u00e9nements marquants de la semaine en Ha\u00efti et dans la diaspora ha\u00eftienne.",
           "category": "news",
@@ -1710,7 +1710,7 @@
           "duration": "28:45",
           "audio_url": "https://example.com/episodes/news-weekly-03.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Actualit\u00e9s",
-          "published_date": "2025-09-25T00:51:13.951763Z",
+          "published_date": "2025-09-26T23:32:22.989343Z",
           "episode_number": 12,
           "season": 1,
           "download_count": 1850,
@@ -1726,7 +1726,7 @@
           "file_size": "26.1 MB"
         },
         {
-          "id": "5884207c-164f-45e3-9d35-dd993a11bce3",
+          "id": "1275dd7f-a3d3-4d52-894f-4f19d5754299",
           "title": "Histoire du Compas Direct",
           "description": "Plongez dans l'histoire riche du compas direct, de Nemours Jean-Baptiste aux artistes contemporains.",
           "category": "talk_show",
@@ -1734,7 +1734,7 @@
           "duration": "52:20",
           "audio_url": "https://example.com/episodes/compas-history.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Histoire+Compas",
-          "published_date": "2025-09-25T00:51:13.951769Z",
+          "published_date": "2025-09-26T23:32:22.989349Z",
           "episode_number": 5,
           "season": 1,
           "download_count": 3100,
@@ -1750,7 +1750,7 @@
           "file_size": "47.6 MB"
         },
         {
-          "id": "35259c1d-a136-4f87-bbf9-4d6e3639699f",
+          "id": "07954b43-a317-439b-b4e4-f94b50df3333",
           "title": "Mix Zouk & Compas Weekend",
           "description": "Le mix parfait pour vos weekends! Une fusion entre zouk et compas pour faire danser toute la famille.",
           "category": "music_show",
@@ -1758,7 +1758,7 @@
           "duration": "1:20:15",
           "audio_url": "https://example.com/episodes/weekend-mix-02.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Weekend+Mix",
-          "published_date": "2025-09-25T00:51:13.951775Z",
+          "published_date": "2025-09-26T23:32:22.989355Z",
           "episode_number": 22,
           "season": 1,
           "download_count": 3800,
@@ -1786,7 +1786,7 @@
       "success": true,
       "response_data": [
         {
-          "id": "10e2c668-0991-49e9-a13d-59872387ebc7",
+          "id": "5e84e8f0-b3ac-4a9f-a777-db6c4fea356b",
           "title": "Matin\u00e9e Compas avec DJ Kenley",
           "description": "R\u00e9veillez-vous avec les meilleurs hits compas! DJ Kenley vous pr\u00e9sente une s\u00e9lection exclusive des tubes qui font danser Ha\u00efti.",
           "category": "music_show",
@@ -1794,7 +1794,7 @@
           "duration": "1:45:30",
           "audio_url": "https://example.com/episodes/morning-compas-01.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Morning+Compas",
-          "published_date": "2025-09-25T00:51:13.985856Z",
+          "published_date": "2025-09-26T23:32:23.030998Z",
           "episode_number": 15,
           "season": 1,
           "download_count": 2840,
@@ -1810,7 +1810,7 @@
           "file_size": "95.2 MB"
         },
         {
-          "id": "dbfa7440-73ec-45d2-af3a-485c8c5fa65f",
+          "id": "6acc2469-e6ca-4cff-bd6f-d4a63310ed14",
           "title": "Interview Exclusive avec T-Vice",
           "description": "D\u00e9couvrez l'histoire fascinante du groupe T-Vice, leurs inspirations et leurs projets futurs dans cette interview exclusive.",
           "category": "interview",
@@ -1818,7 +1818,7 @@
           "duration": "42:15",
           "audio_url": "https://example.com/episodes/t-vice-interview.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=T-Vice+Interview",
-          "published_date": "2025-09-25T00:51:13.985869Z",
+          "published_date": "2025-09-26T23:32:23.031016Z",
           "episode_number": 8,
           "season": 2,
           "download_count": 4200,
@@ -1834,7 +1834,7 @@
           "file_size": "38.4 MB"
         },
         {
-          "id": "ec91767d-0159-43ae-8c4c-5da1516bf032",
+          "id": "292deb24-9acf-47d4-9c9c-520bccd4371e",
           "title": "Actualit\u00e9s Ha\u00eftiennes de la Semaine",
           "description": "R\u00e9sum\u00e9 des \u00e9v\u00e9nements marquants de la semaine en Ha\u00efti et dans la diaspora ha\u00eftienne.",
           "category": "news",
@@ -1842,7 +1842,7 @@
           "duration": "28:45",
           "audio_url": "https://example.com/episodes/news-weekly-03.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Actualit\u00e9s",
-          "published_date": "2025-09-25T00:51:13.985875Z",
+          "published_date": "2025-09-26T23:32:23.031023Z",
           "episode_number": 12,
           "season": 1,
           "download_count": 1850,
@@ -1858,7 +1858,7 @@
           "file_size": "26.1 MB"
         },
         {
-          "id": "e9406353-57d0-475b-bbb0-6b2d2a262891",
+          "id": "49abe11b-6d24-40c6-bf94-d99eadf81c52",
           "title": "Histoire du Compas Direct",
           "description": "Plongez dans l'histoire riche du compas direct, de Nemours Jean-Baptiste aux artistes contemporains.",
           "category": "talk_show",
@@ -1866,7 +1866,7 @@
           "duration": "52:20",
           "audio_url": "https://example.com/episodes/compas-history.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Histoire+Compas",
-          "published_date": "2025-09-25T00:51:13.985881Z",
+          "published_date": "2025-09-26T23:32:23.031029Z",
           "episode_number": 5,
           "season": 1,
           "download_count": 3100,
@@ -1882,7 +1882,7 @@
           "file_size": "47.6 MB"
         },
         {
-          "id": "0a57a667-2491-4b98-8beb-e0e63e00ad77",
+          "id": "698927b7-01aa-47bf-919c-62f84614439a",
           "title": "Mix Zouk & Compas Weekend",
           "description": "Le mix parfait pour vos weekends! Une fusion entre zouk et compas pour faire danser toute la famille.",
           "category": "music_show",
@@ -1890,7 +1890,7 @@
           "duration": "1:20:15",
           "audio_url": "https://example.com/episodes/weekend-mix-02.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Weekend+Mix",
-          "published_date": "2025-09-25T00:51:13.985887Z",
+          "published_date": "2025-09-26T23:32:23.031035Z",
           "episode_number": 22,
           "season": 1,
           "download_count": 3800,
@@ -1918,7 +1918,7 @@
       "success": true,
       "response_data": [
         {
-          "id": "868717a5-4b49-45e4-bfac-31fb99743d0d",
+          "id": "7c601079-c9d4-4ffd-a8a6-1cb3a24edcc2",
           "title": "Matin\u00e9e Compas avec DJ Kenley",
           "description": "R\u00e9veillez-vous avec les meilleurs hits compas! DJ Kenley vous pr\u00e9sente une s\u00e9lection exclusive des tubes qui font danser Ha\u00efti.",
           "category": "music_show",
@@ -1926,7 +1926,7 @@
           "duration": "1:45:30",
           "audio_url": "https://example.com/episodes/morning-compas-01.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Morning+Compas",
-          "published_date": "2025-09-25T00:51:14.018627Z",
+          "published_date": "2025-09-26T23:32:23.068977Z",
           "episode_number": 15,
           "season": 1,
           "download_count": 2840,
@@ -1942,7 +1942,7 @@
           "file_size": "95.2 MB"
         },
         {
-          "id": "8476af6f-872e-48a1-b662-555335011d95",
+          "id": "0226ccd7-4da6-4ab6-a658-9c28fb8663f2",
           "title": "Interview Exclusive avec T-Vice",
           "description": "D\u00e9couvrez l'histoire fascinante du groupe T-Vice, leurs inspirations et leurs projets futurs dans cette interview exclusive.",
           "category": "interview",
@@ -1950,7 +1950,7 @@
           "duration": "42:15",
           "audio_url": "https://example.com/episodes/t-vice-interview.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=T-Vice+Interview",
-          "published_date": "2025-09-25T00:51:14.018642Z",
+          "published_date": "2025-09-26T23:32:23.068996Z",
           "episode_number": 8,
           "season": 2,
           "download_count": 4200,
@@ -1966,7 +1966,7 @@
           "file_size": "38.4 MB"
         },
         {
-          "id": "3119c56d-263c-4226-a55a-c5ffedb5e45d",
+          "id": "a53011f7-945a-4145-9a13-da5a16ad94f2",
           "title": "Actualit\u00e9s Ha\u00eftiennes de la Semaine",
           "description": "R\u00e9sum\u00e9 des \u00e9v\u00e9nements marquants de la semaine en Ha\u00efti et dans la diaspora ha\u00eftienne.",
           "category": "news",
@@ -1974,7 +1974,7 @@
           "duration": "28:45",
           "audio_url": "https://example.com/episodes/news-weekly-03.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Actualit\u00e9s",
-          "published_date": "2025-09-25T00:51:14.018649Z",
+          "published_date": "2025-09-26T23:32:23.069003Z",
           "episode_number": 12,
           "season": 1,
           "download_count": 1850,
@@ -1990,7 +1990,7 @@
           "file_size": "26.1 MB"
         },
         {
-          "id": "6d0f5cf6-e347-45e8-930c-05ddc24c59f4",
+          "id": "e970e88b-4ca5-4040-81bf-a9c4f01f01f3",
           "title": "Histoire du Compas Direct",
           "description": "Plongez dans l'histoire riche du compas direct, de Nemours Jean-Baptiste aux artistes contemporains.",
           "category": "talk_show",
@@ -1998,7 +1998,7 @@
           "duration": "52:20",
           "audio_url": "https://example.com/episodes/compas-history.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Histoire+Compas",
-          "published_date": "2025-09-25T00:51:14.018655Z",
+          "published_date": "2025-09-26T23:32:23.069009Z",
           "episode_number": 5,
           "season": 1,
           "download_count": 3100,
@@ -2014,7 +2014,7 @@
           "file_size": "47.6 MB"
         },
         {
-          "id": "46681f3e-f1bb-43c9-a227-fcbfefc6df9a",
+          "id": "6a068d6a-4bf2-46cb-adc5-d0f3897d7b24",
           "title": "Mix Zouk & Compas Weekend",
           "description": "Le mix parfait pour vos weekends! Une fusion entre zouk et compas pour faire danser toute la famille.",
           "category": "music_show",
@@ -2022,7 +2022,7 @@
           "duration": "1:20:15",
           "audio_url": "https://example.com/episodes/weekend-mix-02.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Weekend+Mix",
-          "published_date": "2025-09-25T00:51:14.018661Z",
+          "published_date": "2025-09-26T23:32:23.069015Z",
           "episode_number": 22,
           "season": 1,
           "download_count": 3800,
@@ -2050,7 +2050,7 @@
       "success": true,
       "response_data": [
         {
-          "id": "5aaaf450-61b2-490d-9bb8-cdbed7211ad8",
+          "id": "e035d174-1b00-430d-b985-d10198980c1b",
           "title": "Matin\u00e9e Compas avec DJ Kenley",
           "description": "R\u00e9veillez-vous avec les meilleurs hits compas! DJ Kenley vous pr\u00e9sente une s\u00e9lection exclusive des tubes qui font danser Ha\u00efti.",
           "category": "music_show",
@@ -2058,7 +2058,7 @@
           "duration": "1:45:30",
           "audio_url": "https://example.com/episodes/morning-compas-01.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Morning+Compas",
-          "published_date": "2025-09-25T00:51:14.056868Z",
+          "published_date": "2025-09-26T23:32:23.106255Z",
           "episode_number": 15,
           "season": 1,
           "download_count": 2840,
@@ -2074,7 +2074,7 @@
           "file_size": "95.2 MB"
         },
         {
-          "id": "0f1897ec-fb99-4ab8-9de6-641da997cd5e",
+          "id": "4af44811-b3d0-4a7c-b99e-99e7fc602a43",
           "title": "Interview Exclusive avec T-Vice",
           "description": "D\u00e9couvrez l'histoire fascinante du groupe T-Vice, leurs inspirations et leurs projets futurs dans cette interview exclusive.",
           "category": "interview",
@@ -2082,7 +2082,7 @@
           "duration": "42:15",
           "audio_url": "https://example.com/episodes/t-vice-interview.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=T-Vice+Interview",
-          "published_date": "2025-09-25T00:51:14.056885Z",
+          "published_date": "2025-09-26T23:32:23.106271Z",
           "episode_number": 8,
           "season": 2,
           "download_count": 4200,
@@ -2098,7 +2098,7 @@
           "file_size": "38.4 MB"
         },
         {
-          "id": "ed18420f-a9a5-41e4-b697-fa252b5a99e2",
+          "id": "19ff9489-75a6-42a7-907c-4bd8bd334cdd",
           "title": "Actualit\u00e9s Ha\u00eftiennes de la Semaine",
           "description": "R\u00e9sum\u00e9 des \u00e9v\u00e9nements marquants de la semaine en Ha\u00efti et dans la diaspora ha\u00eftienne.",
           "category": "news",
@@ -2106,7 +2106,7 @@
           "duration": "28:45",
           "audio_url": "https://example.com/episodes/news-weekly-03.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Actualit\u00e9s",
-          "published_date": "2025-09-25T00:51:14.056892Z",
+          "published_date": "2025-09-26T23:32:23.106278Z",
           "episode_number": 12,
           "season": 1,
           "download_count": 1850,
@@ -2122,7 +2122,7 @@
           "file_size": "26.1 MB"
         },
         {
-          "id": "76d904c8-c70e-45dd-a3d0-757a708ea6cc",
+          "id": "674f146e-b7d1-4a41-b1cb-53ecc9bba08e",
           "title": "Histoire du Compas Direct",
           "description": "Plongez dans l'histoire riche du compas direct, de Nemours Jean-Baptiste aux artistes contemporains.",
           "category": "talk_show",
@@ -2130,7 +2130,7 @@
           "duration": "52:20",
           "audio_url": "https://example.com/episodes/compas-history.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Histoire+Compas",
-          "published_date": "2025-09-25T00:51:14.056898Z",
+          "published_date": "2025-09-26T23:32:23.106284Z",
           "episode_number": 5,
           "season": 1,
           "download_count": 3100,
@@ -2146,7 +2146,7 @@
           "file_size": "47.6 MB"
         },
         {
-          "id": "6991ee18-a1a4-4691-9264-c1aaac760dd4",
+          "id": "c7fb56ab-5edb-471c-8d99-228879e5072b",
           "title": "Mix Zouk & Compas Weekend",
           "description": "Le mix parfait pour vos weekends! Une fusion entre zouk et compas pour faire danser toute la famille.",
           "category": "music_show",
@@ -2154,7 +2154,7 @@
           "duration": "1:20:15",
           "audio_url": "https://example.com/episodes/weekend-mix-02.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Weekend+Mix",
-          "published_date": "2025-09-25T00:51:14.056904Z",
+          "published_date": "2025-09-26T23:32:23.106290Z",
           "episode_number": 22,
           "season": 1,
           "download_count": 3800,
@@ -2182,7 +2182,7 @@
       "success": true,
       "response_data": [
         {
-          "id": "614028d0-558b-4cc3-a8a7-99258a487109",
+          "id": "81fe52d0-2c57-4109-9b0d-dc274b4e8be4",
           "title": "Matin\u00e9e Compas avec DJ Kenley",
           "description": "R\u00e9veillez-vous avec les meilleurs hits compas! DJ Kenley vous pr\u00e9sente une s\u00e9lection exclusive des tubes qui font danser Ha\u00efti.",
           "category": "music_show",
@@ -2190,7 +2190,7 @@
           "duration": "1:45:30",
           "audio_url": "https://example.com/episodes/morning-compas-01.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Morning+Compas",
-          "published_date": "2025-09-25T00:51:14.093082Z",
+          "published_date": "2025-09-26T23:32:23.142132Z",
           "episode_number": 15,
           "season": 1,
           "download_count": 2840,
@@ -2206,7 +2206,7 @@
           "file_size": "95.2 MB"
         },
         {
-          "id": "dd7e1cb5-9217-468c-9eb6-3cbdf44379bc",
+          "id": "8caee3d4-2b1a-402c-8304-92a14b8ddb5c",
           "title": "Interview Exclusive avec T-Vice",
           "description": "D\u00e9couvrez l'histoire fascinante du groupe T-Vice, leurs inspirations et leurs projets futurs dans cette interview exclusive.",
           "category": "interview",
@@ -2214,7 +2214,7 @@
           "duration": "42:15",
           "audio_url": "https://example.com/episodes/t-vice-interview.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=T-Vice+Interview",
-          "published_date": "2025-09-25T00:51:14.093096Z",
+          "published_date": "2025-09-26T23:32:23.142150Z",
           "episode_number": 8,
           "season": 2,
           "download_count": 4200,
@@ -2230,7 +2230,7 @@
           "file_size": "38.4 MB"
         },
         {
-          "id": "2fa8d512-f9a1-41c8-8f57-11acdad84777",
+          "id": "7f860416-f039-4200-a545-e6a70e4c4b20",
           "title": "Actualit\u00e9s Ha\u00eftiennes de la Semaine",
           "description": "R\u00e9sum\u00e9 des \u00e9v\u00e9nements marquants de la semaine en Ha\u00efti et dans la diaspora ha\u00eftienne.",
           "category": "news",
@@ -2238,7 +2238,7 @@
           "duration": "28:45",
           "audio_url": "https://example.com/episodes/news-weekly-03.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Actualit\u00e9s",
-          "published_date": "2025-09-25T00:51:14.093103Z",
+          "published_date": "2025-09-26T23:32:23.142156Z",
           "episode_number": 12,
           "season": 1,
           "download_count": 1850,
@@ -2254,7 +2254,7 @@
           "file_size": "26.1 MB"
         },
         {
-          "id": "eaf4c917-dd23-401f-b682-bc5e8f9aa3af",
+          "id": "fc632941-2f61-42f5-81d9-6c67b2434ef4",
           "title": "Histoire du Compas Direct",
           "description": "Plongez dans l'histoire riche du compas direct, de Nemours Jean-Baptiste aux artistes contemporains.",
           "category": "talk_show",
@@ -2262,7 +2262,7 @@
           "duration": "52:20",
           "audio_url": "https://example.com/episodes/compas-history.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Histoire+Compas",
-          "published_date": "2025-09-25T00:51:14.093108Z",
+          "published_date": "2025-09-26T23:32:23.142163Z",
           "episode_number": 5,
           "season": 1,
           "download_count": 3100,
@@ -2278,7 +2278,7 @@
           "file_size": "47.6 MB"
         },
         {
-          "id": "4751ac86-e741-4853-ba0c-a443666ed912",
+          "id": "66d5a4ab-26c0-4428-873d-c159bc629c56",
           "title": "Mix Zouk & Compas Weekend",
           "description": "Le mix parfait pour vos weekends! Une fusion entre zouk et compas pour faire danser toute la famille.",
           "category": "music_show",
@@ -2286,7 +2286,7 @@
           "duration": "1:20:15",
           "audio_url": "https://example.com/episodes/weekend-mix-02.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Weekend+Mix",
-          "published_date": "2025-09-25T00:51:14.093114Z",
+          "published_date": "2025-09-26T23:32:23.142174Z",
           "episode_number": 22,
           "season": 1,
           "download_count": 3800,
@@ -2314,7 +2314,7 @@
       "success": true,
       "response_data": [
         {
-          "id": "1286d4d4-1a67-419d-8522-b7daa6af3933",
+          "id": "48a57617-1aca-44ff-9bbf-238a2899cd3a",
           "title": "Matin\u00e9e Compas avec DJ Kenley",
           "description": "R\u00e9veillez-vous avec les meilleurs hits compas! DJ Kenley vous pr\u00e9sente une s\u00e9lection exclusive des tubes qui font danser Ha\u00efti.",
           "category": "music_show",
@@ -2322,7 +2322,7 @@
           "duration": "1:45:30",
           "audio_url": "https://example.com/episodes/morning-compas-01.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Morning+Compas",
-          "published_date": "2025-09-25T00:51:14.126497Z",
+          "published_date": "2025-09-26T23:32:23.180539Z",
           "episode_number": 15,
           "season": 1,
           "download_count": 2840,
@@ -2338,7 +2338,7 @@
           "file_size": "95.2 MB"
         },
         {
-          "id": "8df5ae81-0452-4020-949c-cd56258a3aae",
+          "id": "911baafe-eb7f-4d6d-8191-010f25e458d4",
           "title": "Interview Exclusive avec T-Vice",
           "description": "D\u00e9couvrez l'histoire fascinante du groupe T-Vice, leurs inspirations et leurs projets futurs dans cette interview exclusive.",
           "category": "interview",
@@ -2346,7 +2346,7 @@
           "duration": "42:15",
           "audio_url": "https://example.com/episodes/t-vice-interview.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=T-Vice+Interview",
-          "published_date": "2025-09-25T00:51:14.126515Z",
+          "published_date": "2025-09-26T23:32:23.180556Z",
           "episode_number": 8,
           "season": 2,
           "download_count": 4200,
@@ -2362,7 +2362,7 @@
           "file_size": "38.4 MB"
         },
         {
-          "id": "5a64e607-f672-4e44-a738-232710f5ba97",
+          "id": "ede08432-1b4f-4a7e-b0ae-12a3cb29ae83",
           "title": "Actualit\u00e9s Ha\u00eftiennes de la Semaine",
           "description": "R\u00e9sum\u00e9 des \u00e9v\u00e9nements marquants de la semaine en Ha\u00efti et dans la diaspora ha\u00eftienne.",
           "category": "news",
@@ -2370,7 +2370,7 @@
           "duration": "28:45",
           "audio_url": "https://example.com/episodes/news-weekly-03.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Actualit\u00e9s",
-          "published_date": "2025-09-25T00:51:14.126521Z",
+          "published_date": "2025-09-26T23:32:23.180562Z",
           "episode_number": 12,
           "season": 1,
           "download_count": 1850,
@@ -2386,7 +2386,7 @@
           "file_size": "26.1 MB"
         },
         {
-          "id": "b6fff46f-5888-4ef6-af55-f3f7e87808af",
+          "id": "412fe8e3-9451-48a8-9cf3-78b4fd1484ce",
           "title": "Histoire du Compas Direct",
           "description": "Plongez dans l'histoire riche du compas direct, de Nemours Jean-Baptiste aux artistes contemporains.",
           "category": "talk_show",
@@ -2394,7 +2394,7 @@
           "duration": "52:20",
           "audio_url": "https://example.com/episodes/compas-history.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Histoire+Compas",
-          "published_date": "2025-09-25T00:51:14.126527Z",
+          "published_date": "2025-09-26T23:32:23.180568Z",
           "episode_number": 5,
           "season": 1,
           "download_count": 3100,
@@ -2410,7 +2410,7 @@
           "file_size": "47.6 MB"
         },
         {
-          "id": "ce645bfc-c02c-483e-a4e2-10fd34744f8b",
+          "id": "bd34fca7-e8a9-44d9-bf9e-81a7a84a59b8",
           "title": "Mix Zouk & Compas Weekend",
           "description": "Le mix parfait pour vos weekends! Une fusion entre zouk et compas pour faire danser toute la famille.",
           "category": "music_show",
@@ -2418,7 +2418,7 @@
           "duration": "1:20:15",
           "audio_url": "https://example.com/episodes/weekend-mix-02.mp3",
           "cover_art": "https://via.placeholder.com/300x300?text=Weekend+Mix",
-          "published_date": "2025-09-25T00:51:14.126533Z",
+          "published_date": "2025-09-26T23:32:23.180574Z",
           "episode_number": 22,
           "season": 1,
           "download_count": 3800,
@@ -2440,7 +2440,7 @@
     {
       "test_name": "Get Specific Episode",
       "method": "GET",
-      "endpoint": "podcasts/episodes/daaf095e-40c5-4e08-8f63-94f321fa8aaa",
+      "endpoint": "podcasts/episodes/69f0d307-0f0a-4784-b53c-8f711e97eeb9",
       "expected_status": 200,
       "actual_status": 404,
       "success": false,
@@ -2464,7 +2464,7 @@
     {
       "test_name": "Get Episode Before Play Track",
       "method": "GET",
-      "endpoint": "podcasts/episodes/daaf095e-40c5-4e08-8f63-94f321fa8aaa",
+      "endpoint": "podcasts/episodes/69f0d307-0f0a-4784-b53c-8f711e97eeb9",
       "expected_status": 200,
       "actual_status": 404,
       "success": false,
@@ -2476,7 +2476,7 @@
     {
       "test_name": "Track Episode Play",
       "method": "POST",
-      "endpoint": "podcasts/episodes/daaf095e-40c5-4e08-8f63-94f321fa8aaa/play",
+      "endpoint": "podcasts/episodes/69f0d307-0f0a-4784-b53c-8f711e97eeb9/play",
       "expected_status": 200,
       "actual_status": 200,
       "success": true,
@@ -2488,7 +2488,7 @@
     {
       "test_name": "Verify Play Count Increased",
       "method": "GET",
-      "endpoint": "podcasts/episodes/daaf095e-40c5-4e08-8f63-94f321fa8aaa",
+      "endpoint": "podcasts/episodes/69f0d307-0f0a-4784-b53c-8f711e97eeb9",
       "expected_status": 200,
       "actual_status": 404,
       "success": false,
@@ -2500,7 +2500,7 @@
     {
       "test_name": "Get Episode Before Download Track",
       "method": "GET",
-      "endpoint": "podcasts/episodes/daaf095e-40c5-4e08-8f63-94f321fa8aaa",
+      "endpoint": "podcasts/episodes/69f0d307-0f0a-4784-b53c-8f711e97eeb9",
       "expected_status": 200,
       "actual_status": 404,
       "success": false,
@@ -2512,7 +2512,7 @@
     {
       "test_name": "Track Episode Download",
       "method": "POST",
-      "endpoint": "podcasts/episodes/daaf095e-40c5-4e08-8f63-94f321fa8aaa/download",
+      "endpoint": "podcasts/episodes/69f0d307-0f0a-4784-b53c-8f711e97eeb9/download",
       "expected_status": 200,
       "actual_status": 200,
       "success": true,
@@ -2524,7 +2524,7 @@
     {
       "test_name": "Verify Download Count Increased",
       "method": "GET",
-      "endpoint": "podcasts/episodes/daaf095e-40c5-4e08-8f63-94f321fa8aaa",
+      "endpoint": "podcasts/episodes/69f0d307-0f0a-4784-b53c-8f711e97eeb9",
       "expected_status": 200,
       "actual_status": 404,
       "success": false,
@@ -2565,9 +2565,9 @@
       "actual_status": 200,
       "success": true,
       "response_data": {
-        "id": "4e97e0ec-fccf-4a8e-9356-7697164f2826",
-        "name": "Radio Haiti Fusion TV",
-        "description": "Cha\u00eene TV officielle de Radio Haiti Fusion - Programmes, \u00e9missions et divertissement ha\u00eftien 24h/24",
+        "id": "d05742dc-5ee5-4759-91a8-00fdb5828aec",
+        "name": "Xtreme Hosting Media TV",
+        "description": "Cha\u00eene TV officielle de Xtreme Hosting Media - Programmes, \u00e9missions et divertissement 24h/24",
         "logo_url": "https://via.placeholder.com/200x100?text=RHF+TV",
         "stream_url": "https://xtremeradiohosting.com/8288/stream",
         "backup_stream_urls": [
@@ -2585,70 +2585,1050 @@
       "method": "GET",
       "endpoint": "tv/shows?category=all",
       "expected_status": 200,
-      "actual_status": 500,
-      "success": false,
-      "response_data": null,
-      "error": "Internal Server Error"
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "23461401-517f-4037-94f6-9135b784805a",
+          "title": "Matin Xtreme Media TV",
+          "description": "\u00c9mission matinale avec actualit\u00e9s, interviews et divertissement pour bien commencer la journ\u00e9e.",
+          "category": "variety",
+          "host": "DJ Niko & Kaelle",
+          "duration": "120:00",
+          "video_url": "https://xtremeradiohosting.com/8288/stream",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Matin+TV",
+          "season": 1,
+          "episode_number": 45,
+          "air_date": "2025-09-26T23:32:23.686494Z",
+          "view_count": 15200,
+          "rating": 4.8,
+          "tags": [
+            "matinale",
+            "actualit\u00e9s",
+            "divertissement"
+          ],
+          "is_live": true,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "5b9a03d0-f16d-49c4-98a7-3e355f5df061",
+          "title": "Culture Krey\u00f2l",
+          "description": "\u00c9mission culturelle explorant les richesses de la culture ha\u00eftienne avec des invit\u00e9s exceptionnels.",
+          "category": "documentary",
+          "host": "Brigitte",
+          "duration": "45:00",
+          "video_url": "https://example.com/culture-kreyol-ep12.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Culture+Kreyol",
+          "season": 2,
+          "episode_number": 12,
+          "air_date": "2025-09-26T23:32:23.686511Z",
+          "view_count": 8900,
+          "rating": 4.9,
+          "tags": [
+            "culture",
+            "tradition",
+            "histoire"
+          ],
+          "is_live": false,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "fc13db73-14ce-45c4-b77d-aa200a90b607",
+          "title": "Compas Live Sessions",
+          "description": "Sessions live avec les meilleurs artistes compas, performances exclusives et interviews.",
+          "category": "music",
+          "host": "Hugo",
+          "duration": "90:00",
+          "video_url": "https://example.com/compas-live-tvice.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Compas+Live",
+          "season": 1,
+          "episode_number": 8,
+          "air_date": "2025-09-26T23:32:23.686518Z",
+          "view_count": 22300,
+          "rating": 4.7,
+          "tags": [
+            "compas",
+            "live",
+            "musique",
+            "artistes"
+          ],
+          "is_live": false,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "afef61e4-75f0-4141-b162-a77bdd960725",
+          "title": "Journal TV Xtreme Media",
+          "description": "Informations compl\u00e8tes sur Haiti et la diaspora, analyses et reportages exclusifs.",
+          "category": "news",
+          "host": "\u00c9quipe Journalisme",
+          "duration": "30:00",
+          "video_url": "https://example.com/journal-tv-today.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Journal+TV",
+          "season": 1,
+          "episode_number": 234,
+          "air_date": "2025-09-26T23:32:23.686524Z",
+          "view_count": 12800,
+          "rating": 4.6,
+          "tags": [
+            "actualit\u00e9s",
+            "haiti",
+            "diaspora"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "4117020b-a500-4869-9a27-0622259a85bd",
+          "title": "Talk Show Dimanche",
+          "description": "Discussions ouvertes sur des sujets d'actualit\u00e9 avec des personnalit\u00e9s influentes.",
+          "category": "talk",
+          "host": "Don Camilo",
+          "duration": "75:00",
+          "video_url": "https://example.com/talk-show-sunday.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Talk+Show",
+          "season": 3,
+          "episode_number": 18,
+          "air_date": "2025-09-26T23:32:23.686530Z",
+          "view_count": 9500,
+          "rating": 4.5,
+          "tags": [
+            "d\u00e9bat",
+            "soci\u00e9t\u00e9",
+            "personnalit\u00e9s"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "0340d262-26d7-4477-b7ef-30aa8ece76fb",
+          "title": "Comedy Haiti",
+          "description": "Spectacle d'humour ha\u00eftien avec les meilleurs com\u00e9diens du pays.",
+          "category": "comedy",
+          "host": "\u00c9quipe Comedy",
+          "duration": "60:00",
+          "video_url": "https://example.com/comedy-haiti-ep5.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Comedy+Haiti",
+          "season": 2,
+          "episode_number": 5,
+          "air_date": "2025-09-26T23:32:23.686536Z",
+          "view_count": 18600,
+          "rating": 4.8,
+          "tags": [
+            "humour",
+            "com\u00e9die",
+            "spectacle"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        }
+      ],
+      "error": null
     },
     {
       "test_name": "Get Variety TV Shows",
       "method": "GET",
       "endpoint": "tv/shows?category=variety",
       "expected_status": 200,
-      "actual_status": 500,
-      "success": false,
-      "response_data": null,
-      "error": "Internal Server Error"
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "534b4f7e-230c-48b6-961e-409e95d1d10a",
+          "title": "Matin Xtreme Media TV",
+          "description": "\u00c9mission matinale avec actualit\u00e9s, interviews et divertissement pour bien commencer la journ\u00e9e.",
+          "category": "variety",
+          "host": "DJ Niko & Kaelle",
+          "duration": "120:00",
+          "video_url": "https://xtremeradiohosting.com/8288/stream",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Matin+TV",
+          "season": 1,
+          "episode_number": 45,
+          "air_date": "2025-09-26T23:32:23.725797Z",
+          "view_count": 15200,
+          "rating": 4.8,
+          "tags": [
+            "matinale",
+            "actualit\u00e9s",
+            "divertissement"
+          ],
+          "is_live": true,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "0d4c082b-a97f-4f32-bf99-94bdadd788b2",
+          "title": "Culture Krey\u00f2l",
+          "description": "\u00c9mission culturelle explorant les richesses de la culture ha\u00eftienne avec des invit\u00e9s exceptionnels.",
+          "category": "documentary",
+          "host": "Brigitte",
+          "duration": "45:00",
+          "video_url": "https://example.com/culture-kreyol-ep12.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Culture+Kreyol",
+          "season": 2,
+          "episode_number": 12,
+          "air_date": "2025-09-26T23:32:23.725814Z",
+          "view_count": 8900,
+          "rating": 4.9,
+          "tags": [
+            "culture",
+            "tradition",
+            "histoire"
+          ],
+          "is_live": false,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "45bec0a3-d449-4abb-a176-0c4aef26530a",
+          "title": "Compas Live Sessions",
+          "description": "Sessions live avec les meilleurs artistes compas, performances exclusives et interviews.",
+          "category": "music",
+          "host": "Hugo",
+          "duration": "90:00",
+          "video_url": "https://example.com/compas-live-tvice.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Compas+Live",
+          "season": 1,
+          "episode_number": 8,
+          "air_date": "2025-09-26T23:32:23.725821Z",
+          "view_count": 22300,
+          "rating": 4.7,
+          "tags": [
+            "compas",
+            "live",
+            "musique",
+            "artistes"
+          ],
+          "is_live": false,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "3c2d8166-3c23-4ec3-9374-56a0c0436520",
+          "title": "Journal TV Xtreme Media",
+          "description": "Informations compl\u00e8tes sur Haiti et la diaspora, analyses et reportages exclusifs.",
+          "category": "news",
+          "host": "\u00c9quipe Journalisme",
+          "duration": "30:00",
+          "video_url": "https://example.com/journal-tv-today.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Journal+TV",
+          "season": 1,
+          "episode_number": 234,
+          "air_date": "2025-09-26T23:32:23.725827Z",
+          "view_count": 12800,
+          "rating": 4.6,
+          "tags": [
+            "actualit\u00e9s",
+            "haiti",
+            "diaspora"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "d6775b49-8b9e-4c36-bffc-322b9e089943",
+          "title": "Talk Show Dimanche",
+          "description": "Discussions ouvertes sur des sujets d'actualit\u00e9 avec des personnalit\u00e9s influentes.",
+          "category": "talk",
+          "host": "Don Camilo",
+          "duration": "75:00",
+          "video_url": "https://example.com/talk-show-sunday.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Talk+Show",
+          "season": 3,
+          "episode_number": 18,
+          "air_date": "2025-09-26T23:32:23.725833Z",
+          "view_count": 9500,
+          "rating": 4.5,
+          "tags": [
+            "d\u00e9bat",
+            "soci\u00e9t\u00e9",
+            "personnalit\u00e9s"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "f399441c-bc89-4255-ab33-40a52559f110",
+          "title": "Comedy Haiti",
+          "description": "Spectacle d'humour ha\u00eftien avec les meilleurs com\u00e9diens du pays.",
+          "category": "comedy",
+          "host": "\u00c9quipe Comedy",
+          "duration": "60:00",
+          "video_url": "https://example.com/comedy-haiti-ep5.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Comedy+Haiti",
+          "season": 2,
+          "episode_number": 5,
+          "air_date": "2025-09-26T23:32:23.725839Z",
+          "view_count": 18600,
+          "rating": 4.8,
+          "tags": [
+            "humour",
+            "com\u00e9die",
+            "spectacle"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        }
+      ],
+      "error": null
     },
     {
       "test_name": "Get News TV Shows",
       "method": "GET",
       "endpoint": "tv/shows?category=news",
       "expected_status": 200,
-      "actual_status": 500,
-      "success": false,
-      "response_data": null,
-      "error": "Internal Server Error"
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "03b28036-a40c-4827-aca3-5c3f29e692c2",
+          "title": "Matin Xtreme Media TV",
+          "description": "\u00c9mission matinale avec actualit\u00e9s, interviews et divertissement pour bien commencer la journ\u00e9e.",
+          "category": "variety",
+          "host": "DJ Niko & Kaelle",
+          "duration": "120:00",
+          "video_url": "https://xtremeradiohosting.com/8288/stream",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Matin+TV",
+          "season": 1,
+          "episode_number": 45,
+          "air_date": "2025-09-26T23:32:23.762119Z",
+          "view_count": 15200,
+          "rating": 4.8,
+          "tags": [
+            "matinale",
+            "actualit\u00e9s",
+            "divertissement"
+          ],
+          "is_live": true,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "f4a3b49c-354f-4540-acdf-ef067f6cf6c0",
+          "title": "Culture Krey\u00f2l",
+          "description": "\u00c9mission culturelle explorant les richesses de la culture ha\u00eftienne avec des invit\u00e9s exceptionnels.",
+          "category": "documentary",
+          "host": "Brigitte",
+          "duration": "45:00",
+          "video_url": "https://example.com/culture-kreyol-ep12.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Culture+Kreyol",
+          "season": 2,
+          "episode_number": 12,
+          "air_date": "2025-09-26T23:32:23.762136Z",
+          "view_count": 8900,
+          "rating": 4.9,
+          "tags": [
+            "culture",
+            "tradition",
+            "histoire"
+          ],
+          "is_live": false,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "54125844-42b5-4c65-bcfb-397f2d67093b",
+          "title": "Compas Live Sessions",
+          "description": "Sessions live avec les meilleurs artistes compas, performances exclusives et interviews.",
+          "category": "music",
+          "host": "Hugo",
+          "duration": "90:00",
+          "video_url": "https://example.com/compas-live-tvice.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Compas+Live",
+          "season": 1,
+          "episode_number": 8,
+          "air_date": "2025-09-26T23:32:23.762142Z",
+          "view_count": 22300,
+          "rating": 4.7,
+          "tags": [
+            "compas",
+            "live",
+            "musique",
+            "artistes"
+          ],
+          "is_live": false,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "2852295f-ea42-4d53-a91b-a3540ec2861e",
+          "title": "Journal TV Xtreme Media",
+          "description": "Informations compl\u00e8tes sur Haiti et la diaspora, analyses et reportages exclusifs.",
+          "category": "news",
+          "host": "\u00c9quipe Journalisme",
+          "duration": "30:00",
+          "video_url": "https://example.com/journal-tv-today.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Journal+TV",
+          "season": 1,
+          "episode_number": 234,
+          "air_date": "2025-09-26T23:32:23.762148Z",
+          "view_count": 12800,
+          "rating": 4.6,
+          "tags": [
+            "actualit\u00e9s",
+            "haiti",
+            "diaspora"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "dfae9370-fedf-4fc7-adab-5d8e330ab112",
+          "title": "Talk Show Dimanche",
+          "description": "Discussions ouvertes sur des sujets d'actualit\u00e9 avec des personnalit\u00e9s influentes.",
+          "category": "talk",
+          "host": "Don Camilo",
+          "duration": "75:00",
+          "video_url": "https://example.com/talk-show-sunday.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Talk+Show",
+          "season": 3,
+          "episode_number": 18,
+          "air_date": "2025-09-26T23:32:23.762155Z",
+          "view_count": 9500,
+          "rating": 4.5,
+          "tags": [
+            "d\u00e9bat",
+            "soci\u00e9t\u00e9",
+            "personnalit\u00e9s"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "2dc664de-fcbd-4e0d-bd8f-7c15330de521",
+          "title": "Comedy Haiti",
+          "description": "Spectacle d'humour ha\u00eftien avec les meilleurs com\u00e9diens du pays.",
+          "category": "comedy",
+          "host": "\u00c9quipe Comedy",
+          "duration": "60:00",
+          "video_url": "https://example.com/comedy-haiti-ep5.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Comedy+Haiti",
+          "season": 2,
+          "episode_number": 5,
+          "air_date": "2025-09-26T23:32:23.762161Z",
+          "view_count": 18600,
+          "rating": 4.8,
+          "tags": [
+            "humour",
+            "com\u00e9die",
+            "spectacle"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        }
+      ],
+      "error": null
     },
     {
       "test_name": "Get Music TV Shows",
       "method": "GET",
       "endpoint": "tv/shows?category=music",
       "expected_status": 200,
-      "actual_status": 500,
-      "success": false,
-      "response_data": null,
-      "error": "Internal Server Error"
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "c1bfd360-ea3b-4a7c-af79-518bc21f9fa7",
+          "title": "Matin Xtreme Media TV",
+          "description": "\u00c9mission matinale avec actualit\u00e9s, interviews et divertissement pour bien commencer la journ\u00e9e.",
+          "category": "variety",
+          "host": "DJ Niko & Kaelle",
+          "duration": "120:00",
+          "video_url": "https://xtremeradiohosting.com/8288/stream",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Matin+TV",
+          "season": 1,
+          "episode_number": 45,
+          "air_date": "2025-09-26T23:32:23.800224Z",
+          "view_count": 15200,
+          "rating": 4.8,
+          "tags": [
+            "matinale",
+            "actualit\u00e9s",
+            "divertissement"
+          ],
+          "is_live": true,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "3721959e-ce69-459b-82df-6accc5a4c9b6",
+          "title": "Culture Krey\u00f2l",
+          "description": "\u00c9mission culturelle explorant les richesses de la culture ha\u00eftienne avec des invit\u00e9s exceptionnels.",
+          "category": "documentary",
+          "host": "Brigitte",
+          "duration": "45:00",
+          "video_url": "https://example.com/culture-kreyol-ep12.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Culture+Kreyol",
+          "season": 2,
+          "episode_number": 12,
+          "air_date": "2025-09-26T23:32:23.800243Z",
+          "view_count": 8900,
+          "rating": 4.9,
+          "tags": [
+            "culture",
+            "tradition",
+            "histoire"
+          ],
+          "is_live": false,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "53642bba-9b0f-4a6d-9f34-7f6d7df8a9a8",
+          "title": "Compas Live Sessions",
+          "description": "Sessions live avec les meilleurs artistes compas, performances exclusives et interviews.",
+          "category": "music",
+          "host": "Hugo",
+          "duration": "90:00",
+          "video_url": "https://example.com/compas-live-tvice.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Compas+Live",
+          "season": 1,
+          "episode_number": 8,
+          "air_date": "2025-09-26T23:32:23.800250Z",
+          "view_count": 22300,
+          "rating": 4.7,
+          "tags": [
+            "compas",
+            "live",
+            "musique",
+            "artistes"
+          ],
+          "is_live": false,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "5b72e4d4-51f8-4551-951b-4e6e37baceb3",
+          "title": "Journal TV Xtreme Media",
+          "description": "Informations compl\u00e8tes sur Haiti et la diaspora, analyses et reportages exclusifs.",
+          "category": "news",
+          "host": "\u00c9quipe Journalisme",
+          "duration": "30:00",
+          "video_url": "https://example.com/journal-tv-today.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Journal+TV",
+          "season": 1,
+          "episode_number": 234,
+          "air_date": "2025-09-26T23:32:23.800257Z",
+          "view_count": 12800,
+          "rating": 4.6,
+          "tags": [
+            "actualit\u00e9s",
+            "haiti",
+            "diaspora"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "00325940-6b26-430e-b8d5-27335cfbaff5",
+          "title": "Talk Show Dimanche",
+          "description": "Discussions ouvertes sur des sujets d'actualit\u00e9 avec des personnalit\u00e9s influentes.",
+          "category": "talk",
+          "host": "Don Camilo",
+          "duration": "75:00",
+          "video_url": "https://example.com/talk-show-sunday.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Talk+Show",
+          "season": 3,
+          "episode_number": 18,
+          "air_date": "2025-09-26T23:32:23.800265Z",
+          "view_count": 9500,
+          "rating": 4.5,
+          "tags": [
+            "d\u00e9bat",
+            "soci\u00e9t\u00e9",
+            "personnalit\u00e9s"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "e416a683-cbea-4e64-9fd7-47d7e20dbc82",
+          "title": "Comedy Haiti",
+          "description": "Spectacle d'humour ha\u00eftien avec les meilleurs com\u00e9diens du pays.",
+          "category": "comedy",
+          "host": "\u00c9quipe Comedy",
+          "duration": "60:00",
+          "video_url": "https://example.com/comedy-haiti-ep5.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Comedy+Haiti",
+          "season": 2,
+          "episode_number": 5,
+          "air_date": "2025-09-26T23:32:23.800272Z",
+          "view_count": 18600,
+          "rating": 4.8,
+          "tags": [
+            "humour",
+            "com\u00e9die",
+            "spectacle"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        }
+      ],
+      "error": null
     },
     {
       "test_name": "Get Talk TV Shows",
       "method": "GET",
       "endpoint": "tv/shows?category=talk",
       "expected_status": 200,
-      "actual_status": 500,
-      "success": false,
-      "response_data": null,
-      "error": "Internal Server Error"
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "32c5e68e-b40e-4d80-8025-3f966d364292",
+          "title": "Matin Xtreme Media TV",
+          "description": "\u00c9mission matinale avec actualit\u00e9s, interviews et divertissement pour bien commencer la journ\u00e9e.",
+          "category": "variety",
+          "host": "DJ Niko & Kaelle",
+          "duration": "120:00",
+          "video_url": "https://xtremeradiohosting.com/8288/stream",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Matin+TV",
+          "season": 1,
+          "episode_number": 45,
+          "air_date": "2025-09-26T23:32:23.835841Z",
+          "view_count": 15200,
+          "rating": 4.8,
+          "tags": [
+            "matinale",
+            "actualit\u00e9s",
+            "divertissement"
+          ],
+          "is_live": true,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "53b0bac2-3868-426a-8561-70fc5657fbe5",
+          "title": "Culture Krey\u00f2l",
+          "description": "\u00c9mission culturelle explorant les richesses de la culture ha\u00eftienne avec des invit\u00e9s exceptionnels.",
+          "category": "documentary",
+          "host": "Brigitte",
+          "duration": "45:00",
+          "video_url": "https://example.com/culture-kreyol-ep12.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Culture+Kreyol",
+          "season": 2,
+          "episode_number": 12,
+          "air_date": "2025-09-26T23:32:23.835859Z",
+          "view_count": 8900,
+          "rating": 4.9,
+          "tags": [
+            "culture",
+            "tradition",
+            "histoire"
+          ],
+          "is_live": false,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "a96cfd8a-84ac-4f89-bc1c-743c39238a51",
+          "title": "Compas Live Sessions",
+          "description": "Sessions live avec les meilleurs artistes compas, performances exclusives et interviews.",
+          "category": "music",
+          "host": "Hugo",
+          "duration": "90:00",
+          "video_url": "https://example.com/compas-live-tvice.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Compas+Live",
+          "season": 1,
+          "episode_number": 8,
+          "air_date": "2025-09-26T23:32:23.835866Z",
+          "view_count": 22300,
+          "rating": 4.7,
+          "tags": [
+            "compas",
+            "live",
+            "musique",
+            "artistes"
+          ],
+          "is_live": false,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "4907af6b-fe3d-4d0a-a794-c94ef3fbc35c",
+          "title": "Journal TV Xtreme Media",
+          "description": "Informations compl\u00e8tes sur Haiti et la diaspora, analyses et reportages exclusifs.",
+          "category": "news",
+          "host": "\u00c9quipe Journalisme",
+          "duration": "30:00",
+          "video_url": "https://example.com/journal-tv-today.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Journal+TV",
+          "season": 1,
+          "episode_number": 234,
+          "air_date": "2025-09-26T23:32:23.835872Z",
+          "view_count": 12800,
+          "rating": 4.6,
+          "tags": [
+            "actualit\u00e9s",
+            "haiti",
+            "diaspora"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "70c9d17a-9e7d-448c-9f70-c728442626c0",
+          "title": "Talk Show Dimanche",
+          "description": "Discussions ouvertes sur des sujets d'actualit\u00e9 avec des personnalit\u00e9s influentes.",
+          "category": "talk",
+          "host": "Don Camilo",
+          "duration": "75:00",
+          "video_url": "https://example.com/talk-show-sunday.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Talk+Show",
+          "season": 3,
+          "episode_number": 18,
+          "air_date": "2025-09-26T23:32:23.835878Z",
+          "view_count": 9500,
+          "rating": 4.5,
+          "tags": [
+            "d\u00e9bat",
+            "soci\u00e9t\u00e9",
+            "personnalit\u00e9s"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "1e79f06d-5737-495f-91c6-f9a68ea8fd2b",
+          "title": "Comedy Haiti",
+          "description": "Spectacle d'humour ha\u00eftien avec les meilleurs com\u00e9diens du pays.",
+          "category": "comedy",
+          "host": "\u00c9quipe Comedy",
+          "duration": "60:00",
+          "video_url": "https://example.com/comedy-haiti-ep5.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Comedy+Haiti",
+          "season": 2,
+          "episode_number": 5,
+          "air_date": "2025-09-26T23:32:23.835885Z",
+          "view_count": 18600,
+          "rating": 4.8,
+          "tags": [
+            "humour",
+            "com\u00e9die",
+            "spectacle"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        }
+      ],
+      "error": null
     },
     {
       "test_name": "Get Documentary TV Shows",
       "method": "GET",
       "endpoint": "tv/shows?category=documentary",
       "expected_status": 200,
-      "actual_status": 500,
-      "success": false,
-      "response_data": null,
-      "error": "Internal Server Error"
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "39265739-ebc2-4cd4-a160-415faad304f1",
+          "title": "Matin Xtreme Media TV",
+          "description": "\u00c9mission matinale avec actualit\u00e9s, interviews et divertissement pour bien commencer la journ\u00e9e.",
+          "category": "variety",
+          "host": "DJ Niko & Kaelle",
+          "duration": "120:00",
+          "video_url": "https://xtremeradiohosting.com/8288/stream",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Matin+TV",
+          "season": 1,
+          "episode_number": 45,
+          "air_date": "2025-09-26T23:32:23.875208Z",
+          "view_count": 15200,
+          "rating": 4.8,
+          "tags": [
+            "matinale",
+            "actualit\u00e9s",
+            "divertissement"
+          ],
+          "is_live": true,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "e9994cb4-ce2a-4922-b480-80421db21163",
+          "title": "Culture Krey\u00f2l",
+          "description": "\u00c9mission culturelle explorant les richesses de la culture ha\u00eftienne avec des invit\u00e9s exceptionnels.",
+          "category": "documentary",
+          "host": "Brigitte",
+          "duration": "45:00",
+          "video_url": "https://example.com/culture-kreyol-ep12.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Culture+Kreyol",
+          "season": 2,
+          "episode_number": 12,
+          "air_date": "2025-09-26T23:32:23.875231Z",
+          "view_count": 8900,
+          "rating": 4.9,
+          "tags": [
+            "culture",
+            "tradition",
+            "histoire"
+          ],
+          "is_live": false,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "e613d313-de29-4ab4-af6f-5abdf067c83f",
+          "title": "Compas Live Sessions",
+          "description": "Sessions live avec les meilleurs artistes compas, performances exclusives et interviews.",
+          "category": "music",
+          "host": "Hugo",
+          "duration": "90:00",
+          "video_url": "https://example.com/compas-live-tvice.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Compas+Live",
+          "season": 1,
+          "episode_number": 8,
+          "air_date": "2025-09-26T23:32:23.875238Z",
+          "view_count": 22300,
+          "rating": 4.7,
+          "tags": [
+            "compas",
+            "live",
+            "musique",
+            "artistes"
+          ],
+          "is_live": false,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "18444dc9-8548-4a20-8c4c-7c06b71ef6eb",
+          "title": "Journal TV Xtreme Media",
+          "description": "Informations compl\u00e8tes sur Haiti et la diaspora, analyses et reportages exclusifs.",
+          "category": "news",
+          "host": "\u00c9quipe Journalisme",
+          "duration": "30:00",
+          "video_url": "https://example.com/journal-tv-today.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Journal+TV",
+          "season": 1,
+          "episode_number": 234,
+          "air_date": "2025-09-26T23:32:23.875244Z",
+          "view_count": 12800,
+          "rating": 4.6,
+          "tags": [
+            "actualit\u00e9s",
+            "haiti",
+            "diaspora"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "ad6d2291-a833-47c0-9f1f-0a3e2b9745f6",
+          "title": "Talk Show Dimanche",
+          "description": "Discussions ouvertes sur des sujets d'actualit\u00e9 avec des personnalit\u00e9s influentes.",
+          "category": "talk",
+          "host": "Don Camilo",
+          "duration": "75:00",
+          "video_url": "https://example.com/talk-show-sunday.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Talk+Show",
+          "season": 3,
+          "episode_number": 18,
+          "air_date": "2025-09-26T23:32:23.875251Z",
+          "view_count": 9500,
+          "rating": 4.5,
+          "tags": [
+            "d\u00e9bat",
+            "soci\u00e9t\u00e9",
+            "personnalit\u00e9s"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "414b36ae-d2d0-4fa5-90d4-734ca3bd73e2",
+          "title": "Comedy Haiti",
+          "description": "Spectacle d'humour ha\u00eftien avec les meilleurs com\u00e9diens du pays.",
+          "category": "comedy",
+          "host": "\u00c9quipe Comedy",
+          "duration": "60:00",
+          "video_url": "https://example.com/comedy-haiti-ep5.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Comedy+Haiti",
+          "season": 2,
+          "episode_number": 5,
+          "air_date": "2025-09-26T23:32:23.875257Z",
+          "view_count": 18600,
+          "rating": 4.8,
+          "tags": [
+            "humour",
+            "com\u00e9die",
+            "spectacle"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        }
+      ],
+      "error": null
     },
     {
       "test_name": "Get Comedy TV Shows",
       "method": "GET",
       "endpoint": "tv/shows?category=comedy",
       "expected_status": 200,
-      "actual_status": 500,
-      "success": false,
-      "response_data": null,
-      "error": "Internal Server Error"
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "4075dc59-1340-4e64-b85c-56068fce90d2",
+          "title": "Matin Xtreme Media TV",
+          "description": "\u00c9mission matinale avec actualit\u00e9s, interviews et divertissement pour bien commencer la journ\u00e9e.",
+          "category": "variety",
+          "host": "DJ Niko & Kaelle",
+          "duration": "120:00",
+          "video_url": "https://xtremeradiohosting.com/8288/stream",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Matin+TV",
+          "season": 1,
+          "episode_number": 45,
+          "air_date": "2025-09-26T23:32:23.911511Z",
+          "view_count": 15200,
+          "rating": 4.8,
+          "tags": [
+            "matinale",
+            "actualit\u00e9s",
+            "divertissement"
+          ],
+          "is_live": true,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "e2a77eee-7644-49b2-95a1-d2f45a0cbeca",
+          "title": "Culture Krey\u00f2l",
+          "description": "\u00c9mission culturelle explorant les richesses de la culture ha\u00eftienne avec des invit\u00e9s exceptionnels.",
+          "category": "documentary",
+          "host": "Brigitte",
+          "duration": "45:00",
+          "video_url": "https://example.com/culture-kreyol-ep12.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Culture+Kreyol",
+          "season": 2,
+          "episode_number": 12,
+          "air_date": "2025-09-26T23:32:23.911529Z",
+          "view_count": 8900,
+          "rating": 4.9,
+          "tags": [
+            "culture",
+            "tradition",
+            "histoire"
+          ],
+          "is_live": false,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "b30c65c6-ba65-4107-863b-781303e1e7e5",
+          "title": "Compas Live Sessions",
+          "description": "Sessions live avec les meilleurs artistes compas, performances exclusives et interviews.",
+          "category": "music",
+          "host": "Hugo",
+          "duration": "90:00",
+          "video_url": "https://example.com/compas-live-tvice.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Compas+Live",
+          "season": 1,
+          "episode_number": 8,
+          "air_date": "2025-09-26T23:32:23.911535Z",
+          "view_count": 22300,
+          "rating": 4.7,
+          "tags": [
+            "compas",
+            "live",
+            "musique",
+            "artistes"
+          ],
+          "is_live": false,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "b4edbee6-c072-45ca-8bb7-df194285e490",
+          "title": "Journal TV Xtreme Media",
+          "description": "Informations compl\u00e8tes sur Haiti et la diaspora, analyses et reportages exclusifs.",
+          "category": "news",
+          "host": "\u00c9quipe Journalisme",
+          "duration": "30:00",
+          "video_url": "https://example.com/journal-tv-today.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Journal+TV",
+          "season": 1,
+          "episode_number": 234,
+          "air_date": "2025-09-26T23:32:23.911542Z",
+          "view_count": 12800,
+          "rating": 4.6,
+          "tags": [
+            "actualit\u00e9s",
+            "haiti",
+            "diaspora"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "dc58c128-2fb0-4c49-ad85-eb1b0fc3beac",
+          "title": "Talk Show Dimanche",
+          "description": "Discussions ouvertes sur des sujets d'actualit\u00e9 avec des personnalit\u00e9s influentes.",
+          "category": "talk",
+          "host": "Don Camilo",
+          "duration": "75:00",
+          "video_url": "https://example.com/talk-show-sunday.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Talk+Show",
+          "season": 3,
+          "episode_number": 18,
+          "air_date": "2025-09-26T23:32:23.911549Z",
+          "view_count": 9500,
+          "rating": 4.5,
+          "tags": [
+            "d\u00e9bat",
+            "soci\u00e9t\u00e9",
+            "personnalit\u00e9s"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "f8edc302-6c13-40c5-aeec-df4470beefb4",
+          "title": "Comedy Haiti",
+          "description": "Spectacle d'humour ha\u00eftien avec les meilleurs com\u00e9diens du pays.",
+          "category": "comedy",
+          "host": "\u00c9quipe Comedy",
+          "duration": "60:00",
+          "video_url": "https://example.com/comedy-haiti-ep5.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Comedy+Haiti",
+          "season": 2,
+          "episode_number": 5,
+          "air_date": "2025-09-26T23:32:23.911555Z",
+          "view_count": 18600,
+          "rating": 4.8,
+          "tags": [
+            "humour",
+            "com\u00e9die",
+            "spectacle"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        }
+      ],
+      "error": null
     },
     {
       "test_name": "Get TV Categories",
@@ -2708,7 +3688,7 @@
       "success": true,
       "response_data": [
         {
-          "id": "e3263b2f-079a-4514-a896-9f18006a40b1",
+          "id": "1cf518f8-3157-4fb6-a2c9-75092749f091",
           "show_title": "Matin Haiti Fusion TV",
           "description": "\u00c9mission matinale avec actualit\u00e9s et divertissement",
           "host": "DJ Niko & Kaelle",
@@ -2720,7 +3700,7 @@
           "is_repeat": false
         },
         {
-          "id": "b4e02b59-3b53-4993-ae64-943e4a12a8ec",
+          "id": "a4debe90-01eb-455e-88a6-4427d4df2eae",
           "show_title": "Journal TV Midi",
           "description": "Actualit\u00e9s de la mi-journ\u00e9e",
           "host": "\u00c9quipe Journalisme",
@@ -2732,7 +3712,7 @@
           "is_repeat": false
         },
         {
-          "id": "093880a4-58d7-41da-9270-9fce45303c9a",
+          "id": "5f009ee4-3808-460d-bcd5-b2181def4260",
           "show_title": "Culture Krey\u00f2l",
           "description": "\u00c9mission culturelle ha\u00eftienne",
           "host": "Brigitte",
@@ -2744,7 +3724,7 @@
           "is_repeat": false
         },
         {
-          "id": "f0de1fe9-c4c9-4156-9b1b-4c8215336cfb",
+          "id": "3c0e40e0-4307-4e22-999f-d05a3c8ad778",
           "show_title": "Compas Live Sessions",
           "description": "Sessions musicales live",
           "host": "Hugo",
@@ -2756,7 +3736,7 @@
           "is_repeat": false
         },
         {
-          "id": "c8bb8e1b-d9de-405f-b651-6004305ee0cd",
+          "id": "e929caaf-976d-473d-b85c-e840cba394fe",
           "show_title": "Talk Show Dimanche",
           "description": "Discussions et d\u00e9bats du dimanche",
           "host": "Don Camilo",
@@ -2775,20 +3755,612 @@
       "method": "GET",
       "endpoint": "tv/featured",
       "expected_status": 200,
-      "actual_status": 500,
-      "success": false,
-      "response_data": null,
-      "error": "Internal Server Error"
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "e5acb45e-6fbc-4443-be03-8e3f08be6b04",
+          "title": "Matin Xtreme Media TV",
+          "description": "\u00c9mission matinale avec actualit\u00e9s, interviews et divertissement pour bien commencer la journ\u00e9e.",
+          "category": "variety",
+          "host": "DJ Niko & Kaelle",
+          "duration": "120:00",
+          "video_url": "https://xtremeradiohosting.com/8288/stream",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Matin+TV",
+          "season": 1,
+          "episode_number": 45,
+          "air_date": "2025-09-26T23:32:24.026197Z",
+          "view_count": 15200,
+          "rating": 4.8,
+          "tags": [
+            "matinale",
+            "actualit\u00e9s",
+            "divertissement"
+          ],
+          "is_live": true,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "bc192f53-0c9e-48a7-824e-86f86f34da94",
+          "title": "Culture Krey\u00f2l",
+          "description": "\u00c9mission culturelle explorant les richesses de la culture ha\u00eftienne avec des invit\u00e9s exceptionnels.",
+          "category": "documentary",
+          "host": "Brigitte",
+          "duration": "45:00",
+          "video_url": "https://example.com/culture-kreyol-ep12.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Culture+Kreyol",
+          "season": 2,
+          "episode_number": 12,
+          "air_date": "2025-09-26T23:32:24.026221Z",
+          "view_count": 8900,
+          "rating": 4.9,
+          "tags": [
+            "culture",
+            "tradition",
+            "histoire"
+          ],
+          "is_live": false,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "6c8d83db-b17c-4577-94ca-eece91674313",
+          "title": "Compas Live Sessions",
+          "description": "Sessions live avec les meilleurs artistes compas, performances exclusives et interviews.",
+          "category": "music",
+          "host": "Hugo",
+          "duration": "90:00",
+          "video_url": "https://example.com/compas-live-tvice.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Compas+Live",
+          "season": 1,
+          "episode_number": 8,
+          "air_date": "2025-09-26T23:32:24.026229Z",
+          "view_count": 22300,
+          "rating": 4.7,
+          "tags": [
+            "compas",
+            "live",
+            "musique",
+            "artistes"
+          ],
+          "is_live": false,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "15c9f507-b616-44bb-a276-a1695d0ab87d",
+          "title": "Journal TV Xtreme Media",
+          "description": "Informations compl\u00e8tes sur Haiti et la diaspora, analyses et reportages exclusifs.",
+          "category": "news",
+          "host": "\u00c9quipe Journalisme",
+          "duration": "30:00",
+          "video_url": "https://example.com/journal-tv-today.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Journal+TV",
+          "season": 1,
+          "episode_number": 234,
+          "air_date": "2025-09-26T23:32:24.026236Z",
+          "view_count": 12800,
+          "rating": 4.6,
+          "tags": [
+            "actualit\u00e9s",
+            "haiti",
+            "diaspora"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "1a61ba49-fec2-4a3d-9d13-a6bae0c74397",
+          "title": "Talk Show Dimanche",
+          "description": "Discussions ouvertes sur des sujets d'actualit\u00e9 avec des personnalit\u00e9s influentes.",
+          "category": "talk",
+          "host": "Don Camilo",
+          "duration": "75:00",
+          "video_url": "https://example.com/talk-show-sunday.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Talk+Show",
+          "season": 3,
+          "episode_number": 18,
+          "air_date": "2025-09-26T23:32:24.026244Z",
+          "view_count": 9500,
+          "rating": 4.5,
+          "tags": [
+            "d\u00e9bat",
+            "soci\u00e9t\u00e9",
+            "personnalit\u00e9s"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "7fa2eebc-127e-423e-b5b3-c8e7e523493e",
+          "title": "Comedy Haiti",
+          "description": "Spectacle d'humour ha\u00eftien avec les meilleurs com\u00e9diens du pays.",
+          "category": "comedy",
+          "host": "\u00c9quipe Comedy",
+          "duration": "60:00",
+          "video_url": "https://example.com/comedy-haiti-ep5.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Comedy+Haiti",
+          "season": 2,
+          "episode_number": 5,
+          "air_date": "2025-09-26T23:32:24.026250Z",
+          "view_count": 18600,
+          "rating": 4.8,
+          "tags": [
+            "humour",
+            "com\u00e9die",
+            "spectacle"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        }
+      ],
+      "error": null
     },
     {
       "test_name": "Get TV Shows (Featured Filter)",
       "method": "GET",
       "endpoint": "tv/shows?featured=true",
       "expected_status": 200,
-      "actual_status": 500,
-      "success": false,
-      "response_data": null,
-      "error": "Internal Server Error"
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "33df2791-1228-481d-b01f-723d039d2b81",
+          "title": "Matin Xtreme Media TV",
+          "description": "\u00c9mission matinale avec actualit\u00e9s, interviews et divertissement pour bien commencer la journ\u00e9e.",
+          "category": "variety",
+          "host": "DJ Niko & Kaelle",
+          "duration": "120:00",
+          "video_url": "https://xtremeradiohosting.com/8288/stream",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Matin+TV",
+          "season": 1,
+          "episode_number": 45,
+          "air_date": "2025-09-26T23:32:24.064919Z",
+          "view_count": 15200,
+          "rating": 4.8,
+          "tags": [
+            "matinale",
+            "actualit\u00e9s",
+            "divertissement"
+          ],
+          "is_live": true,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "6820f0f1-c0af-43fd-9863-f52bb9dad118",
+          "title": "Culture Krey\u00f2l",
+          "description": "\u00c9mission culturelle explorant les richesses de la culture ha\u00eftienne avec des invit\u00e9s exceptionnels.",
+          "category": "documentary",
+          "host": "Brigitte",
+          "duration": "45:00",
+          "video_url": "https://example.com/culture-kreyol-ep12.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Culture+Kreyol",
+          "season": 2,
+          "episode_number": 12,
+          "air_date": "2025-09-26T23:32:24.064935Z",
+          "view_count": 8900,
+          "rating": 4.9,
+          "tags": [
+            "culture",
+            "tradition",
+            "histoire"
+          ],
+          "is_live": false,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "ce44f89b-d0d4-4374-8404-bee6bc88c931",
+          "title": "Compas Live Sessions",
+          "description": "Sessions live avec les meilleurs artistes compas, performances exclusives et interviews.",
+          "category": "music",
+          "host": "Hugo",
+          "duration": "90:00",
+          "video_url": "https://example.com/compas-live-tvice.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Compas+Live",
+          "season": 1,
+          "episode_number": 8,
+          "air_date": "2025-09-26T23:32:24.064942Z",
+          "view_count": 22300,
+          "rating": 4.7,
+          "tags": [
+            "compas",
+            "live",
+            "musique",
+            "artistes"
+          ],
+          "is_live": false,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "4c5f6614-76da-4c61-b85b-8f262f28f2fe",
+          "title": "Journal TV Xtreme Media",
+          "description": "Informations compl\u00e8tes sur Haiti et la diaspora, analyses et reportages exclusifs.",
+          "category": "news",
+          "host": "\u00c9quipe Journalisme",
+          "duration": "30:00",
+          "video_url": "https://example.com/journal-tv-today.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Journal+TV",
+          "season": 1,
+          "episode_number": 234,
+          "air_date": "2025-09-26T23:32:24.064948Z",
+          "view_count": 12800,
+          "rating": 4.6,
+          "tags": [
+            "actualit\u00e9s",
+            "haiti",
+            "diaspora"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "aef3d986-6c06-4dd4-8fbc-0656aeaf18f8",
+          "title": "Talk Show Dimanche",
+          "description": "Discussions ouvertes sur des sujets d'actualit\u00e9 avec des personnalit\u00e9s influentes.",
+          "category": "talk",
+          "host": "Don Camilo",
+          "duration": "75:00",
+          "video_url": "https://example.com/talk-show-sunday.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Talk+Show",
+          "season": 3,
+          "episode_number": 18,
+          "air_date": "2025-09-26T23:32:24.064954Z",
+          "view_count": 9500,
+          "rating": 4.5,
+          "tags": [
+            "d\u00e9bat",
+            "soci\u00e9t\u00e9",
+            "personnalit\u00e9s"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "8c9112f3-b9d9-4327-981f-ab559279fff4",
+          "title": "Comedy Haiti",
+          "description": "Spectacle d'humour ha\u00eftien avec les meilleurs com\u00e9diens du pays.",
+          "category": "comedy",
+          "host": "\u00c9quipe Comedy",
+          "duration": "60:00",
+          "video_url": "https://example.com/comedy-haiti-ep5.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Comedy+Haiti",
+          "season": 2,
+          "episode_number": 5,
+          "air_date": "2025-09-26T23:32:24.064961Z",
+          "view_count": 18600,
+          "rating": 4.8,
+          "tags": [
+            "humour",
+            "com\u00e9die",
+            "spectacle"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        }
+      ],
+      "error": null
+    },
+    {
+      "test_name": "Get TV Shows Before View Track",
+      "method": "GET",
+      "endpoint": "tv/shows?category=all",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "06887830-ec01-45c6-ac63-40e8c2a10f44",
+          "title": "Matin Xtreme Media TV",
+          "description": "\u00c9mission matinale avec actualit\u00e9s, interviews et divertissement pour bien commencer la journ\u00e9e.",
+          "category": "variety",
+          "host": "DJ Niko & Kaelle",
+          "duration": "120:00",
+          "video_url": "https://xtremeradiohosting.com/8288/stream",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Matin+TV",
+          "season": 1,
+          "episode_number": 45,
+          "air_date": "2025-09-26T23:32:24.100553Z",
+          "view_count": 15200,
+          "rating": 4.8,
+          "tags": [
+            "matinale",
+            "actualit\u00e9s",
+            "divertissement"
+          ],
+          "is_live": true,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "f93350ed-c16f-44f8-9cd2-d5f492e6a0b0",
+          "title": "Culture Krey\u00f2l",
+          "description": "\u00c9mission culturelle explorant les richesses de la culture ha\u00eftienne avec des invit\u00e9s exceptionnels.",
+          "category": "documentary",
+          "host": "Brigitte",
+          "duration": "45:00",
+          "video_url": "https://example.com/culture-kreyol-ep12.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Culture+Kreyol",
+          "season": 2,
+          "episode_number": 12,
+          "air_date": "2025-09-26T23:32:24.100571Z",
+          "view_count": 8900,
+          "rating": 4.9,
+          "tags": [
+            "culture",
+            "tradition",
+            "histoire"
+          ],
+          "is_live": false,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "98b9eef3-9f98-4e76-9161-06b9c639566b",
+          "title": "Compas Live Sessions",
+          "description": "Sessions live avec les meilleurs artistes compas, performances exclusives et interviews.",
+          "category": "music",
+          "host": "Hugo",
+          "duration": "90:00",
+          "video_url": "https://example.com/compas-live-tvice.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Compas+Live",
+          "season": 1,
+          "episode_number": 8,
+          "air_date": "2025-09-26T23:32:24.100577Z",
+          "view_count": 22300,
+          "rating": 4.7,
+          "tags": [
+            "compas",
+            "live",
+            "musique",
+            "artistes"
+          ],
+          "is_live": false,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "ca5e6c48-2269-4cf1-8c08-5f8f7916f17b",
+          "title": "Journal TV Xtreme Media",
+          "description": "Informations compl\u00e8tes sur Haiti et la diaspora, analyses et reportages exclusifs.",
+          "category": "news",
+          "host": "\u00c9quipe Journalisme",
+          "duration": "30:00",
+          "video_url": "https://example.com/journal-tv-today.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Journal+TV",
+          "season": 1,
+          "episode_number": 234,
+          "air_date": "2025-09-26T23:32:24.100584Z",
+          "view_count": 12800,
+          "rating": 4.6,
+          "tags": [
+            "actualit\u00e9s",
+            "haiti",
+            "diaspora"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "dfc56a5e-db46-46f8-92b6-b2c642e28913",
+          "title": "Talk Show Dimanche",
+          "description": "Discussions ouvertes sur des sujets d'actualit\u00e9 avec des personnalit\u00e9s influentes.",
+          "category": "talk",
+          "host": "Don Camilo",
+          "duration": "75:00",
+          "video_url": "https://example.com/talk-show-sunday.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Talk+Show",
+          "season": 3,
+          "episode_number": 18,
+          "air_date": "2025-09-26T23:32:24.100590Z",
+          "view_count": 9500,
+          "rating": 4.5,
+          "tags": [
+            "d\u00e9bat",
+            "soci\u00e9t\u00e9",
+            "personnalit\u00e9s"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "d4e607c3-8b42-41c2-b8e0-995f8b206c68",
+          "title": "Comedy Haiti",
+          "description": "Spectacle d'humour ha\u00eftien avec les meilleurs com\u00e9diens du pays.",
+          "category": "comedy",
+          "host": "\u00c9quipe Comedy",
+          "duration": "60:00",
+          "video_url": "https://example.com/comedy-haiti-ep5.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Comedy+Haiti",
+          "season": 2,
+          "episode_number": 5,
+          "air_date": "2025-09-26T23:32:24.100595Z",
+          "view_count": 18600,
+          "rating": 4.8,
+          "tags": [
+            "humour",
+            "com\u00e9die",
+            "spectacle"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        }
+      ],
+      "error": null
+    },
+    {
+      "test_name": "Track TV Show View",
+      "method": "POST",
+      "endpoint": "tv/shows/23461401-517f-4037-94f6-9135b784805a/view",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "message": "View count updated"
+      },
+      "error": null
+    },
+    {
+      "test_name": "Verify TV View Count Increased",
+      "method": "GET",
+      "endpoint": "tv/shows?category=all",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "bed62a4f-c4f3-40df-b5ca-42e925c03f39",
+          "title": "Matin Xtreme Media TV",
+          "description": "\u00c9mission matinale avec actualit\u00e9s, interviews et divertissement pour bien commencer la journ\u00e9e.",
+          "category": "variety",
+          "host": "DJ Niko & Kaelle",
+          "duration": "120:00",
+          "video_url": "https://xtremeradiohosting.com/8288/stream",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Matin+TV",
+          "season": 1,
+          "episode_number": 45,
+          "air_date": "2025-09-26T23:32:24.177425Z",
+          "view_count": 15200,
+          "rating": 4.8,
+          "tags": [
+            "matinale",
+            "actualit\u00e9s",
+            "divertissement"
+          ],
+          "is_live": true,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "8c9c1764-8715-4afd-8a1c-8e955f6b91da",
+          "title": "Culture Krey\u00f2l",
+          "description": "\u00c9mission culturelle explorant les richesses de la culture ha\u00eftienne avec des invit\u00e9s exceptionnels.",
+          "category": "documentary",
+          "host": "Brigitte",
+          "duration": "45:00",
+          "video_url": "https://example.com/culture-kreyol-ep12.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Culture+Kreyol",
+          "season": 2,
+          "episode_number": 12,
+          "air_date": "2025-09-26T23:32:24.177440Z",
+          "view_count": 8900,
+          "rating": 4.9,
+          "tags": [
+            "culture",
+            "tradition",
+            "histoire"
+          ],
+          "is_live": false,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "cffebdee-ba8d-41cf-8056-03cd81fcb48c",
+          "title": "Compas Live Sessions",
+          "description": "Sessions live avec les meilleurs artistes compas, performances exclusives et interviews.",
+          "category": "music",
+          "host": "Hugo",
+          "duration": "90:00",
+          "video_url": "https://example.com/compas-live-tvice.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Compas+Live",
+          "season": 1,
+          "episode_number": 8,
+          "air_date": "2025-09-26T23:32:24.177446Z",
+          "view_count": 22300,
+          "rating": 4.7,
+          "tags": [
+            "compas",
+            "live",
+            "musique",
+            "artistes"
+          ],
+          "is_live": false,
+          "is_featured": true,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "b24b75b5-35d2-47f2-b055-f0588e24de1e",
+          "title": "Journal TV Xtreme Media",
+          "description": "Informations compl\u00e8tes sur Haiti et la diaspora, analyses et reportages exclusifs.",
+          "category": "news",
+          "host": "\u00c9quipe Journalisme",
+          "duration": "30:00",
+          "video_url": "https://example.com/journal-tv-today.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Journal+TV",
+          "season": 1,
+          "episode_number": 234,
+          "air_date": "2025-09-26T23:32:24.177453Z",
+          "view_count": 12800,
+          "rating": 4.6,
+          "tags": [
+            "actualit\u00e9s",
+            "haiti",
+            "diaspora"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "eb35885a-f5fd-4f10-86ac-238e475076eb",
+          "title": "Talk Show Dimanche",
+          "description": "Discussions ouvertes sur des sujets d'actualit\u00e9 avec des personnalit\u00e9s influentes.",
+          "category": "talk",
+          "host": "Don Camilo",
+          "duration": "75:00",
+          "video_url": "https://example.com/talk-show-sunday.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Talk+Show",
+          "season": 3,
+          "episode_number": 18,
+          "air_date": "2025-09-26T23:32:24.177458Z",
+          "view_count": 9500,
+          "rating": 4.5,
+          "tags": [
+            "d\u00e9bat",
+            "soci\u00e9t\u00e9",
+            "personnalit\u00e9s"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        },
+        {
+          "id": "9b09085a-4e2c-4631-a8ce-fddd19708f65",
+          "title": "Comedy Haiti",
+          "description": "Spectacle d'humour ha\u00eftien avec les meilleurs com\u00e9diens du pays.",
+          "category": "comedy",
+          "host": "\u00c9quipe Comedy",
+          "duration": "60:00",
+          "video_url": "https://example.com/comedy-haiti-ep5.mp4",
+          "thumbnail_url": "https://via.placeholder.com/400x225?text=Comedy+Haiti",
+          "season": 2,
+          "episode_number": 5,
+          "air_date": "2025-09-26T23:32:24.177464Z",
+          "view_count": 18600,
+          "rating": 4.8,
+          "tags": [
+            "humour",
+            "com\u00e9die",
+            "spectacle"
+          ],
+          "is_live": false,
+          "is_featured": false,
+          "language": "fran\u00e7ais"
+        }
+      ],
+      "error": null
     },
     {
       "test_name": "Track TV View (Non-existent Show)",
@@ -2803,6 +4375,485 @@
       "error": null
     },
     {
+      "test_name": "Get Hosting Plans",
+      "method": "GET",
+      "endpoint": "hosting/plans",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "eafe62c9-1788-4731-8665-007e00b8b1ce",
+          "name": "Starter",
+          "description": "Perfect pour les nouvelles stations de radio",
+          "max_listeners": 50,
+          "bandwidth": "128 kbps",
+          "storage_gb": 5,
+          "monthly_price": 29.99,
+          "features": [
+            "Stream 24/7",
+            "Panel d'administration",
+            "Statistiques de base",
+            "Support email"
+          ],
+          "is_popular": false,
+          "setup_fee": 0.0,
+          "trial_days": 7
+        },
+        {
+          "id": "717a653d-916e-4cf5-aee2-eb0b1a70521e",
+          "name": "Professional",
+          "description": "Id\u00e9al pour les stations \u00e9tablies",
+          "max_listeners": 150,
+          "bandwidth": "256 kbps",
+          "storage_gb": 15,
+          "monthly_price": 59.99,
+          "features": [
+            "Stream haute qualit\u00e9",
+            "Panel avanc\u00e9",
+            "Statistiques d\u00e9taill\u00e9es",
+            "Support prioritaire",
+            "URLs personnalis\u00e9es",
+            "Backup automatique"
+          ],
+          "is_popular": true,
+          "setup_fee": 0.0,
+          "trial_days": 14
+        },
+        {
+          "id": "cc906034-ee02-44df-af5c-98a7fc2de62d",
+          "name": "Enterprise",
+          "description": "Solutions pour grandes stations",
+          "max_listeners": 500,
+          "bandwidth": "320 kbps",
+          "storage_gb": 50,
+          "monthly_price": 129.99,
+          "features": [
+            "Stream qualit\u00e9 CD",
+            "Panel enterprise",
+            "Analytics avanc\u00e9es",
+            "Support 24/7",
+            "White label",
+            "API access",
+            "Multiple streams",
+            "CDN global"
+          ],
+          "is_popular": false,
+          "setup_fee": 50.0,
+          "trial_days": 30
+        },
+        {
+          "id": "c3f0e3de-915d-4611-9295-438d5be07bd0",
+          "name": "Premium",
+          "description": "Solution unlimited pour r\u00e9seaux",
+          "max_listeners": 1000,
+          "bandwidth": "320 kbps",
+          "storage_gb": 100,
+          "monthly_price": 249.99,
+          "features": [
+            "Listeners illimit\u00e9s*",
+            "Bande passante premium",
+            "Stockage \u00e9tendu",
+            "Support d\u00e9di\u00e9",
+            "Int\u00e9gration personnalis\u00e9e",
+            "SLA 99.9%",
+            "Monitoring avanc\u00e9",
+            "Disaster recovery"
+          ],
+          "is_popular": false,
+          "setup_fee": 100.0,
+          "trial_days": 30
+        }
+      ],
+      "error": null
+    },
+    {
+      "test_name": "Get Hosting Stats",
+      "method": "GET",
+      "endpoint": "hosting/stats",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "total_clients": 156,
+        "active_clients": 142,
+        "trial_clients": 8,
+        "suspended_clients": 6,
+        "monthly_revenue": 8745.5,
+        "total_listeners_now": 3250,
+        "bandwidth_used_gb": 1250.75,
+        "uptime_percentage": 99.8,
+        "top_plans": [
+          {
+            "name": "Professional",
+            "clients": 89,
+            "percentage": 57.1
+          },
+          {
+            "name": "Starter",
+            "clients": 45,
+            "percentage": 28.8
+          },
+          {
+            "name": "Enterprise",
+            "clients": 18,
+            "percentage": 11.5
+          },
+          {
+            "name": "Premium",
+            "clients": 4,
+            "percentage": 2.6
+          }
+        ],
+        "recent_signups": 12,
+        "churn_rate": 2.3
+      },
+      "error": null
+    },
+    {
+      "test_name": "Get All Hosting Clients",
+      "method": "GET",
+      "endpoint": "hosting/clients?status=all",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "efe87dc0-2510-41fa-920d-ead6db069540",
+          "station_name": "Radio Konpa Classic",
+          "contact_name": "Marie Dubois",
+          "email": "marie@radiokonpa.com",
+          "phone": "+509 3456-7890",
+          "plan_id": "professional",
+          "stream_url": "https://stream.xtremehostingmedia.com/rk001/stream",
+          "admin_panel_url": "https://admin.xtremehostingmedia.com/rk001",
+          "status": "active",
+          "created_date": "2025-09-26T23:32:24.327951Z",
+          "expiry_date": null,
+          "current_listeners": 89,
+          "monthly_bandwidth_gb": 245.6,
+          "notes": "Client fid\u00e8le depuis 2 ans"
+        },
+        {
+          "id": "d579a621-5cd8-4ba9-9c30-f170b8ec7676",
+          "station_name": "Caribbean Beats FM",
+          "contact_name": "Jean-Paul Martin",
+          "email": "jp@caribbeatsfm.com",
+          "phone": "+1 786-555-0123",
+          "plan_id": "starter",
+          "stream_url": "https://stream.xtremehostingmedia.com/cb002/stream",
+          "admin_panel_url": "https://admin.xtremehostingmedia.com/cb002",
+          "status": "trial",
+          "created_date": "2025-09-26T23:32:24.327968Z",
+          "expiry_date": null,
+          "current_listeners": 23,
+          "monthly_bandwidth_gb": 56.2,
+          "notes": "Essai gratuit - expire dans 5 jours"
+        },
+        {
+          "id": "b8827387-4eec-4123-b507-143d3d3bfae5",
+          "station_name": "Zouk Paradise Radio",
+          "contact_name": "Sandra Joseph",
+          "email": "sandra@zoukparadise.com",
+          "phone": "+590 690-12-34-56",
+          "plan_id": "enterprise",
+          "stream_url": "https://stream.xtremehostingmedia.com/zp003/stream",
+          "admin_panel_url": "https://admin.xtremehostingmedia.com/zp003",
+          "status": "active",
+          "created_date": "2025-09-26T23:32:24.327975Z",
+          "expiry_date": null,
+          "current_listeners": 234,
+          "monthly_bandwidth_gb": 567.8,
+          "notes": "Client premium - support prioritaire"
+        }
+      ],
+      "error": null
+    },
+    {
+      "test_name": "Get Active Hosting Clients",
+      "method": "GET",
+      "endpoint": "hosting/clients?status=active",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "8f92ef05-54fa-4a1e-a8a1-9a33dfeed97b",
+          "station_name": "Radio Konpa Classic",
+          "contact_name": "Marie Dubois",
+          "email": "marie@radiokonpa.com",
+          "phone": "+509 3456-7890",
+          "plan_id": "professional",
+          "stream_url": "https://stream.xtremehostingmedia.com/rk001/stream",
+          "admin_panel_url": "https://admin.xtremehostingmedia.com/rk001",
+          "status": "active",
+          "created_date": "2025-09-26T23:32:24.364621Z",
+          "expiry_date": null,
+          "current_listeners": 89,
+          "monthly_bandwidth_gb": 245.6,
+          "notes": "Client fid\u00e8le depuis 2 ans"
+        },
+        {
+          "id": "5b872cac-8e65-4cda-89d3-02879e501a69",
+          "station_name": "Caribbean Beats FM",
+          "contact_name": "Jean-Paul Martin",
+          "email": "jp@caribbeatsfm.com",
+          "phone": "+1 786-555-0123",
+          "plan_id": "starter",
+          "stream_url": "https://stream.xtremehostingmedia.com/cb002/stream",
+          "admin_panel_url": "https://admin.xtremehostingmedia.com/cb002",
+          "status": "trial",
+          "created_date": "2025-09-26T23:32:24.364636Z",
+          "expiry_date": null,
+          "current_listeners": 23,
+          "monthly_bandwidth_gb": 56.2,
+          "notes": "Essai gratuit - expire dans 5 jours"
+        },
+        {
+          "id": "7a48f233-75ff-4606-8826-2b86ebd63983",
+          "station_name": "Zouk Paradise Radio",
+          "contact_name": "Sandra Joseph",
+          "email": "sandra@zoukparadise.com",
+          "phone": "+590 690-12-34-56",
+          "plan_id": "enterprise",
+          "stream_url": "https://stream.xtremehostingmedia.com/zp003/stream",
+          "admin_panel_url": "https://admin.xtremehostingmedia.com/zp003",
+          "status": "active",
+          "created_date": "2025-09-26T23:32:24.364642Z",
+          "expiry_date": null,
+          "current_listeners": 234,
+          "monthly_bandwidth_gb": 567.8,
+          "notes": "Client premium - support prioritaire"
+        }
+      ],
+      "error": null
+    },
+    {
+      "test_name": "Get Trial Hosting Clients",
+      "method": "GET",
+      "endpoint": "hosting/clients?status=trial",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": [
+        {
+          "id": "92bab745-f689-4f37-a77f-5f794d1ceb36",
+          "station_name": "Radio Konpa Classic",
+          "contact_name": "Marie Dubois",
+          "email": "marie@radiokonpa.com",
+          "phone": "+509 3456-7890",
+          "plan_id": "professional",
+          "stream_url": "https://stream.xtremehostingmedia.com/rk001/stream",
+          "admin_panel_url": "https://admin.xtremehostingmedia.com/rk001",
+          "status": "active",
+          "created_date": "2025-09-26T23:32:24.402060Z",
+          "expiry_date": null,
+          "current_listeners": 89,
+          "monthly_bandwidth_gb": 245.6,
+          "notes": "Client fid\u00e8le depuis 2 ans"
+        },
+        {
+          "id": "44dea3fa-f999-40c5-944e-69438f5c3f9b",
+          "station_name": "Caribbean Beats FM",
+          "contact_name": "Jean-Paul Martin",
+          "email": "jp@caribbeatsfm.com",
+          "phone": "+1 786-555-0123",
+          "plan_id": "starter",
+          "stream_url": "https://stream.xtremehostingmedia.com/cb002/stream",
+          "admin_panel_url": "https://admin.xtremehostingmedia.com/cb002",
+          "status": "trial",
+          "created_date": "2025-09-26T23:32:24.402074Z",
+          "expiry_date": null,
+          "current_listeners": 23,
+          "monthly_bandwidth_gb": 56.2,
+          "notes": "Essai gratuit - expire dans 5 jours"
+        },
+        {
+          "id": "df27f19c-cd2a-4204-be38-b66306a7d7e4",
+          "station_name": "Zouk Paradise Radio",
+          "contact_name": "Sandra Joseph",
+          "email": "sandra@zoukparadise.com",
+          "phone": "+590 690-12-34-56",
+          "plan_id": "enterprise",
+          "stream_url": "https://stream.xtremehostingmedia.com/zp003/stream",
+          "admin_panel_url": "https://admin.xtremehostingmedia.com/zp003",
+          "status": "active",
+          "created_date": "2025-09-26T23:32:24.402080Z",
+          "expiry_date": null,
+          "current_listeners": 234,
+          "monthly_bandwidth_gb": 567.8,
+          "notes": "Client premium - support prioritaire"
+        }
+      ],
+      "error": null
+    },
+    {
+      "test_name": "Hosting Signup (Valid)",
+      "method": "POST",
+      "endpoint": "hosting/signup",
+      "expected_status": 200,
+      "actual_status": 500,
+      "success": false,
+      "response_data": null,
+      "error": "Internal Server Error"
+    },
+    {
+      "test_name": "Hosting Signup (Missing Required Fields)",
+      "method": "POST",
+      "endpoint": "hosting/signup",
+      "expected_status": 422,
+      "actual_status": 422,
+      "success": true,
+      "response_data": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "contact_name"
+            ],
+            "msg": "Field required",
+            "input": {
+              "station_name": "Incomplete Station",
+              "phone": "+509 9876-5432"
+            },
+            "url": "https://errors.pydantic.dev/2.11/v/missing"
+          },
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "email"
+            ],
+            "msg": "Field required",
+            "input": {
+              "station_name": "Incomplete Station",
+              "phone": "+509 9876-5432"
+            },
+            "url": "https://errors.pydantic.dev/2.11/v/missing"
+          },
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "plan_id"
+            ],
+            "msg": "Field required",
+            "input": {
+              "station_name": "Incomplete Station",
+              "phone": "+509 9876-5432"
+            },
+            "url": "https://errors.pydantic.dev/2.11/v/missing"
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "test_name": "Hosting Signup (Invalid Email)",
+      "method": "POST",
+      "endpoint": "hosting/signup",
+      "expected_status": 422,
+      "actual_status": 500,
+      "success": false,
+      "response_data": null,
+      "error": "Internal Server Error"
+    },
+    {
+      "test_name": "Hosting Signup (Starter Plan)",
+      "method": "POST",
+      "endpoint": "hosting/signup",
+      "expected_status": 200,
+      "actual_status": 500,
+      "success": false,
+      "response_data": null,
+      "error": "Internal Server Error"
+    },
+    {
+      "test_name": "Hosting Signup (Professional Plan)",
+      "method": "POST",
+      "endpoint": "hosting/signup",
+      "expected_status": 200,
+      "actual_status": 500,
+      "success": false,
+      "response_data": null,
+      "error": "Internal Server Error"
+    },
+    {
+      "test_name": "Hosting Signup (Enterprise Plan)",
+      "method": "POST",
+      "endpoint": "hosting/signup",
+      "expected_status": 200,
+      "actual_status": 500,
+      "success": false,
+      "response_data": null,
+      "error": "Internal Server Error"
+    },
+    {
+      "test_name": "Hosting Signup (Premium Plan)",
+      "method": "POST",
+      "endpoint": "hosting/signup",
+      "expected_status": 200,
+      "actual_status": 500,
+      "success": false,
+      "response_data": null,
+      "error": "Internal Server Error"
+    },
+    {
+      "test_name": "Get Hosting Packages",
+      "method": "GET",
+      "endpoint": "hosting/packages",
+      "expected_status": 200,
+      "actual_status": 404,
+      "success": false,
+      "response_data": null,
+      "error": {
+        "detail": "Not Found"
+      }
+    },
+    {
+      "test_name": "Get Hosting Streams",
+      "method": "GET",
+      "endpoint": "hosting/streams",
+      "expected_status": 200,
+      "actual_status": 404,
+      "success": false,
+      "response_data": null,
+      "error": {
+        "detail": "Not Found"
+      }
+    },
+    {
+      "test_name": "Get Hosting Support Tickets",
+      "method": "GET",
+      "endpoint": "hosting/tickets?status=open",
+      "expected_status": 200,
+      "actual_status": 500,
+      "success": false,
+      "response_data": null,
+      "error": "Internal Server Error"
+    },
+    {
+      "test_name": "Create Hosting Support Ticket",
+      "method": "POST",
+      "endpoint": "hosting/tickets?client_id=test-client-001&subject=Test Support Request&description=This is a test support ticket for API testing&priority=medium",
+      "expected_status": 200,
+      "actual_status": 200,
+      "success": true,
+      "response_data": {
+        "id": "5ebad638-14b9-4655-8b23-9088c1574fb0",
+        "client_id": "test-client-001",
+        "subject": "Test Support Request",
+        "description": "This is a test support ticket for API testing",
+        "priority": "medium",
+        "status": "open",
+        "created_date": "2025-09-26T23:32:26.808123Z",
+        "resolved_date": null,
+        "admin_notes": null
+      },
+      "error": null
+    },
+    {
       "test_name": "WebSocket Endpoint Check",
       "method": "WebSocket",
       "endpoint": "/ws",
@@ -2810,7 +4861,7 @@
       "actual_status": "Deferred to Frontend Test",
       "success": true,
       "response_data": {
-        "websocket_url": "wss://radiofusion.preview.emergentagent.com/ws"
+        "websocket_url": "wss://xtremecast.preview.emergentagent.com/ws"
       },
       "error": null
     }
