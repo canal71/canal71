@@ -2180,7 +2180,7 @@ async def get_tv_shows(category: str = "all", limit: int = 20, featured: bool = 
                 "language": "français"
             },
             {
-                "title": "Journal TV Haiti Fusion",
+                "title": "Journal TV Xtreme Media",
                 "description": "Informations complètes sur Haiti et la diaspora, analyses et reportages exclusifs.",
                 "category": "news",
                 "host": "Équipe Journalisme",
