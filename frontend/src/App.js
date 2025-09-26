@@ -255,10 +255,16 @@ function App() {
 
     initializeApp();
 
+    // Set up periodic now playing refresh (every 30 seconds)
+    const nowPlayingInterval = setInterval(() => {
+      loadNowPlaying();
+    }, 30000);
+
     return () => {
       if (websocket.readyState === WebSocket.OPEN) {
         websocket.close();
       }
+      clearInterval(nowPlayingInterval);
     };
   }, []);
 
