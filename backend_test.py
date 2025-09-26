@@ -1769,6 +1769,21 @@ def main():
     tester.test_track_tv_show_view()
     tester.test_track_tv_view_nonexistent_show()
     
+    print("\n🏢 Testing Hosting API System...")
+    tester.test_get_hosting_plans()
+    tester.test_get_hosting_stats()
+    tester.test_get_hosting_clients_all()
+    tester.test_get_hosting_clients_by_status_active()
+    tester.test_get_hosting_clients_by_status_trial()
+    tester.test_hosting_signup_valid()
+    tester.test_hosting_signup_missing_required_fields()
+    tester.test_hosting_signup_invalid_email()
+    tester.test_hosting_signup_different_plans()
+    tester.test_hosting_packages_endpoint()
+    tester.test_hosting_streams_endpoint()
+    tester.test_hosting_support_tickets_get()
+    tester.test_hosting_support_tickets_create()
+    
     print("\n🔌 Testing WebSocket Configuration...")
     tester.test_websocket_endpoint()
 
