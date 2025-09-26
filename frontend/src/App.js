@@ -1203,7 +1203,14 @@ function App() {
                       </Button>
                       
                       <Button
-                        onClick={() => setShowHostingSection(!showHostingSection)}
+                        onClick={() => {
+                          setShowHostingSection(!showHostingSection);
+                          // Ensure hosting data is loaded when section is opened
+                          if (!showHostingSection && (!hostingStats || !hostingPlans.length)) {
+                            loadHostingPlans();
+                            loadHostingStats();
+                          }
+                        }}
                         size="sm"
                         className={`${showHostingSection ? 'bg-green-600 hover:bg-green-700' : 'bg-slate-600 hover:bg-slate-700'} text-white`}
                       >
