@@ -95,6 +95,20 @@ function App() {
   const [currentTvShow, setCurrentTvShow] = useState(null);
   const [showTvSection, setShowTvSection] = useState(false);
   
+  // Reseller Hosting state
+  const [hostingPlans, setHostingPlans] = useState([]);
+  const [hostingClients, setHostingClients] = useState([]);
+  const [hostingStats, setHostingStats] = useState(null);
+  const [showHostingSection, setShowHostingSection] = useState(false);
+  const [hostingSignupForm, setHostingSignupForm] = useState({
+    station_name: '',
+    contact_name: '',
+    email: '',
+    phone: '',
+    plan_id: 'professional',
+    notes: ''
+  });
+  
   const audioRef = useRef(null);
   const commentsEndRef = useRef(null);
 
