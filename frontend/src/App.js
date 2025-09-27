@@ -2168,7 +2168,7 @@ function App() {
                         <h3 className="text-sm font-bold text-white flex items-center">
                           📢 PUBLICITÉ
                         </h3>
-                        <div className="text-xs text-orange-100">
+                        <div className="text-xs text-pink-100">
                           {currentAdSlide + 1} / {advertisements.length}
                         </div>
                       </div>
