@@ -1999,14 +1999,28 @@ function App() {
                               height="110" 
                               width="100%" 
                               scrolling="no" 
-                              style={{ border: 'none' }}
+                              frameBorder="0"
+                              allow="autoplay; encrypted-media; fullscreen"
+                              style={{ border: 'none', minHeight: '110px' }}
                               title="Radio Haiti Fusion Live Player"
                               className="w-full"
+                              loading="eager"
                             />
                           </div>
                           <p className="text-center text-sm text-gray-400 mt-2">
                             🎵 Player Professionnel - Radio Haiti Fusion 105.3 FM
                           </p>
+                          <div className="text-center mt-2">
+                            <button 
+                              className="pro-radio-btn-secondary text-xs px-3 py-1"
+                              onClick={() => {
+                                // Open player in new window if embedded doesn't work
+                                window.open('https://xtremeradiohosting.com/cp/widgets/player/single/?p=8076', '_blank', 'width=400,height=300,scrollbars=yes,resizable=yes');
+                              }}
+                            >
+                              🎵 Ouvrir dans une nouvelle fenêtre
+                            </button>
+                          </div>
                         </div>
 
                         {/* Additional HTML5 Audio Player */}
