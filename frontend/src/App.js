@@ -971,8 +971,12 @@ function App() {
           <div className="flex items-center justify-between">
             {/* Logo & Brand */}
             <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-xl flex items-center justify-center text-white font-bold text-lg">
-                XH
+              <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0">
+                <img 
+                  src="https://customer-assets.emergentagent.com/job_xtremecast/artifacts/upx8ostu_Xtremelogo%20%282%29.jpg" 
+                  alt="Xtreme Hosting Media" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div>
                 <h1 className="pro-radio-heading text-xl font-bold text-white">Xtreme Hosting Media</h1>
