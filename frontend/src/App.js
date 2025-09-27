@@ -1047,11 +1047,26 @@ function App() {
                 <div className="text-xs text-gray-400 uppercase tracking-wide">Demandes</div>
               </div>
               <div className="flex space-x-2">
-                <Button className="pro-radio-btn-secondary text-xs px-3 py-2">
+                <Button 
+                  className="pro-radio-btn-secondary text-xs px-3 py-2"
+                  onClick={() => window.open('mailto:info@radiohaitifusion.com', '_blank')}
+                >
                   📞 Contact
                 </Button>
-                <Button className="pro-radio-btn-primary text-xs px-3 py-2">
+                <Button 
+                  className="pro-radio-btn-secondary text-xs px-3 py-2"
+                  onClick={() => window.open('https://paypal.me/radiohaitifusion', '_blank')}
+                >
                   💰 Donation
+                </Button>
+                <Button 
+                  className="pro-radio-btn-primary text-xs px-3 py-2 animate-pulse"
+                  onClick={() => {
+                    // Open streaming widget in new window
+                    window.open('https://xtremeradiohosting.com/cp/widgets/player/single/?p=8076', '_blank', 'width=400,height=300');
+                  }}
+                >
+                  🎵 ÉCOUTER LIVE
                 </Button>
               </div>
             </div>
