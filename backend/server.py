@@ -2702,85 +2702,117 @@ async def get_hosting_plans():
     plans_data = await db.streaming_plans.find().to_list(length=None)
     
     if not plans_data:
-        # Sample hosting plans
+        # Updated SHOUTCAST hosting plans
         sample_plans = [
             {
-                "name": "Starter",
-                "description": "Perfect pour les nouvelles stations de radio",
-                "max_listeners": 50,
-                "bandwidth": "128 kbps",
-                "storage_gb": 5,
-                "monthly_price": 29.99,
+                "name": "SHOUTCAST 64",
+                "description": "64 Bit Rate - Perfect for starting your radio station",
+                "max_listeners": 160,
+                "bandwidth": "64 kbps",
+                "storage_gb": "Unlimited AutoDJ Space",
+                "monthly_price": 3.00,
                 "features": [
-                    "Stream 24/7",
-                    "Panel d'administration",
-                    "Statistiques de base",
-                    "Support email"
+                    "64 Bit Rate",
+                    "SHOUTcast",
+                    "Centova/Sonicpanel",
+                    "Unmetered Bandwidth",
+                    "160 Listeners",
+                    "Unlimited AutoDJ Space",
+                    "Free HTML Player",
+                    "Free Website Template"
                 ],
                 "is_popular": False,
                 "setup_fee": 0.0,
-                "trial_days": 7
+                "trial_days": 7,
+                "panel_type": "SonicPanel"
             },
             {
-                "name": "Professional",
-                "description": "Idéal pour les stations établies",
-                "max_listeners": 150,
-                "bandwidth": "256 kbps",
-                "storage_gb": 15,
-                "monthly_price": 59.99,
+                "name": "SHOUTCAST 128",
+                "description": "128 Bit Rate - Great quality for growing stations",
+                "max_listeners": 260,
+                "bandwidth": "128 kbps",
+                "storage_gb": "Unlimited AutoDJ Space",
+                "monthly_price": 6.00,
                 "features": [
-                    "Stream haute qualité",
-                    "Panel avancé",
-                    "Statistiques détaillées",
-                    "Support prioritaire",
-                    "URLs personnalisées",
-                    "Backup automatique"
+                    "128 Bit Rate",
+                    "SHOUTcast",
+                    "Centova/Sonicpanel",
+                    "Unmetered Bandwidth",
+                    "260 Listeners",
+                    "Unlimited AutoDJ Space",
+                    "Free HTML Player",
+                    "Free Website Template"
                 ],
                 "is_popular": True,
                 "setup_fee": 0.0,
-                "trial_days": 14
+                "trial_days": 14,
+                "panel_type": "SonicPanel"
             },
             {
-                "name": "Enterprise",
-                "description": "Solutions pour grandes stations",
-                "max_listeners": 500,
-                "bandwidth": "320 kbps",
-                "storage_gb": 50,
-                "monthly_price": 129.99,
+                "name": "SHOUTCAST 192",
+                "description": "192 Bit Rate - High quality streaming for professional stations",
+                "max_listeners": 400,
+                "bandwidth": "192 kbps",
+                "storage_gb": "Unlimited AutoDJ Space",
+                "monthly_price": 10.00,
                 "features": [
-                    "Stream qualité CD",
-                    "Panel enterprise",
-                    "Analytics avancées",
-                    "Support 24/7",
-                    "White label",
-                    "API access",
-                    "Multiple streams",
-                    "CDN global"
+                    "192 Bit Rate",
+                    "SHOUTcast",
+                    "Sonicpanel",
+                    "Unmetered Bandwidth",
+                    "400 Listeners",
+                    "Unlimited AutoDJ Space",
+                    "Free HTML Player",
+                    "Free Website Template"
                 ],
                 "is_popular": False,
-                "setup_fee": 50.0,
-                "trial_days": 30
+                "setup_fee": 0.0,
+                "trial_days": 14,
+                "panel_type": "SonicPanel"
             },
             {
-                "name": "Premium",
-                "description": "Solution unlimited pour réseaux",
-                "max_listeners": 1000,
+                "name": "SHOUTCAST 320",
+                "description": "320 Bit Rate - Premium CD quality streaming",
+                "max_listeners": 999,
                 "bandwidth": "320 kbps",
-                "storage_gb": 100,
-                "monthly_price": 249.99,
+                "storage_gb": "Unlimited AutoDJ Space",
+                "monthly_price": 12.00,
                 "features": [
-                    "Listeners illimités*",
-                    "Bande passante premium",
-                    "Stockage étendu",
-                    "Support dédié",
-                    "Intégration personnalisée",
-                    "SLA 99.9%",
-                    "Monitoring avancé",
-                    "Disaster recovery"
+                    "320 Bit Rate",
+                    "SHOUTcast",
+                    "SonicPanel",
+                    "Unmetered Bandwidth",
+                    "999 Listeners",
+                    "Unlimited AutoDJ Space",
+                    "Free HTML Player",
+                    "Free Website Template"
                 ],
                 "is_popular": False,
-                "setup_fee": 100.0,
-                "trial_days": 30
+                "setup_fee": 0.0,
+                "trial_days": 14,
+                "panel_type": "SonicPanel"
+            },
+            {
+                "name": "SHOUTCAST UNLIMITED",
+                "description": "320 Bit Rate - Ultimate solution for large networks",
+                "max_listeners": "Unlimited",
+                "bandwidth": "320 kbps",
+                "storage_gb": "Unlimited AutoDJ Space",
+                "monthly_price": 20.00,
+                "features": [
+                    "320 Bit Rate",
+                    "SHOUTcast",
+                    "Sonic Panel",
+                    "Unmetered Bandwidth",
+                    "Unlimited Listeners",
+                    "Unlimited AutoDJ Space",
+                    "Free HTML Player",
+                    "Free Website Template"
+                ],
+                "is_popular": False,
+                "setup_fee": 0.0,
+                "trial_days": 30,
+                "panel_type": "SonicPanel"
             }
         ]
         return [StreamingPlan(**plan) for plan in sample_plans]
