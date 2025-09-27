@@ -1134,7 +1134,7 @@ function App() {
                 <h2 className="pro-radio-heading text-lg font-bold text-white flex items-center">
                   🎯 PROMOTIONS & ÉVÉNEMENTS
                 </h2>
-                <div className="text-xs text-orange-100">
+                <div className="text-xs text-pink-100">
                   Radio Haiti Fusion 105.3 FM
                 </div>
               </div>
