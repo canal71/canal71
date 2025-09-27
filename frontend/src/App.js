@@ -1894,8 +1894,124 @@ function App() {
         </div>
       )}
 
-      {/* Main Content Area - Only show when not in Radio Directory mode */}
-      {!showRadioDirectory && (
+      {/* Sponsors Section */}
+      {showSponsors && (
+        <div className="max-w-7xl mx-auto px-4 py-6">
+          <div className="pro-radio-card p-8">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h1 className="pro-radio-heading text-3xl font-bold text-white mb-2 flex items-center">
+                  🤝 Nos Partenaires & Sponsors
+                </h1>
+                <p className="text-gray-400 text-lg">
+                  Découvrez les entreprises et organisations qui soutiennent Radio Haiti Fusion
+                </p>
+              </div>
+              <button
+                onClick={() => setShowSponsors(false)}
+                className="pro-radio-btn-secondary px-4 py-2"
+              >
+                ← Retour
+              </button>
+            </div>
+
+            {/* Featured Sponsors */}
+            <div className="mb-8">
+              <h2 className="text-xl font-bold text-white mb-4">🌟 Sponsors Principaux</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {featuredSponsors.map((sponsor) => (
+                  <div key={sponsor.id} className="pro-radio-card p-6 text-center group hover:scale-105 transition-all duration-300">
+                    <div className="mb-4">
+                      <img 
+                        src={sponsor.logo_url} 
+                        alt={sponsor.name}
+                        className="w-full h-20 object-contain mx-auto mb-3"
+                        onError={(e) => {
+                          e.target.src = `https://via.placeholder.com/200x80/${sponsor.sponsor_type === 'platinum' ? 'FFD700' : sponsor.sponsor_type === 'gold' ? 'FFA500' : '808080'}/000000?text=${encodeURIComponent(sponsor.name)}`;
+                        }}
+                      />
+                      <div className="flex justify-center mb-2">
+                        {sponsor.sponsor_type === 'platinum' && (
+                          <span className="px-3 py-1 bg-yellow-500 text-black text-xs font-bold rounded-full">
+                            💎 PLATINE
+                          </span>
+                        )}
+                        {sponsor.sponsor_type === 'gold' && (
+                          <span className="px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">
+                            🥇 OR
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-2">{sponsor.name}</h3>
+                    <p className="text-gray-400 text-sm mb-4">{sponsor.description}</p>
+                    {sponsor.website_url && (
+                      <button
+                        onClick={() => window.open(sponsor.website_url, '_blank')}
+                        className="pro-radio-btn-primary text-sm px-4 py-2 w-full"
+                      >
+                        Visiter le site web
+                      </button>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* All Sponsors */}
+            <div>
+              <h2 className="text-xl font-bold text-white mb-4">📋 Tous nos Sponsors</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {sponsors.map((sponsor) => (
+                  <div key={sponsor.id} className="pro-radio-card p-4 text-center group hover:scale-105 transition-all duration-300">
+                    <img 
+                      src={sponsor.logo_url} 
+                      alt={sponsor.name}
+                      className="w-full h-16 object-contain mx-auto mb-2"
+                      onError={(e) => {
+                        e.target.src = `https://via.placeholder.com/150x60/${sponsor.sponsor_type === 'platinum' ? 'FFD700' : sponsor.sponsor_type === 'gold' ? 'FFA500' : sponsor.sponsor_type === 'silver' ? 'C0C0C0' : '8B4513'}/000000?text=${encodeURIComponent(sponsor.name)}`;
+                      }}
+                    />
+                    <h4 className="text-sm font-bold text-white mb-1">{sponsor.name}</h4>
+                    <div className="flex justify-center">
+                      {sponsor.sponsor_type === 'platinum' && <span className="text-yellow-400 text-xs">💎</span>}
+                      {sponsor.sponsor_type === 'gold' && <span className="text-yellow-500 text-xs">🥇</span>}
+                      {sponsor.sponsor_type === 'silver' && <span className="text-gray-400 text-xs">🥈</span>}
+                      {sponsor.sponsor_type === 'bronze' && <span className="text-yellow-700 text-xs">🥉</span>}
+                    </div>
+                    {sponsor.website_url && (
+                      <button
+                        onClick={() => window.open(sponsor.website_url, '_blank')}
+                        className="pro-radio-btn-secondary text-xs px-2 py-1 mt-2 w-full"
+                      >
+                        Site web
+                      </button>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Become a Sponsor CTA */}
+            <div className="mt-8 p-6 bg-gradient-to-r from-orange-600 to-pink-600 rounded-lg text-center">
+              <h3 className="text-xl font-bold text-white mb-2">Devenez notre Partenaire!</h3>
+              <p className="text-white/90 mb-4">
+                Rejoignez nos sponsors et touchez des milliers d'auditeurs chaque jour
+              </p>
+              <button
+                onClick={() => window.open('mailto:haitifusionpromo@gmail.com?subject=Partenariat%20Sponsoring', '_blank')}
+                className="bg-white text-orange-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors"
+              >
+                📞 Nous Contacter
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Main Content Area - Only show when not in Radio Directory or Sponsors mode */}
+      {!showRadioDirectory && !showSponsors && (
       <div className="container mx-auto px-4 py-8">
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Main Content */}
