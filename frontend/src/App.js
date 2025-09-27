@@ -1012,7 +1012,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen" style={{ background: 'var(--pro-radio-primary)' }}>
+    <div className="min-h-screen bg-gradient-to-br from-fuchsia-900 via-purple-800 to-pink-900 relative">
       {/* Professional Header */}
       <header className="pro-radio-header">
         <div className="max-w-7xl mx-auto px-4 py-4">
