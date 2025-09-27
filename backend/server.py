@@ -112,6 +112,31 @@ class WeatherData(BaseModel):
     wind_speed: float = 15.2
     icon: str = "☀️"
 
+# Sponsor Models
+class Sponsor(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name: str
+    description: str = ""
+    logo_url: str = ""
+    website_url: str = ""
+    contact_email: str = ""
+    phone: str = ""
+    sponsor_type: str = "gold"  # platinum, gold, silver, bronze
+    is_active: bool = True
+    start_date: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    end_date: Optional[datetime] = None
+    display_order: int = 0
+
+class SponsorCreate(BaseModel):
+    name: str
+    description: str = ""
+    logo_url: str = ""
+    website_url: str = ""
+    contact_email: str = ""
+    phone: str = ""
+    sponsor_type: str = "gold"
+    is_active: bool = True
+
 class NewsArticle(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     title: str
