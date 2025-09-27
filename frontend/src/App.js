@@ -1009,19 +1009,21 @@ function App() {
           <div className="mt-6">
             <div className="pro-radio-nav">
               <div 
-                className={`pro-radio-nav-item ${!showTvSection && !showHostingSection ? 'active' : ''}`}
+                className={`pro-radio-nav-item ${!showTvSection && !showHostingSection && !showRadioDirectory ? 'active' : ''}`}
                 onClick={() => {
                   setShowTvSection(false);
                   setShowHostingSection(false);
+                  setShowRadioDirectory(false);
                 }}
               >
                 🔴 Live
               </div>
               <div 
-                className={`pro-radio-nav-item ${!showTvSection && !showHostingSection ? 'active' : ''}`}
+                className={`pro-radio-nav-item ${!showTvSection && !showHostingSection && !showRadioDirectory ? 'active' : ''}`}
                 onClick={() => {
                   setShowTvSection(false);
                   setShowHostingSection(false);
+                  setShowRadioDirectory(false);
                 }}
               >
                 📻 Radio
@@ -1031,6 +1033,7 @@ function App() {
                 onClick={() => {
                   setShowTvSection(!showTvSection);
                   setShowHostingSection(false);
+                  setShowRadioDirectory(false);
                 }}
               >
                 📺 TV Shows
@@ -1040,6 +1043,7 @@ function App() {
                 onClick={() => {
                   setShowHostingSection(!showHostingSection);
                   setShowTvSection(false);
+                  setShowRadioDirectory(false);
                   // Ensure hosting data is loaded when section is opened
                   if (!showHostingSection && (!hostingStats || !hostingPlans.length)) {
                     loadHostingPlans();
@@ -1048,6 +1052,20 @@ function App() {
                 }}
               >
                 🖥️ Hosting
+              </div>
+              <div 
+                className={`pro-radio-nav-item ${showRadioDirectory ? 'active' : ''}`}
+                onClick={() => {
+                  setShowRadioDirectory(!showRadioDirectory);
+                  setShowTvSection(false);
+                  setShowHostingSection(false);
+                  // Ensure radio directory data is loaded
+                  if (!showRadioDirectory && radioStations.length === 0) {
+                    loadRadioDirectory();
+                  }
+                }}
+              >
+                📡 Portail Radio
               </div>
             </div>
           </div>
