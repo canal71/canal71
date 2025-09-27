@@ -1186,7 +1186,7 @@ function App() {
 
                 {/* Promotion 3 - Podcasts */}
                 <div className="w-full flex-shrink-0 relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-900/80 via-red-800/60 to-orange-900/80" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-pink-900/80 via-purple-800/60 to-pink-900/80" />
                   <div className="relative z-10 h-full flex items-center justify-center p-6">
                     <div className="text-center text-white">
                       <h3 className="text-2xl md:text-3xl font-bold mb-3 drop-shadow-lg">
