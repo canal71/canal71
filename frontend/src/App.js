@@ -2236,7 +2236,7 @@ function App() {
                     title="Écouter avec RealPlayer"
                   >
                     <img 
-                      src="https://xtremeradiohosting.com/cp/inc/images/players/real.png" 
+                      src="https://sp14.instainternet.com/cp/inc/images/players/real.png" 
                       alt="RealPlayer"
                       className="w-12 h-12 mb-2 group-hover:scale-110 transition-transform"
                     />
