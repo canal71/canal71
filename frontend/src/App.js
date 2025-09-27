@@ -1284,8 +1284,12 @@ function App() {
               <h2 className="pro-radio-heading text-xl font-semibold text-white mb-4">🌟 Station en Vedette</h2>
               <div className="pro-radio-card p-6 border-2" style={{ borderColor: 'var(--pro-radio-accent)' }}>
                 <div className="flex items-center space-x-6">
-                  <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-red-600 rounded-xl flex items-center justify-center text-white font-bold text-2xl">
-                    XH
+                  <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 border-2" style={{ borderColor: 'var(--pro-radio-accent)' }}>
+                    <img 
+                      src="https://customer-assets.emergentagent.com/job_xtremecast/artifacts/ino0sotu_haitifusion.jpg" 
+                      alt="Radio Haiti Fusion Logo" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-2xl font-bold text-white mb-2">Radio Haiti Fusion</h3>
