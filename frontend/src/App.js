@@ -1051,62 +1051,31 @@ function App() {
         </div>
       </header>
 
-      {/* Professional Now Playing Section */}
+      {/* Professional Now Playing Widget */}
       <div className="max-w-7xl mx-auto px-4 py-6">
         <div className="pro-radio-now-playing">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="pro-radio-heading text-lg font-semibold text-white">🎵 Maintenant en Direct</h2>
+            <h2 className="pro-radio-heading text-lg font-semibold text-white">🎵 Player en Direct</h2>
             <div className="pro-radio-live">EN DIRECT</div>
           </div>
-          <div className="flex items-center space-x-6">
-            {/* Album Artwork */}
-            <div className="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 border-2" style={{ borderColor: 'var(--pro-radio-accent)' }}>
-              {nowPlaying?.artwork_url ? (
-                <img 
-                  src={nowPlaying.artwork_url} 
-                  alt="Album Artwork" 
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.target.src = "https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/2zozn1fx_radiohaitifusion.jpg";
-                  }}
-                />
-              ) : (
-                <img 
-                  src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/2zozn1fx_radiohaitifusion.jpg" 
-                  alt="Radio Logo" 
-                  className="w-full h-full object-cover"
-                />
-              )}
-            </div>
-            
-            {/* Song Info */}
-            <div className="flex-1">
-              <h3 className="text-xl font-bold text-white mb-1">
-                {nowPlaying?.song || "Mwen Renmen'w"}
-              </h3>
-              <p className="text-gray-300 mb-2">
-                Par: {nowPlaying?.artist || "T-Vice"}
-              </p>
-              {nowPlaying?.genre && (
-                <Badge 
-                  className="text-xs px-3 py-1 rounded-full font-medium"
-                  style={{ 
-                    background: 'var(--pro-radio-accent)', 
-                    color: 'white' 
-                  }}
-                >
-                  {nowPlaying.genre}
-                </Badge>
-              )}
-            </div>
-            
-            {/* Time */}
-            <div className="text-right text-sm text-gray-400">
-              <div className="font-mono text-lg text-white">
-                {new Date().toLocaleTimeString('fr-FR', {hour: '2-digit', minute:'2-digit'})}
-              </div>
-              <div>Port-au-Prince</div>
-            </div>
+          
+          {/* Professional Streaming Widget */}
+          <div className="bg-slate-700/30 rounded-lg overflow-hidden border border-gray-600">
+            <iframe 
+              src="https://xtremeradiohosting.com/cp/widgets/player/single/?p=8076" 
+              height="110" 
+              width="100%" 
+              scrolling="no" 
+              style={{ border: 'none' }}
+              title="Xtreme Hosting Media Live Player"
+              className="w-full"
+            />
+          </div>
+          
+          <div className="mt-4 text-center">
+            <p className="text-sm text-gray-400">
+              🎵 Diffusion en direct depuis Cap-Haïtien • 105.3 FM
+            </p>
           </div>
         </div>
       </div>
