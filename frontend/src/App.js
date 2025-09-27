@@ -990,6 +990,25 @@ function App() {
     }
   };
 
+  // Sponsor Functions
+  const loadSponsors = async () => {
+    try {
+      const response = await axios.get(`${API}/sponsors`);
+      setSponsors(response.data);
+    } catch (error) {
+      console.error('Failed to load sponsors:', error);
+    }
+  };
+
+  const loadFeaturedSponsors = async () => {
+    try {
+      const response = await axios.get(`${API}/sponsors/featured`);
+      setFeaturedSponsors(response.data);
+    } catch (error) {
+      console.error('Failed to load featured sponsors:', error);
+    }
+  };
+
   // Google AdSense Integration
   useEffect(() => {
     // Add Google AdSense script
