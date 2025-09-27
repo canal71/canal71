@@ -2176,7 +2176,7 @@ function App() {
                     title="Écouter avec Winamp"
                   >
                     <img 
-                      src="https://xtremeradiohosting.com/cp/inc/images/players/winamp2.png" 
+                      src="https://sp14.instainternet.com/cp/inc/images/players/winamp2.png" 
                       alt="Winamp"
                       className="w-12 h-12 mb-2 group-hover:scale-110 transition-transform"
                     />
