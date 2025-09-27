@@ -951,6 +951,40 @@ function App() {
     }
   };
 
+  // Radio Station Proposal Functions
+  const submitStationProposal = async (e) => {
+    e.preventDefault();
+    if (!stationProposal.name || !stationProposal.frequency || !stationProposal.description || !stationProposal.contact_name || !stationProposal.contact_email) {
+      alert('Veuillez remplir tous les champs requis (*).');
+      return;
+    }
+
+    try {
+      const response = await axios.post(`${API}/radio-directory/propose`, stationProposal);
+      alert(`Merci ${stationProposal.contact_name}! Votre proposition pour "${stationProposal.name}" a été soumise avec succès. Notre équipe l'examinera et vous contactera bientôt.`);
+      
+      // Reset form
+      setStationProposal({
+        name: '',
+        frequency: '',
+        description: '',
+        location: '',
+        country: 'Haïti',
+        genre: '',
+        stream_url: '',
+        website_url: '',
+        contact_email: '',
+        contact_name: '',
+        logo_url: ''
+      });
+      
+      setShowStationForm(false);
+    } catch (error) {
+      console.error('Failed to submit station proposal:', error);
+      alert('Erreur lors de la soumission. Veuillez réessayer.');
+    }
+  };
+
   // Google AdSense Integration
   useEffect(() => {
     // Add Google AdSense script
