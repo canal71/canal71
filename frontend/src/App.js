@@ -2191,7 +2191,7 @@ function App() {
                     title="Écouter avec Windows Media Player"
                   >
                     <img 
-                      src="https://xtremeradiohosting.com/cp/inc/images/players/mediaplayer.png" 
+                      src="https://sp14.instainternet.com/cp/inc/images/players/mediaplayer.png" 
                       alt="Media Player"
                       className="w-12 h-12 mb-2 group-hover:scale-110 transition-transform"
                     />
