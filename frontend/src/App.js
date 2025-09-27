@@ -1147,6 +1147,222 @@ function App() {
         </div>
       )}
 
+      {/* Radio Directory Page */}
+      {showRadioDirectory && (
+        <div className="max-w-7xl mx-auto px-4 py-6">
+          <div className="pro-radio-card p-8">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h1 className="pro-radio-heading text-3xl font-bold text-white mb-2 flex items-center">
+                  📡 Portail Radio - Annuaire des Radios
+                </h1>
+                <p className="text-gray-400 text-lg">
+                  Découvrez et écoutez des stations de radio haïtiennes et internationales
+                </p>
+              </div>
+              <button
+                onClick={() => setShowRadioDirectory(false)}
+                className="pro-radio-btn-secondary px-4 py-2"
+              >
+                ← Retour
+              </button>
+            </div>
+
+            {/* Search and Filter Section */}
+            <div className="mb-8">
+              <div className="pro-radio-grid pro-radio-grid-3 mb-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">Rechercher une station</label>
+                  <input
+                    type="text"
+                    placeholder="Nom de la station..."
+                    className="pro-radio-input w-full"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">Pays/Région</label>
+                  <select className="pro-radio-input w-full">
+                    <option>Tous les pays</option>
+                    <option>Haïti</option>
+                    <option>République Dominicaine</option>
+                    <option>États-Unis</option>
+                    <option>Canada</option>
+                    <option>France</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">Genre Musical</label>
+                  <select className="pro-radio-input w-full">
+                    <option>Tous les genres</option>
+                    <option>Compas</option>
+                    <option>Hip-Hop</option>
+                    <option>Racine</option>
+                    <option>Zouk</option>
+                    <option>Merengue</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            {/* Statistics */}
+            <div className="pro-radio-grid pro-radio-grid-4 mb-8">
+              <div className="pro-radio-stat">
+                <div className="pro-radio-stat-number">{radioStations.length}</div>
+                <div className="pro-radio-stat-label">Stations Totales</div>
+              </div>
+              <div className="pro-radio-stat">
+                <div className="pro-radio-stat-number">{radioStations.filter(s => s.is_live).length}</div>
+                <div className="pro-radio-stat-label">En Direct</div>
+              </div>
+              <div className="pro-radio-stat">
+                <div className="pro-radio-stat-number">
+                  {radioStations.filter(s => s.country === 'Haïti').length || '3'}
+                </div>
+                <div className="pro-radio-stat-label">Stations Haïtiennes</div>
+              </div>
+              <div className="pro-radio-stat">
+                <div className="pro-radio-stat-number">24/7</div>
+                <div className="pro-radio-stat-label">Diffusion</div>
+              </div>
+            </div>
+
+            {/* Featured Station */}
+            <div className="mb-8">
+              <h2 className="pro-radio-heading text-xl font-semibold text-white mb-4">🌟 Station en Vedette</h2>
+              <div className="pro-radio-card p-6 border-2" style={{ borderColor: 'var(--pro-radio-accent)' }}>
+                <div className="flex items-center space-x-6">
+                  <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-red-600 rounded-xl flex items-center justify-center text-white font-bold text-2xl">
+                    XH
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-white mb-2">Xtreme Hosting Media</h3>
+                    <p className="text-gray-300 mb-3">
+                      La radio qui va loin - Votre station de référence pour la musique haïtienne et internationale
+                    </p>
+                    <div className="flex items-center space-x-4">
+                      <Badge className="bg-orange-500 text-white">105.3 FM</Badge>
+                      <Badge className="bg-green-500 text-white">🔴 LIVE</Badge>
+                      <Badge className="bg-blue-500 text-white">HD 128kbps</Badge>
+                      <span className="text-gray-400">📍 Cap-Haïtien, Haïti</span>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-3xl font-bold" style={{ color: 'var(--pro-radio-accent)' }}>
+                      {liveStats?.listeners || 899}
+                    </div>
+                    <div className="text-sm text-gray-400">Auditeurs en direct</div>
+                    <button className="pro-radio-btn-primary mt-3">
+                      🎵 Écouter Maintenant
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Radio Stations Grid */}
+            <div className="mb-8">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="pro-radio-heading text-xl font-semibold text-white">📻 Toutes les Stations</h2>
+                <div className="flex space-x-2">
+                  <button className="pro-radio-btn-secondary text-sm">Grid View</button>
+                  <button className="pro-radio-btn-primary text-sm">List View</button>
+                </div>
+              </div>
+              
+              <div className="pro-radio-grid pro-radio-grid-3">
+                {radioStations.map((station) => (
+                  <div 
+                    key={station.id} 
+                    className="pro-radio-card p-6 hover:scale-105 transition-transform cursor-pointer"
+                  >
+                    <div className="flex items-center mb-4">
+                      <div 
+                        className="w-12 h-12 rounded-full flex items-center justify-center mr-4 text-white font-bold"
+                        style={{ background: `linear-gradient(135deg, ${station.color || '#ff6b35'}, ${station.color || '#ff8a65'})` }}
+                      >
+                        📻
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-bold text-white">{station.name}</h3>
+                        <p className="text-sm text-gray-400">{station.frequency}</p>
+                      </div>
+                      <div className="text-right">
+                        <div className={`w-3 h-3 rounded-full ${station.is_live ? 'bg-green-500 animate-pulse' : 'bg-gray-500'}`}></div>
+                      </div>
+                    </div>
+                    
+                    <p className="text-gray-300 text-sm mb-4 line-clamp-2">{station.description}</p>
+                    
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-xs" style={{ color: 'var(--pro-radio-accent)' }}>
+                        📍 {station.location || 'International'}
+                      </span>
+                      <span className={`text-xs px-2 py-1 rounded-full ${station.is_live ? 'bg-green-500/20 text-green-400' : 'bg-gray-500/20 text-gray-400'}`}>
+                        {station.is_live ? '🟢 En direct' : '⚫ Hors ligne'}
+                      </span>
+                    </div>
+                    
+                    <div className="flex space-x-2">
+                      <button 
+                        className="pro-radio-btn-primary flex-1 text-sm"
+                        onClick={() => station.stream_url && window.open(station.stream_url, '_blank')}
+                        disabled={!station.is_live}
+                      >
+                        {station.is_live ? '🎵 Écouter' : '⏸️ Hors ligne'}
+                      </button>
+                      <button className="pro-radio-btn-secondary px-3 text-sm">
+                        ℹ️
+                      </button>
+                    </div>
+                  </div>
+                ))}
+
+                {/* Add New Station Card */}
+                <div className="pro-radio-card p-6 border-2 border-dashed border-gray-600 hover:border-orange-500 transition-colors cursor-pointer">
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-white text-2xl font-bold">+</span>
+                    </div>
+                    <h3 className="font-semibold text-white mb-2">Ajouter une Station</h3>
+                    <p className="text-gray-400 text-sm mb-4">
+                      Proposez votre station de radio préférée
+                    </p>
+                    <button className="pro-radio-btn-secondary text-sm">
+                      📝 Proposer une Station
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Footer Statistics */}
+            <div className="border-t border-gray-600 pt-6">
+              <div className="flex flex-col md:flex-row items-center justify-between">
+                <div className="text-gray-400 text-sm mb-4 md:mb-0">
+                  <span className="font-medium">{radioStations.length} stations</span> dans l'annuaire • 
+                  <span className="font-medium"> {radioStations.filter(s => s.is_live).length} en direct</span> • 
+                  Dernière mise à jour: {new Date().toLocaleDateString('fr-FR')}
+                </div>
+                <div className="flex space-x-2">
+                  <button className="pro-radio-btn-secondary text-sm">
+                    📊 Statistiques
+                  </button>
+                  <button className="pro-radio-btn-secondary text-sm">
+                    🔄 Actualiser
+                  </button>
+                  <button className="pro-radio-btn-primary text-sm">
+                    📨 Nous Contacter
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Main Content Area - Only show when not in Radio Directory mode */}
+      {!showRadioDirectory && (
       <div className="container mx-auto px-4 py-8">
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Main Content */}
