@@ -2184,7 +2184,7 @@ function App() {
                   </a>
 
                   <a 
-                    href="https://xtremeradiohosting.com/cp/links.php?p=8076&m=asx"
+                    href="https://sp14.instainternet.com/cp/links.php?p=8288&m=asx"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex flex-col items-center p-3 bg-slate-700/50 rounded-lg hover:bg-slate-700/80 transition-all duration-300 group"
