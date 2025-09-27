@@ -2,11 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Professional Pro Radio Style - Clean & Modern */
+/* Professional Pro Radio Style - Clean & Modern with Magenta Theme */
 :root {
   --pro-radio-primary: #1a1a1a;
   --pro-radio-secondary: #2d2d2d;
-  --pro-radio-accent: #ff6b35;
+  --pro-radio-accent: #e91e63;
+  --pro-radio-accent-light: #f06292;
+  --pro-radio-accent-dark: #ad1457;
   --pro-radio-text: #ffffff;
   --pro-radio-text-muted: #a1a1a1;
   --pro-radio-border: #333333;
