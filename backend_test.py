@@ -2059,6 +2059,16 @@ def main():
     tester.test_hosting_support_tickets_get()
     tester.test_hosting_support_tickets_create()
     
+    print("\n💼 Testing Sponsors API System...")
+    tester.test_get_sponsors_all()
+    tester.test_get_sponsors_by_type_platinum()
+    tester.test_get_sponsors_by_type_gold()
+    tester.test_get_sponsors_by_type_silver()
+    tester.test_get_featured_sponsors()
+    tester.test_create_sponsor_valid()
+    tester.test_create_sponsor_different_types()
+    tester.test_sponsors_data_structure_validation()
+    
     print("\n🔌 Testing WebSocket Configuration...")
     tester.test_websocket_endpoint()
 
