@@ -806,19 +806,86 @@ async def clear_comments():
 # Radio Directory Endpoints
 @api_router.get("/radio-directory", response_model=List[RadioStation])
 async def get_radio_directory():
-    stations_data = await db.radio_stations.find().to_list(length=None)
-    if not stations_data:
-        # Return default stations if none exist
-        default_stations = [
-            {"name": "Radio Caraïbes", "frequency": "94.5 FM", "description": "Musique caribéenne & actualités", "genre": "Caribbean", "color": "#10b981"},
-            {"name": "Radio Métropole", "frequency": "100.1 FM", "description": "Talk-show & informations", "genre": "Talk", "color": "#8b5cf6"},
-            {"name": "Radio Kiskeya", "frequency": "88.5 FM", "description": "Nouvelles & culture", "genre": "News", "color": "#f59e0b"},
-            {"name": "Radio Lumière", "frequency": "91.9 FM", "description": "Musique gospel & spirituel", "genre": "Gospel", "color": "#eab308"},
-            {"name": "Magik9", "frequency": "99.9 FM", "description": "Hip-hop & musique urbaine", "genre": "Hip-Hop", "color": "#14b8a6"}
-        ]
-        return [RadioStation(**station) for station in default_stations]
+    # Get all radio stations from the database
+    stations = await db.radio_stations.find().to_list(length=None)
     
-    return [RadioStation(**station_data) for station_data in stations_data]
+    if not stations:
+        # Return sample radio stations if database is empty
+        sample_stations = [
+            {
+                "id": str(uuid.uuid4()),
+                "name": "Radio Caraïbes",
+                "frequency": "94.5 FM",
+                "description": "Musique caribéenne, actualités locales et internationales",
+                "location": "Port-au-Prince",
+                "country": "Haïti",
+                "genre": "Variété",
+                "is_live": True,
+                "listeners": 1250,
+                "color": "#E53E3E",
+                "stream_url": "http://streaming.example.com:8000/caraibes",
+                "website": "https://radiocaraibes.com"
+            },
+            {
+                "id": str(uuid.uuid4()),
+                "name": "Radio Métropole",
+                "frequency": "100.1 FM", 
+                "description": "Talk-show, informations et débats politiques",
+                "location": "Port-au-Prince",
+                "country": "Haïti",
+                "genre": "Talk Show",
+                "is_live": True,
+                "listeners": 980,
+                "color": "#3182CE",
+                "stream_url": "http://streaming.example.com:8000/metropole",
+                "website": "https://radiometropole.com"
+            },
+            {
+                "id": str(uuid.uuid4()),
+                "name": "Radio Kiskeya",
+                "frequency": "88.5 FM",
+                "description": "Nouvelles, culture haïtienne et musique traditionnelle",
+                "location": "Port-au-Prince", 
+                "country": "Haïti",
+                "genre": "Actualités",
+                "is_live": True,
+                "listeners": 850,
+                "color": "#38A169",
+                "stream_url": "http://streaming.example.com:8000/kiskeya",
+                "website": "https://radiokiskeya.com"
+            },
+            {
+                "id": str(uuid.uuid4()),
+                "name": "Radio Lumière",
+                "frequency": "91.9 FM",
+                "description": "Musique gospel, programmes spirituels et communautaires",
+                "location": "Cap-Haïtien",
+                "country": "Haïti", 
+                "genre": "Gospel",
+                "is_live": True,
+                "listeners": 650,
+                "color": "#D69E2E",
+                "stream_url": "http://streaming.example.com:8000/lumiere",
+                "website": "https://radiolumiere.com"
+            },
+            {
+                "id": str(uuid.uuid4()),
+                "name": "Magik9",
+                "frequency": "99.9 FM",
+                "description": "Hip-hop, R&B et musique urbaine haïtienne",
+                "location": "Port-au-Prince",
+                "country": "Haïti",
+                "genre": "Hip-Hop", 
+                "is_live": True,
+                "listeners": 1100,
+                "color": "#805AD5",
+                "stream_url": "http://streaming.example.com:8000/magik9",
+                "website": "https://magik9.com"
+            }
+        ]
+        return [RadioStation(**station) for station in sample_stations]
+    else:
+        return [RadioStation(**parse_from_mongo(station)) for station in stations]
 
 @api_router.post("/radio-directory", response_model=RadioStation)
 async def add_radio_station(station_input: RadioStationCreate):
