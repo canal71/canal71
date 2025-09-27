@@ -1027,7 +1027,7 @@ function App() {
                 />
               </div>
               <div>
-                <h1 className="pro-radio-heading text-xl font-bold text-white">Xtreme Hosting Media</h1>
+                <h1 className="pro-radio-heading text-xl font-bold text-white">Radio Haiti Fusion</h1>
                 <p className="text-sm text-gray-400">105.3 FM • Cap-Haïtien</p>
               </div>
             </div>
