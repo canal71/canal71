@@ -2244,7 +2244,7 @@ function App() {
                   </a>
 
                   <a 
-                    href="https://xtremeradiohosting.com/8288/stream"
+                    href="https://sp14.instainternet.com/8288/stream"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex flex-col items-center p-3 bg-slate-700/50 rounded-lg hover:bg-slate-700/80 transition-all duration-300 group"
