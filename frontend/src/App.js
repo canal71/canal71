@@ -1226,7 +1226,7 @@ function App() {
               {/* Animated Progress Bar */}
               <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/30">
                 <div 
-                  className="h-full bg-gradient-to-r from-orange-500 to-red-500"
+                  className="h-full bg-gradient-to-r from-pink-500 to-purple-500"
                   style={{
                     width: '25%',
                     transform: `translateX(${((Date.now() / 5000 | 0) % 4) * 100}%)`,
