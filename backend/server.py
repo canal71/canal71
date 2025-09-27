@@ -138,7 +138,7 @@ class StationInfo(BaseModel):
     vision_fr: str = "Notre vision est de devenir la principale plateforme multimédia à rayonnement mondial, reconnue pour sa fierté culturelle, son innovation et son impact communautaire — une plateforme sans frontières où chaque auditeur se sent connecté et inspiré."
     
     # Station Details
-    description: str = "Xtreme Hosting Media est une plateforme dynamique qui fusionne culture, musique et information pour inspirer et divertir."
+    description: str = "Radio Haiti Fusion est une plateforme dynamique qui fusionne culture, musique et information pour inspirer et divertir."
     founded_year: int = 2020
     frequency: str = "105.3 FM"
     location: str = "Cap-Haïtien, Haïti"
