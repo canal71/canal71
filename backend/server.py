@@ -447,14 +447,15 @@ class StreamingPlan(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     name: str
     description: str
-    max_listeners: int
+    max_listeners: int | str  # Can be int or "Unlimited"
     bandwidth: str  # e.g., "128 kbps", "320 kbps"
-    storage_gb: int
+    storage_gb: int | str  # Can be int or "Unlimited AutoDJ Space"
     monthly_price: float
     features: List[str] = []
     is_popular: bool = False
     setup_fee: float = 0.0
     trial_days: int = 0
+    panel_type: str = "SonicPanel"  # Default panel type
 
 class ResellerClient(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
