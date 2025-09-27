@@ -1147,6 +1147,49 @@ function App() {
         </div>
       </header>
 
+      {/* Music-Themed Hero Section */}
+      <div className="max-w-7xl mx-auto px-4 py-6">
+        <div className="pro-radio-card overflow-hidden relative">
+          {/* Music-themed background */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
+            style={{
+              backgroundImage: `url('https://customer-assets.emergentagent.com/job_xtremecast/artifacts/4h2qo840_djrhf2.jpg')`,
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-magenta-900/80 via-purple-800/60 to-magenta-900/80"></div>
+          
+          <div className="relative z-10 p-8 text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-2xl">
+              🎵 RADIO HAITI FUSION
+            </h2>
+            <p className="text-xl text-white/90 mb-6 drop-shadow-lg">
+              LA RADIO QUI VA LOIN • 105.3 FM • CAP-HAÏTIEN
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <button 
+                className="bg-magenta-500/80 hover:bg-magenta-600/80 backdrop-blur-sm px-8 py-3 rounded-lg text-white font-semibold border border-white/30 transition-all duration-300 transform hover:scale-105"
+                onClick={() => {
+                  window.open('https://xtremeradiohosting.com/cp/widgets/player/single/?p=8076', '_blank', 'width=400,height=300');
+                }}
+              >
+                🎵 ÉCOUTER EN DIRECT
+              </button>
+              <button 
+                className="bg-white/20 hover:bg-white/30 backdrop-blur-sm px-8 py-3 rounded-lg text-white font-semibold border border-white/30 transition-all duration-300"
+                onClick={() => {
+                  setShowRadioDirectory(true);
+                  setShowTvSection(false);
+                  setShowHostingSection(false);
+                }}
+              >
+                📡 DÉCOUVRIR NOS STATIONS
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Professional Promotional Banner Slide */}
       <div className="max-w-7xl mx-auto px-4 py-6">
         <div className="pro-radio-card overflow-hidden">
