@@ -111,6 +111,20 @@ function App() {
   
   // Radio Directory Page state
   const [showRadioDirectory, setShowRadioDirectory] = useState(false);
+  const [showStationForm, setShowStationForm] = useState(false);
+  const [stationProposal, setStationProposal] = useState({
+    name: '',
+    frequency: '',
+    description: '',
+    location: '',
+    country: 'Haïti',
+    genre: '',
+    stream_url: '',
+    website_url: '',
+    contact_email: '',
+    contact_name: '',
+    logo_url: ''
+  });
   
   const audioRef = useRef(null);
   const commentsEndRef = useRef(null);
