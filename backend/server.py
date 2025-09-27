@@ -126,7 +126,7 @@ class StationInfo(BaseModel):
     tagline: str = "Your Ultimate Media Experience"
     
     # Biography - English & French
-    bio_en: str = "Xtreme Hosting Media is a dynamic media platform that blends culture, music, and information to inspire and entertain. Rooted in Caribbean traditions while embracing global influences, we are a cultural bridge connecting communities worldwide."
+    bio_en: str = "Radio Haiti Fusion is a dynamic media platform that blends culture, music, and information to inspire and entertain. Rooted in Caribbean traditions while embracing global influences, we are a cultural bridge connecting communities worldwide."
     bio_fr: str = "Xtreme Hosting Media est une plateforme média dynamique qui fusionne culture, musique et information pour inspirer et divertir. Ancrée dans les traditions caribéennes tout en s'ouvrant aux influences mondiales, elle est un pont culturel reliant les communautés du monde entier."
     
     # Mission - English & French  
