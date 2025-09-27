@@ -2270,7 +2270,7 @@ function App() {
                     className="w-full h-10 bg-slate-800 rounded"
                     style={{ filter: 'invert(1) hue-rotate(180deg)' }}
                   >
-                    <source src="https://xtremeradiohosting.com/8288/stream" type="audio/mpeg" />
+                    <source src="https://sp14.instainternet.com/8288/stream" type="audio/mpeg" />
                     Votre navigateur ne supporte pas l'élément audio.
                   </audio>
                   <p className="text-xs text-slate-400 mt-2">
