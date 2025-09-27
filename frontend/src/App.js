@@ -1288,7 +1288,7 @@ function App() {
                     XH
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-white mb-2">Xtreme Hosting Media</h3>
+                    <h3 className="text-2xl font-bold text-white mb-2">Radio Haiti Fusion</h3>
                     <p className="text-gray-300 mb-3">
                       La radio qui va loin - Votre station de référence pour la musique haïtienne et internationale
                     </p>
