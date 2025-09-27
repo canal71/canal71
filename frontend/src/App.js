@@ -1150,13 +1150,7 @@ function App() {
       {/* Music-Themed Hero Section */}
       <div className="max-w-7xl mx-auto px-4 py-6">
         <div className="pro-radio-card overflow-hidden relative">
-          {/* Music-themed background */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
-            style={{
-              backgroundImage: `url('https://customer-assets.emergentagent.com/job_xtremecast/artifacts/4h2qo840_djrhf2.jpg')`,
-            }}
-          />
+          {/* Solid background instead of image */}
           <div className="absolute inset-0 bg-gradient-to-r from-magenta-900/80 via-purple-800/60 to-magenta-900/80"></div>
           
           <div className="relative z-10 p-8 text-center">
