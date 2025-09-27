@@ -1985,6 +1985,117 @@ function App() {
               </CardContent>
             </Card>
 
+            {/* Professional Sliding Advertisement Banner */}
+            {advertisements.length > 0 && (
+              <Card className="bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm border-orange-500/50 overflow-hidden">
+                <CardContent className="p-0">
+                  <div className="relative">
+                    {/* Ad Header */}
+                    <div className="bg-gradient-to-r from-orange-600 to-red-600 px-4 py-2">
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-sm font-bold text-white flex items-center">
+                          📢 PUBLICITÉ
+                        </h3>
+                        <div className="text-xs text-orange-100">
+                          {currentAdSlide + 1} / {advertisements.length}
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Sliding Ad Content */}
+                    <div className="relative h-32 md:h-40 overflow-hidden">
+                      <div 
+                        className="flex transition-transform duration-700 ease-in-out h-full"
+                        style={{ transform: `translateX(-${currentAdSlide * 100}%)` }}
+                      >
+                        {advertisements.map((ad, index) => (
+                          <div
+                            key={ad.id || index}
+                            className="w-full flex-shrink-0 relative cursor-pointer group"
+                            onClick={() => handleAdClick(ad)}
+                          >
+                            {/* Ad Background */}
+                            <div 
+                              className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                              style={{
+                                backgroundImage: ad.image_url ? `url(${ad.image_url})` : 'linear-gradient(135deg, #ff6b35, #f59e0b)',
+                              }}
+                            />
+                            
+                            {/* Ad Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60" />
+                            
+                            {/* Ad Content */}
+                            <div className="relative z-10 h-full flex items-center justify-center p-6">
+                              <div className="text-center text-white">
+                                <h4 className="text-lg md:text-xl font-bold mb-2 drop-shadow-lg">
+                                  {ad.title || "Votre Publicité Ici"}
+                                </h4>
+                                <p className="text-sm md:text-base opacity-90 mb-3 drop-shadow">
+                                  {ad.description || "Contactez-nous pour promouvoir votre entreprise"}
+                                </p>
+                                {ad.call_to_action && (
+                                  <div className="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/30 hover:bg-white/30 transition-colors">
+                                    <span className="text-sm font-semibold">
+                                      {ad.call_to_action} →
+                                    </span>
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                            
+                            {/* Ad Type Badge */}
+                            <div className="absolute top-3 right-3">
+                              <Badge className="bg-orange-500 text-white text-xs">
+                                {ad.ad_type || 'PROMO'}
+                              </Badge>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* Navigation Dots */}
+                    <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                      {advertisements.map((_, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setCurrentAdSlide(index)}
+                          className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                            index === currentAdSlide 
+                              ? 'bg-white shadow-lg scale-125' 
+                              : 'bg-white/50 hover:bg-white/75'
+                          }`}
+                        />
+                      ))}
+                    </div>
+                    
+                    {/* Navigation Arrows */}
+                    {advertisements.length > 1 && (
+                      <>
+                        <button
+                          onClick={() => setCurrentAdSlide(prev => 
+                            prev === 0 ? advertisements.length - 1 : prev - 1
+                          )}
+                          className="absolute left-2 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+                        >
+                          ←
+                        </button>
+                        <button
+                          onClick={() => setCurrentAdSlide(prev => 
+                            (prev + 1) % advertisements.length
+                          )}
+                          className="absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
+                        >
+                          →
+                        </button>
+                      </>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+
             {/* TV Section */}
             {showTvSection && (
               <Card className="bg-gradient-to-r from-purple-600/20 to-indigo-600/20 backdrop-blur-sm border-slate-600/50">
