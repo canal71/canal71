@@ -1453,7 +1453,13 @@ function App() {
                       {liveStats?.listeners || 899}
                     </div>
                     <div className="text-sm text-gray-400">Auditeurs en direct</div>
-                    <button className="pro-radio-btn-primary mt-3">
+                    <button 
+                      className="pro-radio-btn-primary mt-3"
+                      onClick={() => {
+                        // Open streaming widget in new window for featured station
+                        window.open('https://xtremeradiohosting.com/cp/widgets/player/single/?p=8076', '_blank', 'width=400,height=300,scrollbars=yes');
+                      }}
+                    >
                       🎵 Écouter Maintenant
                     </button>
                   </div>
