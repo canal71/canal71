@@ -1015,14 +1015,14 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-fuchsia-900 via-purple-800 to-pink-900 relative">
       {/* Professional Header */}
       <header className="pro-radio-header relative overflow-hidden">
-        {/* Music-themed background for header */}
+        {/* New Radio Haiti Fusion Banner */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://customer-assets.emergentagent.com/job_xtremecast/artifacts/4h2qo840_djrhf2.jpg')`,
+            backgroundImage: `url('https://customer-assets.emergentagent.com/job_xtremecast/artifacts/f6fkw5no_bannerhf.png')`,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60"></div>
         <div className="max-w-7xl mx-auto px-4 py-4 relative z-10">
           <div className="flex items-center justify-between">
             {/* Logo & Brand */}
