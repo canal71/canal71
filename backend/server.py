@@ -1010,6 +1010,17 @@ async def approve_station_proposal(proposal_id: str):
         raise HTTPException(status_code=500, detail=f"Erreur lors de l'approbation: {str(e)}")
 
 @api_router.get("/recently-played", response_model=List[NowPlaying])
+async def get_recently_played(limit: int = 10):
+    """Get recently played tracks"""
+    try:
+        tracks_data = await db.now_playing.find().sort("timestamp", -1).limit(limit).to_list(length=None)
+        tracks = []
+        for track_data in tracks_data:
+            parsed_track = parse_from_mongo(track_data)
+            tracks.append(NowPlaying(**parsed_track))
+        return tracks
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erreur lors de la récupération: {str(e)}")
 
 # Weather API Endpoint
 @api_router.get("/weather")
