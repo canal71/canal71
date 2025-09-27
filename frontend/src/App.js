@@ -1140,7 +1140,7 @@ function App() {
               width="100%" 
               scrolling="no" 
               style={{ border: 'none' }}
-              title="Xtreme Hosting Media Live Player"
+              title="Radio Haiti Fusion Live Player"
               className="w-full"
             />
           </div>
