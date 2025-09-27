@@ -1261,7 +1261,7 @@ function App() {
 
       {/* Breaking News */}
       {showBreakingNews && (
-        <div className="pro-radio-breaking">
+        <div className="bg-gradient-to-r from-pink-600 to-purple-600 text-white py-2 overflow-hidden relative border-b border-pink-500">
           <div className="flex items-center">
             <div className="bg-white text-red-600 px-4 py-1 font-bold text-sm flex-shrink-0 uppercase tracking-wide">
               🚨 Breaking News
