@@ -905,6 +905,112 @@ async def delete_radio_station(station_id: str):
         return {"error": "Station not found"}
     return {"message": "Station deleted successfully"}
 
+# Radio Station Proposal Models
+class StationProposal(BaseModel):
+    name: str
+    frequency: str
+    description: str
+    location: str = ""
+    country: str = "Haïti"
+    genre: str = ""
+    stream_url: str = ""
+    website_url: str = ""
+    contact_email: str
+    contact_name: str
+    logo_url: str = ""
+    status: str = "pending"  # pending, approved, rejected
+    submission_date: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+@api_router.post("/radio-directory/propose")
+async def propose_radio_station(proposal: StationProposal):
+    """Submit a new radio station proposal"""
+    try:
+        # Prepare data for MongoDB storage
+        proposal_data = prepare_for_mongo(proposal.dict())
+        proposal_data["id"] = str(uuid.uuid4())
+        proposal_data["submission_date"] = datetime.now(timezone.utc).isoformat()
+        
+        # Save to database
+        await db.station_proposals.insert_one(proposal_data)
+        
+        # Optionally, broadcast notification to admin WebSocket connections
+        await manager.broadcast(json.dumps({
+            "type": "new_station_proposal",
+            "proposal": {
+                "id": proposal_data["id"],
+                "name": proposal.name,
+                "frequency": proposal.frequency,
+                "contact_name": proposal.contact_name,
+                "submission_date": proposal_data["submission_date"]
+            }
+        }))
+        
+        return {
+            "status": "success",
+            "message": f"Proposition pour '{proposal.name}' soumise avec succès",
+            "proposal_id": proposal_data["id"],
+            "contact_name": proposal.contact_name
+        }
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erreur lors de la soumission: {str(e)}")
+
+@api_router.get("/radio-directory/proposals")
+async def get_station_proposals(status: str = "pending"):
+    """Get all station proposals (admin only)"""
+    try:
+        proposals = await db.station_proposals.find({"status": status}).to_list(length=None)
+        return [parse_from_mongo(proposal) for proposal in proposals]
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erreur lors de la récupération: {str(e)}")
+
+@api_router.post("/radio-directory/proposals/{proposal_id}/approve")
+async def approve_station_proposal(proposal_id: str):
+    """Approve a station proposal and add it to the directory (admin only)"""
+    try:
+        # Get the proposal
+        proposal = await db.station_proposals.find_one({"id": proposal_id})
+        if not proposal:
+            raise HTTPException(status_code=404, detail="Proposition non trouvée")
+        
+        # Create the radio station from proposal
+        station_data = prepare_for_mongo({
+            "id": str(uuid.uuid4()),
+            "name": proposal["name"],
+            "frequency": proposal["frequency"],
+            "description": proposal["description"],
+            "location": proposal["location"],
+            "country": proposal["country"],
+            "genre": proposal["genre"],
+            "is_live": False,  # Set to false initially, admin can enable later
+            "listeners": 0,
+            "color": "#FF6B35",  # Default orange color
+            "stream_url": proposal.get("stream_url", ""),
+            "website": proposal.get("website_url", ""),
+            "logo_url": proposal.get("logo_url", ""),
+            "approved_date": datetime.now(timezone.utc).isoformat()
+        })
+        
+        # Add to radio stations collection
+        await db.radio_stations.insert_one(station_data)
+        
+        # Update proposal status
+        await db.station_proposals.update_one(
+            {"id": proposal_id}, 
+            {"$set": {"status": "approved", "approved_date": datetime.now(timezone.utc).isoformat()}}
+        )
+        
+        return {
+            "status": "success", 
+            "message": f"Station '{proposal['name']}' approuvée et ajoutée au répertoire",
+            "station_id": station_data["id"]
+        }
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erreur lors de l'approbation: {str(e)}")
+
+@api_router.get("/recently-played", response_model=List[NowPlaying])
+
 # Weather API Endpoint
 @api_router.get("/weather")
 async def get_weather():
