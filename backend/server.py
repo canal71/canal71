@@ -2446,8 +2446,8 @@ async def get_featured_episodes(limit: int = 5):
 async def get_tv_channel():
     """Get TV channel information"""
     return TVChannel(
-        name="Xtreme Hosting Media TV",
-        description="Chaîne TV officielle de Xtreme Hosting Media - Programmes, émissions et divertissement 24h/24",
+        name="Radio Haiti Fusion TV",
+        description="Chaîne TV officielle de Radio Haiti Fusion - Programmes, émissions et divertissement 24h/24",
         logo_url="https://via.placeholder.com/200x100?text=RHF+TV",
         stream_url="https://xtremeradiohosting.com/8288/stream",  # Using the same stream for now
         backup_stream_urls=[
