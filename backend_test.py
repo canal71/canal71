@@ -1686,6 +1686,281 @@ class RadioStationAPITester:
         
         return success, response
 
+    # Sponsors API Tests
+    def test_get_sponsors_all(self):
+        """Test getting all sponsors"""
+        success, response = self.run_test(
+            "Get All Sponsors",
+            "GET",
+            "sponsors",
+            200,
+            description="Get all sponsors with sample data"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} sponsors")
+            expected_sponsors = ["Digicel Haiti", "Banque Nationale de Crédit (BNC)", "Prestige Beer", "MonCash"]
+            found_sponsors = [sponsor.get('name') for sponsor in response]
+            
+            for expected_sponsor in expected_sponsors:
+                if expected_sponsor in found_sponsors:
+                    print(f"   ✅ Found expected sponsor: {expected_sponsor}")
+                else:
+                    print(f"   ⚠️  Expected sponsor not found: {expected_sponsor}")
+            
+            # Show sponsor details
+            for i, sponsor in enumerate(response[:4]):  # Show first 4 sponsors
+                print(f"   {i+1}. {sponsor.get('name')} - {sponsor.get('sponsor_type')}")
+                print(f"      Description: {sponsor.get('description')}")
+                print(f"      Website: {sponsor.get('website_url')}")
+                print(f"      Contact: {sponsor.get('contact_email')}")
+                print(f"      Active: {sponsor.get('is_active')}")
+                print(f"      Display Order: {sponsor.get('display_order')}")
+                
+                # Validate required fields
+                required_fields = ['id', 'name', 'description', 'logo_url', 'website_url', 'contact_email', 'sponsor_type', 'is_active', 'display_order']
+                missing_fields = [field for field in required_fields if field not in sponsor]
+                if missing_fields:
+                    print(f"      ⚠️  Warning: Missing fields in sponsor '{sponsor.get('name')}': {missing_fields}")
+                else:
+                    print(f"      ✅ All required fields present")
+            
+            # Store first sponsor for other tests
+            if response:
+                self.sample_sponsor_id = response[0].get('id')
+        
+        return success, response
+
+    def test_get_sponsors_by_type_platinum(self):
+        """Test getting sponsors filtered by platinum type"""
+        success, response = self.run_test(
+            "Get Platinum Sponsors",
+            "GET",
+            "sponsors?sponsor_type=platinum",
+            200,
+            description="Get sponsors filtered by platinum type"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} platinum sponsors")
+            # Verify all sponsors are platinum type
+            for sponsor in response:
+                if sponsor.get('sponsor_type') != 'platinum':
+                    print(f"   ⚠️  Warning: Sponsor '{sponsor.get('name')}' has type '{sponsor.get('sponsor_type')}', expected 'platinum'")
+                else:
+                    print(f"   ✅ Platinum sponsor: {sponsor.get('name')}")
+        
+        return success, response
+
+    def test_get_sponsors_by_type_gold(self):
+        """Test getting sponsors filtered by gold type"""
+        success, response = self.run_test(
+            "Get Gold Sponsors",
+            "GET",
+            "sponsors?sponsor_type=gold",
+            200,
+            description="Get sponsors filtered by gold type"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} gold sponsors")
+            # Verify all sponsors are gold type
+            for sponsor in response:
+                if sponsor.get('sponsor_type') != 'gold':
+                    print(f"   ⚠️  Warning: Sponsor '{sponsor.get('name')}' has type '{sponsor.get('sponsor_type')}', expected 'gold'")
+                else:
+                    print(f"   ✅ Gold sponsor: {sponsor.get('name')}")
+        
+        return success, response
+
+    def test_get_sponsors_by_type_silver(self):
+        """Test getting sponsors filtered by silver type"""
+        success, response = self.run_test(
+            "Get Silver Sponsors",
+            "GET",
+            "sponsors?sponsor_type=silver",
+            200,
+            description="Get sponsors filtered by silver type"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} silver sponsors")
+            for sponsor in response:
+                if sponsor.get('sponsor_type') != 'silver':
+                    print(f"   ⚠️  Warning: Sponsor '{sponsor.get('name')}' has type '{sponsor.get('sponsor_type')}', expected 'silver'")
+                else:
+                    print(f"   ✅ Silver sponsor: {sponsor.get('name')}")
+        
+        return success, response
+
+    def test_get_featured_sponsors(self):
+        """Test getting featured sponsors (platinum and gold)"""
+        success, response = self.run_test(
+            "Get Featured Sponsors",
+            "GET",
+            "sponsors/featured",
+            200,
+            description="Get featured sponsors (platinum and gold types only)"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} featured sponsors")
+            expected_types = ["platinum", "gold"]
+            
+            for sponsor in response:
+                sponsor_type = sponsor.get('sponsor_type')
+                if sponsor_type in expected_types:
+                    print(f"   ✅ Featured sponsor: {sponsor.get('name')} ({sponsor_type})")
+                    print(f"      Description: {sponsor.get('description')}")
+                    print(f"      Website: {sponsor.get('website_url')}")
+                else:
+                    print(f"   ⚠️  Warning: Sponsor '{sponsor.get('name')}' has type '{sponsor_type}', expected platinum or gold")
+            
+            # Verify response structure
+            for sponsor in response:
+                required_fields = ['name', 'description', 'logo_url', 'website_url', 'sponsor_type', 'is_active']
+                missing_fields = [field for field in required_fields if field not in sponsor]
+                if missing_fields:
+                    print(f"   ⚠️  Warning: Missing fields in featured sponsor '{sponsor.get('name')}': {missing_fields}")
+        
+        return success, response
+
+    def test_create_sponsor_valid(self):
+        """Test creating a new sponsor with valid data"""
+        sponsor_data = {
+            "name": "Test Sponsor Company",
+            "description": "A test sponsor company for API testing purposes",
+            "logo_url": "https://via.placeholder.com/200x100/FF6B35/FFFFFF?text=TEST+SPONSOR",
+            "website_url": "https://www.testsponsor.com",
+            "contact_email": "contact@testsponsor.com",
+            "phone": "+509 1234-5678",
+            "sponsor_type": "gold",
+            "is_active": True
+        }
+        
+        success, response = self.run_test(
+            "Create Sponsor (Valid)",
+            "POST",
+            "sponsors",
+            200,
+            data=sponsor_data,
+            description="Create a new sponsor with valid data"
+        )
+        
+        if success and response:
+            print(f"   ✅ Sponsor created successfully")
+            print(f"   Name: {response.get('name')}")
+            print(f"   Type: {response.get('sponsor_type')}")
+            print(f"   Contact: {response.get('contact_email')}")
+            print(f"   Website: {response.get('website_url')}")
+            print(f"   Active: {response.get('is_active')}")
+            
+            # Validate response structure
+            required_fields = ['id', 'name', 'description', 'logo_url', 'website_url', 'contact_email', 'sponsor_type', 'is_active']
+            missing_fields = [field for field in required_fields if field not in response]
+            if missing_fields:
+                print(f"   ⚠️  Warning: Missing fields in create response: {missing_fields}")
+            else:
+                print(f"   ✅ All required fields present in response")
+            
+            # Store created sponsor ID for cleanup or further testing
+            self.created_sponsor_id = response.get('id')
+        
+        return success, response
+
+    def test_create_sponsor_different_types(self):
+        """Test creating sponsors with different sponsor types"""
+        sponsor_types = ["platinum", "gold", "silver", "bronze"]
+        
+        created_sponsors = []
+        for i, sponsor_type in enumerate(sponsor_types):
+            sponsor_data = {
+                "name": f"Test {sponsor_type.title()} Sponsor",
+                "description": f"A test {sponsor_type} sponsor for API testing",
+                "logo_url": f"https://via.placeholder.com/200x100/FF6B35/FFFFFF?text={sponsor_type.upper()}",
+                "website_url": f"https://www.{sponsor_type}sponsor.com",
+                "contact_email": f"contact@{sponsor_type}sponsor.com",
+                "phone": f"+509 123{i}-567{i}",
+                "sponsor_type": sponsor_type,
+                "is_active": True
+            }
+            
+            success, response = self.run_test(
+                f"Create {sponsor_type.title()} Sponsor",
+                "POST",
+                "sponsors",
+                200,
+                data=sponsor_data,
+                description=f"Create sponsor with {sponsor_type} type"
+            )
+            
+            if success and response:
+                created_sponsors.append(response)
+                print(f"   ✅ Created {sponsor_type} sponsor: {response.get('name')}")
+                
+                # Verify sponsor type is correctly set
+                if response.get('sponsor_type') != sponsor_type:
+                    print(f"   ⚠️  Warning: Expected type '{sponsor_type}', got '{response.get('sponsor_type')}'")
+            
+            time.sleep(0.5)  # Small delay between requests
+        
+        return len(created_sponsors) == len(sponsor_types), created_sponsors
+
+    def test_sponsors_data_structure_validation(self):
+        """Test sponsor data structure and field validation"""
+        success, response = self.run_test(
+            "Validate Sponsor Data Structure",
+            "GET",
+            "sponsors",
+            200,
+            description="Validate sponsor data structure and required fields"
+        )
+        
+        if success and response:
+            print(f"   Validating data structure for {len(response)} sponsors")
+            
+            # Expected sponsor types
+            valid_sponsor_types = ["platinum", "gold", "silver", "bronze"]
+            
+            for sponsor in response:
+                sponsor_name = sponsor.get('name', 'Unknown')
+                
+                # Check sponsor type validity
+                sponsor_type = sponsor.get('sponsor_type')
+                if sponsor_type not in valid_sponsor_types:
+                    print(f"   ⚠️  Warning: '{sponsor_name}' has invalid sponsor_type: '{sponsor_type}'")
+                
+                # Check required string fields are not empty
+                string_fields = ['name', 'description', 'logo_url', 'website_url', 'contact_email']
+                for field in string_fields:
+                    value = sponsor.get(field)
+                    if not value or not isinstance(value, str) or value.strip() == "":
+                        print(f"   ⚠️  Warning: '{sponsor_name}' has empty or invalid {field}")
+                
+                # Check boolean fields
+                is_active = sponsor.get('is_active')
+                if not isinstance(is_active, bool):
+                    print(f"   ⚠️  Warning: '{sponsor_name}' has invalid is_active value: {is_active}")
+                
+                # Check display_order is numeric
+                display_order = sponsor.get('display_order')
+                if display_order is not None and not isinstance(display_order, (int, float)):
+                    print(f"   ⚠️  Warning: '{sponsor_name}' has invalid display_order: {display_order}")
+                
+                # Check email format (basic validation)
+                email = sponsor.get('contact_email', '')
+                if email and '@' not in email:
+                    print(f"   ⚠️  Warning: '{sponsor_name}' has invalid email format: {email}")
+                
+                # Check URL format (basic validation)
+                website = sponsor.get('website_url', '')
+                if website and not (website.startswith('http://') or website.startswith('https://')):
+                    print(f"   ⚠️  Warning: '{sponsor_name}' has invalid website URL format: {website}")
+            
+            print(f"   ✅ Data structure validation completed")
+        
+        return success, response
+
 def main():
     print("🎵 Radio Station API Testing Suite")
     print("=" * 50)
