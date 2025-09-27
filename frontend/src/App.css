@@ -1,141 +1,326 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Professional Pro Radio Style - Clean & Modern */
+:root {
+  --pro-radio-primary: #1a1a1a;
+  --pro-radio-secondary: #2d2d2d;
+  --pro-radio-accent: #ff6b35;
+  --pro-radio-text: #ffffff;
+  --pro-radio-text-muted: #a1a1a1;
+  --pro-radio-border: #333333;
+  --pro-radio-card: #252525;
 }
+
+/* Custom Pro Radio Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--pro-radio-primary);
+  color: var(--pro-radio-text);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Professional Typography */
+.pro-radio-heading {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.pro-radio-text {
   font-family: 'Inter', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
 }
 
-.App {
-  min-height: 100vh;
-}
-
-/* Custom volume slider styles */
-.slider {
-  background: linear-gradient(to right, #2563eb 0%, #2563eb var(--value, 70%), #64748b var(--value, 70%), #64748b 100%);
-}
-
-.haiti-slider {
-  background: linear-gradient(to right, #ea580c 0%, #f97316 50%, #ea580c var(--value, 70%), #64748b var(--value, 70%), #64748b 100%);
-}
-
-.slider::-webkit-slider-thumb, .haiti-slider::-webkit-slider-thumb {
-  appearance: none;
-  height: 18px;
-  width: 18px;
-  border-radius: 50%;
-  background: #ffffff;
-  cursor: pointer;
-  border: 2px solid #ea580c;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-
-.slider::-moz-range-thumb, .haiti-slider::-moz-range-thumb {
-  height: 18px;
-  width: 18px;
-  border-radius: 50%;
-  background: #ffffff;
-  cursor: pointer;
-  border: 2px solid #2563eb;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-
-/* Scroll area customization */
-.scroll-area {
-  scrollbar-width: thin;
-  scrollbar-color: #64748b #1e293b;
-}
-
-.scroll-area::-webkit-scrollbar {
-  width: 6px;
-}
-
-.scroll-area::-webkit-scrollbar-track {
-  background: #1e293b;
-}
-
-.scroll-area::-webkit-scrollbar-thumb {
-  background: #64748b;
-  border-radius: 3px;
-}
-
-.scroll-area::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}
-
-/* Animation utilities */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fadeIn {
-  animation: fadeIn 0.3s ease-out;
-}
-
-/* Glass morphism effect */
-.glass {
-  background: rgba(255, 255, 255, 0.1);
+/* Professional Cards */
+.pro-radio-card {
+  background: var(--pro-radio-card);
+  border: 1px solid var(--pro-radio-border);
+  border-radius: 12px;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
 }
 
-/* Button hover effects */
-.btn-hover {
-  transition: all 0.2s ease;
-  transform: translateY(0);
-}
-
-.btn-hover:hover {
+.pro-radio-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  border-color: var(--pro-radio-accent);
+  box-shadow: 0 8px 32px rgba(255, 107, 53, 0.1);
 }
 
-/* Ad Progress Animation */
-@keyframes progress {
-  from {
-    width: 0%;
-  }
-  to {
-    width: 100%;
-  }
+/* Professional Buttons */
+.pro-radio-btn-primary {
+  background: linear-gradient(135deg, var(--pro-radio-accent), #ff8a65);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
 }
 
-/* Breaking News Scroll Animation */
-@keyframes scroll-news {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+.pro-radio-btn-primary:hover {
+  background: linear-gradient(135deg, #e55a32, #ff6b35);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(255, 107, 53, 0.3);
+}
+
+.pro-radio-btn-secondary {
+  background: transparent;
+  border: 2px solid var(--pro-radio-border);
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--pro-radio-text);
+  transition: all 0.3s ease;
+}
+
+.pro-radio-btn-secondary:hover {
+  border-color: var(--pro-radio-accent);
+  background: rgba(255, 107, 53, 0.1);
+}
+
+/* Professional Layout Grid */
+.pro-radio-grid {
+  display: grid;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .pro-radio-grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .pro-radio-grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .pro-radio-grid-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Professional Header */
+.pro-radio-header {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-bottom: 1px solid var(--pro-radio-border);
+  backdrop-filter: blur(20px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Professional Navigation */
+.pro-radio-nav {
+  background: var(--pro-radio-secondary);
+  border-radius: 12px;
+  padding: 8px;
+  display: flex;
+  gap: 8px;
+}
+
+.pro-radio-nav-item {
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.pro-radio-nav-item:hover {
+  background: rgba(255, 107, 53, 0.1);
+  color: var(--pro-radio-accent);
+}
+
+.pro-radio-nav-item.active {
+  background: var(--pro-radio-accent);
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+/* Professional Now Playing */
+.pro-radio-now-playing {
+  background: linear-gradient(135deg, var(--pro-radio-card) 0%, #2a2a2a 100%);
+  border: 1px solid var(--pro-radio-border);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pro-radio-now-playing::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--pro-radio-accent), #ff8a65, var(--pro-radio-accent));
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Professional Live Indicator */
+.pro-radio-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #ff0000, #ff4444);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.pro-radio-live::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+
+/* Professional Sidebar */
+.pro-radio-sidebar {
+  background: var(--pro-radio-secondary);
+  border-radius: 12px;
+  padding: 24px;
+  height: fit-content;
+  position: sticky;
+  top: 120px;
+}
+
+/* Professional Stats */
+.pro-radio-stat {
+  background: var(--pro-radio-card);
+  border: 1px solid var(--pro-radio-border);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.pro-radio-stat:hover {
+  border-color: var(--pro-radio-accent);
+  background: linear-gradient(135deg, var(--pro-radio-card), #2a2a2a);
+}
+
+.pro-radio-stat-number {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--pro-radio-accent), #ff8a65);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pro-radio-stat-label {
+  font-size: 0.875rem;
+  color: var(--pro-radio-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 8px;
+}
+
+/* Professional Breaking News */
+.pro-radio-breaking {
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  color: white;
+  padding: 12px 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .breaking-news-scroll {
-  animation: scroll-news 60s linear infinite;
+  animation: scroll-left 30s linear infinite;
   white-space: nowrap;
+  padding-left: 100%;
 }
 
-.breaking-news-scroll:hover {
-  animation-play-state: paused;
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
-/* Responsive design */
+/* Professional Form Elements */
+.pro-radio-input {
+  background: var(--pro-radio-card);
+  border: 1px solid var(--pro-radio-border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: var(--pro-radio-text);
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.pro-radio-input:focus {
+  outline: none;
+  border-color: var(--pro-radio-accent);
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+/* Professional Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--pro-radio-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pro-radio-accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff8a65;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+  .pro-radio-grid {
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .pro-radio-card {
+    padding: 16px;
+  }
+  
+  .pro-radio-now-playing {
+    padding: 20px;
+  }
+  
+  .pro-radio-nav {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  
+  .pro-radio-nav-item {
+    padding: 8px 12px;
+    font-size: 12px;
   }
 }
