@@ -1371,7 +1371,10 @@ function App() {
                 ))}
 
                 {/* Add New Station Card */}
-                <div className="pro-radio-card p-6 border-2 border-dashed border-gray-600 hover:border-orange-500 transition-colors cursor-pointer">
+                <div 
+                  className="pro-radio-card p-6 border-2 border-dashed border-gray-600 hover:border-orange-500 transition-colors cursor-pointer"
+                  onClick={() => setShowStationForm(true)}
+                >
                   <div className="text-center">
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                       <span className="text-white text-2xl font-bold">+</span>
