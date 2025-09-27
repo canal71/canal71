@@ -1023,7 +1023,7 @@ function App() {
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
-        <div className="max-w-7xl mx-auto px-4 py-4">
+        <div className="max-w-7xl mx-auto px-4 py-4 relative z-10">
           <div className="flex items-center justify-between">
             {/* Logo & Brand */}
             <div className="flex items-center space-x-4">
