@@ -1158,19 +1158,18 @@ function App() {
               >
                 {/* Promotion 1 - Radio Shows */}
                 <div className="w-full flex-shrink-0 relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-900/80 via-blue-800/60 to-purple-900/80" />
-                  <div className="relative z-10 h-full flex items-center justify-center p-6">
+                  <div className="h-full flex items-center justify-center p-6">
                     <div className="text-center text-white">
-                      <h3 className="text-2xl md:text-3xl font-bold mb-3 drop-shadow-lg">
+                      <h3 className="text-2xl md:text-3xl font-bold mb-3 drop-shadow-2xl text-shadow-lg">
                         🎙️ ÉMISSIONS EN DIRECT
                       </h3>
-                      <p className="text-lg mb-4 opacity-90">
+                      <p className="text-lg mb-4 opacity-95 drop-shadow-xl">
                         Découvrez nos émissions exclusives tous les jours
                       </p>
                       <div className="flex flex-wrap justify-center gap-2">
-                        <span className="bg-white/20 px-3 py-1 rounded-full text-sm">Matin Compas</span>
-                        <span className="bg-white/20 px-3 py-1 rounded-full text-sm">Talk Show</span>
-                        <span className="bg-white/20 px-3 py-1 rounded-full text-sm">Soirée Zouk</span>
+                        <span className="bg-magenta-500/80 backdrop-blur-sm px-3 py-1 rounded-full text-sm border border-white/30">Matin Compas</span>
+                        <span className="bg-magenta-500/80 backdrop-blur-sm px-3 py-1 rounded-full text-sm border border-white/30">Talk Show</span>
+                        <span className="bg-magenta-500/80 backdrop-blur-sm px-3 py-1 rounded-full text-sm border border-white/30">Soirée Zouk</span>
                       </div>
                     </div>
                   </div>
@@ -1178,16 +1177,15 @@ function App() {
 
                 {/* Promotion 2 - Music Requests */}
                 <div className="w-full flex-shrink-0 relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-green-900/80 via-teal-800/60 to-green-900/80" />
-                  <div className="relative z-10 h-full flex items-center justify-center p-6">
+                  <div className="h-full flex items-center justify-center p-6">
                     <div className="text-center text-white">
-                      <h3 className="text-2xl md:text-3xl font-bold mb-3 drop-shadow-lg">
+                      <h3 className="text-2xl md:text-3xl font-bold mb-3 drop-shadow-2xl text-shadow-lg">
                         🎵 DEMANDES MUSICALES
                       </h3>
-                      <p className="text-lg mb-4 opacity-90">
+                      <p className="text-lg mb-4 opacity-95 drop-shadow-xl">
                         Demandez vos chansons préférées en direct
                       </p>
-                      <div className="bg-white/20 backdrop-blur-sm px-6 py-2 rounded-lg border border-white/30 inline-block">
+                      <div className="bg-magenta-500/80 backdrop-blur-sm px-6 py-2 rounded-lg border border-white/30 inline-block">
                         <span className="text-sm font-semibold">📞 Appelez maintenant!</span>
                       </div>
                     </div>
@@ -1196,19 +1194,18 @@ function App() {
 
                 {/* Promotion 3 - Podcasts */}
                 <div className="w-full flex-shrink-0 relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-pink-900/80 via-purple-800/60 to-pink-900/80" />
-                  <div className="relative z-10 h-full flex items-center justify-center p-6">
+                  <div className="h-full flex items-center justify-center p-6">
                     <div className="text-center text-white">
-                      <h3 className="text-2xl md:text-3xl font-bold mb-3 drop-shadow-lg">
+                      <h3 className="text-2xl md:text-3xl font-bold mb-3 drop-shadow-2xl text-shadow-lg">
                         🎧 PODCASTS & ÉMISSIONS
                       </h3>
-                      <p className="text-lg mb-4 opacity-90">
+                      <p className="text-lg mb-4 opacity-95 drop-shadow-xl">
                         Rattrapez vos émissions favorites en replay
                       </p>
                       <div className="flex flex-wrap justify-center gap-2">
-                        <span className="bg-white/20 px-3 py-1 rounded-full text-sm">Culture Kreyòl</span>
-                        <span className="bg-white/20 px-3 py-1 rounded-full text-sm">Interviews</span>
-                        <span className="bg-white/20 px-3 py-1 rounded-full text-sm">Musique</span>
+                        <span className="bg-magenta-500/80 backdrop-blur-sm px-3 py-1 rounded-full text-sm border border-white/30">Culture Kreyòl</span>
+                        <span className="bg-magenta-500/80 backdrop-blur-sm px-3 py-1 rounded-full text-sm border border-white/30">Interviews</span>
+                        <span className="bg-magenta-500/80 backdrop-blur-sm px-3 py-1 rounded-full text-sm border border-white/30">Musique</span>
                       </div>
                     </div>
                   </div>
@@ -1216,16 +1213,15 @@ function App() {
 
                 {/* Promotion 4 - Community */}
                 <div className="w-full flex-shrink-0 relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-indigo-800/60 to-blue-900/80" />
-                  <div className="relative z-10 h-full flex items-center justify-center p-6">
+                  <div className="h-full flex items-center justify-center p-6">
                     <div className="text-center text-white">
-                      <h3 className="text-2xl md:text-3xl font-bold mb-3 drop-shadow-lg">
+                      <h3 className="text-2xl md:text-3xl font-bold mb-3 drop-shadow-2xl text-shadow-lg">
                         🌍 VOTRE RADIO COMMUNAUTAIRE
                       </h3>
-                      <p className="text-lg mb-4 opacity-90">
+                      <p className="text-lg mb-4 opacity-95 drop-shadow-xl">
                         La voix de Cap-Haïtien et de toute la diaspora
                       </p>
-                      <div className="bg-white/20 backdrop-blur-sm px-6 py-2 rounded-lg border border-white/30 inline-block">
+                      <div className="bg-magenta-500/80 backdrop-blur-sm px-6 py-2 rounded-lg border border-white/30 inline-block">
                         <span className="text-sm font-semibold">🇭🇹 Fièrement Haïtienne</span>
                       </div>
                     </div>
