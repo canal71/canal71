@@ -2159,7 +2159,7 @@ function App() {
                   <p className="text-sm text-white mb-2">🔗 Lien Direct du Stream:</p>
                   <input 
                     type="text" 
-                    value="https://xtremeradiohosting.com/cp/links.php?p=8076&m=direct" 
+                    value="https://sp14.instainternet.com/cp/links.php?p=8288&m=direct" 
                     readOnly 
                     className="w-full bg-slate-800 text-white text-xs px-3 py-2 rounded border border-slate-600 select-all"
                     onClick={(e) => e.target.select()}
