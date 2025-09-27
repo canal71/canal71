@@ -1129,7 +1129,7 @@ function App() {
         <div className="pro-radio-card overflow-hidden">
           <div className="relative">
             {/* Promotional Header */}
-            <div className="bg-gradient-to-r from-orange-600 to-red-600 px-6 py-3">
+            <div className="bg-gradient-to-r from-pink-600 to-purple-600 px-6 py-3">
               <div className="flex items-center justify-between">
                 <h2 className="pro-radio-heading text-lg font-bold text-white flex items-center">
                   🎯 PROMOTIONS & ÉVÉNEMENTS
