@@ -259,7 +259,9 @@ function App() {
           loadHostingPlans(),
           loadHostingStats(),
           loadRadioDirectory(),
-          loadDonationInfo()
+          loadDonationInfo(),
+          loadSponsors(),
+          loadFeaturedSponsors()
         ]);
       } catch (error) {
         console.error('Failed to load hosting data:', error);
