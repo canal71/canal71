@@ -961,208 +961,181 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-fuchsia-900 via-purple-800 to-pink-900 relative">
-      {/* Single unified background */}
-      <div 
-        className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage: `url('https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/dc83vhra_a12a6cc8-c410-4855-811c-4f5c5fce72c6.jpeg')`,
-          backgroundSize: 'contain',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      ></div>
-      
-      {/* Content wrapper */}
-      <div className="relative z-10">
-      {/* Professional Header Card */}
-      <div className="p-4 md:p-6">
-        <Card className="bg-gradient-to-r from-white via-gray-50 to-white shadow-2xl border-0 overflow-hidden">
-          <CardContent className="p-0">
-            {/* Header Banner */}
-            <div 
-              className="relative text-white overflow-hidden"
-              style={{
-                backgroundImage: `url('https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/d6zbosac_logorhf.png')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat'
-              }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
-              <div className="absolute inset-0 bg-black/10"></div>
-              
-              {/* Main Header Content */}
-              <div className="relative px-6 md:px-8 py-6 md:py-8">
-                <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-                  
-                  {/* Logo & Branding */}
-                  <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
-                    {/* Professional Logo */}
-                    <div className="relative">
-                      <div className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-2xl shadow-2xl flex items-center justify-center border-4 border-white/30">
-                        <img 
-                          src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/okvzwb89_rhf45.jpg" 
-                          alt="Radio Haiti Fusion Logo" 
-                          className="w-16 h-16 md:w-20 md:h-20 object-contain"
-                        />
-                      </div>
-                      {/* Live Indicator */}
-                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full border-3 border-white flex items-center justify-center animate-pulse">
-                        <div className="w-2 h-2 bg-white rounded-full"></div>
-                      </div>
-                    </div>
-
-                    {/* Station Info */}
-                    <div className="text-center md:text-left">
-                      {/* <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1 tracking-wide">
-                        RADIO HAITI FUSION
-                      </h1> */}
-                      {/* <p className="text-lg md:text-xl text-orange-100 font-medium italic mb-3">
-                        🇭🇹 La radio qui va loin
-                      </p> */}
-                      <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
-                        <Badge className="bg-red-500 text-white font-semibold px-3 py-1 animate-pulse">
-                          🔴 LIVE
-                        </Badge>
-                        <Badge className="bg-white/20 text-white border-white/30 px-3 py-1">
-                          105.3 FM
-                        </Badge>
-                        <Badge className="bg-green-500/80 text-white px-3 py-1">
-                          HD 128kbps
-                        </Badge>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Stats & Actions */}
-                  <div className="flex flex-col items-center md:items-end space-y-4">
-                    {/* Live Stats */}
-                    {liveStats && (
-                      <div className="flex items-center space-x-4">
-                        <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2 text-center">
-                          <div className="text-2xl font-bold text-white">{liveStats.current_listeners.toLocaleString()}</div>
-                          <div className="text-xs text-orange-100">Auditeurs</div>
-                        </div>
-                        <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2 text-center">
-                          <div className="text-2xl font-bold text-white">{liveStats.total_requests}</div>
-                          <div className="text-xs text-orange-100">Demandes</div>
-                        </div>
-                      </div>
-                    )}
-                    
-                    {/* Action Buttons */}
-                    <div className="flex space-x-2">
-                      <Button 
-                        size="sm" 
-                        className="bg-white text-orange-600 hover:bg-orange-50 font-semibold"
-                        onClick={() => window.open('mailto:haitifusionpromo@gmail.com', '_blank')}
-                      >
-                        📞 Contact
-                      </Button>
-                      <Button 
-                        size="sm" 
-                        className="bg-green-600 hover:bg-green-700 text-white font-semibold"
-                        onClick={() => window.open('https://paypal.me/fusionviberadio', '_blank')}
-                      >
-                        💰 Donation
-                      </Button>
-                    </div>
-                  </div>
-                </div>
+    <div className="min-h-screen" style={{ background: 'var(--pro-radio-primary)' }}>
+      {/* Professional Header */}
+      <header className="pro-radio-header">
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            {/* Logo & Brand */}
+            <div className="flex items-center space-x-4">
+              <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-xl flex items-center justify-center">
+                <img 
+                  src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/okvzwb89_rhf45.jpg" 
+                  alt="Xtreme Hosting Media" 
+                  className="w-10 h-10 rounded-lg"
+                />
+              </div>
+              <div>
+                <h1 className="pro-radio-heading text-xl font-bold text-white">Xtreme Hosting Media</h1>
+                <p className="text-sm text-gray-400">105.3 FM • Cap-Haïtien</p>
               </div>
             </div>
-
-            {/* Info Strip */}
-            <div className="bg-slate-100 border-t-2 border-orange-200">
-              <div className="px-6 md:px-8 py-3">
-                <div className="flex flex-col md:flex-row items-center justify-between space-y-2 md:space-y-0 text-sm">
-                  <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-slate-700">
-                    <span className="flex items-center font-medium">
-                      🎵 <span className="text-orange-600 ml-1">{nowPlaying?.song || "Compas Direct Live"}</span>
-                    </span>
-                    <span className="flex items-center">
-                      🎙️ <span className="text-slate-800 ml-1 font-medium">DJ Kenley</span>
-                    </span>
-                    <span className="flex items-center">
-                      ⏰ <span className="text-slate-800 ml-1">{new Date().toLocaleTimeString('fr-FR', {hour: '2-digit', minute:'2-digit'})}</span>
-                    </span>
-                  </div>
-                  
-                  <div className="flex items-center space-x-4 text-xs text-slate-500">
-                    <span className="flex items-center">🌍 Port-au-Prince, Haïti</span>
-                    <span className="flex items-center">📻 www.radiohaitifusion.com</span>
-                    <span className="flex items-center">📧 haitifusionpromo@gmail.com</span>
-                  </div>
+            
+            {/* Header Stats */}
+            <div className="hidden md:flex items-center space-x-6">
+              <div className="text-center">
+                <div className="text-2xl font-bold" style={{ color: 'var(--pro-radio-accent)' }}>
+                  {liveStats?.listeners || 899}
                 </div>
+                <div className="text-xs text-gray-400 uppercase tracking-wide">Auditeurs</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold" style={{ color: 'var(--pro-radio-accent)' }}>
+                  {songRequests?.length || 17}
+                </div>
+                <div className="text-xs text-gray-400 uppercase tracking-wide">Demandes</div>
+              </div>
+              <div className="flex space-x-2">
+                <Button className="pro-radio-btn-secondary text-xs px-3 py-2">
+                  📞 Contact
+                </Button>
+                <Button className="pro-radio-btn-primary text-xs px-3 py-2">
+                  💰 Donation
+                </Button>
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+          
+          {/* Navigation */}
+          <div className="mt-6">
+            <div className="pro-radio-nav">
+              <div 
+                className={`pro-radio-nav-item ${!showTvSection && !showHostingSection ? 'active' : ''}`}
+                onClick={() => {
+                  setShowTvSection(false);
+                  setShowHostingSection(false);
+                }}
+              >
+                🔴 Live
+              </div>
+              <div 
+                className={`pro-radio-nav-item ${!showTvSection && !showHostingSection ? 'active' : ''}`}
+                onClick={() => {
+                  setShowTvSection(false);
+                  setShowHostingSection(false);
+                }}
+              >
+                📻 Radio
+              </div>
+              <div 
+                className={`pro-radio-nav-item ${showTvSection ? 'active' : ''}`}
+                onClick={() => {
+                  setShowTvSection(!showTvSection);
+                  setShowHostingSection(false);
+                }}
+              >
+                📺 TV Shows
+              </div>
+              <div 
+                className={`pro-radio-nav-item ${showHostingSection ? 'active' : ''}`}
+                onClick={() => {
+                  setShowHostingSection(!showHostingSection);
+                  setShowTvSection(false);
+                  // Ensure hosting data is loaded when section is opened
+                  if (!showHostingSection && (!hostingStats || !hostingPlans.length)) {
+                    loadHostingPlans();
+                    loadHostingStats();
+                  }
+                }}
+              >
+                🖥️ Hosting
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Professional Now Playing Section */}
+      <div className="max-w-7xl mx-auto px-4 py-6">
+        <div className="pro-radio-now-playing">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="pro-radio-heading text-lg font-semibold text-white">🎵 Maintenant en Direct</h2>
+            <div className="pro-radio-live">EN DIRECT</div>
+          </div>
+          <div className="flex items-center space-x-6">
+            {/* Album Artwork */}
+            <div className="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 border-2" style={{ borderColor: 'var(--pro-radio-accent)' }}>
+              {nowPlaying?.artwork_url ? (
+                <img 
+                  src={nowPlaying.artwork_url} 
+                  alt="Album Artwork" 
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.src = "https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/2zozn1fx_radiohaitifusion.jpg";
+                  }}
+                />
+              ) : (
+                <img 
+                  src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/2zozn1fx_radiohaitifusion.jpg" 
+                  alt="Radio Logo" 
+                  className="w-full h-full object-cover"
+                />
+              )}
+            </div>
+            
+            {/* Song Info */}
+            <div className="flex-1">
+              <h3 className="text-xl font-bold text-white mb-1">
+                {nowPlaying?.song || "Mwen Renmen'w"}
+              </h3>
+              <p className="text-gray-300 mb-2">
+                Par: {nowPlaying?.artist || "T-Vice"}
+              </p>
+              {nowPlaying?.genre && (
+                <Badge 
+                  className="text-xs px-3 py-1 rounded-full font-medium"
+                  style={{ 
+                    background: 'var(--pro-radio-accent)', 
+                    color: 'white' 
+                  }}
+                >
+                  {nowPlaying.genre}
+                </Badge>
+              )}
+            </div>
+            
+            {/* Time */}
+            <div className="text-right text-sm text-gray-400">
+              <div className="font-mono text-lg text-white">
+                {new Date().toLocaleTimeString('fr-FR', {hour: '2-digit', minute:'2-digit'})}
+              </div>
+              <div>Port-au-Prince</div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Now Playing Section - Always Visible Under Header */}
-      <div className="px-4 md:px-6 mb-4">
-        <Card className="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 border-orange-500/30">
-          <CardContent className="p-6">
-            <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
-              {/* Album Artwork */}
-              <div className="w-20 h-20 bg-gradient-to-br from-slate-700 to-slate-600 rounded-full shadow-lg flex items-center justify-center border-4 border-orange-400/50 flex-shrink-0">
-                {nowPlaying?.artwork_url ? (
-                  <img 
-                    src={nowPlaying.artwork_url} 
-                    alt="Album Artwork" 
-                    className="w-16 h-16 rounded-full object-cover"
-                    onError={(e) => {
-                      e.target.src = "https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/2zozn1fx_radiohaitifusion.jpg";
-                    }}
-                  />
-                ) : (
-                  <img 
-                    src="https://customer-assets.emergentagent.com/job_radio-pulse-13/artifacts/2zozn1fx_radiohaitifusion.jpg" 
-                    alt="Radio Haiti Fusion Logo" 
-                    className="w-16 h-16 rounded-full object-cover"
-                  />
-                )}
-              </div>
-              
-              {/* Song Info */}
-              <div className="flex-1 text-center md:text-left">
-                <h3 className="text-xl font-bold text-white mb-1">
-                  🎵 Maintenant en Direct
-                </h3>
-                <div className="space-y-1">
-                  <p className="text-lg font-semibold text-orange-400">
-                    {nowPlaying?.song || "Mwen Renmen'w"}
-                  </p>
-                  <p className="text-slate-300">
-                    Par: {nowPlaying?.artist || "T-Vice"}
-                  </p>
-                  {nowPlaying?.genre && (
-                    <Badge className="bg-orange-500 text-white">
-                      {nowPlaying.genre}
-                    </Badge>
-                  )}
-                </div>
-              </div>
-              
-              {/* Live Indicator */}
-              <div className="flex flex-col items-center space-y-2">
-                <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-                  <span className="text-red-400 font-semibold text-sm">EN DIRECT</span>
-                </div>
-                <div className="text-slate-400 text-xs">
-                  {new Date().toLocaleTimeString('fr-FR', {hour: '2-digit', minute:'2-digit'})}
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* News Scroller */}
+      {/* Breaking News */}
       {showBreakingNews && (
+        <div className="pro-radio-breaking">
+          <div className="flex items-center">
+            <div className="bg-white text-red-600 px-4 py-1 font-bold text-sm flex-shrink-0 uppercase tracking-wide">
+              🚨 Breaking News
+            </div>
+            <div className="flex-1 overflow-hidden">
+              <div className="breaking-news-scroll text-sm font-medium">
+                {breakingNews.join(' • ')} • 
+              </div>
+            </div>
+            <button 
+              onClick={() => setShowBreakingNews(false)}
+              className="bg-white/20 hover:bg-white/30 text-white px-3 py-1 text-xs rounded transition-colors mr-4"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
         <div className="bg-red-600 text-white py-2 overflow-hidden relative border-b border-red-500">
           <div className="flex items-center">
             <div className="bg-white text-red-600 px-4 py-1 font-bold text-sm flex-shrink-0">
