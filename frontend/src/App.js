@@ -1019,7 +1019,7 @@ function App() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://customer-assets.emergentagent.com/job_xtremecast/artifacts/f6fkw5no_bannerhf.png')`,
+            backgroundImage: `url('https://customer-assets.emergentagent.com/job_streamhub-716/artifacts/z229s6oy_depositphotos_48871349-stock-photo-sound-equalizer-background-means-music.jpg')`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60"></div>
