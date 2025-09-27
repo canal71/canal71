@@ -1016,7 +1016,13 @@ function App() {
       {/* Professional Header */}
       <header className="pro-radio-header relative overflow-hidden">
         {/* New Radio Haiti Fusion Banner */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://customer-assets.emergentagent.com/job_xtremecast/artifacts/f6fkw5no_bannerhf.png')`,
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40"></div>
 
         <div className="max-w-7xl mx-auto px-4 py-4 relative z-10">
           <div className="flex items-center justify-between">
