@@ -1416,6 +1416,233 @@ function App() {
         </div>
       )}
 
+      {/* Station Proposal Form Modal */}
+      {showStationForm && (
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="pro-radio-card max-w-2xl w-full max-h-[90vh] overflow-y-auto p-8">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="pro-radio-heading text-2xl font-bold text-white">📻 Proposer une Station Radio</h2>
+              <button
+                onClick={() => setShowStationForm(false)}
+                className="text-gray-400 hover:text-white text-2xl font-bold"
+              >
+                ✕
+              </button>
+            </div>
+            
+            <form onSubmit={submitStationProposal} className="space-y-6">
+              {/* Basic Station Info */}
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold text-white mb-4">Informations de la Station</h3>
+                
+                <div className="pro-radio-grid pro-radio-grid-2">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      Nom de la Station *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Ex: Radio Caraïbes"
+                      className="pro-radio-input w-full"
+                      value={stationProposal.name}
+                      onChange={(e) => setStationProposal({...stationProposal, name: e.target.value})}
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      Fréquence *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Ex: 94.5 FM"
+                      className="pro-radio-input w-full"
+                      value={stationProposal.frequency}
+                      onChange={(e) => setStationProposal({...stationProposal, frequency: e.target.value})}
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    Description *
+                  </label>
+                  <textarea
+                    required
+                    rows="3"
+                    placeholder="Ex: Musique caribéenne, actualités locales et internationales"
+                    className="pro-radio-input w-full resize-none"
+                    value={stationProposal.description}
+                    onChange={(e) => setStationProposal({...stationProposal, description: e.target.value})}
+                  />
+                </div>
+                
+                <div className="pro-radio-grid pro-radio-grid-3">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      Ville/Région
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Ex: Port-au-Prince"
+                      className="pro-radio-input w-full"
+                      value={stationProposal.location}
+                      onChange={(e) => setStationProposal({...stationProposal, location: e.target.value})}
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      Pays
+                    </label>
+                    <select
+                      className="pro-radio-input w-full"
+                      value={stationProposal.country}
+                      onChange={(e) => setStationProposal({...stationProposal, country: e.target.value})}
+                    >
+                      <option value="Haïti">Haïti</option>
+                      <option value="République Dominicaine">République Dominicaine</option>
+                      <option value="États-Unis">États-Unis</option>
+                      <option value="Canada">Canada</option>
+                      <option value="France">France</option>
+                      <option value="Martinique">Martinique</option>
+                      <option value="Guadeloupe">Guadeloupe</option>
+                      <option value="Autre">Autre</option>
+                    </select>
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      Genre Musical
+                    </label>
+                    <select
+                      className="pro-radio-input w-full"
+                      value={stationProposal.genre}
+                      onChange={(e) => setStationProposal({...stationProposal, genre: e.target.value})}
+                    >
+                      <option value="">Sélectionner un genre</option>
+                      <option value="Compas">Compas</option>
+                      <option value="Hip-Hop">Hip-Hop</option>
+                      <option value="Racine">Racine</option>
+                      <option value="Zouk">Zouk</option>
+                      <option value="Merengue">Merengue</option>
+                      <option value="Gospel">Gospel</option>
+                      <option value="Jazz">Jazz</option>
+                      <option value="Variété">Variété</option>
+                      <option value="Actualités">Actualités</option>
+                      <option value="Talk Show">Talk Show</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              {/* Technical Info */}
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold text-white mb-4">Informations Techniques</h3>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    URL du Stream
+                  </label>
+                  <input
+                    type="url"
+                    placeholder="Ex: http://stream.radio.com:8000/live"
+                    className="pro-radio-input w-full"
+                    value={stationProposal.stream_url}
+                    onChange={(e) => setStationProposal({...stationProposal, stream_url: e.target.value})}
+                  />
+                  <p className="text-xs text-gray-400 mt-1">
+                    URL pour écouter la station en direct (optionnel)
+                  </p>
+                </div>
+                
+                <div className="pro-radio-grid pro-radio-grid-2">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      Site Web
+                    </label>
+                    <input
+                      type="url"
+                      placeholder="Ex: https://www.radiocaraibes.com"
+                      className="pro-radio-input w-full"
+                      value={stationProposal.website_url}
+                      onChange={(e) => setStationProposal({...stationProposal, website_url: e.target.value})}
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      URL du Logo
+                    </label>
+                    <input
+                      type="url"
+                      placeholder="Ex: https://example.com/logo.png"
+                      className="pro-radio-input w-full"
+                      value={stationProposal.logo_url}
+                      onChange={(e) => setStationProposal({...stationProposal, logo_url: e.target.value})}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Contact Info */}
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold text-white mb-4">Informations de Contact</h3>
+                
+                <div className="pro-radio-grid pro-radio-grid-2">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      Votre Nom *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Ex: Jean Dupont"
+                      className="pro-radio-input w-full"
+                      value={stationProposal.contact_name}
+                      onChange={(e) => setStationProposal({...stationProposal, contact_name: e.target.value})}
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      Votre Email *
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="Ex: jean@example.com"
+                      className="pro-radio-input w-full"
+                      value={stationProposal.contact_email}
+                      onChange={(e) => setStationProposal({...stationProposal, contact_email: e.target.value})}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Form Actions */}
+              <div className="flex space-x-4 pt-6 border-t border-gray-600">
+                <button
+                  type="button"
+                  onClick={() => setShowStationForm(false)}
+                  className="pro-radio-btn-secondary flex-1"
+                >
+                  Annuler
+                </button>
+                <button
+                  type="submit"
+                  className="pro-radio-btn-primary flex-1"
+                >
+                  📻 Proposer la Station
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
       {/* Main Content Area - Only show when not in Radio Directory mode */}
       {!showRadioDirectory && (
       <div className="container mx-auto px-4 py-8">
