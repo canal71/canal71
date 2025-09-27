@@ -1172,9 +1172,14 @@ function App() {
               <button 
                 className="bg-white/20 hover:bg-white/30 backdrop-blur-sm px-8 py-3 rounded-lg text-white font-semibold border border-white/30 transition-all duration-300"
                 onClick={() => {
+                  // Navigate to Portail Radio section
                   setShowRadioDirectory(true);
                   setShowTvSection(false);
                   setShowHostingSection(false);
+                  // Ensure radio directory data is loaded
+                  if (radioStations.length === 0) {
+                    loadRadioDirectory();
+                  }
                 }}
               >
                 📡 DÉCOUVRIR NOS STATIONS
