@@ -1918,7 +1918,7 @@ function App() {
                       </div>
 
                       {/* Professional Audio Player */}
-                      <div className="bg-gradient-to-r from-slate-800 to-slate-900 rounded-xl p-6 text-white shadow-xl">
+                      <div className="bg-gradient-to-r from-slate-800 to-slate-900 rounded-xl p-6 text-white shadow-xl" data-audio-player>
                         {/* Stream Widget Integration */}
                         <div className="mb-6">
                           <div className="bg-slate-700/30 rounded-lg overflow-hidden border border-gray-600">
