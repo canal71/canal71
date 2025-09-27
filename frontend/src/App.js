@@ -1111,21 +1111,23 @@ function App() {
           <div className="mt-6">
             <div className="pro-radio-nav">
               <div 
-                className={`pro-radio-nav-item ${!showTvSection && !showHostingSection && !showRadioDirectory ? 'active' : ''}`}
+                className={`pro-radio-nav-item ${!showTvSection && !showHostingSection && !showRadioDirectory && !showSponsors ? 'active' : ''}`}
                 onClick={() => {
                   setShowTvSection(false);
                   setShowHostingSection(false);
                   setShowRadioDirectory(false);
+                  setShowSponsors(false);
                 }}
               >
                 🔴 Live
               </div>
               <div 
-                className={`pro-radio-nav-item ${!showTvSection && !showHostingSection && !showRadioDirectory ? 'active' : ''}`}
+                className={`pro-radio-nav-item ${!showTvSection && !showHostingSection && !showRadioDirectory && !showSponsors ? 'active' : ''}`}
                 onClick={() => {
                   setShowTvSection(false);
                   setShowHostingSection(false);
                   setShowRadioDirectory(false);
+                  setShowSponsors(false);
                 }}
               >
                 📻 Radio
