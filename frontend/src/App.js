@@ -109,6 +109,11 @@ function App() {
     notes: ''
   });
   
+  // Sponsor state
+  const [sponsors, setSponsors] = useState([]);
+  const [featuredSponsors, setFeaturedSponsors] = useState([]);
+  const [showSponsors, setShowSponsors] = useState(false);
+  
   // Radio Directory Page state
   const [showRadioDirectory, setShowRadioDirectory] = useState(false);
   const [showStationForm, setShowStationForm] = useState(false);
