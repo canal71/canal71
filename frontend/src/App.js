@@ -3649,7 +3649,6 @@ function App() {
           </div>
         </div>
       </div>
-      </div> {/* End content wrapper */}
     </div>
   );
 }
