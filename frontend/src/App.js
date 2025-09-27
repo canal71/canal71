@@ -1022,7 +1022,7 @@ function App() {
               <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0">
                 <img 
                   src="https://customer-assets.emergentagent.com/job_xtremecast/artifacts/upx8ostu_Xtremelogo%20%282%29.jpg" 
-                  alt="Xtreme Hosting Media" 
+                  alt="Radio Haiti Fusion" 
                   className="w-full h-full object-cover"
                 />
               </div>
