@@ -131,12 +131,12 @@ function App() {
 
   // Radio Haiti Fusion live streams - you can add unlimited streams here
   const streamUrls = [
-    "http://xtremeradiohosting.com:8076",
-    "http://xtremeradiohosting.com:8076/stream",
-    "http://xtremeradiohosting.com:8288", // Second stream
-    "http://xtremeradiohosting.com:8288/stream", // Second stream with /stream path
-    "http://xtremeradiohosting.com:8076/live",
-    "http://xtremeradiohosting.com:8076/radio",
+    "http://sp14.instainternet.com:8288",
+    "http://sp14.instainternet.com:8288/stream",
+    "http://sp14.instainternet.com:8288", // Second stream
+    "http://sp14.instainternet.com:8288/stream", // Second stream with /stream path
+    "http://sp14.instainternet.com:8288/live",
+    "http://sp14.instainternet.com:8288/radio",
     "https://stream.radiojar.com/4wqre23fytzuv", // Fallback demo stream
     // Add more backup streams here as needed
   ];
