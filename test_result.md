@@ -255,8 +255,7 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Reseller hosting API endpoints"
-    - "Reseller hosting UI integration" 
+    - "Sponsors API endpoints"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
