@@ -1141,9 +1141,19 @@ function App() {
             </div>
             
             {/* Sliding Promotional Content */}
-            <div className="relative h-40 md:h-48 overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900">
+            <div className="relative h-40 md:h-48 overflow-hidden">
+              {/* Background Banner Image */}
               <div 
-                className="flex transition-transform duration-1000 ease-in-out h-full"
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                style={{
+                  backgroundImage: `url('https://customer-assets.emergentagent.com/job_xtremecast/artifacts/dcy7e4ay_xtremebanner2.jpg')`,
+                }}
+              />
+              {/* Dark overlay for text readability */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70" />
+              
+              <div 
+                className="flex transition-transform duration-1000 ease-in-out h-full relative z-10"
                 style={{ transform: `translateX(-${(Date.now() / 5000 | 0) % 4 * 100}%)` }}
               >
                 {/* Promotion 1 - Radio Shows */}
