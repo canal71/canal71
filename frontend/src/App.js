@@ -2150,9 +2150,22 @@ function App() {
             <Card className="bg-fuchsia-800/40 backdrop-blur-sm border-fuchsia-600/50">
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-white mb-4 flex items-center">
-                  <Radio className="w-5 h-5 mr-2 text-orange-500" />
+                  <Radio className="w-5 h-5 mr-2 text-magenta-500" />
                   Écouter avec vos Applications Préférées
                 </h3>
+                
+                {/* Direct Stream Link */}
+                <div className="mb-4 p-3 bg-magenta-500/20 rounded-lg border border-magenta-500/50">
+                  <p className="text-sm text-white mb-2">🔗 Lien Direct du Stream:</p>
+                  <input 
+                    type="text" 
+                    value="https://xtremeradiohosting.com/cp/links.php?p=8076&m=direct" 
+                    readOnly 
+                    className="w-full bg-slate-800 text-white text-xs px-3 py-2 rounded border border-slate-600 select-all"
+                    onClick={(e) => e.target.select()}
+                  />
+                  <p className="text-xs text-gray-400 mt-1">Copiez ce lien pour l'utiliser dans votre lecteur audio préféré</p>
+                </div>
                 
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-6">
                   <a 
