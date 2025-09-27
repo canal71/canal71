@@ -2221,7 +2221,7 @@ function App() {
                     title="Écouter avec iTunes"
                   >
                     <img 
-                      src="https://xtremeradiohosting.com/cp/inc/images/players/itunes.png" 
+                      src="https://sp14.instainternet.com/cp/inc/images/players/itunes.png" 
                       alt="iTunes"
                       className="w-12 h-12 mb-2 group-hover:scale-110 transition-transform"
                     />
