@@ -111,6 +111,9 @@ function App() {
   
   // Radio Directory Page state
   const [showRadioDirectory, setShowRadioDirectory] = useState(false);
+  
+  const audioRef = useRef(null);
+  const commentsEndRef = useRef(null);
 
   // Radio Haiti Fusion live streams - you can add unlimited streams here
   const streamUrls = [
