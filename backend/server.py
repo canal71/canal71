@@ -2929,6 +2929,127 @@ async def get_support_tickets(status: str = "open"):
     
     return [SupportTicket(**parse_from_mongo(ticket)) for ticket in tickets_data]
 
+# Sponsors API
+@api_router.get("/sponsors", response_model=List[Sponsor])
+async def get_sponsors(sponsor_type: str = "all", is_active: bool = True):
+    """Get sponsors by type"""
+    match_filter = {"is_active": is_active}
+    if sponsor_type != "all":
+        match_filter["sponsor_type"] = sponsor_type
+        
+    sponsors_data = await db.sponsors.find(match_filter).sort("display_order", 1).to_list(length=None)
+    
+    if not sponsors_data:
+        # Sample sponsors
+        sample_sponsors = [
+            {
+                "name": "Digicel Haiti",
+                "description": "Leading telecommunications provider in Haiti, connecting communities nationwide.",
+                "logo_url": "https://via.placeholder.com/200x100/E53E3E/FFFFFF?text=DIGICEL",
+                "website_url": "https://www.digicelhaiti.com",
+                "contact_email": "partners@digicel.ht",
+                "sponsor_type": "platinum",
+                "is_active": True,
+                "display_order": 1
+            },
+            {
+                "name": "Banque Nationale de Crédit (BNC)",
+                "description": "Haiti's premier financial institution supporting local businesses and communities.",
+                "logo_url": "https://via.placeholder.com/200x100/1E40AF/FFFFFF?text=BNC",
+                "website_url": "https://www.bnc.ht",
+                "contact_email": "marketing@bnc.ht",
+                "sponsor_type": "gold",
+                "is_active": True,
+                "display_order": 2
+            },
+            {
+                "name": "Prestige Beer",
+                "description": "Haiti's favorite beer, proud sponsor of local culture and entertainment.",
+                "logo_url": "https://via.placeholder.com/200x100/059669/FFFFFF?text=PRESTIGE",
+                "website_url": "https://www.prestigebeer.com",
+                "contact_email": "events@prestigebeer.com",
+                "sponsor_type": "gold",
+                "is_active": True,
+                "display_order": 3
+            },
+            {
+                "name": "MonCash",
+                "description": "Digital payment solution making transactions easier for all Haitians.",
+                "logo_url": "https://via.placeholder.com/200x100/7C3AED/FFFFFF?text=MonCash",
+                "website_url": "https://www.moncash.com",
+                "contact_email": "partnerships@moncash.com",
+                "sponsor_type": "gold",
+                "is_active": True,
+                "display_order": 4
+            },
+            {
+                "name": "CAP-HAÏTIEN Motors",
+                "description": "Your trusted automotive dealer in Cap-Haïtien, serving the community since 1995.",
+                "logo_url": "https://via.placeholder.com/200x100/DC2626/FFFFFF?text=CAP+MOTORS",
+                "website_url": "https://www.capmotors.ht",
+                "contact_email": "info@capmotors.ht",
+                "sponsor_type": "silver",
+                "is_active": True,
+                "display_order": 5
+            },
+            {
+                "name": "Hotel Villa Cana",
+                "description": "Luxury accommodations in the heart of Cap-Haïtien with stunning ocean views.",
+                "logo_url": "https://via.placeholder.com/200x100/D97706/FFFFFF?text=VILLA+CANA",
+                "website_url": "https://www.villacana.ht",
+                "contact_email": "reservations@villacana.ht",
+                "sponsor_type": "silver",
+                "is_active": True,
+                "display_order": 6
+            }
+        ]
+        return [Sponsor(**sponsor) for sponsor in sample_sponsors]
+    
+    return [Sponsor(**parse_from_mongo(sponsor)) for sponsor in sponsors_data]
+
+@api_router.post("/sponsors", response_model=Sponsor)
+async def create_sponsor(sponsor_input: SponsorCreate):
+    """Create a new sponsor"""
+    sponsor_dict = sponsor_input.dict()
+    sponsor_obj = Sponsor(**sponsor_dict)
+    
+    mongo_data = prepare_for_mongo(sponsor_obj.dict())
+    await db.sponsors.insert_one(mongo_data)
+    
+    return sponsor_obj
+
+@api_router.get("/sponsors/featured", response_model=List[Sponsor])
+async def get_featured_sponsors():
+    """Get top featured sponsors (platinum and gold)"""
+    sponsors_data = await db.sponsors.find({
+        "is_active": True,
+        "sponsor_type": {"$in": ["platinum", "gold"]}
+    }).sort("display_order", 1).limit(4).to_list(length=None)
+    
+    if not sponsors_data:
+        # Return sample featured sponsors
+        featured_sponsors = [
+            {
+                "name": "Digicel Haiti",
+                "description": "Leading telecommunications provider",
+                "logo_url": "https://via.placeholder.com/200x100/E53E3E/FFFFFF?text=DIGICEL",
+                "website_url": "https://www.digicelhaiti.com",
+                "sponsor_type": "platinum",
+                "is_active": True
+            },
+            {
+                "name": "Banque Nationale de Crédit",
+                "description": "Haiti's premier financial institution",
+                "logo_url": "https://via.placeholder.com/200x100/1E40AF/FFFFFF?text=BNC",
+                "website_url": "https://www.bnc.ht",
+                "sponsor_type": "gold",
+                "is_active": True
+            }
+        ]
+        return [Sponsor(**sponsor) for sponsor in featured_sponsors]
+    
+    return [Sponsor(**parse_from_mongo(sponsor)) for sponsor in sponsors_data]
+
 # Include the router in the main app
 app.include_router(api_router)
 
