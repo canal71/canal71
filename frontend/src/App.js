@@ -1014,7 +1014,15 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-fuchsia-900 via-purple-800 to-pink-900 relative">
       {/* Professional Header */}
-      <header className="pro-radio-header">
+      <header className="pro-radio-header relative overflow-hidden">
+        {/* Music-themed background for header */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
+          style={{
+            backgroundImage: `url('https://customer-assets.emergentagent.com/job_xtremecast/artifacts/4h2qo840_djrhf2.jpg')`,
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             {/* Logo & Brand */}
