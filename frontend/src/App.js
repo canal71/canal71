@@ -1124,31 +1124,137 @@ function App() {
         </div>
       </header>
 
-      {/* Professional Now Playing Widget */}
+      {/* Professional Promotional Banner Slide */}
       <div className="max-w-7xl mx-auto px-4 py-6">
-        <div className="pro-radio-now-playing">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="pro-radio-heading text-lg font-semibold text-white">🎵 Player en Direct</h2>
-            <div className="pro-radio-live">EN DIRECT</div>
-          </div>
-          
-          {/* Professional Streaming Widget */}
-          <div className="bg-slate-700/30 rounded-lg overflow-hidden border border-gray-600">
-            <iframe 
-              src="https://xtremeradiohosting.com/cp/widgets/player/single/?p=8076" 
-              height="110" 
-              width="100%" 
-              scrolling="no" 
-              style={{ border: 'none' }}
-              title="Radio Haiti Fusion Live Player"
-              className="w-full"
-            />
-          </div>
-          
-          <div className="mt-4 text-center">
-            <p className="text-sm text-gray-400">
-              🎵 Diffusion en direct depuis Cap-Haïtien • 105.3 FM
-            </p>
+        <div className="pro-radio-card overflow-hidden">
+          <div className="relative">
+            {/* Promotional Header */}
+            <div className="bg-gradient-to-r from-orange-600 to-red-600 px-6 py-3">
+              <div className="flex items-center justify-between">
+                <h2 className="pro-radio-heading text-lg font-bold text-white flex items-center">
+                  🎯 PROMOTIONS & ÉVÉNEMENTS
+                </h2>
+                <div className="text-xs text-orange-100">
+                  Radio Haiti Fusion 105.3 FM
+                </div>
+              </div>
+            </div>
+            
+            {/* Sliding Promotional Content */}
+            <div className="relative h-40 md:h-48 overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900">
+              <div 
+                className="flex transition-transform duration-1000 ease-in-out h-full"
+                style={{ transform: `translateX(-${(Date.now() / 5000 | 0) % 4 * 100}%)` }}
+              >
+                {/* Promotion 1 - Radio Shows */}
+                <div className="w-full flex-shrink-0 relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-900/80 via-blue-800/60 to-purple-900/80" />
+                  <div className="relative z-10 h-full flex items-center justify-center p-6">
+                    <div className="text-center text-white">
+                      <h3 className="text-2xl md:text-3xl font-bold mb-3 drop-shadow-lg">
+                        🎙️ ÉMISSIONS EN DIRECT
+                      </h3>
+                      <p className="text-lg mb-4 opacity-90">
+                        Découvrez nos émissions exclusives tous les jours
+                      </p>
+                      <div className="flex flex-wrap justify-center gap-2">
+                        <span className="bg-white/20 px-3 py-1 rounded-full text-sm">Matin Compas</span>
+                        <span className="bg-white/20 px-3 py-1 rounded-full text-sm">Talk Show</span>
+                        <span className="bg-white/20 px-3 py-1 rounded-full text-sm">Soirée Zouk</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Promotion 2 - Music Requests */}
+                <div className="w-full flex-shrink-0 relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-900/80 via-teal-800/60 to-green-900/80" />
+                  <div className="relative z-10 h-full flex items-center justify-center p-6">
+                    <div className="text-center text-white">
+                      <h3 className="text-2xl md:text-3xl font-bold mb-3 drop-shadow-lg">
+                        🎵 DEMANDES MUSICALES
+                      </h3>
+                      <p className="text-lg mb-4 opacity-90">
+                        Demandez vos chansons préférées en direct
+                      </p>
+                      <div className="bg-white/20 backdrop-blur-sm px-6 py-2 rounded-lg border border-white/30 inline-block">
+                        <span className="text-sm font-semibold">📞 Appelez maintenant!</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Promotion 3 - Podcasts */}
+                <div className="w-full flex-shrink-0 relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-900/80 via-red-800/60 to-orange-900/80" />
+                  <div className="relative z-10 h-full flex items-center justify-center p-6">
+                    <div className="text-center text-white">
+                      <h3 className="text-2xl md:text-3xl font-bold mb-3 drop-shadow-lg">
+                        🎧 PODCASTS & ÉMISSIONS
+                      </h3>
+                      <p className="text-lg mb-4 opacity-90">
+                        Rattrapez vos émissions favorites en replay
+                      </p>
+                      <div className="flex flex-wrap justify-center gap-2">
+                        <span className="bg-white/20 px-3 py-1 rounded-full text-sm">Culture Kreyòl</span>
+                        <span className="bg-white/20 px-3 py-1 rounded-full text-sm">Interviews</span>
+                        <span className="bg-white/20 px-3 py-1 rounded-full text-sm">Musique</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Promotion 4 - Community */}
+                <div className="w-full flex-shrink-0 relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-indigo-800/60 to-blue-900/80" />
+                  <div className="relative z-10 h-full flex items-center justify-center p-6">
+                    <div className="text-center text-white">
+                      <h3 className="text-2xl md:text-3xl font-bold mb-3 drop-shadow-lg">
+                        🌍 VOTRE RADIO COMMUNAUTAIRE
+                      </h3>
+                      <p className="text-lg mb-4 opacity-90">
+                        La voix de Cap-Haïtien et de toute la diaspora
+                      </p>
+                      <div className="bg-white/20 backdrop-blur-sm px-6 py-2 rounded-lg border border-white/30 inline-block">
+                        <span className="text-sm font-semibold">🇭🇹 Fièrement Haïtienne</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Animated Progress Bar */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/30">
+                <div 
+                  className="h-full bg-gradient-to-r from-orange-500 to-red-500"
+                  style={{
+                    width: '25%',
+                    transform: `translateX(${((Date.now() / 5000 | 0) % 4) * 100}%)`,
+                    transition: 'transform 1000ms ease-in-out'
+                  }}
+                />
+              </div>
+            </div>
+            
+            {/* Call to Action Footer */}
+            <div className="bg-slate-800/50 px-6 py-4">
+              <div className="flex flex-col md:flex-row items-center justify-between">
+                <div className="text-white mb-4 md:mb-0">
+                  <p className="text-sm">
+                    <span className="font-semibold">📻 105.3 FM</span> • 
+                    <span className="text-orange-400 ml-1">Écoutez-nous partout, à tout moment</span>
+                  </p>
+                </div>
+                <div className="flex space-x-3">
+                  <button className="pro-radio-btn-secondary text-sm px-4 py-2">
+                    📞 Contact
+                  </button>
+                  <button className="pro-radio-btn-primary text-sm px-4 py-2">
+                    🎵 Écouter
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
