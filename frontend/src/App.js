@@ -1252,10 +1252,28 @@ function App() {
                   </p>
                 </div>
                 <div className="flex space-x-3">
-                  <button className="pro-radio-btn-secondary text-sm px-4 py-2">
+                  <button 
+                    className="pro-radio-btn-secondary text-sm px-4 py-2"
+                    onClick={() => window.open('mailto:info@radiohaitifusion.com', '_blank')}
+                  >
                     📞 Contact
                   </button>
-                  <button className="pro-radio-btn-primary text-sm px-4 py-2">
+                  <button 
+                    className="pro-radio-btn-primary text-sm px-4 py-2"
+                    onClick={() => {
+                      // Scroll to audio player section
+                      const audioSection = document.querySelector('[data-audio-player]');
+                      if (audioSection) {
+                        audioSection.scrollIntoView({ behavior: 'smooth' });
+                        // Try to play audio after scrolling
+                        setTimeout(() => {
+                          if (audioRef.current) {
+                            audioRef.current.play().catch(e => console.error('Playback failed:', e));
+                          }
+                        }, 1000);
+                      }
+                    }}
+                  >
                     🎵 Écouter
                   </button>
                 </div>
