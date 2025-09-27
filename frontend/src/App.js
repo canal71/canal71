@@ -1161,6 +1161,7 @@ function App() {
                   setShowRadioDirectory(!showRadioDirectory);
                   setShowTvSection(false);
                   setShowHostingSection(false);
+                  setShowSponsors(false);
                   // Ensure radio directory data is loaded
                   if (!showRadioDirectory && radioStations.length === 0) {
                     loadRadioDirectory();
@@ -1168,6 +1169,22 @@ function App() {
                 }}
               >
                 📡 Portail Radio
+              </div>
+              <div 
+                className={`pro-radio-nav-item ${showSponsors ? 'active' : ''}`}
+                onClick={() => {
+                  setShowSponsors(!showSponsors);
+                  setShowTvSection(false);
+                  setShowHostingSection(false);
+                  setShowRadioDirectory(false);
+                  // Ensure sponsors data is loaded
+                  if (!showSponsors && sponsors.length === 0) {
+                    loadSponsors();
+                    loadFeaturedSponsors();
+                  }
+                }}
+              >
+                🤝 Sponsors
               </div>
             </div>
           </div>
