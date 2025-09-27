@@ -1012,21 +1012,7 @@ function App() {
   }, []);
 
   return (
-    <div 
-      className="min-h-screen relative"
-      style={{
-        backgroundImage: `url('https://customer-assets.emergentagent.com/job_xtremecast/artifacts/4h2qo840_djrhf2.jpg')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed'
-      }}
-    >
-      {/* Background overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/40 z-0"></div>
-      
-      {/* Content wrapper with relative positioning */}
-      <div className="relative z-10">
+    <div className="min-h-screen bg-gradient-to-br from-fuchsia-900 via-purple-800 to-pink-900 relative">
       {/* Professional Header */}
       <header className="pro-radio-header">
         <div className="max-w-7xl mx-auto px-4 py-4">
