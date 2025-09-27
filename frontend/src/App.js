@@ -1783,78 +1783,140 @@ function App() {
                         )}
                       </div>
 
-                      {/* Audio Element */}
-                      <audio
-                        ref={audioRef}
-                        src={streamUrl}
-                        onPlay={() => setIsPlaying(true)}
-                        onPause={() => setIsPlaying(false)}
-                        onError={(e) => {
-                          console.error('Stream error:', e);
-                          setIsPlaying(false);
-                          if (currentStreamIndex < streamUrls.length - 1) {
-                            setCurrentStreamIndex(prev => prev + 1);
-                          }
-                        }}
-                      />
-
-                      {/* Modern Player Controls */}
+                      {/* Professional Audio Player */}
                       <div className="bg-gradient-to-r from-slate-800 to-slate-900 rounded-xl p-6 text-white shadow-xl">
-                        {/* Main Play Button */}
-                        <div className="flex items-center justify-center mb-6">
-                          <Button
-                            onClick={togglePlay}
-                            className="w-20 h-20 rounded-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 transition-all duration-300 shadow-2xl transform hover:scale-105"
-                            data-testid="play-pause-button"
-                          >
-                            {isPlaying ? (
-                              <Pause className="w-10 h-10" />
-                            ) : (
-                              <Play className="w-10 h-10 ml-1" />
-                            )}
-                          </Button>
-                        </div>
-
-                        {/* Volume & Controls Bar */}
-                        <div className="flex items-center space-x-4">
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={toggleMute}
-                            className="text-slate-300 hover:text-white"
-                          >
-                            {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
-                          </Button>
-                          
-                          <div className="flex-1">
-                            <input
-                              type="range"
-                              min="0"
-                              max="1"
-                              step="0.01"
-                              value={volume}
-                              onChange={handleVolumeChange}
-                              className="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer slider haiti-slider"
+                        {/* Stream Widget Integration */}
+                        <div className="mb-6">
+                          <div className="bg-slate-700/30 rounded-lg overflow-hidden border border-gray-600">
+                            <iframe 
+                              src="https://xtremeradiohosting.com/cp/widgets/player/single/?p=8076" 
+                              height="110" 
+                              width="100%" 
+                              scrolling="no" 
+                              style={{ border: 'none' }}
+                              title="Radio Haiti Fusion Live Player"
+                              className="w-full"
                             />
                           </div>
-                          
-                          <span className="text-slate-300 text-sm min-w-[3rem] font-mono">
-                            {Math.round(volume * 100)}%
-                          </span>
+                          <p className="text-center text-sm text-gray-400 mt-2">
+                            🎵 Player Professionnel - Radio Haiti Fusion 105.3 FM
+                          </p>
                         </div>
 
-                        {/* Stream Info */}
-                        <div className="flex items-center justify-between mt-4 pt-4 border-t border-slate-700">
-                          <div className="flex items-center space-x-2">
-                            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                            <span className="text-green-400 text-sm font-medium">Stream actif</span>
+                        {/* Additional HTML5 Audio Player */}
+                        <div className="space-y-4">
+                          <h4 className="text-lg font-semibold text-center mb-4">Lecteur Audio Alternatif</h4>
+                          
+                          {/* Audio Element */}
+                          <audio
+                            ref={audioRef}
+                            src={streamUrl}
+                            onPlay={() => setIsPlaying(true)}
+                            onPause={() => setIsPlaying(false)}
+                            onError={(e) => {
+                              console.error('Stream error:', e);
+                              setIsPlaying(false);
+                              if (currentStreamIndex < streamUrls.length - 1) {
+                                setCurrentStreamIndex(prev => prev + 1);
+                                // Automatically try next stream
+                                setTimeout(() => {
+                                  if (audioRef.current) {
+                                    audioRef.current.load();
+                                    audioRef.current.play().catch(err => console.error('Auto-retry failed:', err));
+                                  }
+                                }, 1000);
+                              }
+                            }}
+                            crossOrigin="anonymous"
+                            preload="none"
+                          />
+
+                          {/* Main Play Button */}
+                          <div className="flex items-center justify-center mb-4">
+                            <Button
+                              onClick={togglePlay}
+                              className="w-16 h-16 rounded-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 transition-all duration-300 shadow-2xl transform hover:scale-105"
+                              data-testid="play-pause-button"
+                            >
+                              {isPlaying ? (
+                                <Pause className="w-8 h-8" />
+                              ) : (
+                                <Play className="w-8 h-8 ml-1" />
+                              )}
+                            </Button>
                           </div>
-                          <div className="text-slate-400 text-sm">
-                            {currentStreamIndex > 0 ? (
-                              `Backup ${currentStreamIndex + 1}/${streamUrls.length}`
-                            ) : (
-                              'Qualité: 128kbps'
-                            )}
+
+                          {/* Volume & Controls Bar */}
+                          <div className="flex items-center space-x-4">
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={toggleMute}
+                              className="text-slate-300 hover:text-white"
+                            >
+                              {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+                            </Button>
+                            
+                            <div className="flex-1">
+                              <input
+                                type="range"
+                                min="0"
+                                max="1"
+                                step="0.01"
+                                value={volume}
+                                onChange={handleVolumeChange}
+                                className="w-full h-2 bg-slate-600 rounded-lg appearance-none cursor-pointer"
+                                style={{
+                                  background: `linear-gradient(to right, var(--pro-radio-accent) 0%, var(--pro-radio-accent) ${volume * 100}%, #475569 ${volume * 100}%, #475569 100%)`
+                                }}
+                              />
+                            </div>
+                            
+                            <span className="text-slate-300 text-sm min-w-[3rem] font-mono">
+                              {Math.round(volume * 100)}%
+                            </span>
+                          </div>
+
+                          {/* Stream Info & Status */}
+                          <div className="bg-slate-700/50 rounded-lg p-3 mt-4">
+                            <div className="flex items-center justify-between text-sm">
+                              <div className="flex items-center space-x-2">
+                                <div className={`w-2 h-2 rounded-full ${isPlaying ? 'bg-green-400 animate-pulse' : 'bg-gray-500'}`}></div>
+                                <span className={isPlaying ? 'text-green-400' : 'text-gray-400'}>
+                                  {isPlaying ? 'Diffusion en cours' : 'En attente'}
+                                </span>
+                              </div>
+                              <div className="text-gray-400">
+                                Stream {currentStreamIndex + 1}/{streamUrls.length}
+                              </div>
+                            </div>
+                            
+                            {/* Stream URL Debug Info */}
+                            <div className="mt-2 text-xs text-gray-500">
+                              URL: {streamUrl}
+                            </div>
+                          </div>
+
+                          {/* Stream Selector */}
+                          <div className="flex items-center space-x-2">
+                            <span className="text-sm text-gray-400">Source:</span>
+                            <select 
+                              value={currentStreamIndex}
+                              onChange={(e) => {
+                                setCurrentStreamIndex(parseInt(e.target.value));
+                                setIsPlaying(false);
+                                if (audioRef.current) {
+                                  audioRef.current.load();
+                                }
+                              }}
+                              className="pro-radio-input text-sm py-1"
+                            >
+                              {streamUrls.map((url, index) => (
+                                <option key={index} value={index}>
+                                  Stream {index + 1} ({url.includes('xtremeradiohosting') ? 'Xtreme' : 'Backup'})
+                                </option>
+                              ))}
+                            </select>
                           </div>
                         </div>
                       </div>
