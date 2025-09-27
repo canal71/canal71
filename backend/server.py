@@ -122,7 +122,7 @@ class NewsArticle(BaseModel):
     image_url: Optional[str] = None
 
 class StationInfo(BaseModel):
-    station_name: str = "Xtreme Hosting Media"
+    station_name: str = "Radio Haiti Fusion"
     tagline: str = "Your Ultimate Media Experience"
     
     # Biography - English & French
