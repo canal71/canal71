@@ -1507,7 +1507,7 @@ function App() {
                       className="pro-radio-btn-primary mt-3"
                       onClick={() => {
                         // Open streaming widget in new window for featured station
-                        window.open('https://sp14.instainternet.com/cp/widgets/player/dj/?p=8288', '_blank', 'width=400,height=300,scrollbars=yes');
+                        window.open(process.env.REACT_APP_DJ_PANEL_URL, '_blank', 'width=400,height=300,scrollbars=yes');
                       }}
                     >
                       🎵 Écouter Maintenant
