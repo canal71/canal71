@@ -129,20 +129,28 @@ function App() {
   const audioRef = useRef(null);
   const commentsEndRef = useRef(null);
 
-  // Radio Haiti Fusion live streams - configurable via environment variables
-  const streamUrls = [
-    process.env.REACT_APP_PRIMARY_STREAM_URL,
-    `${process.env.REACT_APP_PRIMARY_STREAM_URL}${process.env.REACT_APP_STREAM_PATH_1}`,
-    process.env.REACT_APP_PRIMARY_STREAM_URL, // Second stream
-    `${process.env.REACT_APP_PRIMARY_STREAM_URL}${process.env.REACT_APP_STREAM_PATH_1}`, // Second stream with /stream path
-    `${process.env.REACT_APP_PRIMARY_STREAM_URL}${process.env.REACT_APP_STREAM_PATH_2}`,
-    `${process.env.REACT_APP_PRIMARY_STREAM_URL}${process.env.REACT_APP_STREAM_PATH_3}`,
-    process.env.REACT_APP_FALLBACK_STREAM, // Fallback demo stream
-    // Add more backup streams here as needed
-  ].filter(Boolean); // Remove any undefined URLs
-  
+  // Radio Haiti Fusion live streams - configurable via environment variables with fallbacks
+  const getStreamUrls = () => {
+    const primaryStream = process.env.REACT_APP_PRIMARY_STREAM_URL || "http://sp14.instainternet.com:8288";
+    const streamPath1 = process.env.REACT_APP_STREAM_PATH_1 || "/stream";
+    const streamPath2 = process.env.REACT_APP_STREAM_PATH_2 || "/live";
+    const streamPath3 = process.env.REACT_APP_STREAM_PATH_3 || "/radio";
+    const fallbackStream = process.env.REACT_APP_FALLBACK_STREAM || "https://stream.radiojar.com/4wqre23fytzuv";
+    
+    return [
+      primaryStream,
+      `${primaryStream}${streamPath1}`,
+      primaryStream, // Second stream
+      `${primaryStream}${streamPath1}`, // Second stream with /stream path
+      `${primaryStream}${streamPath2}`,
+      `${primaryStream}${streamPath3}`,
+      fallbackStream, // Fallback demo stream
+    ];
+  };
+
+  const streamUrls = getStreamUrls();
   const [currentStreamIndex, setCurrentStreamIndex] = useState(0);
-  const streamUrl = streamUrls[currentStreamIndex];
+  const streamUrl = streamUrls[currentStreamIndex] || streamUrls[0] || "http://sp14.instainternet.com:8288";
 
   useEffect(() => {
     // Initialize WebSocket connection
