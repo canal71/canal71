@@ -243,11 +243,13 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Reseller hosting API endpoints"
-    - "Reseller hosting UI integration" 
+    - "Voice recorder functionality"
+    - "White background issue fix" 
+    - "Reseller hosting UI integration"
+    - "Frontend loading performance optimization"
   stuck_tasks: []
-  test_all: false
-  test_priority: "high_first"
+  test_all: true
+  test_priority: "comprehensive_final_review"
 
 agent_communication:
     -agent: "main"
