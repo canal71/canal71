@@ -129,17 +129,17 @@ function App() {
   const audioRef = useRef(null);
   const commentsEndRef = useRef(null);
 
-  // Radio Haiti Fusion live streams - you can add unlimited streams here
+  // Radio Haiti Fusion live streams - configurable via environment variables
   const streamUrls = [
-    "http://sp14.instainternet.com:8288",
-    "http://sp14.instainternet.com:8288/stream",
-    "http://sp14.instainternet.com:8288", // Second stream
-    "http://sp14.instainternet.com:8288/stream", // Second stream with /stream path
-    "http://sp14.instainternet.com:8288/live",
-    "http://sp14.instainternet.com:8288/radio",
-    "https://stream.radiojar.com/4wqre23fytzuv", // Fallback demo stream
+    process.env.REACT_APP_PRIMARY_STREAM_URL,
+    `${process.env.REACT_APP_PRIMARY_STREAM_URL}${process.env.REACT_APP_STREAM_PATH_1}`,
+    process.env.REACT_APP_PRIMARY_STREAM_URL, // Second stream
+    `${process.env.REACT_APP_PRIMARY_STREAM_URL}${process.env.REACT_APP_STREAM_PATH_1}`, // Second stream with /stream path
+    `${process.env.REACT_APP_PRIMARY_STREAM_URL}${process.env.REACT_APP_STREAM_PATH_2}`,
+    `${process.env.REACT_APP_PRIMARY_STREAM_URL}${process.env.REACT_APP_STREAM_PATH_3}`,
+    process.env.REACT_APP_FALLBACK_STREAM, // Fallback demo stream
     // Add more backup streams here as needed
-  ];
+  ].filter(Boolean); // Remove any undefined URLs
   
   const [currentStreamIndex, setCurrentStreamIndex] = useState(0);
   const streamUrl = streamUrls[currentStreamIndex];
