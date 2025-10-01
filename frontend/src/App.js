@@ -1027,7 +1027,7 @@ function App() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('${process.env.REACT_APP_BANNER_IMAGE_URL}')`,
+            backgroundImage: `url('${process.env.REACT_APP_BANNER_IMAGE_URL || "https://customer-assets.emergentagent.com/job_xtremecast/artifacts/f6fkw5no_bannerhf.png"}')`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60"></div>
