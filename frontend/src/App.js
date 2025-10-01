@@ -2022,7 +2022,7 @@ function App() {
                               className="pro-radio-btn-secondary text-xs px-3 py-1"
                               onClick={() => {
                                 // Open player in new window if embedded doesn't work
-                                window.open(process.env.REACT_APP_DJ_PANEL_URL, '_blank', 'width=400,height=300,scrollbars=yes,resizable=yes');
+                                window.open(process.env.REACT_APP_DJ_PANEL_URL || "https://sp14.instainternet.com/cp/widgets/player/dj/?p=8288", '_blank', 'width=400,height=300,scrollbars=yes,resizable=yes');
                               }}
                             >
                               🎵 Ouvrir dans une nouvelle fenêtre
