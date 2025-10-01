@@ -2086,6 +2086,8 @@ def main():
     
     print("\n📻 Testing Radio Status...")
     tester.test_radio_status()
+    tester.test_now_playing()
+    tester.test_recently_played()
     
     print("\n💬 Testing Comments System...")
     tester.test_get_comments_empty()
@@ -2095,6 +2097,10 @@ def main():
     tester.test_clear_comments()
     tester.test_comments_after_clear()
     
+    print("\n🎵 Testing Song Requests System...")
+    tester.test_create_song_request()
+    tester.test_get_song_requests()
+    
     print("\n🎤 Testing Voice Messages System...")
     tester.test_get_voice_messages_empty()
     tester.test_create_voice_message()
@@ -2103,6 +2109,36 @@ def main():
     tester.test_get_voice_messages_with_data()
     tester.test_get_voice_messages_by_status()
     tester.test_get_voice_message_audio()
+    
+    print("\n🎙️ Testing Studio Status and Live Stats...")
+    tester.test_studio_status()
+    tester.test_live_stats()
+    
+    print("\n👨‍🎤 Testing DJ Management System...")
+    tester.test_get_djs()
+    tester.test_get_shows()
+    
+    print("\n🌤️ Testing Weather and News System...")
+    tester.test_weather()
+    tester.test_weather_cities()
+    tester.test_news()
+    tester.test_emergency_alerts()
+    
+    print("\n📻 Testing Station Info and Social Media...")
+    tester.test_station_info()
+    tester.test_social_media()
+    
+    print("\n💰 Testing Donations and Advertisements...")
+    tester.test_donations_info()
+    tester.test_advertisements()
+    
+    print("\n📡 Testing Radio Directory and Proposals...")
+    tester.test_radio_directory()
+    tester.test_radio_station_proposals()
+    
+    print("\n📹 Testing Video Streaming...")
+    tester.test_video_streaming()
+    tester.test_promotional_videos()
     
     print("\n📊 Testing Top 10 Charts System...")
     tester.test_get_chart_categories()
