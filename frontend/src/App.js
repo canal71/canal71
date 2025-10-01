@@ -990,7 +990,7 @@ function App() {
     // Add Google AdSense script
     const adsenseScript = document.createElement('script');
     adsenseScript.async = true;
-    adsenseScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5797573653969589';
+    adsenseScript.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.REACT_APP_ADSENSE_CLIENT_ID}`;
     adsenseScript.crossOrigin = 'anonymous';
     document.head.appendChild(adsenseScript);
 
