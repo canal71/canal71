@@ -1071,7 +1071,7 @@ function App() {
                 </Button>
                 <Button 
                   className="pro-radio-btn-secondary text-xs px-3 py-2"
-                  onClick={() => window.open(process.env.REACT_APP_PAYPAL_URL, '_blank')}
+                  onClick={() => window.open(process.env.REACT_APP_PAYPAL_URL || "https://paypal.me/radiohaitifusion", '_blank')}
                 >
                   💰 Donation
                 </Button>
