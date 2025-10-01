@@ -1994,7 +1994,7 @@ function App() {
                         <div className="mb-6">
                           <div className="bg-slate-700/30 rounded-lg overflow-hidden border border-gray-600">
                             <iframe 
-                              src="https://sp14.instainternet.com/cp/widgets/player/dj/?p=8288" 
+                              src={process.env.REACT_APP_DJ_PANEL_URL} 
                               height="110" 
                               width="100%" 
                               scrolling="no" 
