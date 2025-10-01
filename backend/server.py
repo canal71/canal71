@@ -1467,6 +1467,7 @@ async def get_featured_videos():
         featured = [
             {
                 "title": "Radio Haiti Fusion - Promo Officiel 2024",
+                "description": "Découvrez Radio Haiti Fusion, votre radio préférée diffusant les meilleurs hits compas et la culture haïtienne 24/7 depuis Cap-Haïtien.",
                 "video_url": "https://www.youtube.com/embed/jfKfPfyJRdk",
                 "view_count": 15420,
                 "category": "promotion"
