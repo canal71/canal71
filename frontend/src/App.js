@@ -1079,7 +1079,7 @@ function App() {
                   className="pro-radio-btn-primary text-xs px-3 py-2 animate-pulse"
                   onClick={() => {
                     // Open streaming widget in new window
-                    window.open(process.env.REACT_APP_DJ_PANEL_URL, '_blank', 'width=400,height=300');
+                    window.open(process.env.REACT_APP_DJ_PANEL_URL || "https://sp14.instainternet.com/cp/widgets/player/dj/?p=8288", '_blank', 'width=400,height=300');
                   }}
                 >
                   🎵 ÉCOUTER LIVE
