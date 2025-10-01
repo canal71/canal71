@@ -1164,7 +1164,7 @@ function App() {
               <button 
                 className="bg-magenta-500/80 hover:bg-magenta-600/80 backdrop-blur-sm px-8 py-3 rounded-lg text-white font-semibold border border-white/30 transition-all duration-300 transform hover:scale-105"
                 onClick={() => {
-                  window.open('https://sp14.instainternet.com/cp/widgets/player/dj/?p=8288', '_blank', 'width=400,height=300');
+                  window.open(process.env.REACT_APP_DJ_PANEL_URL, '_blank', 'width=400,height=300');
                 }}
               >
                 🎵 ÉCOUTER EN DIRECT
