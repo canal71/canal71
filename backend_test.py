@@ -1686,6 +1686,393 @@ class RadioStationAPITester:
         
         return success, response
 
+    # Additional Core Feature Tests
+    def test_now_playing(self):
+        """Test now playing endpoint"""
+        return self.run_test(
+            "Now Playing",
+            "GET",
+            "now-playing",
+            200,
+            description="Get currently playing track information"
+        )
+
+    def test_recently_played(self):
+        """Test recently played endpoint"""
+        return self.run_test(
+            "Recently Played",
+            "GET",
+            "recently-played",
+            200,
+            description="Get recently played tracks"
+        )
+
+    def test_create_song_request(self):
+        """Test creating a song request"""
+        song_request = {
+            "listener_name": "Marie Dupont",
+            "song_title": "Mwen Renmen'w",
+            "artist": "T-Vice",
+            "dedication_to": "Mon amour",
+            "dedication_message": "Cette chanson me rappelle notre première danse"
+        }
+        
+        return self.run_test(
+            "Create Song Request",
+            "POST",
+            "song-requests",
+            200,
+            data=song_request,
+            description="Create a new song request with dedication"
+        )
+
+    def test_get_song_requests(self):
+        """Test getting song requests"""
+        return self.run_test(
+            "Get Song Requests",
+            "GET",
+            "song-requests",
+            200,
+            description="Get pending song requests"
+        )
+
+    def test_studio_status(self):
+        """Test studio status endpoint"""
+        return self.run_test(
+            "Studio Status",
+            "GET",
+            "studio/status",
+            200,
+            description="Get live studio status and DJ information"
+        )
+
+    def test_live_stats(self):
+        """Test live statistics endpoint"""
+        return self.run_test(
+            "Live Statistics",
+            "GET",
+            "stats/live",
+            200,
+            description="Get live listener statistics and metrics"
+        )
+
+    # DJ Management Tests
+    def test_get_djs(self):
+        """Test getting DJ profiles"""
+        success, response = self.run_test(
+            "Get DJ Profiles",
+            "GET",
+            "djs",
+            200,
+            description="Get all DJ profiles and information"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} DJs")
+            for dj in response[:3]:  # Show first 3 DJs
+                print(f"   • {dj.get('stage_name')} ({dj.get('name')}) - {dj.get('specialty')}")
+                print(f"     Experience: {dj.get('years_experience')} years, Schedule: {dj.get('schedule')}")
+        
+        return success, response
+
+    def test_get_shows(self):
+        """Test getting show schedules"""
+        success, response = self.run_test(
+            "Get Show Schedules",
+            "GET",
+            "shows",
+            200,
+            description="Get radio show schedules"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} shows")
+            for show in response[:3]:  # Show first 3 shows
+                print(f"   • {show.get('name')} - {show.get('day_of_week')} {show.get('start_time')}-{show.get('end_time')}")
+                print(f"     Host: {show.get('host_dj')}, Genre: {show.get('genre')}")
+        
+        return success, response
+
+    # Weather and News Tests
+    def test_weather(self):
+        """Test weather endpoint"""
+        success, response = self.run_test(
+            "Weather Information",
+            "GET",
+            "weather",
+            200,
+            description="Get current weather for Haiti"
+        )
+        
+        if success and response:
+            print(f"   Location: {response.get('location')}")
+            print(f"   Temperature: {response.get('temperature')}°C")
+            print(f"   Condition: {response.get('condition')} {response.get('icon')}")
+            print(f"   Humidity: {response.get('humidity')}%, Wind: {response.get('wind_speed')} km/h")
+        
+        return success, response
+
+    def test_weather_cities(self):
+        """Test weather for multiple Haitian cities"""
+        success, response = self.run_test(
+            "Weather Cities",
+            "GET",
+            "weather/cities",
+            200,
+            description="Get weather for multiple Haitian cities"
+        )
+        
+        if success and response:
+            print(f"   Found weather for {len(response)} cities")
+            for city in response[:3]:  # Show first 3 cities
+                print(f"   • {city.get('city')}: {city.get('temperature')}°C {city.get('condition')} {city.get('icon')}")
+        
+        return success, response
+
+    def test_news(self):
+        """Test news endpoint"""
+        success, response = self.run_test(
+            "World News",
+            "GET",
+            "news",
+            200,
+            description="Get world news articles"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} news articles")
+            for article in response[:2]:  # Show first 2 articles
+                print(f"   • {article.get('title')}")
+                print(f"     Source: {article.get('source')}, Published: {article.get('published_at')}")
+        
+        return success, response
+
+    def test_emergency_alerts(self):
+        """Test emergency alerts endpoint"""
+        success, response = self.run_test(
+            "Emergency Alerts",
+            "GET",
+            "alerts/emergency",
+            200,
+            description="Get active emergency alerts"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} emergency alerts")
+            for alert in response:
+                print(f"   • {alert.get('title')} - Urgency: {alert.get('urgency')}")
+                print(f"     Message: {alert.get('message')}")
+        
+        return success, response
+
+    # Station Info and Social Media Tests
+    def test_station_info(self):
+        """Test station information endpoint"""
+        success, response = self.run_test(
+            "Station Information",
+            "GET",
+            "station/about",
+            200,
+            description="Get Radio Haiti Fusion station information"
+        )
+        
+        if success and response:
+            print(f"   Station: {response.get('station_name')}")
+            print(f"   Tagline: {response.get('tagline')}")
+            print(f"   Location: {response.get('location')}")
+            print(f"   Frequency: {response.get('frequency')}")
+            print(f"   Contact: {response.get('contact_email')}")
+            print(f"   Website: {response.get('website')}")
+        
+        return success, response
+
+    def test_social_media(self):
+        """Test social media endpoints"""
+        success, response = self.run_test(
+            "Social Media Platforms",
+            "GET",
+            "social-media",
+            200,
+            description="Get Radio Haiti Fusion social media platforms"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} social media platforms")
+            for platform in response:
+                print(f"   • {platform.get('platform')}: {platform.get('handle')} ({platform.get('follower_count')} followers)")
+        
+        return success, response
+
+    # Donations and Advertisements Tests
+    def test_donations_info(self):
+        """Test donations information endpoint"""
+        success, response = self.run_test(
+            "Donations Information",
+            "GET",
+            "donations/info",
+            200,
+            description="Get donation information and payment methods"
+        )
+        
+        if success and response:
+            print(f"   Title: {response.get('title')}")
+            print(f"   Goal: ${response.get('goal_amount')} {response.get('currency')}")
+            print(f"   Current: ${response.get('current_amount')} {response.get('currency')}")
+            print(f"   Payment Methods: {', '.join(response.get('payment_methods', []))}")
+            print(f"   PayPal: {response.get('paypal_email')}")
+        
+        return success, response
+
+    def test_advertisements(self):
+        """Test advertisements endpoint"""
+        success, response = self.run_test(
+            "Advertisement Banners",
+            "GET",
+            "ads/banners",
+            200,
+            description="Get advertisement banners"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} advertisements")
+            for ad in response[:3]:  # Show first 3 ads
+                print(f"   • {ad.get('title')} by {ad.get('advertiser')}")
+                print(f"     Type: {ad.get('ad_type')}, Duration: {ad.get('duration_seconds')}s")
+                print(f"     Impressions: {ad.get('impressions')}, Clicks: {ad.get('clicks')}")
+        
+        return success, response
+
+    # Radio Directory Tests
+    def test_radio_directory(self):
+        """Test radio directory endpoint"""
+        success, response = self.run_test(
+            "Radio Directory",
+            "GET",
+            "radio-directory",
+            200,
+            description="Get radio station directory"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} radio stations")
+            for station in response[:3]:  # Show first 3 stations
+                print(f"   • {station.get('name')} - {station.get('frequency')}")
+                print(f"     Description: {station.get('description')}")
+                print(f"     Genre: {station.get('genre')}, Live: {station.get('is_live')}")
+        
+        return success, response
+
+    def test_radio_station_proposals(self):
+        """Test radio station proposals"""
+        # First test getting proposals
+        success, response = self.run_test(
+            "Get Station Proposals",
+            "GET",
+            "radio-directory/proposals",
+            200,
+            description="Get pending radio station proposals"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} pending proposals")
+        
+        # Test submitting a proposal
+        proposal_data = {
+            "name": "Radio Test Compas",
+            "frequency": "102.5 FM",
+            "description": "Station de radio spécialisée dans le compas et la musique haïtienne",
+            "location": "Port-au-Prince",
+            "country": "Haïti",
+            "genre": "Compas",
+            "stream_url": "http://stream.radiotestcompas.com:8000",
+            "website_url": "https://www.radiotestcompas.com",
+            "contact_email": "contact@radiotestcompas.com",
+            "contact_name": "Jean-Claude Moïse",
+            "logo_url": "https://www.radiotestcompas.com/logo.png"
+        }
+        
+        proposal_success, proposal_response = self.run_test(
+            "Submit Station Proposal",
+            "POST",
+            "radio-directory/propose",
+            200,
+            data=proposal_data,
+            description="Submit new radio station proposal"
+        )
+        
+        if proposal_success and proposal_response:
+            print(f"   ✅ Proposal submitted successfully")
+            print(f"   Proposal ID: {proposal_response.get('proposal_id')}")
+            print(f"   Station: {proposal_response.get('message')}")
+        
+        return success and proposal_success, response
+
+    # Video Streaming Tests
+    def test_video_streaming(self):
+        """Test video streaming endpoints"""
+        success, response = self.run_test(
+            "Video Stream Status",
+            "GET",
+            "video/status",
+            200,
+            description="Get video streaming status"
+        )
+        
+        if success and response:
+            print(f"   Streaming: {response.get('is_streaming')}")
+            print(f"   Mode: {response.get('mode')}")
+            print(f"   Viewers: {response.get('viewers')}")
+            print(f"   Video URL: {response.get('video_url')}")
+            print(f"   Audio URL: {response.get('audio_url')}")
+            print(f"   Current Camera: {response.get('current_camera')}")
+        
+        # Test video streams list
+        streams_success, streams_response = self.run_test(
+            "Video Streams List",
+            "GET",
+            "video/streams",
+            200,
+            description="Get available video streams"
+        )
+        
+        if streams_success and streams_response:
+            print(f"   Found {len(streams_response)} video streams")
+            for stream in streams_response:
+                print(f"   • {stream.get('title')} - {stream.get('quality')} ({stream.get('stream_type')})")
+        
+        return success and streams_success, response
+
+    def test_promotional_videos(self):
+        """Test promotional videos endpoint"""
+        success, response = self.run_test(
+            "Promotional Videos",
+            "GET",
+            "videos/promotional",
+            200,
+            description="Get promotional videos"
+        )
+        
+        if success and response:
+            print(f"   Found {len(response)} promotional videos")
+            for video in response[:3]:  # Show first 3 videos
+                print(f"   • {video.get('title')} - {video.get('category')}")
+                print(f"     Duration: {video.get('duration')}, Views: {video.get('view_count')}, Likes: {video.get('likes')}")
+                print(f"     Featured: {video.get('is_featured')}")
+        
+        # Test featured videos
+        featured_success, featured_response = self.run_test(
+            "Featured Videos",
+            "GET",
+            "videos/featured",
+            200,
+            description="Get featured promotional videos"
+        )
+        
+        if featured_success and featured_response:
+            print(f"   Found {len(featured_response)} featured videos")
+        
+        return success and featured_success, response
+
 def main():
     print("🎵 Radio Station API Testing Suite")
     print("=" * 50)
